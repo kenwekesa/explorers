@@ -1,0 +1,55 @@
+.webmain {
+    background-image: url('../images/vfive.png');
+    /* Replace 'your-image.jpg' with the path to your image */
+    background-color: rgba(0, 0, 0, 0.62);
+    /* Red color with 60% opacity */
+    background-blend-mode: overlay;
+    /* Blend the background image and color */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 500px;
+    /* flex-shrink: 0; */
+    padding-top: 10px;
+    padding-left: 32px;
+    padding-right: 32px;
+    /* text-align: center; */
+    /* align-items: center; */
+}
+
+.mainweb{
+    padding-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.websor{
+    /* display: flex; */
+    width: 212px;
+    height: 284px;
+    padding: 0px 60px 0px 60px;
+    /* justify-content: flex-end; */
+    align-items: center;
+    padding-top: 10px;
+    /* flex-shrink: 0; */
+    text-align: center;
+    border-radius: 30px;
+    background: rgba(236, 239, 241, 0.60);
+    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.08);
+}
+
+.websor:hover{
+    background: rgba(196, 224, 242, 0.60);
+        /* Penumber */
+    box-shadow: 0px 6px 30px 5px rgba(0, 0, 0, 0.12);   
+}
+
+.websor img{
+    width: 40px;
+    height: 40px;
+}
+
+.webTop{
+    font-weight: 700;
+}

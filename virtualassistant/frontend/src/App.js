@@ -1,20 +1,19 @@
-import logo from './logo.svg';
+import MainAbout from './about/MainAbout';
 import './App.css';
-
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/home/Home';
-
-
+import MainContact from './contact/MainContact';
+import MainIndustries from './industries/MainIndustries';
+import Mprice from './pricing/Mprice';
+import MainService from './services/MainService';
 
 function App() {
   return (
-    <Routes>
-            
-    <Route path="/" element={<Home/>} />
-    <Route path="/services" element={<Home/>} />
-    <Route path="/prices" element={<Home/>}/ >
-    
-  </Routes>
+    <div className='mainapp'>
+      {/* <MainIndustries /> */}
+      {/* <MainAbout /> */}
+      {/* <MainContact /> */}
+      {/* <MainService /> */}
+      <Mprice/>
+    </div>
   );
 }
 

@@ -1,0 +1,27 @@
+.industriesoperate{
+    background: #F5F5F5;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 28px;
+    padding-top: 28px;
+
+}
+.industriesMcol{
+    font-weight: 800;
+    font-size: 30px;
+}
+.industriesopone{
+    text-align: center;
+}
+
+.industriesoptwo{
+    text-align: center;
+    font-weight: 600;
+    line-height: 30px;
+}
+.mainindustrieso{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    padding-top: 25px;
+}
