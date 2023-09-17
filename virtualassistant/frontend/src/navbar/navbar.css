@@ -1,0 +1,88 @@
+/* Navbar.css */
+.navbar {
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 7vh;
+}
+
+.navbar a {
+    color:white;
+    text-decoration: none;
+    margin: 0 20px;
+}
+
+.logo {
+    flex: 1;
+    align-items: center;
+}
+
+.logo a{
+    align-items: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    line-height: 44px;
+}
+
+.logo img{
+    height: 35px;
+    width: 35px;
+}
+
+.links {
+    flex: 2.38;
+    text-align: center;
+    display: flex;
+    justify-content: space-between !important;
+    padding: 0px 10px;
+    align-items: center;
+    flex-direction: row;
+}
+
+.links.open {
+    display: flex;
+}
+
+.button {
+    flex: 1;
+    text-align: right;
+}
+
+.ton{
+display: inline-flex;
+padding: 10px 30px;
+text-decoration: none;
+color: white;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 15px;
+background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) -10.44%, rgba(11, 255, 196, 0.77) 108.53%, rgba(11, 138, 255, 0.77) 108.54%));
+}
+
+.ton:hover{
+    border-radius: 15px;
+    color: rgba(255, 255, 255,0.7);
+    background: var(--Button-Hover-color, linear-gradient(96deg, rgba(36, 20, 19, 0.77) -10.44%, rgba(31, 106, 88, 0.77) 108.53%, rgba(1, 255, 209, 0.77) 108.54%, rgba(3, 255, 195, 0.77) 108.87%, rgba(11, 255, 196, 0.77) 108.87%, rgba(13, 253, 195, 0.77) 108.87%));
+}
+
+.menu-toggle {
+    display: none;
+    /* Initially hide the toggle */
+    cursor: pointer;
+    font-size: 24px;
+}
+/* .navlogo{
+    color: white;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px
+} */
+

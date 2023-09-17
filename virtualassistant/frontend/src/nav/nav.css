@@ -1,0 +1,67 @@
+/* body {
+    background-image: url(./images/serve.png);
+    width: 1292px;
+    height: 50vh !important;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+} */
+
+.thenav{
+    /* background-image: url('../images/services.png'); */
+    background-color: rgba(207, 194, 117, 0.64);
+    background-image: url('../images/vcont.jpg');
+    /* background: url('../images/services.png'), rgba(0, 0, 0, 0.62); */
+    /* background-image: url('../images/serve.png'), linear-gradient(to right, red, red); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+    flex-shrink: 0;  
+    
+}
+
+.thenav{
+    background-image: url('../images/vcont.jpg');
+        /* Replace 'your-image.jpg' with the path to your image */
+        background-color: rgba(0, 0, 0, 0.62);
+        /* Red color with 60% opacity */
+        background-blend-mode: overlay;
+        /* Blend the background image and color */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 500px;
+        flex-shrink: 0;
+}
+
+.nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.navcontent{
+    color: var(--White-color, #FFF);
+    text-align: center;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 40px;
+    padding-top: 176px;
+}
+
+.spancolor1{
+    background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) -10.44%, rgba(11, 255, 196, 0.77) 108.53%, rgba(11, 138, 255, 0.77) 108.54%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 40px;
+}
+
+.navcontent p {
+    line-height: 55px;
+}

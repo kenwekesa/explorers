@@ -1,0 +1,63 @@
+.aboutfirst{
+    padding-left: -32px;
+    padding-right: 32px;
+    background: var(--Background-onecolor, #ECEFF1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.aboutsecond{
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    align-items: center;
+}
+.aboutpone{
+    color: #000;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 40px;
+        /* 100% */
+}
+.aboutcolors{
+    background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) -10.44%, rgba(11, 255, 196, 0.77) 108.53%, rgba(11, 138, 255, 0.77) 108.54%));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 40px;
+}
+.aboutptwo{
+    text-align: start;
+    line-height: 30px;
+    padding-left: 7px;
+    padding-right: 20px;
+}
+.aboutprice{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 130px;
+    padding-right: 130px;
+}
+
+.aboutpthree{
+
+font-size: 30px;
+font-style: normal;
+font-weight: 800;
+background: var(--Button-Hover-color, linear-gradient(96deg, rgba(36, 20, 19, 0.77) -10.44%, rgba(31, 106, 88, 0.77) 108.53%, rgba(1, 255, 209, 0.77) 108.54%, rgba(3, 255, 195, 0.77) 108.87%, rgba(11, 255, 196, 0.77) 108.87%, rgba(13, 253, 195, 0.77) 108.87%));
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.abouttitle{
+    text-align: center;
+    padding-top: 3px;
+}
+.aboutfsec{
+    padding-right: -200px;
+}

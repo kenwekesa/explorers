@@ -1,0 +1,71 @@
+.abmain {
+    background-image: url('../images/vthree.jpeg');
+    /* Replace 'your-image.jpg' with the path to your image */
+    background-color: rgba(0, 0, 0, 0.62);
+    /* Red color with 60% opacity */
+    background-blend-mode: overlay;
+    /* Blend the background image and color */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 500px;
+    /* flex-shrink: 0; */
+    padding-top: 10px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 70px;
+    /* text-align: center; */
+    /* align-items: center; */
+}
+
+.mainab {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.absor {
+    /* display: flex; */
+    width: 212px;
+    height: 284px;
+    padding: 0px 60px 0px 60px;
+    /* justify-content: flex-end; */
+    align-items: center;
+    padding-top: 10px;
+    /* flex-shrink: 0; */
+    text-align: center;
+    border-radius: 30px;
+    background: rgba(236, 239, 241, 0.60);
+    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.08);
+}
+
+.absor img {
+    width: 40px;
+    height: 40px;
+}
+
+.abTop {
+    font-weight: 700;
+}
+.abmainp{
+    padding-top: 10px;
+    text-align: center;
+    color: var(--White-color, #FFF);
+        text-align: center;
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 48px;
+        /* 100% */
+}
+.abspan{
+    background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) -10.44%, rgba(11, 255, 196, 0.77) 108.53%, rgba(11, 138, 255, 0.77) 108.54%));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 0px;
+}

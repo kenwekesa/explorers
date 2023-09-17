@@ -1,0 +1,57 @@
+
+/* CardStack.css */
+.card-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.card {
+    width: 600px;
+    height: 500px;
+    margin: 10px;
+    border-radius: 26.847px;
+    overflow: hidden;
+}
+
+.bottom-card {
+    z-index: 1;
+    border: 1px solid #ccc;
+    background-image: url('../images/serve.png');
+        /* Replace 'your-image.jpg' with the path to your image */
+        background-color:  rgba(127, 226, 80, 0.40);
+
+        /* Red color with 60% opacity */
+        background-blend-mode: overlay;
+        /* Blend the background image and color */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 500px;
+        flex-shrink: 0;
+}
+
+.top-card {
+    /* background-color: #ffffff; */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: -440px;
+    margin-left: 130px;
+    /* Adjust the negative margin to almost completely cover the bottom card */
+    width: 600px;
+    height: 500px;
+    z-index: 2;
+    background-image: url('../images/vaone.jpg');
+        /* Replace 'your-image.jpg' with the path to your image */
+        /* background-color: rgba(0, 0, 0, 0.62); */
+        /* Red color with 60% opacity */
+        /* background-blend-mode: overlay; */
+        /* Blend the background image and color */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 500px;
+        flex-shrink: 0;
+    /* Bring the top card above the bottom card */
+}

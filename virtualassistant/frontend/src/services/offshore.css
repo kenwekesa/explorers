@@ -1,0 +1,48 @@
+.offshore{
+    background: var(--Background-onecolor, #ECEFF1);
+    padding-left: 32px;
+    padding-right: 32px;
+}
+.offfirst{
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+.offfirst p{
+    color: #000;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 33.531px;
+}
+.offcolor{
+    background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) -10.44%, rgba(11, 255, 196, 0.77) 108.53%, rgba(11, 138, 255, 0.77) 108.54%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 24.5px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 33.531px;
+}
+.offsecond{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 70px;
+}
+
+.offsecond p{
+    color: #000;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 33.531px;
+}
+.ofone{
+    width: 15%;
+}
+.ofsecond{
+    width: 85%;
+}
