@@ -44,11 +44,11 @@ const [navbarBackground, setNavbarBackground] = useState('transparent');
   }
 
   return (
-    <nav className="navbar" style={{ backgroundColor: navbarBackground }}>
+    <nav  className="navbar" style={{ backgroundColor: navbarBackground }}>
       <div className="logo">
         <a className='navlogo'><img src={headset} loading="lazy" alt="Logo" />VA</a>
       </div>
-      <div id="scroller" className={`links ${isMobileMenuOpen ? 'open' : ''}`}>
+      <div  className={`links ${isMobileMenuOpen ? 'open' : ''}`}>
         {/* <ul>
           <li><Link to="/" onClick={scrollToTop}>Home</Link></li>
           <li><Link to="/prices" onClick={scrollToTop}>Services</Link></li>

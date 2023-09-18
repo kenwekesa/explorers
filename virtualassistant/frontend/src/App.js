@@ -10,7 +10,7 @@ import MainService from './services/MainService';
 
 function App() {
   return (
-    <div className='mainapp'>
+    <div className='mainapp' id="scroller">
       <Routes>
         <Route path="/" element={<Mlanding />} />
         <Route path="/about" element={<MainAbout />} />

@@ -15,12 +15,12 @@
 }
 .mtpf{
     font-weight: 800;
-    font-size: 27px;
+    font-size: 40px;
     /* text-align: start; */
 }
 .hr{
     background: linear-gradient(96deg, rgba(127, 226, 80, 0.20) -10.44%, rgba(11, 255, 196, 0.20) 108.53%, rgba(11, 138, 255, 0.20) 108.54%);
-    width: 181.001px;
+    width: 290.001px;
     height: 3px;
     padding-left: -500px;
 }
@@ -33,4 +33,19 @@
 .mtpfirst{
     text-align: center;
     width: 80%;
+}
+
+.contactptun{
+margin-right: 20px;
+margin-bottom: 30px;
+margin-top: 30px;
+}
+.ptun{
+    padding: 9px 13px;
+    font-size: 15px;
+    color: black;
+    margin-left: 20px;
+}
+.mtpe{
+    font-size: 23px;
 }
