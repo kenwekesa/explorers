@@ -1,7 +1,7 @@
 import React from 'react'
 import "./smallcards.css"
 import { useState } from 'react';
-import coins from "../../images/Touchpad.png"
+import coins from "../../images/digital.png"
 
 
 const Digital = () => {

@@ -1,7 +1,9 @@
 import React from 'react'
 import { useSpring, animated } from 'react-spring';
-import "./aboutcard.css"
-const Aboutcard = () => {
+import "./Mlandacard.css"
+
+const Mlandacard = () => {
+
  const [hovered, setHovered] = React.useState(false);
 
   // Define the animation properties for the top card
@@ -11,9 +13,9 @@ const Aboutcard = () => {
   });
 
   return (
-    <div className="abtcard-stack">
+    <div className="mlcard-stack">
       <div
-        className="abtcard abtbottom-card"
+        className="mlcard mlbottom-card"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -21,7 +23,7 @@ const Aboutcard = () => {
         <p>This is the bottom card.</p> */}
       </div>
       <animated.div
-        className="abtcard abttop-card"
+        className="mlcard mltop-card"
         style={topCardProps}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -33,4 +35,4 @@ const Aboutcard = () => {
   );
 }
 
-export default Aboutcard
+export default Mlandacard

@@ -23,10 +23,10 @@
 
 .Pours p{
   font-weight: 800;
-  font-size: 45px;
-  padding-left: 90px;
+  font-size: 30px;
+  /* padding-left: 90px; */
 }
 
 .Pours span{
-  font-size: 45px;
+  font-size: 30px;
 }

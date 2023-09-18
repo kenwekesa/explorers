@@ -1,14 +1,10 @@
 /* Card.css */
 .pcard {
-  /* width: 200px;
-  padding: 20px; */
-  /* background-color: #f0f0f0; */
   transition: transform 0.3s;
   text-align: center;
-  /* border: 1px solid #ccc; */
-  width: 511px;
-  height: 482px;
-  margin: 30px;
+  width: 451px;
+  height: 484px;
+  margin: 20px;
   padding: 0px 60px 0px 60px;
   /* justify-content: flex-end; */
   align-items: center;

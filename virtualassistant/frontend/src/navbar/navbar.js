@@ -6,6 +6,7 @@ import "./laptop.css"
 import "./tablet.css"
 import "./desktop.css"
 import headset from "../images/headset.png"
+import { Link } from 'react-router-dom'
 
 const MainNav = () => {
 
@@ -38,21 +39,33 @@ const [navbarBackground, setNavbarBackground] = useState('transparent');
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const scrollToTop = () => {
+    document.getElementById("scroller").scroll(0,0)
+  }
+
   return (
     <nav className="navbar" style={{ backgroundColor: navbarBackground }}>
       <div className="logo">
-        <a href="home.html" className='navlogo'><img src={headset} loading="lazy" alt="Logo" />VA</a>
+        <a className='navlogo'><img src={headset} loading="lazy" alt="Logo" />VA</a>
       </div>
-        <div className={`links ${isMobileMenuOpen ? 'open' : ''}`}>
-        <a href="home.html">Home</a>
-        <a href="home.html">Services</a>
-        <a href="home.html">Pricing</a>
-        <a href="home.html">About</a>
-        <a href="home.html">Industries</a>
-        <a href="home.html">Contact</a>
+      <div id="scroller" className={`links ${isMobileMenuOpen ? 'open' : ''}`}>
+        {/* <ul>
+          <li><Link to="/" onClick={scrollToTop}>Home</Link></li>
+          <li><Link to="/prices" onClick={scrollToTop}>Services</Link></li>
+          <li><Link to="/services" onClick={scrollToTop}>Prices</Link></li>
+          <li><Link to="/about" onClick={scrollToTop}>About</Link></li>
+          <li><Link to="/industries" onClick={scrollToTop}>Industries</Link></li>
+          <li><Link to="/contact" onClick={scrollToTop}>Contact</Link></li>
+        </ul> */}
+        <a><Link to="/" onClick={scrollToTop}>Home</Link></a>
+        <a><Link to="/prices" onClick={scrollToTop}>Services</Link></a>
+        <a><Link to="/services" onClick={scrollToTop}>Prices</Link></a>
+        <a><Link to="/about" onClick={scrollToTop}>About</Link></a>
+        <a><Link to="/industries" onClick={scrollToTop}>Industries</Link></a>
+        <a><Link to="/contact" onClick={scrollToTop}>Contact</Link></a>
         <div className="button">
-        <a href="home.html" className="ton">Login</a>
-              </div>
+        <a className="ton">Login</a>
+        </div>
         </div>
        <div className="menu-toggle" onClick={toggleMobileMenu}>
         &#9776;

@@ -1,7 +1,7 @@
 import React from 'react'
 import "./smallcards.css"
 import { useState } from 'react';
-import coins from "../../images/Database Administrator.png"
+import coins from "../../images/database.png"
 
 const Database = () => {
   const [isHovered, setIsHovered] = useState(false);

@@ -1,0 +1,37 @@
+.mlandcard{
+    border-radius: 30px;
+    background: #FFF;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mlandhead1{
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+.mlandhr{
+    width: 50px;
+    text-align: start;
+}
+
+.mlandparagraph{
+    text-align: justify;
+    color: var(--Navbar-color, #616161);
+}
+
+.mlandcards{
+    width: 330px;
+}
+
+.mlandphrei{
+    /* color: var(--Navbar-color, #616161); */
+    font-size: 20.59px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30.746px;
+}

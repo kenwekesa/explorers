@@ -1,6 +1,6 @@
 
 /* CardStack.css */
-.card-stack {
+.abtcard-stack {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,7 +8,7 @@
     height: 100vh;
 }
 
-.card {
+.abtcard {
     width: 600px;
     height: 500px;
     margin: 10px;
@@ -16,7 +16,7 @@
     overflow: hidden;
 }
 
-.bottom-card {
+.abtbottom-card {
     z-index: 1;
     border: 1px solid #ccc;
     background-image: url('../images/serve.png');
@@ -33,7 +33,7 @@
         flex-shrink: 0;
 }
 
-.top-card {
+.abttop-card {
     /* background-color: #ffffff; */
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     margin-top: -440px;
@@ -43,11 +43,6 @@
     height: 500px;
     z-index: 2;
     background-image: url('../images/vaone.jpg');
-        /* Replace 'your-image.jpg' with the path to your image */
-        /* background-color: rgba(0, 0, 0, 0.62); */
-        /* Red color with 60% opacity */
-        /* background-blend-mode: overlay; */
-        /* Blend the background image and color */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
