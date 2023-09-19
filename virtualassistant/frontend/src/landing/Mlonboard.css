@@ -1,0 +1,38 @@
+.mlonboard {
+    background-image: url('../images/serve.png');
+    background-color: rgba(0, 0, 0, 0.62);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* height: 500px; */
+    padding-top: 110px;
+    padding-bottom: 100px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.mlonbordone p{
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) -10.44%, rgba(11, 255, 196, 0.77) 108.53%, rgba(11, 138, 255, 0.77) 108.54%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.mlonboard{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mlonbordone{
+    width: 16%;
+}
+
+.mlonboardtwo{
+    width: 84%;
+}

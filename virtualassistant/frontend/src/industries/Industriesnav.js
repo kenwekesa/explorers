@@ -5,11 +5,11 @@ import "./industriesnav.css"
 const Industriesnav = () => {
 
     return (
-    <div className='matheabout'>
-      <div className='maabout'>
+    <div className='matheindustry'>
+      <div className='maindustry'>
         <MainNav />
         </div>
-        <div className='maaboutcontent'>
+        <div className='maindustrycontent'>
         <p>We present top <span className='spancolor1'>professional and passionate <br></br> 
         virtual </span>assistants</p>
         </div>

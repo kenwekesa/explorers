@@ -11,9 +11,9 @@ const Aboutcard = () => {
   });
 
   return (
-    <div className="card-stack">
+    <div className="abtcard-stack">
       <div
-        className="card bottom-card"
+        className="abtcard abtbottom-card"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -21,7 +21,7 @@ const Aboutcard = () => {
         <p>This is the bottom card.</p> */}
       </div>
       <animated.div
-        className="card top-card"
+        className="abtcard abttop-card"
         style={topCardProps}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}

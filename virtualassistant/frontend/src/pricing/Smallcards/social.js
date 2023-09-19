@@ -1,6 +1,6 @@
 import React from 'react'
 import "./smallcards.css"
-import coins from "../../images/Population Return.png"
+import coins from "../../images/social.png"
 import { useState } from 'react';
 
 

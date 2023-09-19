@@ -12,7 +12,7 @@ const Pourservices = () => {
   return (
     <div className='Pour'>
       <div className='Pours'>
-        <p>Our <span className='spancolor1'>Services</span></p>
+        <p>Our <span className='spancolor1'>services</span></p>
       </div>
 
       <div>

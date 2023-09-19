@@ -20,7 +20,7 @@ const Pmoreservices = () => {
         </div>
       </div>
       <div className='Pours'>
-        <p>More <span className='spancolor1'>Services</span></p>
+        <p>More <span className='spancolor1'>services</span></p>
       </div>
     </div>
   )

@@ -9,7 +9,7 @@ function AboutNav() {
         <MainNav />
         </div>
         <div className='maaboutcontent'>
-        <p>We present top <span className='spancolor1'>professional and passionate <br></br> 
+        <p>We provide you with top <span className='spancolor1'>professional and<br></br> passionate  
         virtual </span>assistants</p>
         </div>
     </div>

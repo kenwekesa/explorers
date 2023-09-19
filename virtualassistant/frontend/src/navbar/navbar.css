@@ -35,11 +35,11 @@
 }
 
 .links {
-    flex: 2.38;
+    flex: 2.5;
     text-align: center;
     display: flex;
     justify-content: space-between !important;
-    padding: 0px 10px;
+    padding: 0px 0px;
     align-items: center;
     flex-direction: row;
 }
@@ -47,7 +47,10 @@
 .links.open {
     display: flex;
 }
-
+.links a{
+    /* margin-left: -0.0%; */
+    margin-left: 10px;
+}
 .button {
     flex: 1;
     text-align: right;

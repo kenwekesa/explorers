@@ -11,8 +11,8 @@ const Mpricenav = () => {
         <MainNav />
         </div>
         <div className='mapricecontent'>
-        <p>We present top <span className='spancolor1'>professional and passionate <br></br> 
-        virtual </span>assistants</p>
+        <p>Hire only the Best <span className='spancolor1'>professional <br></br>
+         virtual</span> assistants</p>
         </div>
     </div>
   )
