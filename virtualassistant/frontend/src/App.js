@@ -6,6 +6,7 @@ import MainIndustries from './industries/MainIndustries';
 import Mlanding from './landing/Mlanding';
 import Mprice from './pricing/Mprice';
 import MainService from './services/MainService';
+import Orderhistory from './pages/orderhistory/Orderhistory';
 
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
         <Route path="/prices" element={<Mprice/> } />
         <Route path="/contact" element={<MainContact />} />
         <Route path="/industries" element={ <MainIndustries /> } />
+        <Route path="/orderhistory" element={ <Orderhistory/> } />
+
       </Routes>
     </div>
   );

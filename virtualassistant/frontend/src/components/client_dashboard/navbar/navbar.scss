@@ -1,0 +1,67 @@
+.dashnavbar 
+{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    
+    .navtop 
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: calc(100% - 40px);
+
+        background-color: rgb(3, 3, 54);
+        color: white;
+        padding: 20px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+
+        .logodiv 
+        {
+
+        }
+        .rightdiv 
+        {
+            display: flex;
+            flex-direction: row;
+            gap: 14px;
+
+            .subdiv 
+            {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+    }
+
+    .navbottom 
+    {
+    background-color: white;
+ width: calc(100% - 30px);
+ box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  display: flex;
+    
+ 
+ flex-direction: row;
+justify-content: space-between;
+padding: 15px;
+padding-top: 12px;
+padding-bottom: 12px;
+    .navlink 
+    {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+        align-items: center;
+
+        &:hover 
+        {
+            cursor: pointer;
+        }
+    }
+    }
+}
