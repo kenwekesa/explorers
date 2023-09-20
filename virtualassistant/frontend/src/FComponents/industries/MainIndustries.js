@@ -1,6 +1,7 @@
 import React from 'react'
 import Abouthow from '../about/Abouthow'
 import Footer from '../footer/footer'
+import Mlandingindustryservices from '../landing/Mlandingindustryservices'
 import Web from '../services/web'
 import Bowner from './Bowner'
 import Iecommerce from './Iecommerce'
@@ -15,7 +16,8 @@ const MainIndustries = () => {
   return (
     <div>
       <Industriesnav />
-      <IndustriesOperate />
+      {/* <IndustriesOperate /> */}
+      <Mlandingindustryservices />
       <Bowner /> 
       <Iecommerce />
       <Web />
