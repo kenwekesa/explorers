@@ -1,22 +1,192 @@
-.orderhistory 
-{
+.orderhistory {
     display: flex;
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
     position: relative;
-
-    .orderhistory_navbar 
-    {
-
+  
+    .orderhistory_navbar {
+      /* Add styles for the navbar if needed */
     }
-    .orderhistory-content 
-    {
-        flex-grow: 1;
+  
+    .orderhistory-content {
+      flex-grow: 1;
+  
+      /* Filter and Search styles */
+      .filter-search {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 16px; /* Adjust as needed */
+      }
+  
+      .filter {
+        label {
+          margin-right: 8px; /* Adjust spacing */
+        }
+  
+        select {
+          /* Add styles for the select input */
+        }
+      }
+  
+      .search {
+        input {
+          /* Add styles for the search input */
+        }
+      }
+  
+      /* Table styles */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+  
+        th, td {
+          padding: 8px; /* Adjust padding as needed */
+          border: 1px solid #ccc; /* Add border styles */
+          text-align: left;
+        }
+  
+        th {
+          background-color: #f2f2f2; /* Header background color */
+        }
+  
+        tr:nth-child(even) {
+          background-color: #f2f2f2; /* Alternate row background color */
+        }
+  
+        /* Add more table styles as needed */
+      }
+  
+      /* Pagination styles */
+      .pagination {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 16px; /* Adjust spacing */
+        font-size: 14px; /* Adjust font size */
+        color: #333; /* Text color */
+  
+        .pagination-info {
+          /* Add styles for pagination info */
+        }
+  
+        .pagination-buttons {
+          button {
+            margin-left: 8px; /* Adjust button spacing */
+            /* Add button styles */
+          }
+  
+          button:disabled {
+            opacity: 0.5; /* Style for disabled buttons */
+            cursor: not-allowed;
+          }
+        }
+      }
+    }.orderhistory {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: 100vh;
+        position: relative;
+      
+        .orderhistory_navbar {
+          /* Add styles for the navbar if needed */
+        }
+      
+        .orderhistory-content {
+          flex-grow: 1;
+      
+          /* Filter and Search styles */
+          .filter-search {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 16px; /* Adjust as needed */
+          }
+      
+          .filter {
+            label {
+              margin-right: 8px; /* Adjust spacing */
+            }
+      
+            select {
+              /* Add styles for the select input */
+            }
+          }
+      
+          .search {
+            input {
+              /* Add styles for the search input */
+            }
+          }
+      
+          /* Table styles */
+          .table-container {
+            margin: 16px; /* Add margins around the table */
+            overflow-x: auto; /* Add horizontal scrollbar if necessary */
+            width: 80%;
+          }
+      
+          table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px 30px;
+      
+            th, td {
+              padding: 8px; /* Adjust padding as needed */
+              border: 1px solid #ccc; /* Add border styles */
+              text-align: left;
+            }
+      
+            th {
+              background-color: #f2f2f2; /* Header background color */
+            }
+      
+            tr:nth-child(even) {
+              background-color: #f2f2f2; /* Alternate row background color */
+            }
+      
+            /* Add more table styles as needed */
+          }
+      
+          /* Pagination styles */
+          .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px; /* Adjust spacing */
+            font-size: 14px; /* Adjust font size */
+            color: #333; /* Text color */
+      
+            .pagination-info {
+              /* Add styles for pagination info */
+            }
+      
+            .pagination-buttons {
+              button {
+                margin-left: 8px; /* Adjust button spacing */
+                /* Add button styles */
+              }
+      
+              button:disabled {
+                opacity: 0.5; /* Style for disabled buttons */
+                cursor: not-allowed;
+              }
+            }
+          }
+        }
+      
+        .orderhistory_footer {
+          position: absolute;
+          bottom: 0;
+          /* Add styles for the footer if needed */
+        }
+      }
+      
+  
+    .orderhistory_footer {
+      position: absolute;
+      bottom: 0;
+      /* Add styles for the footer if needed */
     }
-    .orderhistory_footer
-    {
-        position:absolute;
-        bottom: 0;
-    }
-}
+  }
+  
