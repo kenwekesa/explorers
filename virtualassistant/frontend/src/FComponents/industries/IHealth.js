@@ -12,11 +12,7 @@ const IHealth = () => {
       </div>
       <div className='boimgs'>
         <p className='bfirstp'>Real Estate <span className='spancolor1'>Solutions</span></p>
-         <p className='bsecondp'>business owners can reap the benefits of Ossisto’s comprehensive virtual assistance solutions,
-         which save time, increase productivity, and promote business success. Our skilled and trained virtual
-         assistants can handle a variety of duties, including administrative support, social media administration,
-         and customer service, allowing small business owners to focus on expansion. We recognize that small enterprises have specific demands, and our tailored solutions can be modified to meet them.
-         Whether you require assistance with day-to-day tasks or strategic planning, Ossisto has the ideal solution for you.  Trust us to be your dependable partner for virtual assistance in the small business sector.</p>
+         <p className='bsecondp'>Real estate professionals, transform your business with VA's tailored solutions. Whether you're in residential, commercial, property management, or even healthcare real estate, our services are designed to enhance your operations. Pay only for the assistance that accelerates your efficiency and sales. Spend your time closing deals and connecting buyers with their dream homes, commercial spaces, or even healthcare facilities while we take care of the details. Our cost-effective approach preserves your resources by paying only for the support you need. Rest easy with 24/7 support ready to assist with your real estate challenges. Surpass your expectations with our digital marketing strategies, attracting more buyers and sellers to your listings. VA offers resourceful real estate solutions, optimizing your property management and sales processes. Elevate your online presence with excellence in web development, showcasing your properties in the best possible light. VA's client-centric approach ensures your real estate success remains our top priority. Let us help you redefine your real estate business.</p>
         <a href="one.html" className="ton">Hire VA</a>        
      </div>  
     </div>        

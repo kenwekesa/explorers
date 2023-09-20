@@ -11,11 +11,7 @@ const Ilogistic = () => {
       </div>
       <div className='boimgs'>
         <p className='bfirstp'>Logistic <span className='spancolor1'>Support</span></p>
-         <p className='bsecondp'>business owners can reap the benefits of Ossisto’s comprehensive virtual assistance solutions,
-         which save time, increase productivity, and promote business success. Our skilled and trained virtual
-         assistants can handle a variety of duties, including administrative support, social media administration,
-         and customer service, allowing small business owners to focus on expansion. We recognize that small enterprises have specific demands, and our tailored solutions can be modified to meet them.
-         Whether you require assistance with day-to-day tasks or strategic planning, Ossisto has the ideal solution for you.  Trust us to be your dependable partner for virtual assistance in the small business sector.</p>
+         <p className='bsecondp'>Logistics professionals, experience a new level of efficiency with VA. Whether you operate in shipping, supply chain management, transportation, or healthcare logistics, our services are tailored to your logistics needs. Pay only for the specific support your operations require, reducing unnecessary costs. Spend your time developing logistics strategies while we handle the intricate details of your daily operations. Rest easy with our 24/7 support ready to tackle any logistics challenges that arise. Our resourceful database management optimizes your operations, and our unwavering commitment to excellence ensures timely deliveries and satisfied customers. VA's client-centric approach means our services are customized to your unique logistics requirements, guaranteeing your logistics success.</p>
         <a href="one.html" className="ton">Hire VA</a>        
      </div>  
     </div>        

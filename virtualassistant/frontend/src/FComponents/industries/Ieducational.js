@@ -9,11 +9,7 @@ return (
     <div className='induowmain'>
       <div className='induoimgs'>
         <p className='indufirstp'>Educational Support <span className='spancolor1'>Services</span></p>
-         <p className='indusecondp'>business owners can reap the benefits of Ossisto’s comprehensive virtual assistance solutions,
-         which save time, increase productivity, and promote business success. Our skilled and trained virtual
-         assistants can handle a variety of duties, including administrative support, social media administration,
-         and customer service, allowing small business owners to focus on expansion. We recognize that small enterprises have specific demands, and our tailored solutions can be modified to meet them.
-         Whether you require assistance with day-to-day tasks or strategic planning, Ossisto has the ideal solution for you.  Trust us to be your dependable partner for virtual assistance in the small business sector.</p>
+         <p className='indusecondp'>Educational institutions, enhance your offerings with VA's customized solutions. Whether you're a school, university, online course provider, or even a healthcare training center, our services are tailored to meet your educational needs. Pay only for the assistance that aligns with your specific educational goals. Spend your time focusing on curriculum development, student engagement, or even healthcare training, while we handle administrative tasks and support services seamlessly. Rest assured with our 24/7 support, ready to assist with any educational challenges that arise. Experience the effectiveness of our digital marketing strategies in reaching your educational objectives. VA's resourceful approach streamlines processes for both students and educators, while our excellence in web development ensures top-notch online educational platforms. Choose VA for a client-centric approach that aligns with your institution's mission and vision.</p>
         <a href="one.html" className="ton">Hire VA</a>        
      </div>
      <div className='induoimg'>

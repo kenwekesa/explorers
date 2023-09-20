@@ -8,12 +8,8 @@ return (
   <div className='induowner'>
     <div className='induowmain'>
       <div className='induoimgs'>
-        <p className='indufirstp'>E-Commerce Business <span className='spancolor1'>Solutions</span></p>
-         <p className='indusecondp'>business owners can reap the benefits of Ossisto’s comprehensive virtual assistance solutions,
-         which save time, increase productivity, and promote business success. Our skilled and trained virtual
-         assistants can handle a variety of duties, including administrative support, social media administration,
-         and customer service, allowing small business owners to focus on expansion. We recognize that small enterprises have specific demands, and our tailored solutions can be modified to meet them.
-         Whether you require assistance with day-to-day tasks or strategic planning, Ossisto has the ideal solution for you.  Trust us to be your dependable partner for virtual assistance in the small business sector.</p>
+        <p className='indufirstp'>Health Care <span className='spancolor1'>Solutions</span></p>
+         <p className='indusecondp'>Healthcare providers, enhance your patient care with VA's tailored solutions. Whether you're a medical practice, a dental clinic, or a telehealth service, our services are designed to support your healthcare operations. Pay only for the assistance that aligns with your specific healthcare needs. Spend your time delivering quality care while we handle administrative tasks and support services seamlessly. Rest assured with our 24/7 support, ready to assist with any healthcare challenges that arise. Experience the effectiveness of our digital marketing strategies in reaching and engaging with your patients. VA's resourceful approach streamlines healthcare processes, ensuring better patient outcomes and practice efficiency. Choose VA for a client-centric approach that aligns with your healthcare mission and vision.</p>
         <a href="one.html" className="ton">Hire VA</a>        
      </div>
      <div className='induoimg'>
