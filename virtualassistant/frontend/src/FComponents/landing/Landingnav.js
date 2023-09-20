@@ -5,6 +5,13 @@ import "./Landingnav.css"
 
 const Landingnav = () => {
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      // behavior: 'smooth', // Add smooth scrolling behavior
+    });
+  };
+
     return (
     <div className='mathemlanding'>
       <div className='mamlanding'>
@@ -24,7 +31,7 @@ const Landingnav = () => {
         <div className='memlandcontente'>
          <p>Services starting <span className='landcolrone'>from $7.55</span></p>
         </div>
-        <Link to="/signup" className='ton tin'>Hire VA</Link>
+        <Link to="/signup" className='ton tin' onClick={scrollToTop}>Hire VA</Link>
         </div>
     </div>
   )
