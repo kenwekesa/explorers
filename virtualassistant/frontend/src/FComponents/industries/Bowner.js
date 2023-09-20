@@ -12,11 +12,7 @@ const Bowner = () => {
       </div>
       <div className='boimgs'>
         <p className='bfirstp'>Small Business <span className='spancolor1'>Owners</span></p>
-         <p className='bsecondp'>business owners can reap the benefits of Ossisto’s comprehensive virtual assistance solutions,
-         which save time, increase productivity, and promote business success. Our skilled and trained virtual
-         assistants can handle a variety of duties, including administrative support, social media administration,
-         and customer service, allowing small business owners to focus on expansion. We recognize that small enterprises have specific demands, and our tailored solutions can be modified to meet them.
-         Whether you require assistance with day-to-day tasks or strategic planning, Ossisto has the ideal solution for you.  Trust us to be your dependable partner for virtual assistance in the small business sector.</p>
+         <p className='bsecondp'>Small business owners, unlock your full potential with VA's tailored services. Whether you're running a boutique shop, a consultancy firm, a tech startup, or even a healthcare clinic, our solutions are designed to fuel your growth. Pay only for the precise assistance you need, preserving your valuable resources. Spend your time strategizing and innovating while we efficiently manage the rest. Our team is at your service 24/7, providing unwavering support to ensure your small business thrives. With VA, you'll discover excellence in virtual assistance, where your success is our top priority. Let us help you streamline operations, exceed your goals, and surprise yourself with the results.</p>
         <a href="one.html" className="ton">Hire VA</a>        
      </div>  
     </div>        
