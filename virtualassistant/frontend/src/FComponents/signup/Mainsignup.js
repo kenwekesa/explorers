@@ -1,14 +1,16 @@
 import React from 'react'
-import Aboutchoose from '../about/Aboutchoose'
+import Abouthow from '../about/Abouthow'
 import Footer from '../footer/footer'
-import MainNav from '../navbar/navbar'
+import Navtwo from '../nav/navtwo'
+import Signupcard from './Signupcard'
 import "./Signupcard.css"
+import Signupnav from './Signupnav'
 
 const Mainsignup = () => {
   return (
-    <div className='mainsignup'>
-        <MainNav />
-        <Aboutchoose />
+    <div>
+        <Signupnav />
+        <Signupcard />
         <Footer />  
     </div>
   )

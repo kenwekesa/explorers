@@ -1,3 +1,60 @@
-.mainsignup{
-    background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) -10.44%, rgba(11, 255, 196, 0.77) 108.53%, rgba(11, 138, 255, 0.77) 108.54%));
+.cardsignupone {
+    width: 56%;
+    margin-top: -10%;
+    padding: 10px 30px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: var(--Background-onecolor, #ECEFF1);
+    margin-left: 21%;
+    margin-right: 22%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.cardmainsip {
+    color: rgba(252, 1, 31, 0.60);
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.signcardcontent {
+    text-align: start;
+    margin-left: 10%;
+}
+
+.signcardcontent p {
+    color: var(--Navbar-color, #616161);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.signcardcontent span {
+    color: #FF0B0B;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.signcardiinput {
+    width: 620px;
+    height: 36px;
+    padding-left: 15px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 0.6px solid rgba(0, 0, 0, 0.60);
+    background: var(--Background-onecolor, #ECEFF1);
+}
+
+.signcardsub {
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.signcardcontentir {
+    margin-left: 9%;
 }
