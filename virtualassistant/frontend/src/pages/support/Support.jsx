@@ -25,7 +25,7 @@ function Support() {
   ];
 
   
-  const [perPage, setPerPage] = useState(10); // Number of items per page
+  const [perPage, setPerPage] = useState(5); // Number of items per page
   const [currentPage, setCurrentPage] = useState(1); // Current page
   const [searchText, setSearchText] = useState(''); // Search input
   const filteredData = data.filter((item) =>
@@ -68,9 +68,9 @@ function Support() {
           <div className="filter">
             <label>Show:</label>
             <select onChange={(e) => setPerPage(Number(e.target.value))}>
+              <option value="5">5</option>
               <option value="10">10</option>
               <option value="20">20</option>
-              <option value="50">50</option>
             </select>
             entries
           </div>

@@ -70,6 +70,9 @@
       }
   
       .filter {
+        display: flex;
+        flex-direction: row;
+        gap: 3px;
         label {
           margin-right: 8px; /* Adjust spacing */
         }
