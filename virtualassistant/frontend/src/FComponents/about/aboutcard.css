@@ -17,7 +17,7 @@
 }
 
 .abtbottom-card {
-    z-index: 1;
+    z-index: 0!important;
     border: 1px solid #ccc;
     background-image: url('../../images/serve.png');
         /* Replace 'your-image.jpg' with the path to your image */
