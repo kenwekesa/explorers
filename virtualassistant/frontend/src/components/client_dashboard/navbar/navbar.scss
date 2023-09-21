@@ -1,67 +1,169 @@
-.dashnavbar 
-{
+// .dashnavbar 
+// {
+//     display: flex;
+//     width: 100%;
+//     flex-direction: column;
+    
+//     .navtop 
+//     {
+//         display: flex;
+//         flex-direction: row;
+//         justify-content: space-between;
+//         width: calc(100% - 40px);
+
+//         background-color: rgb(3, 3, 54);
+//         color: white;
+//         padding: 20px;
+//         padding-top: 12px;
+//         padding-bottom: 12px;
+
+//         .logodiv 
+//         {
+
+//         }
+//         .rightdiv 
+//         {
+//             display: flex;
+//             flex-direction: row;
+//             gap: 14px;
+
+//             .subdiv 
+//             {
+//                 display: flex;
+//                 flex-direction: row;
+//                 justify-content: center;
+//                 align-items: center;
+//             }
+//         }
+
+//     }
+
+//     .navbottom 
+//     {
+//     background-color: white;
+//  width: calc(100% - 30px);
+//  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+//   display: flex;
+    
+ 
+//  flex-direction: row;
+// justify-content: space-between;
+// padding: 15px;
+// padding-top: 12px;
+// padding-bottom: 12px;
+//     .navlink 
+//     {
+//         display: flex;
+//         flex-direction: row;
+//         gap: 4px;
+//         align-items: center;
+
+//         &:hover 
+//         {
+//             cursor: pointer;
+//         }
+//     }
+//     }
+// }
+
+
+.dashnavbar {
     display: flex;
     width: 100%;
     flex-direction: column;
-    
-    .navtop 
-    {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: calc(100% - 40px);
+  
 
+    .menu-icon {
+        display: none; // Initially hide the menu icon
+        cursor: pointer;
+    
+        @media (max-width: 768px) {
+          display: block; // Show the menu icon on small screens
+          color: rgb(27, 27, 27); // Style the color as needed
+          padding: 10px; // Add padding or styling as needed
+        }
+      }
+    
+      &.menu-open {
+        .menu-icon {
+          display: block; // Show the menu icon when the menu is open on larger screens
+        }
+      }
+
+    .navtop {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: calc(100% - 40px);
+      background-color: rgb(3, 3, 54);
+      color: white;
+      padding: 20px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      
+      &.menu-open {
+        // Styles for when the menu is open
         background-color: rgb(3, 3, 54);
-        color: white;
+        color: rgb(19, 10, 10);
         padding: 20px;
         padding-top: 12px;
         padding-bottom: 12px;
-
-        .logodiv 
-        {
-
+      }
+      .logodiv {}
+  
+      .rightdiv {
+        display: flex;
+        flex-direction: row;
+        gap: 14px;
+  
+        .subdiv {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
         }
-        .rightdiv 
-        {
-            display: flex;
-            flex-direction: row;
-            gap: 14px;
-
-            .subdiv 
-            {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-            }
-        }
-
+      }
     }
-
-    .navbottom 
-    {
-    background-color: white;
- width: calc(100% - 30px);
- box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
-  display: flex;
-    
- 
- flex-direction: row;
-justify-content: space-between;
-padding: 15px;
-padding-top: 12px;
-padding-bottom: 12px;
-    .navlink 
-    {
+  
+    .navbottom {
+      background-color: white;
+      width: calc(100% - 30px);
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 15px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+  
+      .navlink {
         display: flex;
         flex-direction: row;
         gap: 4px;
         align-items: center;
-
-        &:hover 
-        {
-            cursor: pointer;
+  
+        &:hover {
+          cursor: pointer;
         }
+      }
     }
+  
+    // Media Query for screens smaller than 768px (adjust the breakpoint as needed)
+    @media (max-width: 768px) {
+      flex-direction: column; // Change to a column layout on smaller screens
+  
+      .navtop {
+        flex-direction: column; // Change to a column layout on smaller screens
+      }
+  
+      .navbottom {
+        flex-direction: column; // Change to a column layout on smaller screens
+  
+        .navlink {
+          margin-bottom: 10px; // Add some spacing between navigation links
+        }
+      }
     }
-}
+  }
+  
