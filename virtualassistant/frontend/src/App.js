@@ -12,6 +12,9 @@ import Mainsignup from './FComponents/signup/Mainsignup';
 import Orderhistory from './pages/orderhistory/Orderhistory';
 import Mainaddfunds from './pages/addfunds/Mainaddfunds';
 import Admindash from './FComponents/pricing/admindash';
+import Subscriptions from './pages/subscriptions/Subscriptions';
+import Support from './pages/support/Support';
+
 
 function App() {
   return (
@@ -31,6 +34,10 @@ function App() {
         <Route path="/addfunds" element={<Mainaddfunds/>} />
         <Route path="/faq" element={<Faq/>}/>
         <Route path="/dashboard" element={<Admindash/>}/>
+        {/* <Route path="/orderhistory" element={ <Orderhistory/> } /> */}
+        <Route path="/support" element={ <Support/> } />
+        <Route path="/subscriptions" element={ <Subscriptions/> } />
+
       </Routes>
     </div>
   );

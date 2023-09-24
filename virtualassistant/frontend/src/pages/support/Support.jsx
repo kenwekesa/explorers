@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
-import './orderhistory.scss'
+import './support.scss'
 import Navbar from '../../components/client_dashboard/navbar/Navbar'
 import Footer from '../../components/client_dashboard/footer/Footer'
 
-function Orderhistory() {
+function Support() {
   const data = [
     { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
     { id: 1, service: 'Kirisi',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
@@ -42,23 +42,23 @@ function Orderhistory() {
     currentPage * perPage
   );
   return (
-    <div className='orderhistory'>
-       <Navbar className='orderhistory_navbar'/>
-       <div className="orderhistory-content">
+    <div className='support'>
+       <Navbar className='support_navbar'/>
+       <div className="support-content">
         <div className="topContainer">
-          <h1 className="title">Order History</h1>
+          <h1 className="title">Support</h1>
           <div className="buttonsBar">
             <div className="placeorder_btn">
-              Place Order
+              CREATE NEW MESSAGE ALERT/TICKET
             </div>
-            <div className="links_group">
+            {/* <div className="links_group">
               <span className='link'>All</span>
               <span className='link'>Pending </span>
               <span className='link'>Active </span>
               <span className='link'>Completed </span>
               <span className='link'>Referended </span>
               <span className='link'>Canceled </span>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="tableContainer">
@@ -68,7 +68,7 @@ function Orderhistory() {
           <div className="filter">
             <label>Show:</label>
             <select onChange={(e) => setPerPage(Number(e.target.value))}>
-            <option value="5">5</option>
+              <option value="5">5</option>
               <option value="10">10</option>
               <option value="20">20</option>
             </select>
@@ -140,9 +140,9 @@ function Orderhistory() {
       </div>
       </div>
 
-      <Footer className="orderhistory_footer" />
+      <Footer className="support_footer" />
     </div>
   );
 }
 
-export default Orderhistory;
+export default Support;
