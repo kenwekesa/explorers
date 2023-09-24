@@ -1,0 +1,56 @@
+.mteam{
+    display: flex;
+    justify-content: space-between;
+    background: var(--Background-onecolor, #ECEFF1);
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    text-align: center;
+    align-items: center;
+}
+.ctimg img{
+    height: 35px;
+    width: 35px;
+    padding-left: 30px;
+}
+.mtpf{
+    font-weight: 800;
+    font-size: 40px;
+    /* text-align: start; */
+}
+.hr{
+    background: linear-gradient(96deg, rgba(127, 226, 80, 0.20) -10.44%, rgba(11, 255, 196, 0.20) 108.53%, rgba(11, 138, 255, 0.20) 108.54%);
+    width: 290.001px;
+    height: 3px;
+    padding-left: -500px;
+}
+.teamimage{
+    width: 650px;
+    height: 600px;
+    flex-shrink: 0;
+    border-radius: 30px;
+}
+.mtpfirst{
+    text-align: center;
+    width: 80%;
+}
+
+.contactptun{
+margin-right: 20px;
+margin-bottom: 30px;
+margin-top: 30px;
+}
+.ptun{
+    padding: 9px 13px;
+    font-size: 15px;
+    color: black;
+    margin-left: 20px;
+}
+.mtpe{
+    font-size: 23px;
+}
+
+.teamsocialimages{
+    margin-right: 30px;
+}

@@ -1,0 +1,22 @@
+.orderhistory 
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+
+    .orderhistory_navbar 
+    {
+
+    }
+    .orderhistory-content 
+    {
+        flex-grow: 1;
+    }
+    .orderhistory_footer
+    {
+        position:absolute;
+        bottom: 0;
+    }
+}
