@@ -4,6 +4,8 @@ import Footer from '../footer/footer'
 import Pourservices from './Pourservices'
 import Pmoreservices from './Pmoreservices'
 import Mmprice from './Mmprice'
+import Faq from './faq'
+import Admindash from './admindash'
 
 
 
@@ -14,6 +16,8 @@ const Mprice = () => {
       <Pourservices/>
       <Pmoreservices/>
       <Mmprice/>
+      <Faq/>
+      <Admindash/>
       <Footer/>
     </div>
   
