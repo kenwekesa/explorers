@@ -20,6 +20,7 @@
 
 .faqhead1{
   margin-bottom: 5%;
+  cursor: pointer;
 }
 
 .faqhead p{
@@ -38,4 +39,12 @@
   font-family: Nunito;
   font-weight: 600;
   line-height: 27.927px; 
+  }
+
+  .hidediv{
+    font-family: Nunito;
+    font-weight: 400;
+    padding-left: 65px;
+    padding-bottom: 20px;
+    color: var(--Navbar-color, #616161);
   }
