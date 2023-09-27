@@ -44,8 +44,8 @@ function Navbar() {
             </div>
             <div className="navlink">
                 
-                <DesignServices/>
-                <span>Service List</span>
+                <Link to="/servicelist"> <DesignServices/>
+                <span>Service List</span></Link>
             </div>
             <div className="navlink">
                 
