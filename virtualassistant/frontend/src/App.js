@@ -12,6 +12,7 @@ import Orderhistory from './pages/orderhistory/Orderhistory';
 import Mainaddfunds from './pages/addfunds/Mainaddfunds';
 import Mainfund from './pages/addfund/Mainfund';
 import Mainservicelist from './pages/servicelist/Mainservicelist';
+import Mainchat from './FComponents/chat/Mainchat';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/newplan" element={<Mainaddfunds />} />
         <Route path='/addfund' element={<Mainfund />} />
         <Route path='/servicelist' element={<Mainservicelist />} />
+        <Route path='/support' element={<Mainchat />} />
       </Routes>
     </div>
   );

@@ -8,7 +8,8 @@ import Shear from './selection/Shear'
 const Signupcard = () => {
   return (
    <div className='cardsignupone'>
-            <p className='cardmainsip'>All  fields are required</p>
+      <p className='cardmainsip'>All  fields are required</p>
+         <form>
             <div className='signcardcontent'>
               <p>First Name <span>(required)</span></p>
               <input type="text" className='signcardiinput' required/>
@@ -62,7 +63,8 @@ const Signupcard = () => {
             </div>
             <div className='signcardsub'>
               <a className='ton'>Submit</a>
-            </div>
+           </div>
+        </form>
           </div>
   )
 }
