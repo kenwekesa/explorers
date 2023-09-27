@@ -2,6 +2,7 @@ import React from 'react'
 import Footer from '../../components/client_dashboard/footer/Footer'
 import Navbar from '../../components/client_dashboard/navbar/Navbar'
 import Cardbtn from './addfund/Cardbtn'
+import Creditcard from './addfund/Creditcard'
 import "./Mainfund.css"
 
 const Mainfund = () => {
@@ -15,7 +16,8 @@ const Mainfund = () => {
       <div>
          <Cardbtn />         
       </div>
-      <div className='addmainupdates'>
+      <div>
+        <Creditcard />          
       </div>
       </div>
       <Footer />
