@@ -10,6 +10,7 @@ import Mainlogin from './FComponents/login/Mainlogin';
 import Mainsignup from './FComponents/signup/Mainsignup';
 import Orderhistory from './pages/orderhistory/Orderhistory';
 import Mainaddfunds from './pages/addfunds/Mainaddfunds';
+import Mainfund from './pages/addfund/Mainfund';
 
 
 function App() {
@@ -26,7 +27,8 @@ function App() {
         <Route path='/signup' element={<Mainsignup />} />
         <Route path="/industries" element={ <MainIndustries /> } />
         <Route path="/orderhistory" element={<Orderhistory />} />
-        <Route path="/addfunds" element={<Mainaddfunds/>} />
+        <Route path="/newplan" element={<Mainaddfunds />} />
+        <Route path='/addfund' element={<Mainfund />} />
       </Routes>
     </div>
   );
