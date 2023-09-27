@@ -2,6 +2,8 @@ import React from 'react'
 import {Dashboard, DesignServices, History, Money, NewReleases, Person, QuestionMark, ShoppingBag, SubscriptOutlined, Support, VerifiedUserRounded} from '@mui/icons-material'
 
 import './navbar.scss'
+import "./navbar.css"
+import { Link } from 'react-router-dom'
 
 function Navbar() {
   return (
@@ -21,8 +23,8 @@ function Navbar() {
                 <span>Dashboard</span>
             </div>
             <div className="navlink">
-                <NewReleases/>
-                <span>New Plan</span>
+                <Link to="/newplan"><NewReleases/>
+                <span>New Plan</span></Link>
             </div>
             <div className="navlink">
                 <History/>
@@ -33,8 +35,8 @@ function Navbar() {
                 <span>Subscriptions</span>
             </div>
             <div className="navlink">
-                <Money />
-                <span>Add Funds</span>
+                <Link to="/addfund"> <Money />
+                <span>Add Funds</span> </Link>
             </div>
             <div className="navlink">
                 <Support/>

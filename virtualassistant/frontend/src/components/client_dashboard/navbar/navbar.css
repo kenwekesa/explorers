@@ -1,0 +1,5 @@
+.navlink{
+    display: flex!important;
+    justify-content: space-between!important;
+    text-align: center!important;
+}
