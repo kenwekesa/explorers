@@ -11,4 +11,6 @@
     border-radius: 10px;
     width: 65%;
     height: 80%;
+    display: flex;
+    overflow: hidden;
 }

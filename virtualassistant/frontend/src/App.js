@@ -9,10 +9,10 @@ import MainService from './FComponents/services/MainService';
 import Mainlogin from './FComponents/login/Mainlogin';
 import Mainsignup from './FComponents/signup/Mainsignup';
 import Orderhistory from './pages/orderhistory/Orderhistory';
-import Mainaddfunds from './pages/addfunds/Mainaddfunds';
 import Mainfund from './pages/addfund/Mainfund';
-import Mainservicelist from './pages/servicelist/Mainservicelist';
 import Mainchat from './FComponents/chat/Mainchat';
+import Mainaddfunds from './pages/addfunds/Mainaddfunds';
+import Mainservicelist from './pages/servicelist/Mainservicelist';
 
 
 function App() {
@@ -29,10 +29,10 @@ function App() {
         <Route path='/signup' element={<Mainsignup />} />
         <Route path="/industries" element={ <MainIndustries /> } />
         <Route path="/orderhistory" element={<Orderhistory />} />
-        <Route path="/newplan" element={<Mainaddfunds />} />
-        <Route path='/addfund' element={<Mainfund />} />
+        <Route path="/addfunds" element={<Mainfund />} />
+        <Route path='/newplan' element={<Mainaddfunds/>} />
+        <Route path="/support" element={<Mainchat />} />
         <Route path='/servicelist' element={<Mainservicelist />} />
-        <Route path='/support' element={<Mainchat />} />
       </Routes>
     </div>
   );

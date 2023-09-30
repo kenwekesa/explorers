@@ -35,12 +35,12 @@ function Navbar() {
                 <span>Subscriptions</span>
             </div>
             <div className="navlink">
-                <Link to="/addfund"> <Money />
+                <Link to="/addfunds"> <Money />
                 <span>Add Funds</span> </Link>
             </div>
             <div className="navlink">
-                <Support/>
-                <span>Support</span>
+                <Link to="/support"><Support/>
+                <span>Support</span></Link>
             </div>
             <div className="navlink">
                 
