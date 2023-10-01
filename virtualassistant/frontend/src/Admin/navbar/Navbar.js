@@ -11,6 +11,7 @@ import clients from "../../images/clients.png"
 import pending from "../../images/pending.png"
 import plans from "../../images/newplans.png"
 import admin from "../../images/admin.png"
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -33,28 +34,28 @@ const Navbar = () => {
             <p className='adminnavusers' ><img src={user} loading="lazy" alt="Logo" /><span>John Doe</span></p>
               </div> */}
             <div className="logo adminlogo">
-            <p className='adminuser' ><img src={dashboard} loading="lazy" alt="Logo" /><span>Dashboard</span></p>
+            <Link to="/dashboard" className='adminlink'><p className='adminuser' ><img src={dashboard} loading="lazy" alt="Logo" /><span>Dashboard</span></p></Link>
               </div>
             <div className="logo adminlogo">
-            <p className='adminuser' ><img src={clients} loading="lazy" alt="Logo" /><span>Clients</span></p>
+            <Link to="/clients" className='adminlink'><p className='adminuser' ><img src={clients} loading="lazy" alt="Logo" /><span>Clients</span></p></Link>
               </div>
             <div className="logo adminlogo">
-            <p className='adminuser' ><img src={assistants} loading="lazy" alt="Logo" /><span>Assistants</span></p>
+            <Link to="/assistants" className='adminlink'><p className='adminuser' ><img src={assistants} loading="lazy" alt="Logo" /><span>Assistants</span></p></Link>
               </div>
             <div className="logo adminlogo">
-            <p className='adminuser' ><img src={plans} loading="lazy" alt="Logo" /><span>Plans</span></p>
+            <Link to="/plans" className='adminlink'><p className='adminuser' ><img src={plans} loading="lazy" alt="Logo" /><span>Plans</span></p></Link>
               </div>
             <div className="logo adminlogo">
-            <p className='adminuser' ><img src={message} loading="lazy" alt="Logo" /><span>Messages</span></p>
+            <Link to="/messages" className='adminlink'><p className='adminuser' ><img src={message} loading="lazy" alt="Logo" /><span>Messages</span></p></Link>
               </div>
             <div className="logo adminlogo">
-            <p className='adminuser' ><img src={cash} loading="lazy" alt="Logo" /><span>Funds</span></p>
+            <Link to='/funds' className='adminlink'><p className='adminuser' ><img src={cash} loading="lazy" alt="Logo" /><span>Funds</span></p></Link>
               </div>
             <div className="logo adminlogo">
-            <p className='adminuser' ><img src={admin} loading="lazy" alt="Logo" /><span>Register</span></p>
+            <Link to="/register" className='adminlink'><p className='adminuser' ><img src={admin} loading="lazy" alt="Logo" /><span>Register</span></p></Link>
               </div>
             <div className="logo adminlogo">
-            <p className='adminuser' ><img src={pending} loading="lazy" alt="Logo" /><span>Updates</span></p>
+            <Link to="/updates" className='adminlink'><p className='adminuser' ><img src={pending} loading="lazy" alt="Logo" /><span>Updates</span></p></Link>
               </div>
               {/* <div className="logo">
             <p className='adminuser' ><img src={user} loading="lazy" alt="Logo" /><span>John Doe</span></p>

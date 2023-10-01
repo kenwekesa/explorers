@@ -13,26 +13,45 @@ import Mainfund from './pages/addfund/Mainfund';
 import Mainchat from './FComponents/chat/Mainchat';
 import Mainaddfunds from './pages/addfunds/Mainaddfunds';
 import Mainservicelist from './pages/servicelist/Mainservicelist';
+import Dashboard from './Admin/dashboard/Dashboard';
+import Adminclients from './Admin/clients/Adminclients';
+import Adminassistants from './Admin/assistants/Adminassistants';
+import Adminfunds from './Admin/funds/Adminfunds';
+import Adminmessages from './Admin/messages/Adminmessages';
+import AdminRegister from './Admin/register/AdminRegister';
+import Adminplan from './Admin/plans/Adminplan';
+import Adminupdates from './Admin/updates/Adminupdates';
 
 
 function App() {
   return (
     <div className='mainapp'>
       <Routes>
+        {/* **********Main Application Routes*************** */}
         <Route path="/" element={<Mlanding />} />
         <Route path="/about" element={<MainAbout />} />
-        <Route path="/prices" element={<MainService /> } />
-        <Route path="/services" element={<Mprice/> } />
+        <Route path="/prices" element={<MainService />} />
+        <Route path="/services" element={<Mprice />} />
         <Route path="/contact" element={<MainContact />} />
         <Route path="/industries" element={<MainIndustries />} />
         <Route path='/login' element={<Mainlogin />} />
         <Route path='/signup' element={<Mainsignup />} />
-        <Route path="/industries" element={ <MainIndustries /> } />
+        {/* ********clinet Routes********** */}
         <Route path="/orderhistory" element={<Orderhistory />} />
         <Route path="/addfunds" element={<Mainfund />} />
-        <Route path='/newplan' element={<Mainaddfunds/>} />
+        <Route path='/newplan' element={<Mainaddfunds />} />
         <Route path="/support" element={<Mainchat />} />
         <Route path='/servicelist' element={<Mainservicelist />} />
+        {/* ******* Admin Routes************ */}
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/clients' element={<Adminclients />} />
+        <Route path='/assistants' element={<Adminassistants />} />
+        <Route path='/funds' element={<Adminfunds />} />
+        <Route path='/messages' element={<Adminmessages />} />
+        <Route path='/register' element={<AdminRegister />} />
+        <Route path='/plans' element={<Adminplan />} />
+        <Route path='/updates' element={<Adminupdates />} />
+
       </Routes>
     </div>
   );
