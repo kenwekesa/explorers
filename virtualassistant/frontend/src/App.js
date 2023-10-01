@@ -14,6 +14,8 @@ import Mainaddfunds from './pages/addfunds/Mainaddfunds';
 import Admindash from './FComponents/pricing/admindash';
 import Subscriptions from './pages/subscriptions/Subscriptions';
 import Support from './pages/support/Support';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
+
 
 
 function App() {
