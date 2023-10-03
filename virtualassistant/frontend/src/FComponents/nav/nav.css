@@ -11,7 +11,7 @@
 .thenav{
     /* background-image: url('../images/services.png'); */
     background-color: rgba(207, 194, 117, 0.64);
-    background-image: url('../../images/vcont.jpg');
+    background-image: url('../../images/vmenthree.jpg');
     /* background: url('../images/services.png'), rgba(0, 0, 0, 0.62); */
     /* background-image: url('../images/serve.png'), linear-gradient(to right, red, red); */
     background-size: cover;
@@ -22,7 +22,7 @@
 }
 
 .thenav{
-    background-image: url('../../images/vcont.jpg');
+    background-image: url('../../images/vtwelve.png');
         /* Replace 'your-image.jpg' with the path to your image */
         background-color: rgba(0, 0, 0, 0.62);
         /* Red color with 60% opacity */
