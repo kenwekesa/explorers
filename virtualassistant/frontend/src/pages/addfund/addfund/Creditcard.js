@@ -25,7 +25,7 @@ const Creditcard = () => {
           </div>
               <hr className='credit-card-hr'></hr>
            <div className='credicard-active-options'>
-              <a><img src={ wise} loading="eager" alt="wise" /> Wise</a>
+              <a><img src={ wise} loading="eager" alt="wise" /> Google Pay</a>
               <p className='ton tan'>Active</p>
           </div>
           </div>
