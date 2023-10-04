@@ -1,4 +1,7 @@
- import React, { useState } from 'react';
+import React, { useState } from 'react';
+import CreditCard from "react-credit-card";
+import Cards from "react-credit-cards-2";
+import "react-credit-cards-2/dist/es/styles-compiled.css";
 
 const Bank = ({ isOpen, onClose }) =>{
 

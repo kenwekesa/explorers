@@ -11,3 +11,7 @@
     justify-content: space-around;
     
 }
+
+.dialog-box-elevation{
+    z-index: 13!important;
+}
