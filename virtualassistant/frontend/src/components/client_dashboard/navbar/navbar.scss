@@ -43,28 +43,6 @@
 //     background-color: white;
 //  width: calc(100% - 30px);
 //  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
-//   display: flex;
-    
- 
-//  flex-direction: row;
-// justify-content: space-between;
-// padding: 15px;
-// padding-top: 12px;
-// padding-bottom: 12px;
-//     .navlink 
-//     {
-//         display: flex;
-//         flex-direction: row;
-//         gap: 4px;
-//         align-items: center;
-
-//         &:hover 
-//         {
-//             cursor: pointer;
-//         }
-//     }
-//     }
-// }
 
 
 .dashnavbar {
@@ -95,7 +73,7 @@
       flex-direction: row;
       justify-content: space-between;
       width: calc(100% - 40px);
-      background-color: rgb(3, 3, 54);
+      background-color:#001C30;
       color: white;
       padding: 20px;
       padding-top: 12px;
@@ -103,8 +81,7 @@
       
       &.menu-open {
         // Styles for when the menu is open
-        background-color: rgb(3, 3, 54);
-        color: rgb(19, 10, 10);
+  
         padding: 20px;
         padding-top: 12px;
         padding-bottom: 12px;
@@ -125,7 +102,12 @@
       }
     }
   
-    .navbottom {
+    .navbottom_sm 
+    {
+      display: none;
+    }
+    
+    .navbottom_lg {
       background-color: white;
       width: calc(100% - 30px);
       box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
@@ -151,17 +133,46 @@
   
     // Media Query for screens smaller than 768px (adjust the breakpoint as needed)
     @media (max-width: 768px) {
+
       flex-direction: column; // Change to a column layout on smaller screens
   
       .navtop {
-        flex-direction: column; // Change to a column layout on smaller screens
+        //flex-direction: column; // Change to a column layout on smaller screens
+
+        .username 
+        {
+          display: none;
+        }
       }
   
-      .navbottom {
-        flex-direction: column; // Change to a column layout on smaller screens
-  
+      .navbottom_lg 
+      {
+        display: none;
+      }
+      .navbottom_sm {
+        background-color: white;
+        width: calc(100% - 30px);
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+          rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 15px;
+        padding-top: 12px;
+        gap: 4px;
+        padding-bottom: 12px;
+    
         .navlink {
-          margin-bottom: 10px; // Add some spacing between navigation links
+          display: flex;
+          flex-direction: row;
+          gap: 4px;
+          align-items: center;
+    
+          &:hover {
+            cursor: pointer;
+            opacity: 80%;
+            background-color: rgb(236, 229, 229);
+          }
         }
       }
     }

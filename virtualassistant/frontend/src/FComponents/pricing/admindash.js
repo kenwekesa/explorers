@@ -1,11 +1,5 @@
 import React from 'react'
 import './admindash.css'
-import img3 from "../../images/In Progress.png"
-import img4 from "../../images/Cancel.png"
-import img5 from "../../images/Checkmark.png"
-import img6 from "../../images/Cash in Hand.png"
-import img7 from "../../images/Message.png"
-import img8 from "../../images/Support agent.png"
 import Navbar from '../../components/client_dashboard/navbar/Navbar'
 import Footer from '../../components/client_dashboard/footer/Footer'
 import Supportdas from './dashcards/supportdas'
@@ -31,7 +25,7 @@ const Admindash = () => {
         </div>
         
         <div className='mlandservone'>
-        <Available/>
+        <Available />
         <Dashmess/>
         <Supportdas/>
         </div>
