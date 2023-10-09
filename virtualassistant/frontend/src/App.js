@@ -21,6 +21,11 @@ import Adminmessages from './Admin/messages/Adminmessages';
 import AdminRegister from './Admin/register/AdminRegister';
 import Adminplan from './Admin/plans/Adminplan';
 import Adminupdates from './Admin/updates/Adminupdates';
+import Virtual_Dashboard from './Virtual-Assistants/dashboard/Dashboard';
+import Myplans from './Virtual-Assistants/myplans/Myplans';
+import Myfunds from './Virtual-Assistants/myfunds/Myfunds';
+import VASupport from './Virtual-Assistants/support/Support';
+import Fqas from './Virtual-Assistants/fqas/Fqas';
 
 
 function App() {
@@ -51,7 +56,12 @@ function App() {
         <Route path='/register' element={<AdminRegister />} />
         <Route path='/plans' element={<Adminplan />} />
         <Route path='/updates' element={<Adminupdates />} />
-
+        {/***********virtual Assistants Routes*********/}
+        <Route path='/mydashboard' element={<Virtual_Dashboard />} />
+        <Route path='/myplans' element={<Myplans />} />
+        <Route path='/myfunds' element={<Myfunds />} />
+        <Route path='/csupport' element={<VASupport />} />
+        <Route path='/cfqas' element={<Fqas />} />
       </Routes>
     </div>
   );

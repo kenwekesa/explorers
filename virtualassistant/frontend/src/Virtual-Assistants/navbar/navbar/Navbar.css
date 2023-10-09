@@ -1,9 +1,6 @@
 .adminnavbar{
+}
 
-}
-.adminlogo{
-    gap: 20px !important;
-}
 .adminnavbar img{
     height: 27px;
     width: 27px;
@@ -28,8 +25,7 @@
     padding-bottom: 12px;
     align-items: center;
     padding-left: 32px;
-    gap: 80px!important;
-    justify-content: space-between;
+    gap: 66px;
     /* width: 100%; */
     padding-right: 32px;
     background: #FFF;
@@ -38,7 +34,6 @@
 .adminnavbarbottom p{
     align-items: center;
     cursor: pointer;
-    width: 100%!important;
 }
 
 .adminlink{
@@ -69,9 +64,9 @@
     padding-left: 7px;
 }
 
-.adminuserlast{
-    text-align: end!important;
-}
+/* .linkalignleft{
+    text-align: left!important;
+} */
 
 .adminnavbarbottom p {
     /* display: inline-block; */

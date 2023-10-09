@@ -2,3 +2,15 @@
 * {
   font-family: 'Nunito', sans-serif;
 }
+
+/* Input glow */
+
+textarea:focus,
+input:focus,
+select:focus,
+input[type]:focus,
+.uneditable-input:focus {
+  border-color: rgba(84, 95, 199, 0.8);
+  box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(84,95,199,0.3);
+  outline: 0 none;
+}
