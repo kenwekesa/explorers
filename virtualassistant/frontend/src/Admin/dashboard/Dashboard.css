@@ -1,0 +1,20 @@
+.admindashboard{
+
+}
+
+.admindashboardcontent{
+    height: 100vh;
+    padding-top: 300px;
+    padding-bottom: 300px;
+    color: red;
+    background: #F5F5F5;
+    text-align: center;
+}
+
+/* Dashboard navbar customization */
+
+.dashboardnav{
+    position: sticky;
+    top: 0;
+    width: 100%;
+}

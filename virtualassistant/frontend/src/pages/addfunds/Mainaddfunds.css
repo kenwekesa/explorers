@@ -1,4 +1,36 @@
+.mainaddnav{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 12;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+}
 .mainaddfunds{
-    height: 200vh;
-    background-color: green;
+    background: #F5F5F5;
+}
+
+.addnewplan{
+    font-weight: 800;
+    font-size: 30px;
+}
+
+.addpagecontent{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.addplancards{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addmainupdates{
+    width: 74%;
+    margin-left: 13%;
+    margin-right: 13%;
+    margin-top: 40px;
+    height: auto;
+    padding-bottom: 60px;
 }

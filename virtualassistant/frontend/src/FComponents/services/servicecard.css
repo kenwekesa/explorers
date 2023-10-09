@@ -36,6 +36,8 @@
 }
 .servc{
     padding-right: 10px;
+    height: 25px;
+    width: 25px;
 }
 .spy{
     /* display: flex; */

@@ -1,0 +1,186 @@
+.chatcanvas{
+   flex: 2; 
+}
+.canvaschatInfo{
+    height: 50px;
+    background-color: rgb(168, 155, 155);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.canvaschatInfo img{
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+}
+.mainsidebar{
+    flex: 1;
+    background-color: beige;
+}
+
+.chatnavbar{
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    height: 50px;
+    color: white;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.chatnavbar img{
+    background-color: aqua;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+/* The search component */
+.chatsearch{
+    border-bottom: 1px solid gray;
+}
+
+.chatsearchform{
+    padding: 10px;
+}
+
+.chatsearchform input{
+    background-color: transparent;
+    border: none;
+    color: rgb(123, 9, 9);
+    outline: none;
+}
+
+.userChat{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: black;
+    cursor: pointer;
+}
+
+.userChat:hover{
+    background-color: aquamarine;
+}
+
+.userChat img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.userChatInfo{
+
+}
+
+.userChatInfo span{
+    font-weight: 800;
+}
+
+.userChatInfo p{
+    font-weight: 300;
+}
+/* Messages component */
+.chatmessages{
+    background-color: white;
+    color: #333;
+    padding: 10px;
+    height: calc(100%-160px);
+    overflow: scroll;
+}
+
+/* Input component */
+.chatInput{
+    background-color: rgb(204, 165, 114);
+    padding: 10px;
+    align-items: center;
+    height: 40px;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.chatInput img{
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.chatInput input{
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #333;
+    font-size: 18px; 
+    background-color: inherit; 
+}
+
+.chatsend{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 100px;
+}
+
+.chatsend button{
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    background-color: #333;
+    cursor: pointer;
+}
+
+/* Message component */
+.chatmessage{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.messageInfo{
+    display: flex;
+    flex-direction: column;
+    color: rgb(60, 59, 59);
+    font-weight: 300;
+    font-size: 12px;
+}
+
+.messageContent{
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    grid-area: 10px;
+    align-items: flex-end;
+}
+
+.messageContent p{
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 0px 10px 0px 10px;
+    color: white;
+    max-width: max-content;
+}
+
+.messageInfo img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.messageContent img{
+    height: 300px;
+    width: 300px;
+    border-radius: 12px;
+}
+
+.chatowner{
+   flex-direction: row-reverse; 
+}
+
+

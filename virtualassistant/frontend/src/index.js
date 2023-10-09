@@ -10,8 +10,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      < PayPalScriptProvider options={{"client-Id": ARZPVYHWVjJ4IVtkZ73QbEFP20t2sy_5wiboTH5ZJjLVgard3SA1vWbKZ9TiXWn2j3mGHxZaDe6oK4Lq}} />
+      < PayPalScriptProvider options={{"clientId": "ARZPVYHWVjJ4IVtkZ73QbEFP20t2sy_5wiboTH5ZJjLVgard3SA1vWbKZ9TiXWn2j3mGHxZaDe6oK4Lq"}} >
        <App />
+       </PayPalScriptProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

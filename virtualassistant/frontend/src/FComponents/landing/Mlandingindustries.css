@@ -1,16 +1,18 @@
 .mlandingservices {
-    background: #F5F5F5;
+    /* background: #F5F5F5; */
     padding: 30px 32px;
     text-align: center;
+    background: white;
 }
 
 .mlandingservicesi{
-    background: #F5F5F5;
+    /* background: #F5F5F5; */
     padding-top: 30px;
     padding-bottom: 0px;
     padding-right: 32px;
     padding-left: 32px;
     text-align: center;
+    background: white;
 }
 
 .mlandpara {

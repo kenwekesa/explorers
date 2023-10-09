@@ -8,11 +8,13 @@ const Loginform = () => {
     <div className='mlogmainf'>
     <div className='mloginform'>
        <p className='mplog'>Please Login</p>  
-          <hr></hr>   
+          <hr></hr> 
+          <form>
           <input className='loginputone logtop' placeholder='Email' type="email"/> <br></br>
           <input className='loginputone logtopi' placeholder='Password' type="password" /> <br></br>
           {/* <a className='ton'>Login</a> */}
-          <Link to="/addfunds" className='ton'>Login</Link>
+          <Link to="/dashboard" className='ton'>Login</Link>
+          </form>
           <div className='logimgreset'>
               <img src={reset} alt="reset" loading="lazy" />
               <p>Reset your password</p>

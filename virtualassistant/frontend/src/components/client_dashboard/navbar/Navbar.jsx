@@ -197,6 +197,9 @@ import {
 } from '@mui/icons-material';
 
 import './navbar.scss';
+import './navbar.scss'
+import "./navbar.css"
+import { Link } from 'react-router-dom'
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -235,8 +238,8 @@ function Navbar() {
                 <span>Dashboard</span>
             </div>
             <div className="navlink">
-                <NewReleases/>
-                <span>New Plan</span>
+                <Link to="/newplan"><NewReleases/>
+                <span>New Plan</span></Link>
             </div>
             <div className="navlink">
                 <History/>
@@ -247,17 +250,17 @@ function Navbar() {
                 <span>Subscriptions</span>
             </div>
             <div className="navlink">
-                <Money />
-                <span>Add Funds</span>
+                <Link to="/addfunds"> <Money />
+                <span>Add Funds</span> </Link>
             </div>
             <div className="navlink">
-                <Support/>
-                <span>Support</span>
+                <Link to="/support"><Support/>
+                <span>Support</span></Link>
             </div>
             <div className="navlink">
                 
-                <DesignServices/>
-                <span>Service List</span>
+                <Link to="/servicelist"> <DesignServices/>
+                <span>Service List</span></Link>
             </div>
             <div className="navlink">
                 

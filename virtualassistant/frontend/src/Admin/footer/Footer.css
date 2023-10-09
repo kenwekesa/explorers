@@ -1,0 +1,16 @@
+.adminfooter {
+    height: 65px;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    align-items: center;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.adminfooter img {
+    padding-left: 18px;
+    height: 28px;
+    width: 28px;
+}
