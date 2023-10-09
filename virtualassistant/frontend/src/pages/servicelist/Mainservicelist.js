@@ -1,14 +1,15 @@
 import React from 'react'
-import Footer from '../../components/client_dashboard/footer/Footer'
-import Navbar from '../../components/client_dashboard/navbar/Navbar'
+import Footer from '../../Admin/footer/Footer'
+import ClientNavbar from '../../Admin/navbar/navbar'
 import "./Mainservicelist.css"
 import Plancard from './plancards/Plancard'
+import Servicecard from './plancards/Servicecard'
 
 const Mainservicelist = () => {
   return (
       <div className='mainservicelist'>
        <div className='mainaddnav'>
-        <Navbar />
+        <ClientNavbar />
       </div>
       <div className='addpagecontent'>
         <p className='addnewplan'>Available Plans</p>
@@ -21,7 +22,7 @@ const Mainservicelist = () => {
       <div className='addpagecontent'>
         <p className='addnewplan'>Available Services</p>
       <div className='addplancards'>
-         <Plancard />         
+         <Servicecard />         
       </div>
       <div className='addmainupdates'>
       </div>

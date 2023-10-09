@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Creditcard.css"
 import visa from "../../../images/visa.png"
-import wise from "../../../images/wise.png"
+import wise from "../../../images/googlepay.png"
 import paypal from "../../../images/paypal.png"
 
 const Creditcard = () => {

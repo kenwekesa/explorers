@@ -1,5 +1,5 @@
 import React from 'react'
-import bwoner from "../../images/vcont.jpg"
+import bwoner from "../../images/vtelve.png"
 import "./Iecommerce.css"
 import { Link } from 'react-router-dom'
 

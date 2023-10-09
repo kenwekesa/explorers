@@ -1,6 +1,6 @@
 import React from 'react'
 // import Aboutcard from '../about/aboutcard'
-import bwoner from "../../images/teamtwo.jpg"
+import bwoner from "../../images/vafront.png"
 import "./Bowner.css"
 import { Link } from 'react-router-dom'
 

@@ -1,18 +1,17 @@
 import React from 'react'
 // import Footer from '../../FComponents/footer/footer'
-import MainNav from '../../FComponents/navbar/navbar'
-import Footer from '../../components/client_dashboard/footer/Footer'
-import Navbar from '../../components/client_dashboard/navbar/Navbar'
 import "./Mainaddfunds.css"
 import Addfirstcard from './addcards/Addfirstcard'
 import Addsecondard from './addcards/Addsecondard'
 import Addupdates from './Addupdates'
+import ClientNavbar from '../../Admin/navbar/navbar'
+import Footer from '../../Admin/footer/Footer'
 
 const Mainaddfunds = () => {
   return (
     <div className='mainaddfunds'>
       <div className='mainaddnav'>
-        <Navbar />
+        <ClientNavbar />
       </div>
       <div className='addpagecontent'>
         <p className='addnewplan'>New Plan</p>
