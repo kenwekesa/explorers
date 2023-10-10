@@ -11,10 +11,12 @@ const Mlanding = () => {
   return (
     <div>
     <Landingnav />
-    <Landabout />
     <Mlandingservices />
-    <Mlonboard />
+    <Landabout />
+      {/* <Mlandingservices /> */}
     <Mlandingindustry />
+    <Mlonboard />
+    {/* <Mlandingindustry /> */}
     <Mmprice />
     <Footer /> 
     </div>

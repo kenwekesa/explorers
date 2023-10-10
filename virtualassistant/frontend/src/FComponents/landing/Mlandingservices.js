@@ -32,12 +32,12 @@ const Mlandingservices = () => {
         <Mladmin />
         <Mldata/>      
       </div>
-      <div className='mlandservone'>
+      {/* <div className='mlandservone'>
         <Mldigital />
         <Mlcontent />
         <Mlwebdev />
         <Mldatabase />      
-        </div> 
+        </div>  */}
         <div className='mlandserbtn'>
         {/* <a href='home.html' className='ton tin'>View all services</a>   */}
         <Link className='ton tin' onClick={scrollToTop} to="/services">View all services</Link>

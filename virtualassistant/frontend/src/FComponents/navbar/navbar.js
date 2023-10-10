@@ -51,7 +51,7 @@ const [navbarBackground, setNavbarBackground] = useState('transparent');
   };
 
   return (
-    <nav  className="navbar" style={{ backgroundColor: navbarBackground }}>
+    <nav  className="themainnavbar" style={{ backgroundColor: navbarBackground }}>
       <div className="logo">
         <a className='navlogo'><img src={headset} loading="lazy" alt="Logo" />VA</a>
       </div>

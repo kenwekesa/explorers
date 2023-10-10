@@ -27,6 +27,7 @@ import Myfunds from './Virtual-Assistants/myfunds/Myfunds';
 import VASupport from './Virtual-Assistants/support/Support';
 import Fqas from './Virtual-Assistants/fqas/Fqas';
 import MainSupport from './pages/suppport/MainSupport';
+import Admindash from './pages/dashboard/admindash';
 
 
 function App() {
@@ -43,13 +44,14 @@ function App() {
         <Route path='/login' element={<Mainlogin />} />
         <Route path='/signup' element={<Mainsignup />} />
         {/* ********clinet Routes********** */}
+        <Route path='/dashboard' element={<Admindash />} />
         <Route path="/orderhistory" element={<Orderhistory />} />
         <Route path="/addfunds" element={<Mainfund />} />
         <Route path='/newplan' element={<Mainaddfunds />} />
         <Route path="/support" element={<MainSupport />} />
         <Route path='/servicelist' element={<Mainservicelist />} />
         {/* ******* Admin Routes************ */}
-        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/Dashboard' element={<Dashboard />} />
         <Route path='/clients' element={<Adminclients />} />
         <Route path='/assistants' element={<Adminassistants />} />
         <Route path='/funds' element={<Adminfunds />} />

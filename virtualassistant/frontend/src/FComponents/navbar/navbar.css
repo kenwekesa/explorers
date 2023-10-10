@@ -1,5 +1,5 @@
 /* Navbar.css */
-.navbar {
+.themainnavbar {
     font-family: 'Courier New', Courier, monospace;
     display: flex;
     justify-content: space-between;
@@ -8,7 +8,7 @@
     height: 7vh;
 }
 
-.navbar a {
+.themainnavbar a {
     color:white;
     text-decoration: none;
     margin: 0 20px;
