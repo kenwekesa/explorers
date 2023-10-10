@@ -1,0 +1,6 @@
+.MainSupportNavbar{
+    z-index: 20;
+    position: sticky;
+    top: 0;
+    width: 100%;
+}

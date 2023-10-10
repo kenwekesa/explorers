@@ -26,6 +26,7 @@ import Myplans from './Virtual-Assistants/myplans/Myplans';
 import Myfunds from './Virtual-Assistants/myfunds/Myfunds';
 import VASupport from './Virtual-Assistants/support/Support';
 import Fqas from './Virtual-Assistants/fqas/Fqas';
+import MainSupport from './pages/suppport/MainSupport';
 
 
 function App() {
@@ -45,7 +46,7 @@ function App() {
         <Route path="/orderhistory" element={<Orderhistory />} />
         <Route path="/addfunds" element={<Mainfund />} />
         <Route path='/newplan' element={<Mainaddfunds />} />
-        <Route path="/support" element={<Mainchat />} />
+        <Route path="/support" element={<MainSupport />} />
         <Route path='/servicelist' element={<Mainservicelist />} />
         {/* ******* Admin Routes************ */}
         <Route path='/dashboard' element={<Dashboard />} />

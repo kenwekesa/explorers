@@ -1,0 +1,25 @@
+.chats img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.userChatInfo span{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.userChatInfo p{
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.userChatInfo{
+}
+
+.userschats{
+    color: gray;
+    font-weight: 300!important;
+    font-size: 12.5px!important;
+}
