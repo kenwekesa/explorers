@@ -39,7 +39,7 @@ const Addsecondard = () => {
                       <p>Total Cost: <span>$80000</span></p>
                   </div>
                   <div className='ascontabutton'>
-                      <a className='ton'>Submit Application</a>
+                      <a className='ton tin'>Submit Application</a>
                   </div>
             </div>
         </div>  

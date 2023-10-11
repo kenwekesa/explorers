@@ -9,7 +9,7 @@ const Available = () => {
       <div className='dashcard'>
           <p>Available funds</p>
           <img src={img6} alt='logo' />
-          <p>$100</p>
+          <p>$1000</p>
         </div>
     </div>
   )

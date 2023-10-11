@@ -19,9 +19,9 @@ const Mainaddfunds = () => {
         <Addfirstcard />
         <Addsecondard />
         </div>
-      <div className='addmainupdates'>
+      {/* <div className='addmainupdates'>
          <Addupdates /> 
-      </div>
+      </div> */}
       </div>
       <Footer />
       </div>

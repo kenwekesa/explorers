@@ -1,4 +1,7 @@
-
+.faqhead{
+  padding-left: 32px;
+  padding-right: 32px;
+}
 
 .faqhead h1{
   font-family: Nunito;
@@ -7,6 +10,12 @@
   padding-left: 32px; 
   margin-bottom: 2%;
   margin-top: 2%;
+}
+
+.faq_navbar{
+  position: sticky;
+  top: 0;
+  width: 100%;
 }
 
 .faqhead1 h1{

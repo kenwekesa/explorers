@@ -9,7 +9,7 @@ const Dascomplete = () => {
       <div className='dashcard'>
           <p>Completed plans</p>
           <img src={img5} alt='logo' />
-          <p>8</p>
+          <p>18</p>
         </div>
     </div>
   )

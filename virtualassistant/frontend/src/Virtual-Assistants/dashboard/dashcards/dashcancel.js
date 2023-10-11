@@ -9,7 +9,7 @@ const Dashcancel = () => {
       <div className='dashcard'>
           <p>Cancelled Plans</p>
           <img src={img4} alt='logo' />
-          <p>3</p>
+          <p>30</p>
         </div>
     </div>
   )

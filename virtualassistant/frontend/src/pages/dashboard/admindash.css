@@ -4,6 +4,12 @@
   background: #F5F5F5;
 }
 
+.admin_client_navbar{
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
 .dashhead h1{
   font-family: Nunito;
   font-size: 30px;
@@ -18,8 +24,8 @@
   font-size: 20px;
   font-weight: 800;
   /* display: inline-block; */
-  margin-left: 15%;
-  margin-right: 14%;
+  margin-left: 52px;
+  margin-right: 32px;
   /* text-align: center; */
   display: block;
 }

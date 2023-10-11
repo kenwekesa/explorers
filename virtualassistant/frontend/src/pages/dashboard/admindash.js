@@ -11,14 +11,17 @@ import Active from './dashcards/active'
 import Adminnotif from './dashcards/adminnotif'
 import ClientNavbar from '../../Admin/navbar/navbar'
 import Footer from '../../Admin/footer/Footer'
+import Addupdates from '../addfunds/Addupdates'
 
 
 const Admindash = () => {
   return (
     
     <div className='dashhead'>
-      <ClientNavbar />
-      <h1>Dashboard</h1>
+      <div className='admin_client_navbar'>
+        <ClientNavbar />
+      </div>
+      <h1>My dashboard</h1>
       <div className='dashp'>
         <div className='mlandservone'>
         <Active/>
@@ -32,9 +35,12 @@ const Admindash = () => {
         <Supportdas/>
         </div>
       </div>
-      <div className='adminnot'>
-      <Adminnotif/>
+      <div className='addmainupdates'>
+         <Addupdates /> 
       </div>
+      {/* <div className='adminnot'>
+      <Adminnotif/>
+      </div> */}
       <Footer/>
     </div>
     

@@ -18,20 +18,20 @@
     background: #001C30;
 }
 
-.adminnavbarbottom{
+.virtualassistantnavbarbottom{
     display: flex;
     height: 24px;
     padding-top: 18px;
     padding-bottom: 12px;
     align-items: center;
     padding-left: 32px;
-    gap: 66px;
+    gap: 220px;
     /* width: 100%; */
     padding-right: 32px;
     background: #FFF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.09);
 }
-.adminnavbarbottom p{
+.virtualassistantnavbarbottom p{
     align-items: center;
     cursor: pointer;
 }
@@ -68,7 +68,7 @@
     text-align: left!important;
 } */
 
-.adminnavbarbottom p {
+.virtualassistantnavbarbottom p {
     /* display: inline-block; */
     /* Make the link inline-block to contain the underline */
     position: relative;
@@ -76,7 +76,7 @@
 }
 
 /* Define the orange underline for the navigation link */
-.adminnavbarbottom p::before {
+.virtualassistantnavbarbottom p::before {
     content: '';
     /* Create an empty pseudo-element */
     width: 100%;
@@ -97,14 +97,14 @@
 }
 
 /* Add animation when hovering over the navigation link */
-.adminnavbarbottom p:hover::before {
+.virtualassistantnavbarbottom p:hover::before {
     transform: scaleX(1);
     /* Scale up to show the underline */
     transform-origin: left;
 }
 
 /* Add animation for exiting the hover state */
-.adminnavbarbottom p::after {
+.virtualassistantnavbarbottom p::after {
     content: '';
     /* Create an empty pseudo-element */
     width: 100%;
@@ -125,7 +125,7 @@
 }
 
 /* Add animation for exiting the hover state */
-.adminnavbarbottom p:hover::after {
+.virtualassistantnavbarbottom p:hover::after {
     transform: scaleX(1);
     /* Scale up to show the underline */
     transform-origin: right;

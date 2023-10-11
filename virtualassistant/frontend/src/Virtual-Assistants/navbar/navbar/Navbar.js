@@ -30,7 +30,7 @@ const Navbar = () => {
           </div>
            </div>    
           </div>
-          <div className='adminnavbarbottom'>
+          <div className='virtualassistantnavbarbottom'>
             {/* <div className="logo">
             <p className='adminnavusers' ><img src={user} loading="lazy" alt="Logo" /><span>John Doe</span></p>
               </div> */}

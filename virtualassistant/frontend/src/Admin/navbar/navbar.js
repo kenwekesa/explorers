@@ -9,7 +9,7 @@ import assistants from "../../images/orderhistory.png"
 import cash from "../../images/todolist.png"
 import clients from "../../images/clients.png"
 import pending from "../../images/pending.png"
-import plans from "../../images/coins.png"
+import plans from "../../images/newplans.png"
 import admin from "../../images/help.png"
 import { Link } from 'react-router-dom'
 import { useState } from 'react'

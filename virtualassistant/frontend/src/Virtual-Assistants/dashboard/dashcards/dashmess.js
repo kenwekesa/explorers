@@ -9,7 +9,7 @@ const Dashmess = () => {
       <div className='dashcard'>
           <p>New Messages</p>
           <img src={img7} alt='logo' />
-          <p>2</p>
+          <p>12</p>
         </div>
     </div>
   )

@@ -1,11 +1,16 @@
 import React from 'react'
 import "./faq.css"
+// import img0 from "../../../images/cancel.png"
+// import img1 from "../../../images/controlpointduplicate.png"
+// import img2 from "../../../images/delivertytime.png"
 import img0 from "../../images/cancel.png"
-import img1 from "../../images/Control point duplicate.png"
-import img2 from "../../images/Delivery Time.png"
-import Footer from '../../components/client_dashboard/footer/Footer'
-import Navbar from '../../components/client_dashboard/navbar/Navbar'
+import img1 from "../../images/controlpointduplicate.png"
+import img2 from "../../images/deliverytime.png"
+// import Footer from '../../components/client_dashboard/footer/Footer'
+// import Navbar from '../../components/client_dashboard/navbar/Navbar'
 import { useState } from 'react';
+import ClientNavbar from '../../Admin/navbar/navbar'
+import Footer from '../../Admin/footer/Footer'
 
 const Faq = () => {
 
@@ -42,8 +47,11 @@ const Faq = () => {
     };
 
   return (
+    <div>
+    <div className='faq_navbar'>
+        <ClientNavbar />
+    </div>
     <div className='faqhead'>
-      <Navbar/>
       <h1>FAQs</h1>
       <p><img src={img2} alt='logo'/>Delivery</p>
       <p> <img src={img0} alt="logo" />Cancelled</p>
@@ -95,9 +103,10 @@ const Faq = () => {
             </div>
           )}
         </div>
-
       </div>
-      <Footer/>
+      {/* <Footer /> */}
+      </div>
+      <Footer />
     </div>
   )
 }

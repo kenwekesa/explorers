@@ -8,7 +8,7 @@ const Supportdas = () => {
       <div className='dashcard'>
           <p>Support Tickets</p>
           <img src={img8} alt='logo' />
-          <p>18</p>
+          <p>108</p>
         </div>
     </div>
   )

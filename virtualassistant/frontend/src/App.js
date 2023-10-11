@@ -10,7 +10,6 @@ import Mainlogin from './FComponents/login/Mainlogin';
 import Mainsignup from './FComponents/signup/Mainsignup';
 import Orderhistory from './pages/orderhistory/Orderhistory';
 import Mainfund from './pages/addfund/Mainfund';
-import Mainchat from './FComponents/chat/Mainchat';
 import Mainaddfunds from './pages/addfunds/Mainaddfunds';
 import Mainservicelist from './pages/servicelist/Mainservicelist';
 import Dashboard from './Admin/dashboard/Dashboard';
@@ -22,12 +21,13 @@ import AdminRegister from './Admin/register/AdminRegister';
 import Adminplan from './Admin/plans/Adminplan';
 import Adminupdates from './Admin/updates/Adminupdates';
 import Virtual_Dashboard from './Virtual-Assistants/dashboard/Dashboard';
-import Myplans from './Virtual-Assistants/myplans/Myplans';
 import Myfunds from './Virtual-Assistants/myfunds/Myfunds';
 import VASupport from './Virtual-Assistants/support/Support';
 import Fqas from './Virtual-Assistants/fqas/Fqas';
 import MainSupport from './pages/suppport/MainSupport';
 import Admindash from './pages/dashboard/admindash';
+import Faq from './pages/faqs/faq';
+import Myplans from './Virtual-Assistants/myplans/Myplans';
 
 
 function App() {
@@ -50,6 +50,7 @@ function App() {
         <Route path='/newplan' element={<Mainaddfunds />} />
         <Route path="/support" element={<MainSupport />} />
         <Route path='/servicelist' element={<Mainservicelist />} />
+        <Route path='/faqs' element={<Faq />} />
         {/* ******* Admin Routes************ */}
         <Route path='/Dashboard' element={<Dashboard />} />
         <Route path='/clients' element={<Adminclients />} />
@@ -60,7 +61,7 @@ function App() {
         <Route path='/plans' element={<Adminplan />} />
         <Route path='/updates' element={<Adminupdates />} />
         {/***********virtual Assistants Routes*********/}
-        <Route path='/mydashboard' element={<Virtual_Dashboard />} />
+        <Route path='/mydashboard' element={<Virtual_Dashboard/>} />
         <Route path='/myplans' element={<Myplans />} />
         <Route path='/myfunds' element={<Myfunds />} />
         <Route path='/csupport' element={<VASupport />} />
