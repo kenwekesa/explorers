@@ -13,7 +13,7 @@ const Loginform = () => {
           <input className='loginputone logtop' placeholder='Email' type="email"/> <br></br>
           <input className='loginputone logtopi' placeholder='Password' type="password" /> <br></br>
           {/* <a className='ton'>Login</a> */}
-          <Link to="/mydashboard" className='ton'>Login</Link>
+          <Link to="/dashboard" className='ton'>Login</Link>
           </form>
           <div className='logimgreset'>
               <img src={reset} alt="reset" loading="lazy" />

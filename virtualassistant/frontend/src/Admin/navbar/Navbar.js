@@ -29,7 +29,7 @@ const Navbar = () => {
           </div>
            </div>    
           </div>
-          <div className='adminnavbarbottom'>
+          <div className='adminmainnavbarbottom'>
             {/* <div className="logo">
             <p className='adminnavusers' ><img src={user} loading="lazy" alt="Logo" /><span>John Doe</span></p>
               </div> */}

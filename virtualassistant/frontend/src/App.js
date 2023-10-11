@@ -12,7 +12,6 @@ import Orderhistory from './pages/orderhistory/Orderhistory';
 import Mainfund from './pages/addfund/Mainfund';
 import Mainaddfunds from './pages/addfunds/Mainaddfunds';
 import Mainservicelist from './pages/servicelist/Mainservicelist';
-import Dashboard from './Admin/dashboard/Dashboard';
 import Adminclients from './Admin/clients/Adminclients';
 import Adminassistants from './Admin/assistants/Adminassistants';
 import Adminfunds from './Admin/funds/Adminfunds';
@@ -28,6 +27,7 @@ import MainSupport from './pages/suppport/MainSupport';
 import Admindash from './pages/dashboard/admindash';
 import Faq from './pages/faqs/faq';
 import Myplans from './Virtual-Assistants/myplans/Myplans';
+import AdminDashboard from './Admin/dashboard/Dashboard';
 
 
 function App() {
@@ -44,7 +44,7 @@ function App() {
         <Route path='/login' element={<Mainlogin />} />
         <Route path='/signup' element={<Mainsignup />} />
         {/* ********clinet Routes********** */}
-        <Route path='/dashboard' element={<Admindash />} />
+        <Route path='/admindashboard' element={<Admindash />} />
         <Route path="/orderhistory" element={<Orderhistory />} />
         <Route path="/addfunds" element={<Mainfund />} />
         <Route path='/newplan' element={<Mainaddfunds />} />
@@ -52,7 +52,7 @@ function App() {
         <Route path='/servicelist' element={<Mainservicelist />} />
         <Route path='/faqs' element={<Faq />} />
         {/* ******* Admin Routes************ */}
-        <Route path='/Dashboard' element={<Dashboard />} />
+        <Route path='/dashboard' element={<AdminDashboard />} />
         <Route path='/clients' element={<Adminclients />} />
         <Route path='/assistants' element={<Adminassistants />} />
         <Route path='/funds' element={<Adminfunds />} />

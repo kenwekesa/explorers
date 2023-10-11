@@ -7,7 +7,7 @@ import dashboard from "../../images/dashboard.png"
 import message from "../../images/customer.png"
 import assistants from "../../images/orderhistory.png"
 import cash from "../../images/todolist.png"
-import clients from "../../images/clients.png"
+import coins from "../../images/coins.png"
 import pending from "../../images/pending.png"
 import plans from "../../images/newplans.png"
 import admin from "../../images/help.png"
@@ -57,10 +57,10 @@ const ClientNavbar = () => {
             <Link to="/newplan" className='adminlink'><p className='adminuser' ><img src={plans} loading="lazy" alt="Logo" /><span>New Plan</span></p></Link>
               </div>
             <div className="logo adminlogo">
-            <Link to="/orderhistory" className='adminlink'><p className='adminuser' ><img src={assistants} loading="lazy" alt="Logo" /><span>Order History</span></p></Link>
+            <Link to="/orderhistory" className='adminlink'><p className='adminuser' ><img src={assistants} loading="lazy" alt="Logo" /><span>My Orders</span></p></Link>
               </div>
             <div className="logo adminlogo">
-            <Link to="/addfunds" className='adminlink'><p className='adminuser' ><img src={plans} loading="lazy" alt="Logo" /><span>Add Funds</span></p></Link>
+            <Link to="/addfunds" className='adminlink'><p className='adminuser' ><img src={coins} loading="lazy" alt="Logo" /><span>Add Funds</span></p></Link>
               </div>
             <div className="logo adminlogo">
             <Link to="/support" className='adminlink'><p className='adminuser' ><img src={message} loading="lazy" alt="Logo" /><span>Support</span></p></Link>

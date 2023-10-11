@@ -28,7 +28,7 @@
     padding-bottom: 12px;
     align-items: center;
     padding-left: 32px;
-    gap: 80px!important;
+    gap: 101px!important;
     justify-content: space-between;
     /* width: 100%; */
     padding-right: 32px;
@@ -39,6 +39,27 @@
     align-items: center;
     cursor: pointer;
     width: 100%!important;
+}
+
+.adminmainnavbarbottom {
+    display: flex;
+    height: 24px;
+    padding-top: 18px;
+    padding-bottom: 12px;
+    align-items: center;
+    padding-left: 32px;
+    gap: 68px !important;
+    justify-content: space-between;
+    /* width: 100%; */
+    padding-right: 32px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.09);
+}
+
+.adminmainnavbarbottom p {
+    align-items: center;
+    cursor: pointer;
+    width: 100% !important;
 }
 
 .adminlink{
@@ -141,6 +162,70 @@
 
 /* Add animation for exiting the hover state */
 .adminnavbarbottom p:hover::after {
+    transform: scaleX(1);
+    /* Scale up to show the underline */
+    transform-origin: right;
+}
+
+.adminmainnavbarbottom p {
+    /* display: inline-block; */
+    /* Make the link inline-block to contain the underline */
+    position: relative;
+    /* Position relative for pseudo-element */
+}
+
+
+/* Define the orange underline for the navigation link */
+.adminmainnavbarbottom p::before {
+    content: '';
+    /* Create an empty pseudo-element */
+    width: 100%;
+    height: 2px;
+    /* Adjust the thickness of the underline */
+    background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) -10.44%, rgba(11, 255, 196, 0.77) 108.53%, rgba(11, 138, 255, 0.77) 108.54%));
+    /* Orange color for the underline */
+    position: absolute;
+    /* Position absolute within the relative parent */
+    bottom: 0;
+    /* Position it at the bottom of the link */
+    left: 0;
+    transform: scaleX(0);
+    /* Initial scale to 0 for animation */
+    transform-origin: left;
+    transition: transform 0.2s ease;
+    /* Add animation for the underline */
+}
+
+/* Add animation when hovering over the navigation link */
+.adminmainnavbarbottom p:hover::before {
+    transform: scaleX(1);
+    /* Scale up to show the underline */
+    transform-origin: left;
+}
+
+/* Add animation for exiting the hover state */
+.adminmainnavbarbottom p::after {
+    content: '';
+    /* Create an empty pseudo-element */
+    width: 100%;
+    height: 2px;
+    /* Adjust the thickness of the underline */
+    background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) -10.44%, rgba(11, 255, 196, 0.77) 108.53%, rgba(11, 138, 255, 0.77) 108.54%));
+    /* Orange color for the underline */
+    position: absolute;
+    /* Position absolute within the relative parent */
+    bottom: 0;
+    /* Position it at the bottom of the link */
+    left: 0;
+    transform: scaleX(0);
+    /* Initial scale to 0 for animation */
+    transform-origin: left;
+    transition: transform 100s ease;
+    /* Add animation for the underline */
+}
+
+/* Add animation for exiting the hover state */
+.adminmainnavbarbottom p:hover::after {
     transform: scaleX(1);
     /* Scale up to show the underline */
     transform-origin: right;

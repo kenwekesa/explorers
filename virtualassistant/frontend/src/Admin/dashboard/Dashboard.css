@@ -1,5 +1,5 @@
 .admindashboard{
-
+  background: #F5F5F5;
 }
 
 .admindashboardcontent{
@@ -17,4 +17,9 @@
     position: sticky;
     top: 0;
     width: 100%;
+}
+
+.admin_dashboard_title{
+    padding-top: 30px;
+    padding-bottom: 5px;
 }

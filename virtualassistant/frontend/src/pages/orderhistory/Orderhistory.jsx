@@ -57,7 +57,7 @@ function Orderhistory() {
             {/* <div className="placeorder_btn">
               Place Order
             </div> */}
-            <h1>Order History</h1>
+            <h1>My Orders</h1>
             <div className="links_group order_links_group">
               <span className='link'>All</span>
               <span className='link'>Pending </span>
