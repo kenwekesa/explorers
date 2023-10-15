@@ -1,6 +1,6 @@
 import React from 'react'
 import Footer from '../../Admin/footer/Footer'
-import ClientNavbar from '../../Admin/navbar/navbar'
+import ClientNavbar from '../../Admin/navbar/ClientNavbar'
 import "./Mainservicelist.css"
 import Plancard from './plancards/Plancard'
 import Servicecard from './plancards/Servicecard'

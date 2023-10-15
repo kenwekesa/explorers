@@ -5,7 +5,7 @@ import "./dashcards.css"
 const Supportdas = () => {
   return (
     <div>
-      <div className='dashcard'>
+      <div className='dashcards'>
           <p>Support Tickets</p>
           <img src={img8} alt='logo' />
           <p>18</p>

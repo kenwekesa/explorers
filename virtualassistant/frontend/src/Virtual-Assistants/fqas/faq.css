@@ -3,6 +3,11 @@
   padding-right: 32px;
 }
 
+.faqhead img{
+  height: 35px;
+  width: 35px;
+}
+
 .faqhead h1{
   font-family: Nunito;
   font-size: 30px;

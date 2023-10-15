@@ -6,7 +6,7 @@ import "./dashcards.css"
 const Dashcancel = () => {
   return (
     <div>
-      <div className='dashcard'>
+      <div className='dashcards'>
           <p>Cancelled Plans</p>
           <img src={img4} alt='logo' />
           <p>3</p>

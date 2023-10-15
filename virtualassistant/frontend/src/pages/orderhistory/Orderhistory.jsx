@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Footer from '../../Admin/footer/Footer';
-import ClientNavbar from '../../Admin/navbar/navbar';
+import ClientNavbar from '../../Admin/navbar/ClientNavbar';
 import "./orderhistory.css"
 
 import './orderhistory.scss'

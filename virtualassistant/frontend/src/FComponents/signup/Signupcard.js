@@ -103,7 +103,7 @@ const Signupcard = () => {
               <p> <input type="checkbox" /> By checking this box I agree to the <Link>Terms</Link> and <Link>privacy policy</Link></p>
             </div>
             <div className='signcardsub'>
-              <a className='ton'>Submit</a>
+              <a className='ton tin'>Submit</a>
            </div>
         </form>
         </div>

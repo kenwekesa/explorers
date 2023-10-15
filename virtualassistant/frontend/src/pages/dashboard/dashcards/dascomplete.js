@@ -6,7 +6,7 @@ import "./dashcards.css"
 const Dascomplete = () => {
   return (
     <div>
-      <div className='dashcard'>
+      <div className='dashcards'>
           <p>Completed plans</p>
           <img src={img5} alt='logo' />
           <p>8</p>

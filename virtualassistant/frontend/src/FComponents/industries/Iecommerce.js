@@ -2,6 +2,9 @@ import React from 'react'
 import bwoner from "../../images/vaco.jpg"
 import "./Iecommerce.css"
 import { Link } from 'react-router-dom'
+import Industrycardsecond from './industrycards/secondcard/Industrycardsecond'
+import Industrycardfirst from './industrycards/firstcard/Industrycardfirst'
+import Industrycardthird from './industrycards/thirdcard/Industrycardthird'
 
 const Iecommerce = () => {
 
@@ -21,7 +24,8 @@ const Iecommerce = () => {
          <Link className='ton Mlandhover-button' onClick={scrollToTop} to="/signup">Hire VA</Link>       
      </div>
      <div className='induoimg'>
-        <img src={bwoner} alt='logo' loading="lazy" className='bownerimg'/>   
+          {/* <img src={bwoner} alt='logo' loading="lazy" className='bownerimg'/>    */}
+          <Industrycardsecond />
      </div>         
     </div>        
     </div>

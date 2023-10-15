@@ -47,7 +47,7 @@
     flex-shrink: 0;
     border-radius: 15px;
     border: 0.6px solid rgba(0, 0, 0, 0.60);
-    background: var(--Background-onecolor, #ECEFF1);
+    background: var(--Background-onecolor, #fff);
 }
 
 .signcardsub {

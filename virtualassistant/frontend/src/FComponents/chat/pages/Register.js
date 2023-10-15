@@ -138,6 +138,11 @@ const Register = () => {
             //   email,
             //   photoURL: downloadURL,
             // });
+
+            await setDoc(doc(db, "userChats", res.user.uid), {
+              
+            })
+
           } catch (error) {
             setError(
               'Error updating user profile or Firestore document or Realtime Database.'

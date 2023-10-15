@@ -28,6 +28,8 @@ import Admindash from './pages/dashboard/admindash';
 import Faq from './pages/faqs/faq';
 import Myplans from './Virtual-Assistants/myplans/Myplans';
 import AdminDashboard from './Admin/dashboard/Dashboard';
+import Maincareers from './FComponents/careers/Maincareers';
+import Chat from './components/chats/Chat';
 
 
 function App() {
@@ -44,7 +46,7 @@ function App() {
         <Route path='/login' element={<Mainlogin />} />
         <Route path='/signup' element={<Mainsignup />} />
         {/* ********clinet Routes********** */}
-        <Route path='/admindashboard' element={<Admindash />} />
+        <Route path='/dashboard' element={<Admindash />} />
         <Route path="/orderhistory" element={<Orderhistory />} />
         <Route path="/addfunds" element={<Mainfund />} />
         <Route path='/newplan' element={<Mainaddfunds />} />
@@ -52,7 +54,7 @@ function App() {
         <Route path='/servicelist' element={<Mainservicelist />} />
         <Route path='/faqs' element={<Faq />} />
         {/* ******* Admin Routes************ */}
-        <Route path='/dashboard' element={<AdminDashboard />} />
+        <Route path='/admin_dashboard' element={<AdminDashboard />} />
         <Route path='/clients' element={<Adminclients />} />
         <Route path='/assistants' element={<Adminassistants />} />
         <Route path='/funds' element={<Adminfunds />} />
@@ -60,11 +62,12 @@ function App() {
         <Route path='/register' element={<AdminRegister />} />
         <Route path='/plans' element={<Adminplan />} />
         <Route path='/updates' element={<Adminupdates />} />
+        <Route path='/careers' element={<Maincareers />} />
         {/***********virtual Assistants Routes*********/}
         <Route path='/mydashboard' element={<Virtual_Dashboard/>} />
         <Route path='/myplans' element={<Myplans />} />
         <Route path='/myfunds' element={<Myfunds />} />
-        <Route path='/csupport' element={<VASupport />} />
+        <Route path='/csupport' element={<Chat/>} />
         <Route path='/cfqas' element={<Fqas />} />
       </Routes>
     </div>

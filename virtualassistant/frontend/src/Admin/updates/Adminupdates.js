@@ -2,6 +2,7 @@ import React from 'react'
 import Footer from '../footer/Footer'
 import Navbar from '../navbar/Navbar'
 import "./Adminupdates.css"
+import Contactfrom from './Contactfrom'
 
 const Adminupdates = () => {
   return (
@@ -10,8 +11,8 @@ const Adminupdates = () => {
               <Navbar/>
           </div>
           <div>
-              <div className='admindashboardcontent'>
-                  this is the dashboard
+              <div className='Adminregister_card'>
+                <Contactfrom />
               </div>
               <Footer/>
           </div>

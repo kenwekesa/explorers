@@ -2,16 +2,16 @@ import React from 'react'
 import './admindash.css'
 // import Navbar from '../../components/client_dashboard/navbar/Navbar'
 // import Footer from '../../components/client_dashboard/footer/Footer'
-import Supportdas from './dashcards/supportdas'
-import Dashmess from './dashcards/dashmess'
-import Available from './dashcards/available'
-import Dascomplete from './dashcards/dascomplete'
-import Dashcancel from './dashcards/dashcancel'
-import Active from './dashcards/active'
-import Adminnotif from './dashcards/adminnotif'
-import ClientNavbar from '../../Admin/navbar/navbar'
+import Supportdas from '../../Virtual-Assistants/dashboard/dashcards/supportdas'
+import Dashmess from '../../Virtual-Assistants/dashboard/dashcards/dashmess'
+import Available from '../../Virtual-Assistants/dashboard/dashcards/available'
+import Dascomplete from '../../Virtual-Assistants/dashboard/dashcards/dascomplete'
+import Dashcancel from '../../Virtual-Assistants/dashboard/dashcards/dashcancel'
+import Active from '../../Virtual-Assistants/dashboard/dashcards/active'
+import Adminnotif from '../../Virtual-Assistants/dashboard/dashcards/adminnotif'
 import Footer from '../../Admin/footer/Footer'
 import Addupdates from '../addfunds/Addupdates'
+import ClientNavbar from '../../Admin/navbar/ClientNavbar'
 
 
 const Admindash = () => {
@@ -21,7 +21,7 @@ const Admindash = () => {
       <div className='admin_client_navbar'>
         <ClientNavbar />
       </div>
-      <h1>My dashboard</h1>
+      <h1>Dashboard</h1>
       <div className='dashp'>
         <div className='mlandservone'>
         <Active/>

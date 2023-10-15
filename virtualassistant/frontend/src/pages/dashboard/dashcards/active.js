@@ -6,7 +6,7 @@ import "./dashcards.css"
 const Active = () => {
   return (
     <div>
-      <div className='dashcard'>
+      <div className='dashcards'>
           <p>Active plans</p>
           <img src={img3} alt='logo' />
           <p>13</p>

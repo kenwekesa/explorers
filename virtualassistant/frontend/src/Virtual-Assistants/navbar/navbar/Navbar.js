@@ -15,6 +15,14 @@ import help from "../../../images/help.png"
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
+
+   const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      // behavior: 'smooth', // Add smooth scrolling behavior
+    });
+  };
+
   return (
       <div className='adminnavbar'>
           <div className='adminnavbartop'>
@@ -35,19 +43,19 @@ const Navbar = () => {
             <p className='adminnavusers' ><img src={user} loading="lazy" alt="Logo" /><span>John Doe</span></p>
               </div> */}
             <div className="logo adminlogo">
-            <Link to="/mydashboard" className='adminlink'><p className='adminuser' ><img src={dashboard} loading="lazy" alt="Logo" /><span>Dashboard</span></p></Link>
+            <Link to="/mydashboard" onClick={scrollToTop}  className='adminlink'><p className='adminuser' ><img src={dashboard} loading="lazy" alt="Logo" /><span>Dashboard</span></p></Link>
               </div>
             <div className="logo adminlogo">
-            <Link to="/myplans" className='adminlink linkalignleft'><p className='adminuser' ><img src={plans} loading="lazy" alt="Logo" /><span>My Plans</span></p></Link>
+            <Link to="/myplans" onClick={scrollToTop}  className='adminlink linkalignleft'><p className='adminuser' ><img src={plans} loading="lazy" alt="Logo" /><span>My Plans</span></p></Link>
               </div>
             <div className="logo adminlogo">
-            <Link to="/myfunds" className='adminlink linkalignleft'><p className='adminuser' ><img src={cash} loading="lazy" alt="Logo" /><span>My funds</span></p></Link>
+            <Link to="/myfunds" onClick={scrollToTop}  className='adminlink linkalignleft'><p className='adminuser' ><img src={cash} loading="lazy" alt="Logo" /><span>My funds</span></p></Link>
               </div>
             <div className="logo adminlogo">
-            <Link to="/csupport" className='adminlink linkalignleft'><p className='adminuser' ><img src={message} loading="lazy" alt="Logo" /><span>Support</span></p></Link>
+            <Link to="/csupport" onClick={scrollToTop}  className='adminlink linkalignleft'><p className='adminuser' ><img src={message} loading="lazy" alt="Logo" /><span>Support</span></p></Link>
               </div>
             <div className="logo adminlogo">
-            <Link to="/cfqas" className='adminlink linkalignleft'><p className='adminuser linkalignleft' ><img src={help} loading="lazy" alt="Logo" /><span>Faqs</span></p></Link>
+            <Link to="/cfqas" onClick={scrollToTop}  className='adminlink linkalignleft'><p className='adminuser linkalignleft' ><img src={help} loading="lazy" alt="Logo" /><span>Faqs</span></p></Link>
               </div>
             {/* <div className="logo adminlogo"> */}
             {/* <Link to='/funds' className='adminlink'><p className='adminuser' ><img src={cash} loading="lazy" alt="Logo" /><span>Funds</span></p></Link>

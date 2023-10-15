@@ -7,7 +7,7 @@ import img0 from "../../images/cancel.png"
 import img1 from "../../images/controlpointduplicate.png"
 import img2 from "../../images/deliverytime.png"
 import { useState } from 'react';
-import ClientNavbar from '../../Admin/navbar/navbar'
+// import ClientNavbar from '../../Admin/navbar/navbar'
 import Footer from '../../Admin/footer/Footer'
 import Navbar from '../navbar/navbar/Navbar'
 
@@ -53,7 +53,7 @@ const Fqas = () => {
     <div className='faqhead'>
       <h1>FAQs</h1>
       <p><img src={img2} alt='logo'/>Delivery</p>
-      <p> <img src={img0} alt="logo" />Cancelled</p>
+      <p><img src={img0} alt="logo" />Cancelled</p>
       <p> <img src={img1} alt="logo" />Duplicate Plans</p>
 
       <div className='faqhead1'>

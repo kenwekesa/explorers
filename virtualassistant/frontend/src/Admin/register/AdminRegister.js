@@ -3,6 +3,7 @@ import Loginform from '../../FComponents/login/Loginform'
 import Footer from '../footer/Footer'
 import Navbar from '../navbar/Navbar'
 import "./AdminRegister.css"
+import Contactfrom from './registercard/Contactfrom'
 
 const AdminRegister = () => {
   return (
@@ -11,10 +12,10 @@ const AdminRegister = () => {
               <Navbar/>
           </div>
           <div>
-              <div className='admindashboardcontent'>
-                  <Loginform />
-              </div>
-              <Footer />
+          <div className='Adminregister_card'>
+            <Contactfrom />
+          </div>
+          <Footer />
           </div>
       </div>
   )

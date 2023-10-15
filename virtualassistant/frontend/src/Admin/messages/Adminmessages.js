@@ -1,4 +1,6 @@
 import React from 'react'
+import Mainchat from '../../FComponents/chat/Mainchat'
+import ChatHome from '../../FComponents/chat/pages/Home'
 import Footer from '../footer/Footer'
 import Navbar from '../navbar/Navbar'
 import "./Adminmessages.css"
@@ -7,13 +9,13 @@ const Adminmessages = () => {
   return (
     <div className='admindashboard'>
           <div className="dashboardnav">
-              <Navbar/>
+            <Navbar/>
           </div>
           <div>
-              <div className='admindashboardcontent'>
-                  this is the dashboard
-              </div>
-              <Footer />
+          <div className='admin_messages'>
+            <Mainchat />
+          </div>
+            <Footer />
           </div>
       </div>
   )

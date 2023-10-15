@@ -6,7 +6,7 @@ import "./dashcards.css"
 const Dashmess = () => {
   return (
     <div>
-      <div className='dashcard'>
+      <div className='dashcards'>
           <p>New Messages</p>
           <img src={img7} alt='logo' />
           <p>2</p>

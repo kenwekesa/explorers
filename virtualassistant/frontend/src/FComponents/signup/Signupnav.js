@@ -10,7 +10,7 @@ const Signupnav = () => {
         <MainNav />
         </div>
         <div className='maasignupcontent'>
-        <p>Get Started <span className='spancolor1'>with the Hiring</span> Process</p>
+        <p>Get started <span className='spancolor1'>with the hiring</span> process</p>
         </div>
     </div>
   )

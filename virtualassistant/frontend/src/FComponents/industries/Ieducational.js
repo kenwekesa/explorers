@@ -1,7 +1,8 @@
 import React from 'react'
-import bwoner from "../../images/vamanone.jpg"
+// import bwoner from "../../images/vamanone.jpg"
 import "./Iecommerce.css"
 import { Link } from 'react-router-dom'
+import Industrycardforth from './industrycards/forth/Industrycardforth'
 
 const Ieducational = () => {
  
@@ -21,7 +22,8 @@ return (
          <Link className='ton Mlandhover-button' onClick={scrollToTop} to="/signup">Hire VA</Link>        
      </div>
      <div className='induoimg'>
-        <img src={bwoner} alt='logo' loading="lazy" className='bownerimg'/>   
+        {/* <img src={bwoner} alt='logo' loading="lazy" className='bownerimg'/>    */}
+        <Industrycardforth />
      </div>         
     </div>        
     </div>

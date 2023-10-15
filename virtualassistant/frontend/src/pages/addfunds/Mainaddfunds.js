@@ -4,8 +4,8 @@ import "./Mainaddfunds.css"
 import Addfirstcard from './addcards/Addfirstcard'
 import Addsecondard from './addcards/Addsecondard'
 import Addupdates from './Addupdates'
-import ClientNavbar from '../../Admin/navbar/navbar'
 import Footer from '../../Admin/footer/Footer'
+import ClientNavbar from '../../Admin/navbar/ClientNavbar'
 
 const Mainaddfunds = () => {
   return (

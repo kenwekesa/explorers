@@ -1,6 +1,7 @@
 import React from 'react'
 import Footer from '../../Admin/footer/Footer'
 import Mainchat from '../../FComponents/chat/Mainchat'
+import VaFooter from '../footer/VaFooter'
 import Navbar from '../navbar/navbar/Navbar'
 import "./Support.css"
 
@@ -14,7 +15,8 @@ const VASupport = () => {
              <Mainchat />
           </div>
           <div>
-              <Footer />
+        <Footer />
+        {/* <VaFooter /> */}
           </div>
       </div>
   )

@@ -9,8 +9,8 @@ import img2 from "../../images/deliverytime.png"
 // import Footer from '../../components/client_dashboard/footer/Footer'
 // import Navbar from '../../components/client_dashboard/navbar/Navbar'
 import { useState } from 'react';
-import ClientNavbar from '../../Admin/navbar/navbar'
 import Footer from '../../Admin/footer/Footer'
+import ClientNavbar from '../../Admin/navbar/ClientNavbar'
 
 const Faq = () => {
 

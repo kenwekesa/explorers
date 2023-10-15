@@ -55,7 +55,7 @@ function Footer() {
           <p>Web Development</p>
           <p>Digital Marketing</p>
           <p>Database Management</p>
-          <p><Link className='fotterlinks' to="/contact" onClick={scrollToTop}>Careers</Link></p>
+          <p><Link className='fotterlinks' to="/careers" onClick={scrollToTop}>Careers</Link></p>
         </div>
       </div>
 
