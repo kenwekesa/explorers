@@ -2,6 +2,8 @@ import stripe
 from django.shortcuts import render, redirect
 from .forms import PaymentForm
 
+from django.http import JsonResponse
+
 stripe.api_key = 'your_stripe_secret_key'
 
 def payment_view(request):
@@ -30,3 +32,9 @@ def payment_view(request):
 
     form = PaymentForm()
     return render(request, 'payment_form.html', {'form': form})
+
+def data_view(request):
+    num_items = 10 
+    items = [{"id": random.randint(1, 100), "name": f"Item {random.randint(1, 100)}"} for _ in range(num_items)]
+    data = [{"id": item.id, "name": item.name} for item in items]
+    return JsonResponse(data, safe=False)
