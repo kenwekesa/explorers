@@ -22,5 +22,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('back/', include('backside.urls'))
     
-    
 ]

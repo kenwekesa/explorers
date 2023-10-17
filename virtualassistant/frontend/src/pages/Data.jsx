@@ -7,7 +7,7 @@ function Data() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/dataview'); // Replace with your actual API endpoint
+        const response = await axios.get('http://127.0.0.1:8000/back/dataview'); // Replace with your actual API endpoint
         setRandomData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);

@@ -10,6 +10,7 @@ import Orderhistory from './pages/orderhistory/Orderhistory';
 import Subscriptions from './pages/subscriptions/Subscriptions';
 import Support from './pages/support/Support';
 import Payment from './FComponents/payments/Payment';
+import Data from './pages/Data';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/support" element={ <Support/> } />
         <Route path="/subscriptions" element={ <Subscriptions/> } />
         <Route path="/payment" element={<Payment />}/>
+        <Route path="/dataa" element ={<Data/>}/>
 
       </Routes>
     </div>
