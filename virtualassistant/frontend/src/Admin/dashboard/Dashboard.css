@@ -19,7 +19,8 @@
     width: 100%;
 }
 
-.admin_dashboard_title{
+.admin_dashboard_title h1{
     padding-top: 30px;
     padding-bottom: 5px;
+    margin-left: 55px;
 }

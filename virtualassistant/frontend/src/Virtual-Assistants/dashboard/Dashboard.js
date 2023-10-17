@@ -16,27 +16,27 @@ const Virtual_Dashboard = () => {
           <div className='virtual_dashboard_navbar'>
               <Navbar />
           </div>
-          <div className='virtual_dashboard_main'>
-              <div className='virtual_dashboard_title'>
-                  <h1>Dashboard</h1>
-              </div>
-               <div className='dashp'>
-        <div className='mlandservone'>
-        <Active/>
-        <Dashcancel/>
-        <Dascomplete/>
+            <div className='virtual_dashboard_main'>
+                <div className='virtual_dashboard_title'>
+                    <h1>Dashboard</h1>
+                </div>
+                <div className='dashp'>
+            <div className='mlandservone'>
+            <Active/>
+            <Dashcancel/>
+            <Dascomplete/>
+            </div>
+            
+            <div className='mlandservone'>
+            <Available />
+            <Dashmess/>
+            <Supportdas/>
+            </div>
         </div>
-        
-        <div className='mlandservone'>
-        <Available />
-        <Dashmess/>
-        <Supportdas/>
+        <div className='addmainupdates'>
+            <Addupdates /> 
         </div>
-      </div>
-      <div className='addmainupdates'>
-         <Addupdates /> 
-      </div>
-          </div>
+            </div>
           <div>
               <Footer />
           </div>

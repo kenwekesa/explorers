@@ -1,7 +1,5 @@
 import { getDocs, onSnapshot, collection,getDoc,doc,query, where, or,and, addDoc, serverTimestamp,Timestamp,updateDoc } from "firebase/firestore"; 
-import {db} from "../../firebase/firebase"
-
-
+import { db } from "../../../firebase/firebase";
 
 
 const users_collection_name = "Users"

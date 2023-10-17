@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import img6 from '../../../images/cashinhand.png';
+import img6 from '../../../images/emails.png';
 import './dashcards.css';
 
 const Admins = () => {
@@ -16,11 +16,11 @@ const Admins = () => {
         onMouseEnter={toggleHover}
         onMouseLeave={toggleHover}
       >
-        <p>Available Funds</p>
+        <p>New emails</p>
         <img src={img6} alt="logo" />
-        <p>$1000</p>
+        <p>20</p>
         {isHovered && (
-          <button className="ton tin">View all funds</button>
+          <button className="ton tin">View all new emails</button>
         )}
       </div>
     </div>

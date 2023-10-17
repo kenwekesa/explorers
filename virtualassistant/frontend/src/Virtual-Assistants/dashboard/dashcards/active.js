@@ -9,7 +9,7 @@ const Active = () => {
       <div className='dashcard'>
           <p>Active plans</p>
           <img src={img3} alt='logo' />
-          <p>13</p>
+          <p>20</p>
       </div>
     </div>
   )

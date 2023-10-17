@@ -1,10 +1,7 @@
 import React from 'react'
 import Footer from '../../Admin/footer/Footer'
 import ClientNavbar from '../../Admin/navbar/ClientNavbar'
-import Mainchat from '../../FComponents/chat/Mainchat'
-import ChatHome from '../../FComponents/chat/pages/Home'
-import ChatLogin from '../../FComponents/chat/pages/Login'
-import Register from '../../FComponents/chat/pages/Register'
+import Chat from '../../components/chats/Chat'
 import "./MainSupport.css"
 
 const MainSupport = () => {
@@ -14,10 +11,7 @@ const MainSupport = () => {
         {/* <ClientNavbar /> */}
         <ClientNavbar />
         </div>
-        {/* <ChatHome /> */}
-        {/* <Register /> */}
-        {/* <ChatLogin /> */}
-        <Mainchat />
+        <Chat />
         <Footer />
       </div>
   )

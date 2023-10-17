@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { findUserByName } from '../../services/api/DataApi'
+
+import { findUserByName } from '../../FComponents/chats/Api/DataApi'
 
 function Search() {
 

@@ -1,18 +1,30 @@
-import React from 'react'
-import img7 from "../../../images/mymessages.png"
-import "./dashcards.css"
+import React, { useState } from 'react';
+import img6 from '../../../images/mymessages.png';
+import './dashcards.css';
 
+const Admins = () => {
+  const [isHovered, setHovered] = useState(false);
 
-const Dashmess = () => {
+  const toggleHover = () => {
+    setHovered(!isHovered);
+  };
+
   return (
     <div>
-      <div className='dashcard'>
-          <p>New Messages</p>
-          <img src={img7} alt='logo' />
-          <p>42</p>
-        </div>
+      <div
+        className={`dashcard ${isHovered ? 'hovered' : ''}`}
+        onMouseEnter={toggleHover}
+        onMouseLeave={toggleHover}
+      >
+        <p>New Messages</p>
+        <img src={img6} alt="logo" />
+        <p>11</p>
+        {isHovered && (
+          <button className="ton tin">View all new messages</button>
+        )}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Dashmess
+export default Admins;

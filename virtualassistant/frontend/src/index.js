@@ -4,20 +4,20 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-import { ChatAuthContextProvider } from './FComponents/chat/chatContext/ChatAuthContext';
-import { ChatsAuthContextProvider } from './FComponents/chat/chatContext/ChatsContext';
+import { DialogProvider } from './FComponents/signup/DialogProvider';
+
+// import "../node_modules/react-bootstrap/dist/react-bootstrap"
+// import "../node_modules/bootstrap/dist/css/bootstrap.css"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ChatAuthContextProvider>
-  <ChatsAuthContextProvider>
-     <React.StrictMode>
+    <React.StrictMode>
     <BrowserRouter>
-       <App />
+    <DialogProvider>
+      <App />
+    </DialogProvider>
     </BrowserRouter>
-      </React.StrictMode>
-  </ChatsAuthContextProvider>
-  </ChatAuthContextProvider>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

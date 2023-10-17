@@ -3,7 +3,7 @@ import { AuthContext } from '../../contextr/AuthContext'
 
 import { AttachFileOutlined } from '@mui/icons-material'
 import { ImageOutlined } from '@mui/icons-material'
-import { sendMessage } from '../../services/api/DataApi'
+import { sendMessage } from '../../FComponents/chats/Api/DataApi'
 import { ChatContext } from '../../contextr/ChatsContext'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import { storage } from '../../firebase/firebase'

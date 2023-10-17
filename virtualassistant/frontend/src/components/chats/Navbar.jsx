@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { MoreVertOutlined } from '@mui/icons-material'
 import { AuthContext } from '../../contextr/AuthContext'
 
-import { findUser } from '../../services/api/DataApi'
+import { findUser } from '../../FComponents/chats/Api/DataApi'
 
 
 

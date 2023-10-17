@@ -4,10 +4,13 @@ import Navbar from '../navbar/Navbar'
 
 import "./Dashboard.css"
 import Active from './dashcards/active'
+import Admins from './dashcards/admins'
 import Available from './dashcards/available'
 import Dascomplete from './dashcards/dascomplete'
 import Dashcancel from './dashcards/dashcancel'
 import Dashmess from './dashcards/dashmess'
+import Emails from './dashcards/emails'
+import Empty from './dashcards/empty'
 import Supportdas from './dashcards/supportdas'
 
 const AdminDashboard = () => {
@@ -32,6 +35,12 @@ const AdminDashboard = () => {
                 <Available />
                 <Dashmess/>
                 <Supportdas/>
+                </div>
+                      
+                <div className='mlandservone'>
+                <Admins />
+                <Emails/>
+                <Empty/>
                 </div>
             </div>
             <div className='addmainupdates'>

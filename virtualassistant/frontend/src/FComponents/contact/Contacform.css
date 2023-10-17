@@ -72,10 +72,10 @@
     padding-top: 10px;
 }
 
-.contactpar{
+.contactpara_main_form{
     margin-left: 30px;
-    padding-bottom: 40px;
-    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-top: 15px;
 }
 
 .contabutton{
@@ -99,4 +99,16 @@
     font-style: normal;
     font-weight: 400;
     /* line-height: 23.12px; */
+}
+
+.contact_scroll_to_top{
+    text-decoration: none;
+    color: rgb(33, 33, 108, 0.8);
+    padding-left: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.contact_form_btn_main{
+    padding: 0px !important;;
 }

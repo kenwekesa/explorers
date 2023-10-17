@@ -1,18 +1,30 @@
-import React from 'react'
-import img3 from "../../../images/inprogress.png"
-import "./dashcards.css"
+import React, { useState } from 'react';
+import img6 from '../../../images/inprogress.png';
+import './dashcards.css';
 
+const Admins = () => {
+  const [isHovered, setHovered] = useState(false);
 
-const Active = () => {
+  const toggleHover = () => {
+    setHovered(!isHovered);
+  };
+
   return (
     <div>
-      <div className='dashcard'>
-          <p>Active plans</p>
-          <img src={img3} alt='logo' />
-          <p>25</p>
+      <div
+        className={`dashcard ${isHovered ? 'hovered' : ''}`}
+        onMouseEnter={toggleHover}
+        onMouseLeave={toggleHover}
+      >
+        <p>Active Plans</p>
+        <img src={img6} alt="logo" />
+        <p>14</p>
+        {isHovered && (
+          <button className="ton tin">View all active plans</button>
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Active
+export default Admins;

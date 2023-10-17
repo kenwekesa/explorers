@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import "./Contacform.css"
 
-function CountrySelector() {
+function CountrySelector({ selectedCountry, onCountryChange }) {
   const [countries, setCountries] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState('');
 
   useEffect(() => {
     async function fetchCountries() {
@@ -25,7 +24,8 @@ function CountrySelector() {
   }, []);
 
   const handleCountryChange = (e) => {
-    setSelectedCountry(e.target.value);
+    const selectedCountry = e.target.value;
+    onCountryChange(selectedCountry); // Call the onCountryChange function with the selected country
   };
 
   return (
