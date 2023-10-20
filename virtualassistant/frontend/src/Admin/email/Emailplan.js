@@ -4,6 +4,7 @@ import Navbar from '../navbar/Navbar';
 import "./orderhistory.css"
 import './orderhistory.scss'
 import eye from "../../images/eye.png"
+import EmailsData from './emailscards/EmailsData';
 
 function Emailplan() {
   const data = [
@@ -29,7 +30,7 @@ function Emailplan() {
     // ... more data
   ];
 
-  
+  const [isPayPalDialogOpen, setPayPalIsDialogOpen] = useState(false); // Open Edit dialog
   const [perPage, setPerPage] = useState(5); // Number of items per page
   const [currentPage, setCurrentPage] = useState(1); // Current page
   const [searchText, setSearchText] = useState(''); // Search input
@@ -46,6 +47,15 @@ function Emailplan() {
     (currentPage - 1) * perPage,
     currentPage * perPage
   );
+
+  // Fuctions to open and close the edit page
+  const openPayPalDialog = () => {
+    setPayPalIsDialogOpen(true);
+  };
+
+  const closePayPalDialog = () => {
+    setPayPalIsDialogOpen(false);
+  };
   return (
     <div className='orderhistory'>
       {/* <Navbar className='orderhistory_navbar'/> */}
@@ -60,13 +70,13 @@ function Emailplan() {
               Place Order
             </div> */}
             <h1>Emails</h1>
-            <div className="links_group order_links_group">
-              <span className='link'>All</span>
+            <div>
+              {/* <span className='link'>All</span>
               <span className='link'>Pending </span>
               <span className='link'>Active </span>
               <span className='link'>Completed </span>
               <span className='link'>Referended </span>
-              <span className='link'>Canceled </span>
+              <span className='link'>Canceled </span> */}
             </div>
           </div>
         </div>
@@ -119,7 +129,12 @@ function Emailplan() {
                 <td>{item.time_zone}</td>
                 <td>{item.amount} </td>
                 <td>{item.date}</td>
-                <td className='admin_btn_view'>{item.status}<img src={eye} alt='logo'/></td>
+                <td className='admin_btn_view'>{item.status}<img src={eye} alt='logo' onClick={openPayPalDialog} />
+                  <EmailsData
+                     isOpen={isPayPalDialogOpen}
+                    onClose={closePayPalDialog} 
+                  />
+                </td>
               </tr>
             ))}
           </tbody>

@@ -4,6 +4,7 @@ import Navbar from '../navbar/Navbar';
 import "./orderhistory.css"
 import './orderhistory.scss'
 import eye from "../../images/eye.png"
+import ClientsData from './clientscards/ClientsData';
 
 function Adminclients() {
   const data = [
@@ -25,7 +26,7 @@ function Adminclients() {
     // ... more data
   ];
 
-  
+  const [isPayPalDialogOpen, setPayPalIsDialogOpen] = useState(false); // Open Edit dialog
   const [perPage, setPerPage] = useState(5); // Number of items per page
   const [currentPage, setCurrentPage] = useState(1); // Current page
   const [searchText, setSearchText] = useState(''); // Search input
@@ -42,6 +43,15 @@ function Adminclients() {
     (currentPage - 1) * perPage,
     currentPage * perPage
   );
+
+  // Fuctions to open and close the edit page
+  const openPayPalDialog = () => {
+    setPayPalIsDialogOpen(true);
+  };
+
+  const closePayPalDialog = () => {
+    setPayPalIsDialogOpen(false);
+  };
   return (
     <div className='orderhistory'>
       {/* <Navbar className='orderhistory_navbar'/> */}
@@ -113,7 +123,12 @@ function Adminclients() {
                 <td>{item.assistants}</td>
                 <td>{item.period}</td>
                 <td>{item.time_zone}</td>
-                <td className='admin_btn_view'>{item.amount} <img src={eye} alt='logo'/></td>
+                <td className='admin_btn_view'>{item.amount} <img src={eye} alt='logo' onClick={openPayPalDialog} />
+                  <ClientsData 
+                     isOpen={isPayPalDialogOpen}
+                    onClose={closePayPalDialog} 
+                  />
+                </td>
                 {/* <td>{item.date}</td>
                 <td>{item.status}</td> */}
               </tr>

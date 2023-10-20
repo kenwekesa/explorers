@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import img6 from '../../../images/clients.png';
 import './dashcards.css';
 
@@ -9,18 +10,25 @@ const Admins = () => {
     setHovered(!isHovered);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      // behavior: 'smooth', // Add smooth scrolling behavior
+    });
+  };
+
   return (
     <div>
       <div
-        className={`dashcard ${isHovered ? 'hovered' : ''}`}
+        className={`admin_dashcard ${isHovered ? 'hovered' : ''}`}
         onMouseEnter={toggleHover}
         onMouseLeave={toggleHover}
       >
         <p>Total Clients</p>
         <img src={img6} alt="logo" />
-        <p>20</p>
+        <p className='admin_dashboard_paragraph'>20</p>
         {isHovered && (
-          <button className="ton tin">View all clients</button>
+          <Link onClick={scrollToTop} to="/clients" className='ton tin ton-tin'>View all clients</Link>
         )}
       </div>
     </div>

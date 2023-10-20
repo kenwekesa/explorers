@@ -1,0 +1,26 @@
+.virtual-dashboard{
+    background: #F5F5F5;
+}
+
+.virtual_dashboard_navbar{
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+.virtual_dashboard_main{
+    padding-left: 75px;
+    padding-right: 75px;
+    min-height: 100vh;
+}
+
+.virtual_dashboard_title p{
+    /* font-size: 24px; */
+    font-weight: 800!;
+}
+
+.virtual_dashboard_title h1 {
+    padding-top: 30px;
+    padding-bottom: 5px;
+    margin-left: 5px;
+}

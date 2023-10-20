@@ -1,0 +1,148 @@
+.orderhistory {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    background-color: #f2f2f2;
+    .orderhistory_navbar {
+      /* Add styles for the navbar if needed */
+    }
+  
+    .orderhistory-content {
+      flex-grow: 1;
+      padding: 0px 30px;
+  
+      .topContainer 
+      {
+        margin-bottom: 25px;
+        .title
+        {
+
+        }
+        .buttonsBar
+        {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          .placeorder_btn 
+          {
+            background: linear-gradient(to right, #24cd48, #57eaaa);
+              color: black;
+              border-radius: 12px;
+              padding: 8px 12px;
+              font-weight: bold;
+          }
+          .links_group 
+          {
+            background-color:#333;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            align-items: center;
+
+            .link 
+            {
+              &:hover
+              {
+                cursor: pointer;
+                color: rgba(255, 255, 255, 0.888);
+              }
+            }
+          }
+        }
+      }
+      /* Filter and Search styles */
+
+      .tableContainer
+      {padding: 12px;
+        background-color: white;
+        border-radius: 12px;
+      .filter-search {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 16px; /* Adjust as needed */
+      }
+  
+      .filter {
+        display: flex;
+        flex-direction: row;
+        gap: 3px;
+        label {
+          margin-right: 8px; /* Adjust spacing */
+        }
+  
+        select {
+          /* Add styles for the select input */
+        }
+      }
+  
+      .search {
+        input {
+          /* Add styles for the search input */
+          padding: 1px 5px;
+          
+        }
+      }
+  
+      /* Table styles */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+  
+        th, td {
+          padding: 8px; /* Adjust padding as needed */
+          border: 1px solid #ccc; /* Add border styles */
+          text-align: left;
+        }
+  
+        th {
+          background-color: #f2f2f2; /* Header background color */
+        }
+  
+        tr:nth-child(even) {
+          background-color: #f2f2f2; /* Alternate row background color */
+        }
+  
+        /* Add more table styles as needed */
+      }
+  
+      /* Pagination styles */
+      .pagination {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 16px; /* Adjust spacing */
+        font-size: 14px; /* Adjust font size */
+        color: #333; /* Text color */
+  
+        .pagination-info {
+          /* Add styles for pagination info */
+        }
+  
+        .pagination-buttons {
+          button {
+            margin-left: 8px; /* Adjust button spacing */
+            /* Add button styles */
+          }
+  
+          button:disabled {
+            opacity: 0.5; /* Style for disabled buttons */
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  }
+  
+    .orderhistory_footer {
+      position: absolute;
+      bottom: 0;
+      /* Add styles for the footer if needed */
+    }
+  }
+  

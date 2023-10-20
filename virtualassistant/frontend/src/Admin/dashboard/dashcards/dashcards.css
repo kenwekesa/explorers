@@ -1,10 +1,9 @@
-.dashcard {
+.admin_dashcard {
   text-align: center;
-  width: 400px;
+  width: 405px;
   height: 230px;
   padding: 10px;
-  margin-bottom: 30px;
-  margin-right: 30px;
+  margin-bottom: 25px;
   align-items: center;
   padding-top: 50px;
   text-align: center;
@@ -15,26 +14,21 @@
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.dashcard:hover {
-  /* background: rgb(149, 149, 225); */
-  /* background: rgb(179, 176, 176); */
-  /* Darkish background color on hover */
-  /* box-shadow: 0px 8px 20px 0px rgba(179,
-    176,
-    176, 0.2); */
-  /* Adjusted shadow */
-
+.admin_dashcard:hover {
   background: rgba(196, 224, 242, 0.60);
     /* Penumber */
-    box-shadow: 0px 6px 30px 5px rgba(196,
-      224,
-      242, 0.12);
+    box-shadow: 0px 6px 30px 5px rgba(196, 224, 242, 0.12);
 }
 
-.dashcard p {
+.admin_dashcard p {
   font-family: Nunito;
   font-size: 20px;
   font-weight: 800;
+}
+
+.admin_dashcard img{
+  height: 46px;
+  width: 46px;
 }
 
 /* You can adjust the button styles as needed. */
@@ -54,4 +48,14 @@
 
 .ton{
   border: none;
+}
+
+.ton-tin{
+  font-weight: normal;
+  font-size: 15px;
+}
+
+.admin_dashboard_paragraph{
+  font-size: 18px!important;
+  font-weight: normal!important;
 }

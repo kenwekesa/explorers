@@ -5,6 +5,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import { DialogProvider } from './FComponents/signup/DialogProvider';
+import { ChatProvider } from './contextr/ChatsContext';
 
 // import "../node_modules/react-bootstrap/dist/react-bootstrap"
 // import "../node_modules/bootstrap/dist/css/bootstrap.css"
@@ -14,7 +15,9 @@ root.render(
     <React.StrictMode>
     <BrowserRouter>
     <DialogProvider>
-      <App />
+      <ChatProvider>
+        <App />
+    </ChatProvider>
     </DialogProvider>
     </BrowserRouter>
     </React.StrictMode>

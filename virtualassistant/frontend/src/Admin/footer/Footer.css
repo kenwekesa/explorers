@@ -1,12 +1,53 @@
 .adminfooter {
     height: 65px;
-    background-color: black;
+    background-color: #001C30;
     display: flex;
     justify-content: space-between;
-    color: white;
+    color: black;
     align-items: center;
     padding-left: 32px;
     padding-right: 32px;
+    position: relative;
+    border-radius: 0%;
+    /* Create a circular shape */
+    overflow: hidden;
+    /* Hide the content outside the circle */
+}
+
+.adminfooter::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent 20%, black 20%, black 40%, transparent 40%, transparent 60%, black 60%, black 80%, transparent 80%);
+    animation: wave 2s infinite;
+    /* Create a wavy pattern animation */
+}
+
+@keyframes wave {
+    0% {
+        transform: translateY(-25%);
+        /* Start from above the element */
+    }
+
+    100% {
+        transform: translateY(0);
+        /* Move it down to its original position */
+    }
+}
+
+.adminfooter p {
+    position: relative;
+    z-index: 1;
+    color: white;
+    /* Set the text color to white */
+}
+
+.adminfooter a {
+    position: relative;
+    z-index: 1;
 }
 
 .adminfooter img {

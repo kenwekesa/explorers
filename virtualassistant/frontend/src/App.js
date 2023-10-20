@@ -19,20 +19,42 @@ import Adminmessages from './Admin/messages/Adminmessages';
 import AdminRegister from './Admin/register/AdminRegister';
 import Adminplan from './Admin/plans/Adminplan';
 import Adminupdates from './Admin/updates/Adminupdates';
-import Virtual_Dashboard from './Virtual-Assistants/dashboard/Dashboard';
-import Myfunds from './Virtual-Assistants/myfunds/Myfunds';
-import VASupport from './Virtual-Assistants/support/Support';
-import Fqas from './Virtual-Assistants/fqas/Fqas';
+import Myfunds from './VirtualAssistants/myfunds/Myfunds';
+import Fqas from './VirtualAssistants/fqas/Fqas';
 import MainSupport from './pages/suppport/MainSupport';
-import Admindash from './pages/dashboard/admindash';
 import Faq from './pages/faqs/faq';
-import Myplans from './Virtual-Assistants/myplans/Myplans';
-import AdminDashboard from './Admin/dashboard/Dashboard';
+import Myplans from './VirtualAssistants/myplans/Myplans';
 import Maincareers from './FComponents/careers/Maincareers';
 import Chat from './components/chats/Chat';
+import Emailplan from './Admin/email/Emailplan';
+import Adminsplan from './Admin/admins/Adminplan';
+import Activeplan from './Admin/activeplans/Activeplans';
+import Pendingplan from './Admin/pendingplans/Pendingplans';
+import MyActiveplan from './VirtualAssistants/myactiveplan/MyActiveplans';
+import MyCanceledplan from './VirtualAssistants/mycancelplans/MyCanceledplan';
+import Mynewplan from './VirtualAssistants/newplans/Mynewplan';
+import MyCompletedplan from './VirtualAssistants/completedplans/MyCompletedplan';
+import Fund from './pages/fund/Fund';
+import Activeplann from './pages/activeplann/activeplann';
+import Completedplann from './pages/completedplann/Completedplann';
+import Pendingplann from './pages/pendingplann/Pendingplann';
+import Canceledplann from './pages/canceledplann/canceledplann';
+import ClientDashboard from './pages/dashboard/ClientDashboard';
+import AdminDashboard from './Admin/dashboard/AdminDashboard';
+import VirtualDashboard from './VirtualAssistants/dashboard/VirtualDashboard';
+import { useContext } from 'react';
+import { AuthContext } from './contextr/AuthContext';
+import { useNavigate, Navigate } from 'react-router-dom'
 
 
 function App() {
+
+  const RequireAuth =({children}) => 
+  {
+    const {state} = useContext(AuthContext)
+     return state.user? children: <Navigate to='/login'/> 
+  }
+
   return (
     <div className='mainapp'>
       <Routes>
@@ -45,30 +67,49 @@ function App() {
         <Route path="/industries" element={<MainIndustries />} />
         <Route path='/login' element={<Mainlogin />} />
         <Route path='/signup' element={<Mainsignup />} />
+        <Route path='/careers' element={<Maincareers />} />
         {/* ********clinet Routes********** */}
-        <Route path='/dashboard' element={<Admindash />} />
+        <Route path='/dashboard' element={<ClientDashboard />} />
         <Route path="/orderhistory" element={<Orderhistory />} />
         <Route path="/addfunds" element={<Mainfund />} />
         <Route path='/newplan' element={<Mainaddfunds />} />
-        <Route path="/support" element={<MainSupport />} />
+        <Route path="/support" element={
+         <RequireAuth><MainSupport /></RequireAuth>
+        } />
         <Route path='/servicelist' element={<Mainservicelist />} />
         <Route path='/faqs' element={<Faq />} />
+        <Route path='/fund' element={<Fund />} />
+        <Route path='/active_plans' element={<Activeplann />} />
+        <Route path='/completed_plans' element={<Completedplann />} />
+        <Route path='/pending_plans' element={<Pendingplann />} />
+        <Route path='/canceled_plans' element={<Canceledplann />} />
         {/* ******* Admin Routes************ */}
         <Route path='/admin_dashboard' element={<AdminDashboard />} />
         <Route path='/clients' element={<Adminclients />} />
         <Route path='/assistants' element={<Adminassistants />} />
         <Route path='/funds' element={<Adminfunds />} />
-        <Route path='/messages' element={<Adminmessages />} />
+        <Route path='/messages' element={
+          <RequireAuth><Adminmessages /></RequireAuth>
+        } />
         <Route path='/register' element={<AdminRegister />} />
         <Route path='/plans' element={<Adminplan />} />
         <Route path='/updates' element={<Adminupdates />} />
-        <Route path='/careers' element={<Maincareers />} />
+        <Route path='/emails' element={<Emailplan />} />
+        <Route path='/administrators' element={<Adminsplan />} />
+        <Route path='/activeplans' element={<Activeplan />} />
+        <Route path='/pendingplans' element={<Pendingplan />} />
         {/***********virtual Assistants Routes*********/}
-        <Route path='/mydashboard' element={<Virtual_Dashboard/>} />
+        <Route path='/mydashboard' element={<VirtualDashboard/>} />
         <Route path='/myplans' element={<Myplans />} />
         <Route path='/myfunds' element={<Myfunds />} />
-        <Route path='/csupport' element={<Chat/>} />
+        <Route path='/csupport' element={
+          <RequireAuth><Chat /></RequireAuth>
+        } />
         <Route path='/cfqas' element={<Fqas />} />
+        <Route path='/myactiveorders' element={<MyActiveplan />} />
+        <Route path='/mycompletedorders' element={<MyCompletedplan />} />
+        <Route path='/mycanceledorders' element={<MyCanceledplan />} />
+        <Route path='/myneworders' element={<Mynewplan />} />
       </Routes>
     </div>
   );

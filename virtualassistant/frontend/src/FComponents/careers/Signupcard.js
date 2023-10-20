@@ -210,6 +210,8 @@ const Signupcard = () => {
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
         setError('Email already in use');
+      }else if (error.code === 'auth/network-request-failed') {
+        setError('Check your internet connection and try again.');
       } else {
         setError(`An error occurred: ${error.message}`);
       }

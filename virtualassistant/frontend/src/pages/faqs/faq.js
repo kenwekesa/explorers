@@ -1,24 +1,13 @@
 import React from 'react'
 import "./faq.css"
-// import img0 from "../../../images/cancel.png"
-// import img1 from "../../../images/controlpointduplicate.png"
-// import img2 from "../../../images/delivertytime.png"
 import img0 from "../../images/cancel.png"
 import img1 from "../../images/controlpointduplicate.png"
 import img2 from "../../images/deliverytime.png"
-// import Footer from '../../components/client_dashboard/footer/Footer'
-// import Navbar from '../../components/client_dashboard/navbar/Navbar'
 import { useState } from 'react';
 import Footer from '../../Admin/footer/Footer'
 import ClientNavbar from '../../Admin/navbar/ClientNavbar'
 
 const Faq = () => {
-
-  // const [isVisible, setIsVisible] = useState(false);
-
-  // const toggleVisibility = () => {
-  //   setIsVisible(!isVisible);
-  // };
 
     // Create state variables to manage the visibility of divs
     const [isDiv1Visible, setIsDiv1Visible] = useState(false);

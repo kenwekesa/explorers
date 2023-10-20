@@ -13,6 +13,7 @@ const Contactfrom = () => {
     email: '',
     contact: '',
     country: '', // Initialize the 'country' field in formData
+    subject: '',
     message: '',
   });
 
@@ -60,13 +61,14 @@ const Contactfrom = () => {
         email: '',
         contact: '',
         country: '', // Clear the 'country' field in formData
+        subject: '',
         message: '',
       });
 
       setIsSubmitting(false);
 
       setNotification({
-        message: 'Your message has been submitted successfully!',
+        message: `Your message has been submitted successfully, we will get in touch with you through ${formData.email}!`,
         isSuccess: true,
       });
 
@@ -130,6 +132,16 @@ const Contactfrom = () => {
                 onCountryChange={(selectedCountry) =>
                   setFormData({ ...formData, country: selectedCountry })
                 }
+              />
+            </div>
+            <div className="contactinputfield contat_subject_field">
+              <input
+                placeholder="Subject"
+                type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleInputChange}
+                required
               />
             </div>
             <div className="contacttext">
