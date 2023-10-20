@@ -4,6 +4,8 @@ from .forms import PaymentForm
 
 from django.http import JsonResponse
 
+import random
+
 stripe.api_key = 'your_stripe_secret_key'
 
 def payment_view(request):
@@ -36,5 +38,16 @@ def payment_view(request):
 def data_view(request):
     num_items = 10 
     items = [{"id": random.randint(1, 100), "name": f"Item {random.randint(1, 100)}"} for _ in range(num_items)]
-    data = [{"id": item.id, "name": item.name} for item in items]
-    return JsonResponse(data, safe=False)
+    
+    # Access "id" and "name" from the dictionary, not "item.id" and "item.name"
+    data = [{"id": item["id"], "name": item["name"]} for item in items]
+    
+    response = JsonResponse(data, safe=False)
+
+      # Set CORS headers to allow requests from your React app (http://localhost:3000)
+    response["Access-Control-Allow-Origin"] = "http://localhost:3000"  # Adjust to your React app's URL
+    response["Access-Control-Allow-Methods"] = "GET"
+    response["Access-Control-Allow-Headers"] = "Content-Type"
+
+    return response
+
