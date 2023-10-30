@@ -4,6 +4,7 @@ import Navbar from '../navbar/Navbar';
 import "./orderhistory.css"
 import './orderhistory.scss'
 import eye from "../../images/eye.png"
+import PlansData from './planscards/PlansData';
 
 function Adminplan() {
   const data = [
@@ -29,7 +30,7 @@ function Adminplan() {
     // ... more data
   ];
 
-  
+  const [isPayPalDialogOpen, setPayPalIsDialogOpen] = useState(false); // Open Edit dialog
   const [perPage, setPerPage] = useState(5); // Number of items per page
   const [currentPage, setCurrentPage] = useState(1); // Current page
   const [searchText, setSearchText] = useState(''); // Search input
@@ -46,13 +47,22 @@ function Adminplan() {
     (currentPage - 1) * perPage,
     currentPage * perPage
   );
+
+   // Fuctions to open and close the edit page
+  const openPayPalDialog = () => {
+    setPayPalIsDialogOpen(true);
+  };
+
+  const closePayPalDialog = () => {
+    setPayPalIsDialogOpen(false);
+  };
   return (
     <div className='orderhistory'>
       {/* <Navbar className='orderhistory_navbar'/> */}
       <div className='admin_clients_navbar'>
         <Navbar />
       </div>
-       <div className="orderhistory-content">
+       <div className="orderhistory-content plans_orderhistory-content">
         <div className="topContainer orderTopContainer">
           {/* <h1 className="title">Order History</h1> */}
           <div className="buttonsBar">
@@ -119,7 +129,12 @@ function Adminplan() {
                 <td>{item.time_zone}</td>
                 <td>{item.amount} </td>
                 <td>{item.date}</td>
-                <td className='admin_btn_view'>{item.status}<img src={eye} alt='logo'/></td>
+                <td className='admin_btn_view'>{item.status}<img src={eye} alt='logo' onClick={openPayPalDialog} />
+                  <PlansData
+                     isOpen={isPayPalDialogOpen}
+                    onClose={closePayPalDialog} 
+                  />
+                </td>
               </tr>
             ))}
           </tbody>

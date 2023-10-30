@@ -4,6 +4,7 @@ import Navbar from '../navbar/navbar/Navbar';
 import "./orderhistory.css"
 import './orderhistory.scss'
 import eye from "../../images/eye.png"
+import MyNewPlanData from './mynewplancards/MyNewPlanData';
 
 function Mynewplan() {
   const data = [
@@ -29,7 +30,7 @@ function Mynewplan() {
     // ... more data
   ];
 
-  
+  const [isPayPalDialogOpen, setPayPalIsDialogOpen] = useState(false); // Open Edit dialog
   const [perPage, setPerPage] = useState(5); // Number of items per page
   const [currentPage, setCurrentPage] = useState(1); // Current page
   const [searchText, setSearchText] = useState(''); // Search input
@@ -46,20 +47,31 @@ function Mynewplan() {
     (currentPage - 1) * perPage,
     currentPage * perPage
   );
+
+  // Fuctions to open and close the edit page
+  const openPayPalDialog = () => {
+    setPayPalIsDialogOpen(true);
+  };
+
+  const closePayPalDialog = () => {
+    setPayPalIsDialogOpen(false);
+  };
   return (
     <div className='orderhistory'>
       {/* <Navbar className='orderhistory_navbar'/> */}
       <div className='admin_clients_navbar'>
         <Navbar />
       </div>
-       <div className="orderhistory-content">
+       <div className="orderhistory-content mynewplan-orderhistory-content">
         <div className="topContainer orderTopContainer">
           {/* <h1 className="title">Order History</h1> */}
           <div className="buttonsBar">
             {/* <div className="placeorder_btn">
               Place Order
             </div> */}
-            <h1>New orders</h1>
+            <div className='myplans_va_title'>
+              <p>New <span className='myplans_va_title_span'>orders</span></p>
+            </div>
             <div>
               {/* <span className='link'>All</span>
               <span className='link'>Pending </span>
@@ -94,7 +106,7 @@ function Mynewplan() {
         </div>
 
         {/* Table */}
-        <table>
+        <table className='mynewplan_table'>
           <thead>
             <tr>
               <th>ID</th>
@@ -106,6 +118,7 @@ function Mynewplan() {
               <th>Amount</th>
               <th>Date</th>
               <th>Status</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -119,7 +132,14 @@ function Mynewplan() {
                 <td>{item.time_zone}</td>
                 <td>{item.amount} </td>
                 <td>{item.date}</td>
-                <td className='admin_btn_view'>{item.status}<img src={eye} alt='logo'/></td>
+                <td>{item.status}</td>
+                <td><img src={eye} alt="view"
+                  onClick={openPayPalDialog} />
+                  <MyNewPlanData
+                     isOpen={isPayPalDialogOpen}
+                    onClose={closePayPalDialog} 
+                  />
+                </td>
               </tr>
             ))}
           </tbody>

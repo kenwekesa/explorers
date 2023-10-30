@@ -1,31 +1,3 @@
-// import React, { useState } from 'react';
-
-// const Sservice = () => {
-
-//   // Define a state variable to hold the selected option
-//   const [selectedOption, setSelectedOption] = useState('option1'); // Default option
-
-//   // Handle the change event when the user selects a different option
-//   const handleOptionChange = (event) => {
-//     setSelectedOption(event.target.value);
-//   };
-
-//   return (
-//     <div>
-//       {/* <h2>Select an Option:</h2> */}
-//       <select value={selectedOption} onChange={handleOptionChange} className="Sselectoptions">
-//         <option value="option1">Option 1</option>
-//         <option value="option2">Option 2</option>
-//         <option value="option3">Option 3</option>
-//         <option value="option4">Option 4</option>
-//       </select>
-//       {/* <p>Selected Option: {selectedOption}</p> */}
-//     </div>
-//   );
-// }
-
-// export default Sservice
-
 import React, { useState } from 'react';
 
 const Sservice = ({ selectedServices, onChange }) => {
@@ -44,10 +16,15 @@ const Sservice = ({ selectedServices, onChange }) => {
   return (
     <div>
       <select value={selectedOption} onChange={handleOptionChange} className="Sselectoptions">
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
-        <option value="option4">Option 4</option>
+        <option value="option0">Select an Industry...</option>
+        <option value="option1">Insurance solutions</option>
+        <option value="option2">Health care solutions</option>
+        <option value="option3">Real estate solutions</option>
+        <option value="option4">E-commerce business solutions</option>
+        <option value="option5">Small business solutions</option>
+        <option value="option6">Logistic support services</option>
+        <option value="option7">Educational support services</option>
+        <option value="option8">Web design and development</option>
       </select>
     </div>
   );

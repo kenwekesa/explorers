@@ -1,12 +1,12 @@
 /* VAData.css */
 
-.vadate_dialog-background {
+.client_vadate_dialog-background {
     background-color: rgba(0, 0, 0, 0.12) !important;
     padding: 0px !important;
     margin: 0px !important;
 }
 
-.va_data_main_content {
+.client_va_data_main_content {
     display: flex;
     justify-content: space-between;
     height: 80vh;
@@ -15,8 +15,8 @@
     z-index: 14 !important;
 }
 
-.va_data_main_profile {
-    width: 380px;
+.client_va_data_main_profile {
+    width: 340px;
     /* Adjust the width as needed */
     height:76vh;
     /* Adjust the height as needed */
@@ -27,9 +27,9 @@
     /* Ensure the image doesn't overflow the circle */
 }
 
-.va_data_main_document {
-    width: 420px;
-    height: 36vh;
+.client_va_data_main_document {
+    width: 480px;
+    height: 76vh;
     margin-bottom: 4vh;
     /* Adjust the height as needed */
     flex-shrink: 0;
@@ -38,9 +38,9 @@
     overflow: hidden;
 }
 
-.va_data_main_qualifiction {
-    width: 412px;
-    height: 36vh;
+.client_va_data_main_qualifiction {
+    width: 480px;
+    height: 76vh;
     /* Adjust the height as needed */
     flex-shrink: 0;
     border-radius: 30px;
@@ -48,54 +48,52 @@
     overflow: hidden;
 }
 
-.assistant_va_data_image{
-    padding-top: 40px!important;
-    padding-bottom: 20px!important;
-}
-
-.assistant_va_data_image img {
-    height: 85px!important;
-    width: 85px!important;
+.email_va_data_image img {
+    height: 80px!important;
+    width: 80px!important;
+    /* object-fit: contain!important; */
+    /* Maintain image aspect ratio and cover the container */
     border-radius: 50%!important;
-    border: 3px solid white;
-    /* width: 100%!important;
-    height: 100%!important; */
-    margin: 0px!important;
-    padding: 0px!important;
+    padding-top: 50px!important;
+    /* Match the circle border-radius of the container */
 }
 
-.assistant_va_contact_data{
+.email_va_contact_data{
     display: flex!important;
     justify-content: space-between!important;
     padding-left: 20px!important;
     padding-right: 20px!important;
 }
 
-.assistant_va_contact_hr{
+.email_va_contact_hr{
    padding-left: 20px !important;
    padding-right: 20px !important;
 }
-.assistant_va_contact_data_btn{
+.email_va_contact_data_btn{
     padding-top: 30px!important;
 }
 
-.assistant_va_contact_data_btn button{
+.email_va_contact_data_btn button{
     font-size: 14px!important;
     margin-bottom: 50px!important;
 }
 
-.assistant_va_data_paragraph_title p{
+.email_va_data_paragraph_title p{
     color: black!important;
     font-weight: 600!important;
+    padding-top: 20px;
 }
 
-.assistant_va_contact_data_paragraph_title p{
+.email_va_contact_data_paragraph_title p{
     font-weight: 600!important;
     color: black!important;
+    padding-top: 20px;
 }
 
-.assistant_va_contact_data_paragraph_body p{
+.email_va_contact_data_paragraph_body{
     font-weight: 400 !important;
     color: black !important;
+    min-height: 50vh;
+    overflow: auto;
 }
 /* ... rest of your CSS ... */

@@ -11,7 +11,7 @@ const Adminupdates = () => {
               <Navbar/>
           </div>
           <div>
-              <div className='Adminregister_card'>
+              <div className='adminregister_card'>
                 <Contactfrom />
               </div>
               <Footer/>

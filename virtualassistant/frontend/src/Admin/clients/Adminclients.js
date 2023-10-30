@@ -58,7 +58,7 @@ function Adminclients() {
       <div className='admin_clients_navbar'>
         <Navbar />
       </div>
-       <div className="orderhistory-content">
+       <div className="orderhistory-content admin_client_orderhistory-content">
         <div className="topContainer orderTopContainer">
           {/* <h1 className="title">Order History</h1> */}
           <div className="buttonsBar">
@@ -110,8 +110,8 @@ function Adminclients() {
               <th>Location</th>
               <th>Language</th>
               <th>Endustry</th>
-              {/* <th>Date</th>
-              <th>Status</th> */}
+              <th>Action</th>
+              {/* <th>Status</th> */}
             </tr>
           </thead>
           <tbody>
@@ -123,7 +123,8 @@ function Adminclients() {
                 <td>{item.assistants}</td>
                 <td>{item.period}</td>
                 <td>{item.time_zone}</td>
-                <td className='admin_btn_view'>{item.amount} <img src={eye} alt='logo' onClick={openPayPalDialog} />
+                <td>{item.amount} </td>
+                <td className='admin_btn_view'><img src={eye} alt='logo' onClick={openPayPalDialog} />
                   <ClientsData 
                      isOpen={isPayPalDialogOpen}
                     onClose={closePayPalDialog} 

@@ -11,8 +11,7 @@ const initialState = {
   other_user:{}
 };
 
-
-  
+ 
 
 export const ChatProvider = ({ children }) => {
   const [data, dispatch] = useReducer(reducer, initialState);

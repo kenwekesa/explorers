@@ -3,6 +3,7 @@ import Footer from '../../Admin/footer/Footer';
 import Navbar from '../navbar/navbar/Navbar';
 import "./orderhistory.css"
 import './orderhistory.scss'
+import eye from "../../images/eye.png"
 
 function Myplans() {
   const data = [
@@ -47,20 +48,22 @@ function Myplans() {
       <div className='myplans_orderhistory'>
         <Navbar />
       </div>
-       <div className="orderhistory-content">
+       <div className="orderhistory-content myplans-orderhistory-content">
         <div className="topContainer orderTopContainer">
           {/* <h1 className="title">Order History</h1> */}
           <div className="buttonsBar">
             {/* <div className="placeorder_btn">
               Place Order
             </div> */}
-            <h1>My orders</h1>
-            <div className="links_group order_links_group">
+            <div className='myplans_va_title'>
+              <p>My <span className='myplans_va_title_span'>orders</span></p>
+            </div>
+            <div className="links_group order_links_group myplan_order_links_group">
               <span className='link'>All</span>
               {/* <span className='link'>Pending </span> */}
               <span className='link'>Active</span>
               <span className='link'>Completed</span>
-              <span className='link'>Refunded </span>
+              {/* <span className='link'>Refunded </span> */}
               <span className='link'>Canceled </span>
             </div>
           </div>
@@ -89,7 +92,7 @@ function Myplans() {
         </div>
 
         {/* Table */}
-        <table>
+        <table className='va_myplans_table'>
           <thead>
             <tr>
               <th>ID</th>
@@ -101,6 +104,7 @@ function Myplans() {
               <th>Amount</th>
               <th>Date</th>
               <th>Status</th>
+              {/* <th>Action</th> */}
             </tr>
           </thead>
           <tbody>
@@ -115,6 +119,7 @@ function Myplans() {
                 <td>{item.amount}</td>
                 <td>{item.date}</td>
                 <td>{item.status}</td>
+                {/* <td><img src={eye} alt="view" /></td> */}
               </tr>
             ))}
           </tbody>

@@ -47,15 +47,17 @@ function Myfunds() {
       <div className='myplans_orderhistory'>
         <Navbar />
       </div>
-       <div className="orderhistory-content">
+       <div className="orderhistory-content myfunds-orderhistory-content">
         <div className="topContainer orderTopContainer">
           {/* <h1 className="title">Order History</h1> */}
           <div className="buttonsBar">
             {/* <div className="placeorder_btn">
               Place Order
             </div> */}
-            <h1>My Funds</h1>
-            <div className="links_group order_links_group">
+            <div className='myplans_va_title'>
+              <p>My <span className='myplans_va_title_span'>funds</span></p>
+            </div>
+            <div className="links_group order_links_group myplan_order_links_group">
               <span className='link'>All</span>
               {/* <span className='link'>Pending </span> */}
               <span className='link'>Paid </span>

@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import { DialogProvider } from './FComponents/signup/DialogProvider';
 import { ChatProvider } from './contextr/ChatsContext';
+import { AuthProvider } from './contextr/AuthContext';
 
 // import "../node_modules/react-bootstrap/dist/react-bootstrap"
 // import "../node_modules/bootstrap/dist/css/bootstrap.css"
@@ -14,10 +15,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
     <BrowserRouter>
-    <DialogProvider>
+      <DialogProvider>
+        <AuthProvider>
       <ChatProvider>
-        <App />
+          <App />
     </ChatProvider>
+       </AuthProvider>
     </DialogProvider>
     </BrowserRouter>
     </React.StrictMode>

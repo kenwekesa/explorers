@@ -18,7 +18,7 @@ const VirtualDashboard = () => {
           </div>
             <div className='virtual_dashboard_main'>
                 <div className='virtual_dashboard_title'>
-                    <h1>Dashboard</h1>
+                    <p>Dash<span className='virtual_dashboard_title_span'>board</span></p>
                 </div>
                 <div className='dashp'>
             <div className='mlandservone'>

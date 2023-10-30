@@ -6,7 +6,7 @@
     position: relative;
     background-color: #f2f2f2;
     .orderhistory_navbar {
-      /* Add styles for the navbar if needed */
+
     }
   
     .orderhistory-content {
@@ -56,7 +56,7 @@
           }
         }
       }
-      /* Filter and Search styles */
+    
 
       .tableContainer
       {padding: 12px;
@@ -65,7 +65,7 @@
       .filter-search {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 16px; /* Adjust as needed */
+        margin-bottom: 16px;
       }
   
       .filter {
@@ -73,65 +73,62 @@
         flex-direction: row;
         gap: 3px;
         label {
-          margin-right: 8px; /* Adjust spacing */
+          margin-right: 8px; 
         }
   
         select {
-          /* Add styles for the select input */
+          
         }
       }
   
       .search {
         input {
-          /* Add styles for the search input */
           padding: 1px 5px;
           
         }
       }
   
-      /* Table styles */
+      
       table {
         width: 100%;
         border-collapse: collapse;
   
         th, td {
-          padding: 8px; /* Adjust padding as needed */
-          border: 1px solid #ccc; /* Add border styles */
+          padding: 8px; 
+          border: 1px solid #ccc; 
           text-align: left;
         }
   
         th {
-          background-color: #f2f2f2; /* Header background color */
+          background-color: #f2f2f2; 
         }
   
         tr:nth-child(even) {
-          background-color: #f2f2f2; /* Alternate row background color */
+          background-color: #f2f2f2; 
         }
   
-        /* Add more table styles as needed */
       }
   
-      /* Pagination styles */
+      
       .pagination {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 16px; /* Adjust spacing */
-        font-size: 14px; /* Adjust font size */
-        color: #333; /* Text color */
+        margin-top: 16px; 
+        font-size: 14px; 
+        color: #333; 
   
         .pagination-info {
-          /* Add styles for pagination info */
+          
         }
   
         .pagination-buttons {
           button {
-            margin-left: 8px; /* Adjust button spacing */
-            /* Add button styles */
+            margin-left: 8px; 
           }
   
           button:disabled {
-            opacity: 0.5; /* Style for disabled buttons */
+            opacity: 0.5; 
             cursor: not-allowed;
           }
         }
@@ -142,7 +139,6 @@
     .orderhistory_footer {
       position: absolute;
       bottom: 0;
-      /* Add styles for the footer if needed */
     }
   }
   

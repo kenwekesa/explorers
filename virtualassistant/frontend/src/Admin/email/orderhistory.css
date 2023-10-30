@@ -45,6 +45,11 @@
   padding-bottom: 65px!important;
 }
 
+.email-orderhistory-content{
+  padding-left: 75px!important;
+  padding-right: 75px!important;
+}
+
 .orderhistory .orderhistory-content {
   flex-grow: 1;
   padding: 10px 30px;

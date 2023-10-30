@@ -4,6 +4,7 @@ import Navbar from '../navbar/navbar/Navbar';
 import "./orderhistory.css"
 import './orderhistory.scss'
 import eye from "../../images/eye.png"
+import MyCancelPlanData from './myacancelplancards/MyCancelPlanData';
 
 function MyCanceledplan() {
   const data = [
@@ -29,7 +30,7 @@ function MyCanceledplan() {
     // ... more data
   ];
 
-  
+  const [isPayPalDialogOpen, setPayPalIsDialogOpen] = useState(false); // Open Edit dialog
   const [perPage, setPerPage] = useState(5); // Number of items per page
   const [currentPage, setCurrentPage] = useState(1); // Current page
   const [searchText, setSearchText] = useState(''); // Search input
@@ -46,20 +47,31 @@ function MyCanceledplan() {
     (currentPage - 1) * perPage,
     currentPage * perPage
   );
+
+   // Fuctions to open and close the edit page
+  const openPayPalDialog = () => {
+    setPayPalIsDialogOpen(true);
+  };
+
+  const closePayPalDialog = () => {
+    setPayPalIsDialogOpen(false);
+  };
   return (
     <div className='orderhistory'>
       {/* <Navbar className='orderhistory_navbar'/> */}
       <div className='admin_clients_navbar'>
         <Navbar />
       </div>
-       <div className="orderhistory-content">
+       <div className="orderhistory-content mycanceledplan-orderhistory-content">
         <div className="topContainer orderTopContainer">
           {/* <h1 className="title">Order History</h1> */}
           <div className="buttonsBar">
             {/* <div className="placeorder_btn">
               Place Order
             </div> */}
-            <h1>Canceled orders</h1>
+            <div className='myplans_va_title'>
+              <p>Canceled <span className='myplans_va_title_span'>orders</span></p>
+            </div>
             <div>
               {/* <span className='link'>All</span>
               <span className='link'>Pending </span>
@@ -100,12 +112,12 @@ function MyCanceledplan() {
               <th>ID</th>
               <th>Service</th>
               <th>Plan</th>
-              <th>Assistants</th>
               <th>Period</th>
               <th>Time zone</th>
               <th>Amount</th>
               <th>Date</th>
               <th>Status</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -114,12 +126,18 @@ function MyCanceledplan() {
                 <td>{i+1}</td>
                 <td>{item.service}</td>
                 <td>{item.plan}</td>
-                <td>{item.assistants}</td>
                 <td>{item.period}</td>
                 <td>{item.time_zone}</td>
                 <td>{item.amount} </td>
                 <td>{item.date}</td>
-                <td className='admin_btn_view'>{item.status}<img src={eye} alt='logo'/></td>
+                <td>{item.status}</td>
+                <td className='admin_btn_view'><img src={eye} alt="view"
+                  onClick={openPayPalDialog} />
+                  <MyCancelPlanData
+                     isOpen={isPayPalDialogOpen}
+                    onClose={closePayPalDialog} 
+                  />
+                </td>
               </tr>
             ))}
           </tbody>

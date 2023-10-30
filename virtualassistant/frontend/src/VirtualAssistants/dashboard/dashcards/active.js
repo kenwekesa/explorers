@@ -28,7 +28,7 @@ const Active = () => {
         <img src={img6} alt="logo" />
         <p className='dashboard_paragraph'>14</p>
         {isHovered && (
-          <Link onClick={scrollToTop} to="/myactiveorders" className='ton tin ton-tin'>View all active orders</Link>
+          <Link onClick={scrollToTop} to="/myactiveorders" className='ton tin ton-tin'>View active orders</Link>
         )}
       </div>
     </div>

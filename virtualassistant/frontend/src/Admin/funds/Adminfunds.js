@@ -52,7 +52,7 @@ function Adminfunds() {
       <div className='admin_clients_navbar'>
         <Navbar />
       </div>
-       <div className="orderhistory-content">
+       <div className="orderhistory-content fund-orderhistory-content">
         <div className="topContainer orderTopContainer">
           {/* <h1 className="title">Order History</h1> */}
           <div className="buttonsBar">

@@ -69,7 +69,7 @@ const Signupcard = () => {
   const handleDialogClose = () => {
     setShowDialog(false);
     if (notification.isSuccess) {
-      navigate("/");
+      navigate("/login");
       window.scrollTo(0, 0);
     }
   };

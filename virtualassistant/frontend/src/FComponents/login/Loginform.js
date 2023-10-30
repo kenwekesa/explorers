@@ -6,6 +6,10 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from '../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
+// import { findUser } from '../../services/api/DataApi'
+import { findUser } from "../chats/Api/DataApi"
+import { useContext } from 'react';
+import { AuthContext } from '../../contextr/AuthContext';
 
 const Loginform = () => {
   const [email, setEmail] = useState('');
@@ -13,6 +17,7 @@ const Loginform = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [loggingIn, setLoggingIn] = useState(false);
   const [resettingPassword, setResettingPassword] = useState(false); // State to track password reset request
+  // const {dispatch} = useContext(AuthContext)
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -20,9 +25,20 @@ const Loginform = () => {
     setLoggingIn(true);
 
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        navigate("/dashboard");
+      .then( async(userCredential) => {
+        // const user = userCredential.user;
+        // navigate("/dashboard");
+
+        // ************** the new code ***************
+      const user = userCredential.user
+      const users = await findUser(user.uid)
+      // dispatch({type:"LOGIN", payload:user})
+      console.log(users[0].usertype)
+      users[0]!= undefined && users[0].usertype =='writer'?
+      navigate('/eneworders')
+      :users[0]!= undefined && users[0].usertype == 'admin'?
+      navigate('/adminallorders')
+      :navigate('/cplace')
       })
       .catch((error) => {
         const errorCode = error.code;

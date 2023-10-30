@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./ClientsData.css"
-import apply from "../../../images/vaco.jpg"
+import apply from "../../../images/vmainpage.jpg"
 const ClientsData = ({ isOpen, onClose }) => {
 
     if (!isOpen) return null;
@@ -10,7 +10,7 @@ const ClientsData = ({ isOpen, onClose }) => {
       <div className="dialog-box box_dialog-background">
         <div className='va_data_main_content'>
           <div className='va_data_main_profile'>
-            <div className='assistant_va_data_image'>
+            <div className='client_va_data_image'>
               <img src={apply} alt='profile'/>
             </div>
             <div className='assistant_va_data_paragraph_title'>

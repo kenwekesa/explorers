@@ -45,6 +45,11 @@
   padding-bottom: 65px!important;
 }
 
+.mynewplan-orderhistory-content{
+  padding-left: 75px!important;
+  padding-right: 75px!important;
+}
+
 .orderhistory .orderhistory-content {
   flex-grow: 1;
   padding: 10px 30px;
@@ -155,4 +160,10 @@ color: rgb(0, 0, 0, 0.6) !important;
   position: absolute;
   bottom: 0;
   /* Add styles for the footer if needed */
+}
+
+.mynewplan_table img{
+  height: 20px;
+  width: 23px;
+  cursor: pointer;
 }

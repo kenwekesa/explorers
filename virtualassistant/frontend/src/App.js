@@ -52,7 +52,7 @@ function App() {
   const RequireAuth =({children}) => 
   {
     const {state} = useContext(AuthContext)
-     return state.user? children: <Navigate to='/login'/> 
+     return state !=null && state.user? children: <Navigate to='/login'/> 
   }
 
   return (

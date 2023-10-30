@@ -12,6 +12,8 @@ import { addDoc, collection } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom'
 import { storage } from '../../firebase/firebase'
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { useRef } from 'react'
+import attachimage from "../../images/attachimageone.png"
 
 
 const Signupcard = () => {
@@ -36,6 +38,8 @@ const Signupcard = () => {
   const [notification, setNotification] = useState({ message: '', isSuccess: false });
   const [showDialog, setShowDialog] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false); // State to track application submission
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const fileInputRef = useRef(null);
 
   const navigate = useNavigate()
 
@@ -71,8 +75,33 @@ const Signupcard = () => {
     });
   };
 
-  const handleDegreeFileChange = (e) => {
+//   const handleDegreeFileChange = (e) => {
+//     const degreeFile = Array.from(e.target.files);
+//     setFormData({
+//       ...formData,
+//       degreeFile,
+//     });
+//   };
+
+//   const handleTranscriptFileChange = (e) => {
+//   const transcriptFiles = Array.from(e.target.files); // Convert the FileList to an array
+//   setFormData({
+//     ...formData,
+//     transcriptFiles,
+//   });
+// };
+
+//   const handleCvFileChange = (e) => {
+//     const cvFile = Array.from(e.target.files);
+//     setFormData({
+//       ...formData,
+//       cvFile,
+//     });
+//   };
+  
+const handleDegreeFileChange = (e) => {
     const degreeFile = Array.from(e.target.files);
+    updateLabel(e.target, degreeFile);
     setFormData({
       ...formData,
       degreeFile,
@@ -80,25 +109,39 @@ const Signupcard = () => {
   };
 
   const handleTranscriptFileChange = (e) => {
-  const transcriptFiles = Array.from(e.target.files); // Convert the FileList to an array
-  setFormData({
-    ...formData,
-    transcriptFiles,
-  });
-};
+    const transcriptFiles = Array.from(e.target.files);
+    updateLabel(e.target, transcriptFiles);
+    setFormData({
+      ...formData,
+      transcriptFiles,
+    });
+  };
 
   const handleCvFileChange = (e) => {
     const cvFile = Array.from(e.target.files);
+    updateLabel(e.target, cvFile);
     setFormData({
       ...formData,
       cvFile,
     });
   };
 
+  // Function to update the label text with selected file names
+  const updateLabel = (input, files) => {
+    const label = input.parentElement.querySelector('.file-label');
+    if (files.length === 0) {
+      label.textContent = 'No file chosen';
+    } else if (files.length === 1) {
+      label.textContent = files[0].name;
+    } else {
+      label.textContent = `${files.length} files selected`;
+    }
+  };
+
   const handleDialogClose = () => {
     setShowDialog(false);
      if (notification.isSuccess) {
-       navigate("/");
+       navigate("/login");
        window.scrollTo(0, 0);
     }
   };
@@ -212,6 +255,8 @@ const Signupcard = () => {
         setError('Email already in use');
       }else if (error.code === 'auth/network-request-failed') {
         setError('Check your internet connection and try again.');
+      } else if (error.code === 'auth/invalid-email') {
+        setError('Incorrect email format.');
       } else {
         setError(`An error occurred: ${error.message}`);
       }
@@ -246,26 +291,97 @@ const Signupcard = () => {
               <p>Phone Number <span>(required)</span></p>
               <input name='contact' value={formData.contact} onChange={handleInputChange} type="number" className='signcardiinput' required/>
             </div>
-            
-            {/* Degree File Input */}
-               <div className='signcardcontent'>
-                  <p>Degree/Diploma/Certificates (PDF) <span>(required)</span></p>
-                  {/* <input type="file" accept=".pdf" name='degreeFile' onChange={(e) => setFormData({ ...formData, degreeFile: e.target.files[0] })} required /> */}
-                  <input type="file" accept=".pdf" multiple name='transcriptFiles' onChange={handleDegreeFileChange} required />
-                </div>
+          
 
-                <div className='signcardcontent'>
-                  <p>Transcript Documents (PDF) <span>(required)</span></p>
-                 {/* <input type="file" accept=".pdf" multiple name='transcriptFiles' onChange={(e) => setFormData({ ...formData, transcriptFiles: e.target.files })} required /> */}
-                  <input type="file" accept=".pdf" multiple name='transcriptFiles' onChange={handleTranscriptFileChange} required />
-                </div>
+        {/* ******************************************************************************** */}
+         <div className="signcardcontent">
+      <p>Degree/Diploma/Certificates (PDF) <span>(required)</span></p>
+      <div className="signcardcontent_file">
+        <input
+          type="file"
+          accept=".pdf"
+          multiple
+          id="degreeFiles"
+          name="degreeFiles"
+          onChange={handleDegreeFileChange}
+          className="hidden-input" // Add a class to hide the input
+          required
+        />
+        <label htmlFor="degreeFiles" className="file-label">
+          <img src={attachimage} alt="Attach" />
+          <div className="file-info">
+            {formData.degreeFile.length > 0 ? (
+              formData.degreeFile.map((file, index) => (
+                <div key={index} className="selected-file">{file.name}</div>
+              ))
+            ) : (
+              <div className="no-file-chosen">No file chosen</div>
+            )}
+          </div>
+        </label>
+      </div>
+    </div>
 
-                <div className='signcardcontent'>
-                  <p>CVs (PDF) <span>(required)</span></p>
-                  {/* <input type="file" accept=".pdf" name='cvFile' onChange={(e) => setFormData({ ...formData, cvFile: e.target.files[0] })} required /> */}
-                  <input type="file" accept=".pdf" multiple name='cvFile' onChange={handleCvFileChange} required />
-                </div>
-                
+    {/* Transcript File Input */}
+    <div className="signcardcontent">
+      <p>Transcript Documents (PDF) <span>(required)</span></p>
+      <div className="signcardcontent_file">
+        <input
+          type="file"
+          accept=".pdf"
+          multiple
+          id="transcriptFiles"
+          name="transcriptFiles"
+          onChange={handleTranscriptFileChange}
+          className="hidden-input" // Add a class to hide the input
+          required
+        />
+        <label htmlFor="transcriptFiles" className="file-label">
+          <img src={attachimage} alt="Attach" />
+          <div className="file-info">
+            {formData.transcriptFiles.length > 0 ? (
+              formData.transcriptFiles.map((file, index) => (
+                <div key={index} className="selected-file">{file.name}</div>
+              ))
+            ) : (
+              <div className="no-file-chosen">No file chosen</div>
+            )}
+          </div>
+        </label>
+      </div>
+    </div>
+
+    {/* CV File Input */}
+    <div className="signcardcontent">
+      <p>CVs (PDF) <span>(required)</span></p>
+      <div className="signcardcontent_file">
+        <input
+          type="file"
+          accept=".pdf"
+          multiple
+          id="cvFiles"
+          name="cvFiles"
+          onChange={handleCvFileChange}
+          className="hidden-input" // Add a class to hide the input
+          required
+            />
+          <label htmlFor="cvFiles" className="file-label">
+               <img src={attachimage} alt="Attach" />
+          <div className="file-info">
+            {formData.cvFile.length > 0 ? (
+                formData.cvFile.map((file, index) => (
+                <div key={index} className="selected-file">{file.name}</div>
+              ))
+                ) : (
+                <div className="no-file-chosen">No file chosen</div>
+            )}
+          </div>
+        </label>
+      </div>
+    </div>
+        {/* ******************************************************************************** */}
+        
+       
             <div className='signcardcontent'>
               <p>Where are you located ?<span>(required)</span></p>
               {/* <input className='signcardiinput' required/> */}
@@ -275,7 +391,7 @@ const Signupcard = () => {
               </div>
             </div>
             <div className='signcardcontent'>
-              <p>What services are you most interested in ? <span>(required)</span></p>
+              <p>Which Industry to operate in ? <span>(required)</span></p>
               {/* <input className='signcardiinput' required/> */}
               <div>
                   <Sservice selectedServices={formData.service}
@@ -329,3 +445,33 @@ const Signupcard = () => {
 }
 
 export default Signupcard
+
+
+{/* Degree File Input */}
+        //        <div className='signcardcontent'>
+        //           <p>Degree/Diploma/Certificates (PDF) <span>(required)</span></p>
+        //   {/* <input type="file" accept=".pdf" name='degreeFile' onChange={(e) => setFormData({ ...formData, degreeFile: e.target.files[0] })} required /> */}
+        //      <div className='signcardcontent_file'>  
+        //        <input type="file" accept=".pdf" multiple name='transcriptFiles' className="signup_file-input" onChange={handleDegreeFileChange} required />
+        //        <label className="file-label">No file chosen</label>
+        //       </div>
+        //      </div>
+        
+        //         <div className='signcardcontent'>
+        //           <p>Transcript Documents (PDF) <span>(required)</span></p>
+        //    {/* <input type="file" accept=".pdf" multiple name='transcriptFiles' onChange={(e) => setFormData({ ...formData, transcriptFiles: e.target.files })} required /> */}
+        //        <div className='signcardcontent_file'> 
+        //        <input type="file" accept=".pdf" multiple name='transcriptFiles' onChange={handleTranscriptFileChange} className="signup_file-input" required />
+        //       <label className="file-label">No file chosen</label>
+        //       </div>
+        //       </div>
+
+        //         <div className='signcardcontent'>
+        //           <p>CVs (PDF) <span>(required)</span></p>
+        //      {/* <input type="file" accept=".pdf" name='cvFile' onChange={(e) => setFormData({ ...formData, cvFile: e.target.files[0] })} required /> */}
+        //         <div className='signcardcontent_file'> 
+        //         <input type="file" accept=".pdf" className="signup_file-input" id='file-label' multiple name='cvFile' onChange={handleCvFileChange} required />
+        //         <label className="file-label">No file chosen</label>
+        //        </div>
+        // </div>
+        

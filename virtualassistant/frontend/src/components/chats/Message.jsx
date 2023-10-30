@@ -1,12 +1,14 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChatContext } from '../../contextr/ChatsContext';
 import { extname } from 'path-browserify';
 import { ArticleOutlined, DownloadOutlined, Image, InsertDriveFileOutlined, PictureAsPdf } from '@mui/icons-material';
+import { useContext } from 'react';
 
 function Message({ owner, messages }) {
-  const { data } = useContext(ChatContext);
+  //const { data } = useContext(ChatContext);
   const [fileType, setFileType] = useState('');
 
+  
 
   const handleDownloadF = (filename, fileUrl) => {
     // Create a temporary link element

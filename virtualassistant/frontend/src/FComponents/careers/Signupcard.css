@@ -59,9 +59,41 @@
     margin-left: 9%;
 }
 
-.signcardiinput_file{
-    background-color: #f5f5f5;
-    margin-top: 3px;
-    margin-bottom: 3px;
+.file-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 80.5%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 10px;
+    font-size: 14px;
+    overflow: hidden;
+}
 
+.file-label img{
+    height: 24px;
+    width: 24px;
+}
+
+.hidden-input {
+    display: none;
+}
+
+.file-info {
+    margin-left: 10px;
+    font-size: 13px;
+    display: flex;
+    gap: 10px;
+}
+
+.selected-file {
+    margin-top: 5px;
+    color: #333;
+}
+
+.no-file-chosen {
+    margin-top: 5px;
+    color: #888;
 }

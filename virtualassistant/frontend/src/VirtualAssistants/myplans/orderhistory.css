@@ -25,6 +25,11 @@
   padding-bottom: 65px!important;
 }
 
+.myplans-orderhistory-content{
+  padding-left: 75px!important;
+  padding-right: 75px!important;
+}
+
 .orderhistory .orderhistory-content {
   flex-grow: 1;
   padding: 10px 30px;
@@ -132,6 +137,7 @@ color: rgb(0, 0, 0, 0.6) !important;
   opacity: 0.5; /* Style for disabled buttons */
   cursor: not-allowed;
 }
+
 .orderhistory .orderhistory_footer {
   position: absolute;
   bottom: 0;
@@ -142,4 +148,39 @@ color: rgb(0, 0, 0, 0.6) !important;
   position: sticky;
   top: 0;
   width: 100%;
+}
+
+.myplans_va_title{
+  font-size: 24px;
+  font-weight: 600;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.myplans_va_title_span{
+  background: var(--Button-Hover-color, linear-gradient(96deg, rgba(36, 20, 19, 0.77) -10.44%, rgba(31, 106, 88, 0.77) 108.53%, rgba(1, 255, 209, 0.77) 108.54%, rgba(3, 255, 195, 0.77) 108.87%, rgba(11, 255, 196, 0.77) 108.87%, rgba(13, 253, 195, 0.77) 108.87%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+ .myplan_order_links_group{
+  font-size: 14px!important;
+}
+/*
+.myplan_order_links_group span:hover{
+  background: var(--Button-Hover-color, linear-gradient(96deg, rgba(36, 20, 19, 0.77) -10.44%, rgba(31, 106, 88, 0.77) 108.53%, rgba(1, 255, 209, 0.77) 108.54%, rgba(3, 255, 195, 0.77) 108.87%, rgba(11, 255, 196, 0.77) 108.87%, rgba(13, 253, 195, 0.77) 108.87%));
+  padding-left: 10px!important;
+  padding-right: 10px !important;
+  padding-top: 3px!important;
+  padding-bottom: 3px!important;
+  border-radius: 15px!important;
+} */
+
+.search input{
+  border: none!important;
+}
+
+.va_myplans_table img{
+  height: 20px;
+  width: 23px;
 }
