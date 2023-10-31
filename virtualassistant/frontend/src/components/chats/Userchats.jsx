@@ -4,7 +4,7 @@ import { or, onSnapshot, where, query, collection, getDocs } from 'firebase/fire
 import { AuthContext } from '../../contextr/AuthContext';
 import { ChatContext } from '../../contextr/ChatsContext';
 //import { changeChatAction } from '../../Context/ChatsReducer';
-import { retriveConversations } from '../../services/api/DataApi';
+// import { retriveConversations } from '../../services/api/DataApi';
 
 function UserChats() {
   const { state } = useContext(AuthContext);

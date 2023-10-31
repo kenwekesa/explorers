@@ -17,7 +17,7 @@ const Loginform = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [loggingIn, setLoggingIn] = useState(false);
   const [resettingPassword, setResettingPassword] = useState(false); // State to track password reset request
-  // const {dispatch} = useContext(AuthContext)
+  const {dispatch} = useContext(AuthContext)
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -32,13 +32,14 @@ const Loginform = () => {
         // ************** the new code ***************
       const user = userCredential.user
       const users = await findUser(user.uid)
-      // dispatch({type:"LOGIN", payload:user})
-      console.log(users[0].usertype)
-      users[0]!= undefined && users[0].usertype =='writer'?
-      navigate('/eneworders')
-      :users[0]!= undefined && users[0].usertype == 'admin'?
-      navigate('/adminallorders')
-      :navigate('/cplace')
+      dispatch({ type: "LOGIN", payload: user })
+      navigate("/dashboard");
+      // console.log(users[0].usertype)
+      // users[0]!= undefined && users[0].usertype =='writer'?
+      // navigate('/eneworders')
+      // :users[0]!= undefined && users[0].usertype == 'admin'?
+      // navigate('/adminallorders')
+      // :navigate('/cplace')
       })
       .catch((error) => {
         const errorCode = error.code;
