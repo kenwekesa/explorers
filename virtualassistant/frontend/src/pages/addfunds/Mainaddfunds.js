@@ -1,9 +1,6 @@
 import React from 'react'
-// import Footer from '../../FComponents/footer/footer'
 import "./Mainaddfunds.css"
 import Addfirstcard from './addcards/Addfirstcard'
-import Addsecondard from './addcards/Addsecondard'
-import Addupdates from './Addupdates'
 import Footer from '../../Admin/footer/Footer'
 import ClientNavbar from '../../Admin/navbar/ClientNavbar'
 
@@ -14,14 +11,10 @@ const Mainaddfunds = () => {
         <ClientNavbar />
       </div>
       <div className='addpagecontent'>
-        <p className='addnewplan'>New Plan</p>
+        <p className='addnewplan'>New <span>Plan</span></p>
       <div className='addplancards'>
         <Addfirstcard />
-        <Addsecondard />
-        </div>
-      {/* <div className='addmainupdates'>
-         <Addupdates /> 
-      </div> */}
+      </div>
       </div>
       <Footer />
       </div>

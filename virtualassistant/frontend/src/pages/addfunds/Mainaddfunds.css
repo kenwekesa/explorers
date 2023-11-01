@@ -11,13 +11,22 @@
 }
 
 .addnewplan{
-    font-weight: 800;
-    font-size: 30px;
+    font-size: 24px;
+    font-weight: 600;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.addnewplan span{
+    background: var(--Button-Hover-color, linear-gradient(96deg, rgba(36, 20, 19, 0.77) -10.44%, rgba(31, 106, 88, 0.77) 108.53%, rgba(1, 255, 209, 0.77) 108.54%, rgba(3, 255, 195, 0.77) 108.87%, rgba(11, 255, 196, 0.77) 108.87%, rgba(13, 253, 195, 0.77) 108.87%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .addpagecontent{
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 75px;
+    padding-right: 75px;
     padding-bottom: 60px;
 }
 
@@ -25,6 +34,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 .addmainupdates{

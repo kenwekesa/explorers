@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Scountry.css';
 
 const Sservice = ({ selectedServices, onChange }) => {
   // Define a state variable to hold the selected option
@@ -15,7 +16,7 @@ const Sservice = ({ selectedServices, onChange }) => {
 
   return (
     <div>
-      <select value={selectedOption} onChange={handleOptionChange} className="Sselectoptions">
+      <select value={selectedOption} onChange={handleOptionChange} className="select_options">
         <option value="option0">Select a service...</option>
         <option value="option1">Customer virtual assistant</option>
         <option value="option2">Social media virtual assistant</option>

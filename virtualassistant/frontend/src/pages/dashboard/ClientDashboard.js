@@ -19,20 +19,20 @@ const ClientDashboard = () => {
               <ClientNavbar />
           </div>
             <div className='virtual_dashboard_main'>
-                <div className='virtual_dashboard_title'>
-                    <h1>Dashboard</h1>
+                <div className='client_dashboard_title_paragraph'>
+                    <p>Dash<span>board</span></p>
                 </div>
                 <div className='dashp client_dashboards_main_contents'>
             <div className='mlandservone'>
-            <ClientActive/>
-        <ClientCancels />
-        <ClientComplete/>
+            <Clientpending/>
+            <ClientActive />
+            <ClientComplete/>
             </div>
             
             <div className='mlandservone'>
-           <ClientAvailableFund />
-        <Clientmessage/>
-        <Clientpending/>
+            <ClientAvailableFund />
+            <Clientmessage/>
+            <ClientCancels />
             </div>
         </div>
         <div className='addmainupdates'>

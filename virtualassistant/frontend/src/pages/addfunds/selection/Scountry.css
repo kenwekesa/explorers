@@ -1,5 +1,15 @@
-.Sselectoptions{
-    width: 638.5px;
+.timezone-select{
+    width: 95%;
+    height: 38.9px;
+    padding-left: 15px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 0.54px solid rgba(0, 0, 0, 0.60);
+    background: var(--Background-onecolor, #fff);
+}
+
+.select_options {
+    width: 95%;
     height: 38.9px;
     padding-left: 15px;
     flex-shrink: 0;
