@@ -36,18 +36,19 @@ const Faq = () => {
     };
 
   return (
-    <div>
+    <div className='mainservicelist'>
     <div className='faq_navbar'>
         <ClientNavbar />
     </div>
     <div className='faqhead'>
-      <h1>FAQs</h1>
+      <h1 className='addnewplan'>Fa<span>qs</span></h1>
       <p><img src={img2} alt='logo'/>Delivery</p>
       <p> <img src={img0} alt="logo" />Cancelled</p>
       <p> <img src={img1} alt="logo" />Duplicate Plans</p>
 
       <div className='faqhead1'>
-        <h1>Frequently Asked Questions</h1>
+          {/* <h1>Frequently Asked Questions</h1> */}
+        <h1 className='addnewplan'>Frequently asked<span> questions</span></h1>
         <p className='faqp' onClick={toggleDiv1Visibility} 
         {...isDiv1Visible ? 'Hide Div 1' : 'Show Div 1'}>What is a virtual assistant?</p>
 

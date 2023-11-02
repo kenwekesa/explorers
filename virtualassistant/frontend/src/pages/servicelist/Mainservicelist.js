@@ -12,7 +12,7 @@ const Mainservicelist = () => {
         <ClientNavbar />
       </div>
       <div className='addpagecontent'>
-        <p className='addnewplan'>Available Plans</p>
+        <p className='addnewplan'>Available <span>plans</span></p>
       <div className='addplancards'>
          <Plancard />         
       </div>
@@ -20,7 +20,7 @@ const Mainservicelist = () => {
       </div>
       </div>
       <div className='addpagecontent'>
-        <p className='addnewplan'>Available Services</p>
+       <p className='addnewplan'>Available <span>services</span></p>
       <div className='addplancards'>
          <Servicecard />         
       </div>

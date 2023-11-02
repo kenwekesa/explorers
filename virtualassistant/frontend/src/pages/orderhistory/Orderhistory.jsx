@@ -47,7 +47,7 @@ function Orderhistory() {
   return (
     <div className='orderhistory'>
       {/* <Navbar className='orderhistory_navbar'/> */}
-      <div>
+      <div className='client_navbar_myfunds'>
         <ClientNavbar />
       </div>
        <div className="orderhistory-content">

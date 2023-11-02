@@ -54,21 +54,7 @@ function Fund() {
       </div>
        <div className="orderhistory-content">
         <div className="topContainer orderTopContainer">
-          {/* <h1 className="title">Order History</h1> */}
-          <div className="buttonsBar">
-            {/* <div className="placeorder_btn">
-              Place Order
-            </div> */}
-            <h1>My funds</h1>
-            <div>
-              {/* <span className='link'>All</span>
-              <span className='link'>Pending </span>
-              <span className='link'>Active </span>
-              <span className='link'>Completed </span>
-              <span className='link'>Referended </span>
-              <span className='link'>Canceled </span> */}
-            </div>
-          </div>
+          <p className='addnewplan'>My <span>funds</span></p>
         </div>
         <div className="tableContainer">
 
@@ -119,7 +105,7 @@ function Fund() {
                 <td>{item.time_zone}</td>
                 <td>{item.amount} </td>
                 <td>{item.date}</td>
-                <td className='admin_btn_view'>{item.status}<img src={eye} alt='logo'/></td>
+                <td>{item.status}</td>
               </tr>
             ))}
           </tbody>
