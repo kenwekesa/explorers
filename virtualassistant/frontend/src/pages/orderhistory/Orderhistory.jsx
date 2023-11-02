@@ -57,13 +57,13 @@ function Orderhistory() {
             {/* <div className="placeorder_btn">
               Place Order
             </div> */}
-            <h1>My Orders</h1>
-            <div className="links_group order_links_group">
+            <p className='addnewplan'>My <span>plans</span></p>
+            <div className="links_group order_links_group links_group_content_size">
               <span className='link'>All</span>
               <span className='link'>Pending </span>
               <span className='link'>Active </span>
               <span className='link'>Completed </span>
-              <span className='link'>Referended </span>
+              {/* <span className='link'>Referended </span> */}
               <span className='link'>Canceled </span>
             </div>
           </div>

@@ -20,9 +20,15 @@
 
 }
 
+.links_group_content_size{
+  font-size: 13px!important;
+}
+
 .orderhistory-content{
   padding-top: 20px!important;
   padding-bottom: 65px!important;
+  padding-left: 75px!important;
+  padding-right: 75px!important;
 }
 
 .orderhistory .orderhistory-content {
