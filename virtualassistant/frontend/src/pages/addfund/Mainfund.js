@@ -13,9 +13,9 @@ const Mainfund = () => {
      <div className='mainaddnav'>
         {/* <Navbar /> */}
         <ClientNavbar />
-          </div>
+      </div>
       <div className='mainfundcontent'>
-      <p className='addnewplan'>Add Funds</p>
+      <p className='addnewplan'>Add <span>funds</span></p>
       <div>
          <Cardbtn />         
       </div>

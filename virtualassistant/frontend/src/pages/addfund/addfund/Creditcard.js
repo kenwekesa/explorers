@@ -3,6 +3,7 @@ import "./Creditcard.css"
 import visa from "../../../images/visa.png"
 import wise from "../../../images/googlepay.png"
 import paypal from "../../../images/paypal.png"
+import mpesa from "../../../images/mpesa.png"
 
 const Creditcard = () => {
   return (
@@ -23,9 +24,14 @@ const Creditcard = () => {
               <a><img src={paypal} loading="eager" alt="paypal" /> Paypal</a>
               <p className='ton tan'>Active</p>
           </div>
-              <hr className='credit-card-hr'></hr>
+            <hr className='credit-card-hr'></hr>
            <div className='credicard-active-options'>
               <a><img src={ wise} loading="eager" alt="wise" /> Google Pay</a>
+              <p className='ton tan'>Active</p>
+              </div>
+            <hr className='credit-card-hr'></hr>
+           <div className='credicard-active-options'>
+              <a><img src={ mpesa } loading="eager" alt="wise" /> Mpesa</a>
               <p className='ton tan'>Active</p>
           </div>
           </div>

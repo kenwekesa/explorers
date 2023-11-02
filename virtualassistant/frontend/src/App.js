@@ -25,7 +25,6 @@ import MainSupport from './pages/suppport/MainSupport';
 import Faq from './pages/faqs/faq';
 import Myplans from './VirtualAssistants/myplans/Myplans';
 import Maincareers from './FComponents/careers/Maincareers';
-import Chat from './components/chats/Chat';
 import Emailplan from './Admin/email/Emailplan';
 import Adminsplan from './Admin/admins/Adminplan';
 import Activeplan from './Admin/activeplans/Activeplans';
@@ -45,14 +44,17 @@ import VirtualDashboard from './VirtualAssistants/dashboard/VirtualDashboard';
 import { useContext } from 'react';
 import { AuthContext } from './contextr/AuthContext';
 import { useNavigate, Navigate } from 'react-router-dom'
+import VASupport from './VirtualAssistants/support/Support';
 
 
 function App() {
 
+  const navigate = useNavigate()
+
   const RequireAuth =({children}) => 
   {
     const {state} = useContext(AuthContext)
-     return state !=null && state.user? children: <Navigate to='/login'/> 
+     return state !=null && state.user? children: navigate('/login')
   }
 
   return (
@@ -103,7 +105,7 @@ function App() {
         <Route path='/myplans' element={<Myplans />} />
         <Route path='/myfunds' element={<Myfunds />} />
         <Route path='/csupport' element={
-          <RequireAuth><Chat /></RequireAuth>
+          <RequireAuth><VASupport /></RequireAuth>
         } />
         <Route path='/cfqas' element={<Fqas />} />
         <Route path='/myactiveorders' element={<MyActiveplan />} />

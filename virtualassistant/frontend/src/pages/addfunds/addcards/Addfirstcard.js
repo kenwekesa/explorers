@@ -27,37 +27,6 @@ const Addfirstcard = () => {
   const [showDialog, setShowDialog] = useState(false);
   const navigate = useNavigate();
 
-  // const handleInputChange = (e) => {
-  //   const { name, value } = e.target;
-
-  //   // Update the form data
-  //   setFormData({
-  //     ...formData,
-  //     [name]: value,
-  //   });
-
-
-  // const handleInputChange = (e) => {
-  //   setFormData({
-  //     ...formData,
-  //     [e.target.name]: e.target.value,
-  //   });
-
-    // Calculate and update the total cost
-  //   if (name === 'assistants' || name === 'period') {
-  //     const assistants = parseInt(formData.assistants, 10);
-  //     const period = parseFloat(formData.period);
-
-  //     if (!isNaN(assistants) && !isNaN(period)) {
-  //       const totalCost = assistants * period * 1000;
-  //       setFormData({
-  //         ...formData,
-  //         totalCost,
-  //       });
-  //     }
-  //   }
-  // };
-
     const handleInputChange = (e) => {
     const { name, value } = e.target;
 
