@@ -23,7 +23,7 @@ const Admins = () => {
         onMouseEnter={toggleHover}
         onMouseLeave={toggleHover}
       >
-        <p>Pending Plans</p>
+        <p>New Plans</p>
         <img src={img6} alt="logo" />
         <p className='admin_dashboard_paragraph'>30</p>
         {isHovered && (

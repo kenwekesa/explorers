@@ -19,11 +19,10 @@ const AdminDashboard = () => {
             <Navbar/>
             </div>
               <div className='admin_dashboards_content_title'>
-              <h1>Dashboard</h1>
-        
-                <div className='admin_dashboards_cards'>
-                <Active/>
+              <p className='addnewplan'>Dash<span>board</span></p>
+              <div className='admin_dashboards_cards'>
                 <Dashcancel/>
+                <Active/>
                 <Dascomplete/>
                 </div>
 

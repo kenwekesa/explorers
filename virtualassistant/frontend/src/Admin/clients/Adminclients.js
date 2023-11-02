@@ -62,11 +62,8 @@ function Adminclients() {
         <div className="topContainer orderTopContainer">
           {/* <h1 className="title">Order History</h1> */}
           <div className="buttonsBar">
-            {/* <div className="placeorder_btn">
-              Place Order
-            </div> */}
-            <h1>Clients</h1>
-            <div className="links_group order_links_group">
+            <p className='addnewplan'>Cli<span>ents</span></p>
+            <div className="links_group order_links_group order_links_group_content">
               <span className='link'>All</span>
               <span className='link'>Health </span>
               <span className='link'>Digital </span>

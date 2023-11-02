@@ -67,8 +67,9 @@ function Adminassistants() {
             {/* <div className="placeorder_btn">
               Place Order
             </div> */}
-            <h1>Assistants</h1>
-            <div className="links_group order_links_group">
+            {/* <h1>Assistants</h1> */}
+            <p className='addnewplan'>Assi<span>stants</span></p>
+            <div className="links_group order_links_group order_links_group_content">
               <span className='link'>All</span>
               <span className='link'>Doctors </span>
               <span className='link'>Engineers </span>
