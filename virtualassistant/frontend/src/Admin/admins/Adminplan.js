@@ -59,14 +59,14 @@ function Adminsplan() {
             {/* <div className="placeorder_btn">
               Place Order
             </div> */}
-            <h1>Administrators</h1>
-            <div className="links_group order_links_group">
+            <p className='addnewplan'>Admin<span>istrators</span></p>
+            <div className="links_group order_links_group order_links_group_content">
               <span className='link'>All</span>
-              <span className='link'>Pending </span>
-              <span className='link'>Active </span>
-              <span className='link'>Completed </span>
-              <span className='link'>Referended </span>
-              <span className='link'>Canceled </span>
+              <span className='link'>Doctors </span>
+              <span className='link'>Engineers </span>
+              {/* <span className='link'>Programmers </span> */}
+              <span className='link'>Nurses </span>
+              <span className='link'>Others </span>
             </div>
           </div>
         </div>

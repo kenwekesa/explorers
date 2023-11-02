@@ -59,8 +59,8 @@ function Adminfunds() {
             {/* <div className="placeorder_btn">
               Place Order
             </div> */}
-            <h1>Funds</h1>
-            <div className="links_group order_links_group">
+            <p className='addnewplan'>Fu<span>nds</span></p>
+            <div className="links_group order_links_group order_links_group_content">
               <span className='link'>All</span>
               <span className='link'>Active </span>
               <span className='link'>Pending </span>

@@ -65,20 +65,7 @@ function Emailplan() {
        <div className="orderhistory-content email-orderhistory-content">
         <div className="topContainer orderTopContainer">
           {/* <h1 className="title">Order History</h1> */}
-          <div className="buttonsBar">
-            {/* <div className="placeorder_btn">
-              Place Order
-            </div> */}
-            <h1>Emails</h1>
-            <div>
-              {/* <span className='link'>All</span>
-              <span className='link'>Pending </span>
-              <span className='link'>Active </span>
-              <span className='link'>Completed </span>
-              <span className='link'>Referended </span>
-              <span className='link'>Canceled </span> */}
-            </div>
-          </div>
+          <p className='addnewplan'>Ema<span>ils</span></p>
         </div>
         <div className="tableContainer">
 

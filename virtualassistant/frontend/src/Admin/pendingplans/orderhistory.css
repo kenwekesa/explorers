@@ -161,3 +161,7 @@ color: rgb(0, 0, 0, 0.6) !important;
   bottom: 0;
   /* Add styles for the footer if needed */
 }
+
+th{
+  color: #001C30 !important;
+}

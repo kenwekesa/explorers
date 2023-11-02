@@ -73,7 +73,7 @@ function Adminassistants() {
               <span className='link'>All</span>
               <span className='link'>Doctors </span>
               <span className='link'>Engineers </span>
-              <span className='link'>Programmers </span>
+              {/* <span className='link'>Programmers </span> */}
               <span className='link'>Nurses </span>
               <span className='link'>Others </span>
             </div>
