@@ -33,7 +33,7 @@
 }
 
 .signcardcontent span {
-    color: #FF0B0B;
+    color: rgba(255, 11, 11, 0.5);
     font-size: 18px;
     font-style: normal;
     font-weight: 400;

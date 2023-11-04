@@ -42,20 +42,19 @@ import ClientDashboard from './pages/dashboard/ClientDashboard';
 import AdminDashboard from './Admin/dashboard/AdminDashboard';
 import VirtualDashboard from './VirtualAssistants/dashboard/VirtualDashboard';
 import { useContext } from 'react';
-import { AuthContext } from './contextr/AuthContext';
 import { useNavigate, Navigate } from 'react-router-dom'
 import VASupport from './VirtualAssistants/support/Support';
 
 
 function App() {
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
-  const RequireAuth =({children}) => 
-  {
-    const {state} = useContext(AuthContext)
-     return state !=null && state.user? children: navigate('/login')
-  }
+  // const RequireAuth =({children}) => 
+  // {
+  //   const {state} = useContext(AuthContext)
+  //    return state !=null && state.user? children: navigate('/login')
+  // }
 
   return (
     <div className='mainapp'>
@@ -76,7 +75,7 @@ function App() {
         <Route path="/addfunds" element={<Mainfund />} />
         <Route path='/newplan' element={<Mainaddfunds />} />
         <Route path="/support" element={
-         <RequireAuth><MainSupport /></RequireAuth>
+         <MainSupport />
         } />
         <Route path='/servicelist' element={<Mainservicelist />} />
         <Route path='/faqs' element={<Faq />} />
@@ -91,7 +90,7 @@ function App() {
         <Route path='/assistants' element={<Adminassistants />} />
         <Route path='/funds' element={<Adminfunds />} />
         <Route path='/messages' element={
-          <RequireAuth><Adminmessages /></RequireAuth>
+          <Adminmessages />
         } />
         <Route path='/register' element={<AdminRegister />} />
         <Route path='/plans' element={<Adminplan />} />
@@ -105,7 +104,7 @@ function App() {
         <Route path='/myplans' element={<Myplans />} />
         <Route path='/myfunds' element={<Myfunds />} />
         <Route path='/csupport' element={
-          <RequireAuth><VASupport /></RequireAuth>
+          <VASupport />
         } />
         <Route path='/cfqas' element={<Fqas />} />
         <Route path='/myactiveorders' element={<MyActiveplan />} />

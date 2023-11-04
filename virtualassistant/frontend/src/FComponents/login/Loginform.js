@@ -7,9 +7,9 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from '../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
 // import { findUser } from '../../services/api/DataApi'
-import { findUser } from "../chats/Api/DataApi"
+// import { findUser } from "../chats/Api/DataApi"
 import { useContext } from 'react';
-import { AuthContext } from '../../contextr/AuthContext';
+// import { AuthContext } from '../../contextr/AuthContext';
 
 const Loginform = () => {
   const [email, setEmail] = useState('');
@@ -17,7 +17,7 @@ const Loginform = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [loggingIn, setLoggingIn] = useState(false);
   const [resettingPassword, setResettingPassword] = useState(false); // State to track password reset request
-  const {dispatch} = useContext(AuthContext)
+  // const {dispatch} = useContext(AuthContext)
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -31,8 +31,8 @@ const Loginform = () => {
 
         // ************** the new code ***************
       const user = userCredential.user
-      const users = await findUser(user.uid)
-      dispatch({ type: "LOGIN", payload: user })
+      // const users = await findUser(user.uid)
+      // dispatch({ type: "LOGIN", payload: user })
       navigate("/dashboard");
       // console.log(users[0].usertype)
       // users[0]!= undefined && users[0].usertype =='writer'?
