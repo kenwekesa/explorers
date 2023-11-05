@@ -74,30 +74,6 @@ const Signupcard = () => {
       about: selectedAbout,
     });
   };
-
-//   const handleDegreeFileChange = (e) => {
-//     const degreeFile = Array.from(e.target.files);
-//     setFormData({
-//       ...formData,
-//       degreeFile,
-//     });
-//   };
-
-//   const handleTranscriptFileChange = (e) => {
-//   const transcriptFiles = Array.from(e.target.files); // Convert the FileList to an array
-//   setFormData({
-//     ...formData,
-//     transcriptFiles,
-//   });
-// };
-
-//   const handleCvFileChange = (e) => {
-//     const cvFile = Array.from(e.target.files);
-//     setFormData({
-//       ...formData,
-//       cvFile,
-//     });
-//   };
   
 const handleDegreeFileChange = (e) => {
     const degreeFile = Array.from(e.target.files);
@@ -219,6 +195,7 @@ const handleDegreeFileChange = (e) => {
       degreeURL,
       transcriptURLs,
       cvURL,
+      usertype: 'va', // Set 'usertype' as 'Admin' by default
     };
 
     await createUserWithEmailAndPassword(auth, formData.email, formData.password);

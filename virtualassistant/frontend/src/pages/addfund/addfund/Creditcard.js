@@ -16,7 +16,7 @@ const Creditcard = () => {
           </div>
               <hr className='credit-card-hr'></hr>
             <div className='credicard-active-options'>
-                <a><img src={ visa} loading="eager" alt="visa" />Credit Card</a>
+              <a><img src={ visa} loading="eager" alt="visa" />Credit Card</a>
               <p className='ton tan'>Active</p>
           </div>
               <hr className='credit-card-hr'></hr>

@@ -17,14 +17,14 @@ const Slanguage = ({ selectedLanguage, onChange }) => {
   return (
     <div>
       <select value={selectedOption} onChange={handleOptionChange} className="select_options">
-        <option value="option0">Select a language...</option>
-        <option value="option1">American English (United States)</option>
-        <option value="option2">British English (United Kingdom)</option>
-        <option value="option3">Australian English (Australia)</option>
-        <option value="option4">Canadian English (Canada)</option>
-        <option value="option5">Irish English (Ireland)</option>
-        <option value="option6">English as a Second Language (ESL)</option>
-        <option value="option7">English as a Foreign Language (EFL)</option>
+        <option value="Select a language...">Select a language...</option>
+        <option value="American English (United States)">American English (United States)</option>
+        <option value="British English (United Kingdom)">British English (United Kingdom)</option>
+        <option value="Australian English (Australia)">Australian English (Australia)</option>
+        <option value="Canadian English (Canada)">Canadian English (Canada)</option>
+        <option value="Irish English (Ireland)">Irish English (Ireland)</option>
+        <option value="English as a Second Language (ESL)">English as a Second Language (ESL)</option>
+        <option value="English as a Foreign Language (EFL)">English as a Foreign Language (EFL)</option>
         </select>
     </div>
   );

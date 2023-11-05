@@ -39,7 +39,7 @@
 }
 .creditcard-options{
     padding-left: 100px;
-    padding-right: 100px;
+    padding-right: 114px;
 }
 .credicard-active-option{
     padding-left: 90px;
@@ -52,11 +52,15 @@
     background: var(--Button-Hover-color, linear-gradient(96deg, rgba(36, 20, 19, 0.77) -10.44%, rgba(31, 106, 88, 0.77) 108.53%, rgba(1, 255, 209, 0.77) 108.54%, rgba(3, 255, 195, 0.77) 108.87%, rgba(11, 255, 196, 0.77) 108.87%, rgba(13, 253, 195, 0.77) 108.87%))!important;
 }
 .credicard-active-options img{
-    height: 45px;
-    width: 45px;
+    height: 35px;
+    width: 35px;
 }
 .credicard-active-options a{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.credicard-active-options p{
+    font-size: 13px!important;
 }

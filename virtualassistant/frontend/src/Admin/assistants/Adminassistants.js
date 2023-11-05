@@ -108,13 +108,13 @@ function Adminassistants() {
             <tr>
               <th>ID</th>
               <th>Name</th>
-              <th>Email</th>
-              <th>Contanct</th>
+              {/* <th>Email</th> */}
+              <th>Contact</th>
               <th>Location</th>
               <th>Education</th>
               <th>Specialization</th>
-              {/* <th>Date</th>
-              <th>Status</th> */}
+              <th>Action</th>
+              {/*<th>Status</th> */}
             </tr>
           </thead>
           <tbody>
@@ -122,11 +122,12 @@ function Adminassistants() {
               <tr key={item.id}>
                 <td>{i+1}</td>
                 <td>{item.service}</td>
-                <td>{item.plan}</td>
+                {/* <td>{item.plan}</td> */}
                 <td>{item.assistants}</td>
                 <td>{item.period}</td>
                 <td>{item.time_zone}</td>
-                <td className='admin_btn_view'>{item.amount} <img src={eye} alt='logo' onClick={openPayPalDialog} />
+                <td>{item.amount}</td>
+                <td className='admin_btn_view'><img src={eye} alt='logo' onClick={openPayPalDialog} />
                   <VAData 
                      isOpen={isPayPalDialogOpen}
                     onClose={closePayPalDialog} 

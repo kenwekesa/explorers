@@ -7,12 +7,12 @@ import Contactfrom from './registercard/Contactfrom'
 
 const AdminRegister = () => {
   return (
-    <div className='admindashboard'>
-          <div className="dashboardnav">
+    <div className='register_admindashboard'>
+          <div className="register_dashboardnav">
               <Navbar/>
           </div>
           <div>
-          <div className='Adminregister_card'>
+          <div className='register_Adminregister_card'>
             <Contactfrom />
           </div>
           <Footer />

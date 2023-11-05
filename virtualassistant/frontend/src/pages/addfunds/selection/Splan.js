@@ -17,13 +17,13 @@ const Splan = ({ selectedPlan, onChange }) => {
   return (
     <div>
       <select value={selectedOption} onChange={handleOptionChange} className="select_options">
-        <option value="option0">Select a plan...</option>
-        <option value="option1">Enterpreneur $300 /month</option>
-        <option value="option2">Starter $600 /month</option>
-        <option value="option3">Professional $800 /month</option>
-        <option value="option4">Teams $900 /month</option>
-        <option value="option5">Top Enterpreneurs $1200 /month</option>
-        <option value="option6">Top Professional $1400 /month</option>
+        <option value="0">Select a plan...</option>
+        <option value="300">Enterpreneur $300 /month</option>
+        <option value="600">Starter $600 /month</option>
+        <option value="800">Professional $800 /month</option>
+        <option value="900">Teams $900 /month</option>
+        <option value="1200">Top Enterpreneurs $1200 /month</option>
+        <option value="1400">Top Professional $1400 /month</option>
       </select>
     </div>
   );

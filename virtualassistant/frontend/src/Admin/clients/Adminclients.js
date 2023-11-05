@@ -102,7 +102,7 @@ function Adminclients() {
             <tr>
               <th>ID</th>
               <th>Name</th>
-              <th>Email</th>
+              {/* <th>Email</th> */}
               <th>Contanct</th>
               <th>Location</th>
               <th>Language</th>
@@ -116,7 +116,7 @@ function Adminclients() {
               <tr key={item.id}>
                 <td>{i+1}</td>
                 <td>{item.service}</td>
-                <td>{item.plan}</td>
+                {/* <td>{item.plan}</td> */}
                 <td>{item.assistants}</td>
                 <td>{item.period}</td>
                 <td>{item.time_zone}</td>

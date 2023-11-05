@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sservice from '../selection/Sservice';
 import Splan from '../selection/Splan';
 import Slanguage from '../selection/Slanguage';
@@ -27,7 +27,7 @@ const Addfirstcard = () => {
   const [showDialog, setShowDialog] = useState(false);
   const navigate = useNavigate();
 
-    const handleInputChange = (e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
 
     // Update the form data
@@ -35,21 +35,22 @@ const Addfirstcard = () => {
       ...formData,
       [name]: value,
     });
-
-    // Calculate and update the total cost
-    if (name === 'assistants' || name === 'period') {
-      const assistants = parseInt(name === 'assistants' ? value : formData.assistants);
-      const period = parseFloat(name === 'period' ? value : formData.period);
-
-      if (!isNaN(assistants) && !isNaN(period)) {
-        const totalCost = assistants * period * 1000;
-        setFormData({
-          ...formData,
-          totalCost,
-        });
-      }
-    }
   };
+
+  // Add an effect to update the total cost when assistants or period change
+  useEffect(() => {
+    const assistants = parseInt(formData.assistants);
+    const period = parseInt(formData.period);
+    const plan = parseInt(formData.plan);
+
+    if (!isNaN(assistants) && !isNaN(period) && !isNaN(plan)) {
+      const totalCost = assistants * period * plan;
+      setFormData({
+        ...formData,
+        totalCost,
+      });
+    }
+  }, [formData.assistants, formData.period, formData.plan]);
 
   const onTimezoneChange = (selectedTimezone) => {
     setFormData({
@@ -155,7 +156,7 @@ const Addfirstcard = () => {
               />
               <p className='aspcontfrmpara'>Period</p>
               <input
-                placeholder={`Enter period of hire in years ${formData.period}`}
+                placeholder={`Enter period of hire in months ${formData.period}`}
                 type="number"
                 name="period"
                 value={formData.period}
@@ -169,6 +170,7 @@ const Addfirstcard = () => {
                 name="roleTitle"
                 value={formData.roleTitle}
                 onChange={handleInputChange}
+                required
               />
             </div>
           </div>
@@ -181,7 +183,7 @@ const Addfirstcard = () => {
               <div className='application_components'>
                 <TimezoneSelector
                   selectedTimezone={formData.timezone}
-                  onTimezoneChange={onTimezoneChange} // Pass onTimezoneChange function
+                  onTimezoneChange={onTimezoneChange}
                 />
               </div>
               <p className='aspcontfrmpara'>Language</p>
@@ -201,6 +203,7 @@ const Addfirstcard = () => {
                   name="roleRequirements"
                   value={formData.roleRequirements}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               <div className='ascost'>
@@ -240,4 +243,5 @@ const Addfirstcard = () => {
     </div>
   );
 }
+
 export default Addfirstcard;

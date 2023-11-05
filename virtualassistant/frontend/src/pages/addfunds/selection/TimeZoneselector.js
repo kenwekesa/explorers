@@ -23,7 +23,7 @@ function TimezoneSelector({ selectedTimezone, onTimezoneChange }) {
         onChange={handleTimezoneChange}
         className="timezone-select"
       >
-        <option value="">Select a time zone...</option>
+        <option value="" className="select_options">Select a time zone...</option>
         {timezones.map((tz) => (
           <option key={tz} value={tz}>
             {tz}

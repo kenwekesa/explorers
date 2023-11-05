@@ -89,10 +89,10 @@ function Activeplan() {
               <th>Plan</th>
               <th>Assistants</th>
               <th>Period</th>
-              <th>Time zone</th>
+              {/* <th>Time zone</th> */}
               <th>Amount</th>
-              <th>Date</th>
-              <th>Status</th>
+              {/* <th>Date</th> */}
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -103,10 +103,10 @@ function Activeplan() {
                 <td>{item.plan}</td>
                 <td>{item.assistants}</td>
                 <td>{item.period}</td>
-                <td>{item.time_zone}</td>
+                {/* <td>{item.time_zone}</td> */}
                 <td>{item.amount} </td>
-                <td>{item.date}</td>
-                <td className='admin_btn_view'>{item.status}<img src={eye} alt='logo'/></td>
+                {/* <td>{item.date}</td> */}
+                <td className='admin_btn_view'><img src={eye} alt='logo'/></td>
               </tr>
             ))}
           </tbody>

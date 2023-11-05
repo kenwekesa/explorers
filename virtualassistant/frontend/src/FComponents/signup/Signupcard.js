@@ -96,6 +96,7 @@ const Signupcard = () => {
         location: formData.location,
         service: formData.service,
         about: formData.about,
+        usertype: 'client', // Set 'usertype' as 'Admin' by default
       };
 
       await addDoc(collection(db, 'clients'), userData);

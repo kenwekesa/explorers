@@ -1,25 +1,27 @@
-.admin_contact_form_outline{
-    background: #F5F5F5;
+.register_contact_form_outline{
+    /* background: #F5F5F5; */
     /* padding-top: 20px; */
     padding-bottom: 80px;
     padding-left: 60px;
     padding-right: 60px;
+    text-align: center !important;
     /* display: flex;
     justify-content: space-between;
     align-items: center; */
-    margin-left: 25%;
+    /* margin-left: 25%; */
 }
 
-.admin_main_register_form_update{
+.register_main_register_form_update{
     padding-left: 60px;
     font-size: 24px;
-    padding-top: 25px!important;
-    padding-bottom: 15px!important;
+    padding-top: 20px!important;
+    /* padding-top: 25px!important; */
+    padding-bottom: 45px!important;
     font-weight: 800;
-    margin-left: 25%;
+    /* margin-left: 25%; */
 }
 
-.admin_contact_input_field input{
+.register_contact_input_field input{
     margin: 10px;
     width: 70%!important;
     margin-left: 20px!important;
@@ -30,9 +32,9 @@
     flex-shrink: 0;
     border-radius: 30px;
 } */
-.admin_register_form{
+.register_register_form{
     width: 635px;
-    height: 685px;
+    height: 630px;
     flex-shrink: 0;
     border-radius: 15.213px;
     background: #ECEFF1;
@@ -45,12 +47,12 @@
     text-align: center;
 }
 
-.admin_contact_input_field{
+.register_contact_input_field{
     padding: 1px 0px;
     padding-bottom: 10px;
 }
 
-.admin_contact_input_field input{
+.register_contact_input_field input{
     display: inline-flex;
     padding: 10.45px 114.64px 10.607px 19.266px;
     align-items: center;
@@ -84,7 +86,7 @@
     padding-bottom: 20px;
 }
 
-.admin_contact_textarea{
+.register_contact_textarea{
     margin-left: 1px;
     padding-top: 10px;
 }
@@ -95,12 +97,12 @@
     padding-top: 20px;
 }
 
-.admin_contact_button{
+.register_contact_button{
     text-align: center;
     padding-top: 35px;
 }
 
-.admin_contact_form_paragraph{
+.register_contact_form_paragraph{
     margin-left: 1px;
     font-weight: 600;
 }
@@ -120,7 +122,7 @@
     /* line-height: 23.12px; */
 }
 
-.admins_contact_button{
+.register_contact_button{
     text-align: center;
     padding-top: 10px;
     border: none!important;
@@ -174,11 +176,11 @@
     /* Adjust the blur radius as needed */
 }
 
-.admin_contact_form_btn{
+.register_contact_form_btn{
     border: none;
 }
 
-.contact_form_paragraph_error{
+.register_form_paragraph_error{
     text-align: center;
     padding-bottom: 10px;
     text-decoration: dotted;
