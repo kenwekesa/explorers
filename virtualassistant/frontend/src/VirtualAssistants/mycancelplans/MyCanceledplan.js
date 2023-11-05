@@ -113,10 +113,10 @@ function MyCanceledplan() {
               <th>Service</th>
               <th>Plan</th>
               <th>Period</th>
-              <th>Time zone</th>
+              {/* <th>Time zone</th> */}
               <th>Amount</th>
-              <th>Date</th>
-              <th>Status</th>
+              {/* <th>Date</th>
+              <th>Status</th> */}
               <th>Action</th>
             </tr>
           </thead>
@@ -127,10 +127,10 @@ function MyCanceledplan() {
                 <td>{item.service}</td>
                 <td>{item.plan}</td>
                 <td>{item.period}</td>
-                <td>{item.time_zone}</td>
+                {/* <td>{item.time_zone}</td> */}
                 <td>{item.amount} </td>
-                <td>{item.date}</td>
-                <td>{item.status}</td>
+                {/* <td>{item.date}</td>
+                <td>{item.status}</td> */}
                 <td className='admin_btn_view'><img src={eye} alt="view"
                   onClick={openPayPalDialog} />
                   <MyCancelPlanData
