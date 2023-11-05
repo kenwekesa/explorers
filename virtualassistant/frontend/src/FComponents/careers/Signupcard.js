@@ -237,7 +237,7 @@ const handleDegreeFileChange = (e) => {
       } else {
         setError(`An error occurred: ${error.message}`);
       }
-      setShowDialog(true);
+      // setShowDialog(true);
     } finally {
       setIsSubmitting(false);
     }

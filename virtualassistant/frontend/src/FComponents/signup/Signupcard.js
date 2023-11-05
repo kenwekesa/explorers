@@ -129,7 +129,7 @@ const Signupcard = () => {
       } else {
         setError(`An error occurred: ${error.message}`);
       }
-      setShowDialog(true);
+      // setShowDialog(true);
     } finally {
       setIsLoading(false); // Reset loading state
     }
