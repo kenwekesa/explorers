@@ -19,23 +19,24 @@
     z-index: 10;
 }
 
-.mamlandingcontent {
+.mamlandingcontent_main {
     color: var(--White-color, #FFF);
     text-align: center;
     font-size: 34px;
     font-style: normal;
     font-weight: 800;
-    line-height: 40px;
+    line-height: 50px!important;
     padding-top: 160px;
 }
 
-.mamlandingcontent p {
+.mamlandingcontent_main p {
     margin-left: 23%;
-    line-height: 50px;
+    line-height: 50px!important;
     text-align: start;
     font-size: 45px;
     font-weight: bolder!;
 }
+
 
 
 .Landingspancolor1 {
@@ -92,3 +93,4 @@
         font-weight: 400;
         line-height: 40px;
 }
+

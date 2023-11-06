@@ -148,3 +148,12 @@ color: rgb(0, 0, 0, 0.6) !important;
   top: 0;
   width: 100%;
 }
+
+.role_title_orderhistory {
+  min-width: 30% !important;
+  width: 30%!important;
+}
+
+.role_title_orderhistory_first {
+  width: 22% !important;
+}

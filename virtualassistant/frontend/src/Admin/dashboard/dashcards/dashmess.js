@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import img6 from '../../../images/mymessages.png';
+import { collection, query, getDocs } from "firebase/firestore"; // Import Firestore functions
+import { db } from '../../../firebase/firebase'; // Import your Firebase config
 import './dashcards.css';
 
-const Admins = () => {
+const Dashmess = () => {
   const [isHovered, setHovered] = useState(false);
+  const [userCount, setUserCount] = useState("...");
 
   const toggleHover = () => {
     setHovered(!isHovered);
@@ -16,6 +19,18 @@ const Admins = () => {
       // behavior: 'smooth', // Add smooth scrolling behavior
     });
   };
+
+  // Use useEffect to fetch and update the user count
+  useEffect(() => {
+    const fetchUserCount = async () => {
+      const q = query(collection(db, "users"));
+      const querySnapshot = await getDocs(q);
+      setUserCount(querySnapshot.size);
+    };
+
+    fetchUserCount();
+  }, []);
+
   return (
     <div>
       <div
@@ -25,7 +40,7 @@ const Admins = () => {
       >
         <p>New Messages</p>
         <img src={img6} alt="logo" />
-        <p className='admin_dashboard_paragraph'>11</p>
+        <p className='admin_dashboard_paragraph'>{userCount}</p>
         {isHovered && (
           <Link onClick={scrollToTop} to="/messages" className='ton tin ton-tin'>View all new messages</Link>
         )}
@@ -34,4 +49,4 @@ const Admins = () => {
   );
 };
 
-export default Admins;
+export default Dashmess;

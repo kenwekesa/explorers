@@ -108,7 +108,9 @@ const ContactForm = () => {
 
   return (
     <div className='register_main_contact_form'>
-      <div className='register_main_register_form_update'>Register a user</div>
+      <div className='register_main_register_form_update'>
+        Register a user
+      </div>
       <div className='register_contact_form_outline'>
         <div className='mcontactimg'>
           <div className='register_register_form'>

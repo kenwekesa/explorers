@@ -17,8 +17,8 @@ const Landingnav = () => {
       <div className='mamlanding'>
         <MainNav />
         </div>
-        <div className='mamlandingcontent'>
-        <p>Hire your <span className='Landingspancolor1'>professional <br></br> 
+        <div className='mamlandingcontent_main'>
+        <p>Hire your <span className='Landingspancolor1'>professional <br></br>
         virtual</span> assistant</p>
         </div>
         <div className='mamealanding'>

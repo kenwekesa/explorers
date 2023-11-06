@@ -1,16 +1,16 @@
-.mcontactform{
-    background: #F5F5F5;
+.mcontactforms{
+    /* background: #F5F5F5; */
     /* padding-top: 20px; */
     padding-bottom: 80px;
-    padding-left: 60px;
-    padding-right: 60px;
+    /* padding-left: 60px;
+    padding-right: 60px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .admin_main_contact_form_update{
-    padding-left: 60px;
+    /* padding-left: 60px; */
     font-size: 24px;
     padding-top: 25px!important;
     padding-bottom: 15px!important;
@@ -23,7 +23,7 @@
     border-radius: 30px;
 } */
 .admin_contact_form{
-    width: 620px;
+    width: 601px;
     height: 444px;
     flex-shrink: 0;
     border-radius: 15.213px;
@@ -63,9 +63,9 @@
 
 .contacttextareainput{
     display: flex;
-    width: 175.006px;
+    width: 573.006px;
     height: 125.233px;
-    padding: 14.45px 417.74px 86.783px 19.266px;
+    padding: 14.45px 0px 86.783px 19.266px;
     align-items: center;
     flex-shrink: 0;
     border-radius: 19.267px;

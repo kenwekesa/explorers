@@ -3,7 +3,7 @@ import { db } from '../../firebase/firebase'; // Import 'db' from your Firebase 
 import { addDoc, collection } from 'firebase/firestore';
 import "./Contacform.css";
 
-const Contactform = () => {
+const Contactupdate = () => {
   const [formData, setFormData] = useState({
     title: '',
     content: '',
@@ -34,7 +34,7 @@ const Contactform = () => {
       const updateData = {
         title: formData.title,
         content: formData.content,
-        usetype: "client",
+        usetype: "assistant",
       };
 
       const docRef = await addDoc(updateCollection, updateData);
@@ -61,7 +61,7 @@ const Contactform = () => {
       <div className='mcontactforms'>
         <div className='mcontactimg'>
           <form className='admin_contact_form' onSubmit={handleSubmit}>
-            <p className='admin_contact_form_paragraph'>Provide client's updates</p>
+            <p className='admin_contact_form_paragraph'>Provide assistant's updates</p>
             <div className='admin_update_input_field'>
               <input
                 name='title'
@@ -84,7 +84,7 @@ const Contactform = () => {
             </div>
             <div className='admin_contact_button'>
               <button className='ton tin admin_contact_form_btn' type="submit" disabled={isLoading}>
-                {isLoading ? 'Submitting...' : 'Submit client update'}
+                {isLoading ? 'Submitting...' : 'Submit assistant update'}
               </button>
               {isLoading && <p style={{ color: 'green' }}>Submission in progress</p>}
             </div>
@@ -102,4 +102,4 @@ const Contactform = () => {
   );
 }
 
-export default Contactform;
+export default Contactupdate;

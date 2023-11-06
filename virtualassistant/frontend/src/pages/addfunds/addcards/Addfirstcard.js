@@ -90,7 +90,13 @@ const Addfirstcard = () => {
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
       // Add data to Firestore (replace with your Firestore logic)
-      await addDoc(collection(db, 'serviced'), formData);
+      const documentData = {
+        ...formData,
+        // Set the status variable here
+        status: 'pending', // Set the status to 'pending'
+      };
+
+      await addDoc(collection(db, 'serviced'), documentData);
 
       setFormData({
         service: '',
@@ -161,6 +167,7 @@ const Addfirstcard = () => {
                 name="period"
                 value={formData.period}
                 onChange={handleInputChange}
+                required
               />
 
               <p className='aspcontfrmpara'>Role Title</p>

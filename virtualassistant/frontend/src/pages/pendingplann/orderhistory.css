@@ -156,3 +156,7 @@ color: rgb(0, 0, 0, 0.6) !important;
   bottom: 0;
   /* Add styles for the footer if needed */
 }
+
+.services_pending_plan_main{
+  width: 26%!important;
+}
