@@ -24,7 +24,7 @@ const Dashcancel = () => {
   useEffect(() => {
     const fetchUserCount = async () => {
       // const q = query(collection(db, "users"), where("usetype", "==", "admin"));
-      const q = query(collection(db, "users"), where("usertype", "==", "admin"));
+      const q = query(collection(db, "serviced"), where("status", "==", "canceled"));
       const querySnapshot = await getDocs(q);
       setUserCount(querySnapshot.size);
     };

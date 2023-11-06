@@ -21,10 +21,9 @@ const Active = () => {
   };
 
   // Use useEffect to fetch and update the user count
-  useEffect(() => {
+ useEffect(() => {
     const fetchUserCount = async () => {
-      // const q = query(collection(db, "users"), where("usetype", "==", "admin"));
-      const q = query(collection(db, "users"), where("usertype", "==", "admin"));
+      const q = query(collection(db, "serviced"), where("status", "==", "active"));
       const querySnapshot = await getDocs(q);
       setUserCount(querySnapshot.size);
     };

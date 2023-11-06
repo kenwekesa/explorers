@@ -144,7 +144,7 @@ function Orderhistory() {
                   <tr key={item.id}>
                     <td>{i + 1}</td>
                     <td className='role_title_orderhistory_first'>{item.service}</td>
-                    <td >${item.plan} /month</td>
+                    <td>${item.plan} /month</td>
                     <td>{item.period} months</td>
                     <td>${item.totalCost}</td>
                     <td>{item.status}</td>

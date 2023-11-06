@@ -1,152 +1,172 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import Footer from '../../Admin/footer/Footer';
-import Navbar from '../navbar/navbar/Navbar';
-import "./orderhistory.css"
-import './orderhistory.scss'
-import eye from "../../images/eye.png"
+import ClientNavbar from '../../Admin/navbar/ClientNavbar';
+import './orderhistory.css';
+import './orderhistory.scss';
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from '../../firebase/firebase';
 
 function Myplans() {
-  const data = [
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Kirisi',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Merisi',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Thomlo',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
+  const [data, setData] = useState([]);
+  const [perPage, setPerPage] = useState(5);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchText, setSearchText] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedStatus, setSelectedStatus] = useState(''); // Default to 'All'
 
-    // ... more data
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let queryRef = collection(db, "serviced");
 
-  
-  const [perPage, setPerPage] = useState(5); // Number of items per page
-  const [currentPage, setCurrentPage] = useState(1); // Current page
-  const [searchText, setSearchText] = useState(''); // Search input
+        if (selectedStatus !== '') {
+          queryRef = query(queryRef, where('status', '==', selectedStatus));
+        }
+
+        const querySnapshot = await getDocs(queryRef);
+        const items = [];
+        querySnapshot.forEach((doc) => {
+          items.push({ id: doc.id, ...doc.data() });
+        });
+        setData(items);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [selectedStatus]);
+
   const filteredData = data.filter((item) =>
     item.service.toLowerCase().includes(searchText.toLowerCase())
   );
 
-  // Calculate pagination values
   const totalItems = filteredData.length;
   const totalPages = Math.ceil(totalItems / perPage);
 
-  // Function to paginate the data
   const paginatedData = filteredData.slice(
     (currentPage - 1) * perPage,
     currentPage * perPage
   );
+
+  const handleStatusClick = (status) => {
+    setSelectedStatus(status);
+    setCurrentPage(1); // Reset to the first page when a status is selected
+  };
+
   return (
     <div className='orderhistory'>
-      {/* <Navbar className='orderhistory_navbar'/> */}
-      <div className='myplans_orderhistory'>
-        <Navbar />
+      <div className='admin_clients_navbar'>
+        <ClientNavbar />
       </div>
-       <div className="orderhistory-content myplans-orderhistory-content">
+      <div className="orderhistory-content">
         <div className="topContainer orderTopContainer">
-          {/* <h1 className="title">Order History</h1> */}
           <div className="buttonsBar">
-            {/* <div className="placeorder_btn">
-              Place Order
-            </div> */}
-            <div className='myplans_va_title'>
-              <p>My <span className='myplans_va_title_span'>orders</span></p>
-            </div>
-            <div className="links_group order_links_group myplan_order_links_group">
-              <span className='link'>All</span>
-              {/* <span className='link'>Pending </span> */}
-              <span className='link'>Active</span>
-              <span className='link'>Completed</span>
-              {/* <span className='link'>Refunded </span> */}
-              <span className='link'>Canceled </span>
+            <p className='addnewplan'>My <span>orders</span></p>
+            <div className="links_group order_links_group order_links_group_content">
+              <span
+                className={`link ${selectedStatus === '' ? 'active' : ''}`}
+                onClick={() => handleStatusClick('')}
+              >
+                All
+              </span>
+              <span
+                className={`link ${selectedStatus === 'active' ? 'active' : ''}`}
+                onClick={() => handleStatusClick('active')}
+              >
+                Active
+              </span>
+              <span
+                className={`link ${selectedStatus === 'completed' ? 'active' : ''}`}
+                onClick={() => handleStatusClick('completed')}
+              >
+                Completed
+              </span>
+              <span
+                className={`link ${selectedStatus === 'canceled' ? 'active' : ''}`}
+                onClick={() => handleStatusClick('canceled')}
+              >
+                Canceled
+              </span>
             </div>
           </div>
         </div>
-        <div className="tableContainer">
-
-        {/* Filter and Search */}
-        <div className="filter-search">
-          <div className="filter">
-            <label>Show:</label>
-            <select onChange={(e) => setPerPage(Number(e.target.value))}>
-            <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-            </select>
-            entries
+         <div className="tableContainer">
+          <div className="filter-search">
+            <div className="filter">
+              <label>Show:</label>
+              <select onChange={(e) => setPerPage(Number(e.target.value))}>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+              </select>
+              entries
+            </div>
+            <div className="search">
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+              />
+            </div>
           </div>
-          <div className="search">
-            <input
-              type="text"
-              placeholder="Search..."
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
-            />
-          </div>
-        </div>
-
-        {/* Table */}
-        <table className='va_myplans_table'>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Service</th>
-              <th>Plan</th>
-              <th>Assistants</th>
-              <th>Period</th>
-              {/* <th>Time zone</th> */}
-              <th>Amount</th>
-              {/* <th>Date</th> */}
-              <th>Status</th>
-              {/* <th>Action</th> */}
-            </tr>
-          </thead>
-          <tbody>
-            {paginatedData.map((item,i) => (
-              <tr key={item.id}>
-                <td>{i+1}</td>
-                <td>{item.service}</td>
-                <td>{item.plan}</td>
-                <td>{item.assistants}</td>
-                <td>{item.period}</td>
-                {/* <td>{item.time_zone}</td> */}
-                <td>{item.amount}</td>
-                {/* <td>{item.date}</td> */}
-                <td>{item.status}</td>
-                {/* <td><img src={eye} alt="view" /></td> */}
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Service</th>
+                <th>Plan</th>
+                <th>Period</th>
+                <th>Amount</th>
+                <th>Status</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-
-        {/* Pagination */}
-        <div className="pagination">
-          <div className="pagination-info">
-            Showing {perPage * (currentPage - 1) + 1} -{' '}
-            {perPage * currentPage} of {totalItems} entries
-          </div>
-          <div className="pagination-buttons">
-            <button
-              disabled={currentPage === 1}
-              onClick={() => setCurrentPage(currentPage - 1)}
-            >
-              Previous
-            </button>
-            <button
-              disabled={currentPage === totalPages}
-              onClick={() => setCurrentPage(currentPage + 1)}
-            >
-              Next
-            </button>
+            </thead>
+            <tbody>
+              {isLoading ? (
+                <tr>
+                  <td colSpan="6">Loading...</td>
+                </tr>
+              ) : totalItems === 0 ? (
+                <tr>
+                  <td colSpan="6">No plans available, please come back later!</td>
+                </tr>
+              ) : (
+                paginatedData.map((item, i) => (
+                  <tr key={item.id}>
+                    <td>{i + 1}</td>
+                    <td className='role_title_orderhistory_first'>{item.service}</td>
+                    <td>${item.plan / 2} /month</td>
+                    <td>{item.period} months</td>
+                    <td>${item.totalCost / 2}</td>
+                    <td>{item.status}</td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+          <div className="pagination">
+            <div className="pagination-info">
+              Showing {perPage * (currentPage - 1) + 1} - {perPage * currentPage} of {totalItems} entries
+            </div>
+            <div className="pagination-buttons">
+              <button
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage(currentPage - 1)}
+              >
+                Previous
+              </button>
+              <button
+                disabled={currentPage === totalPages}
+                onClick={() => setCurrentPage(currentPage + 1)}
+              >
+                Next
+              </button>
+            </div>
           </div>
         </div>
-      </div>
       </div>
       <Footer />
     </div>
