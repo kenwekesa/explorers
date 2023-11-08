@@ -44,6 +44,7 @@ import VirtualDashboard from './VirtualAssistants/dashboard/VirtualDashboard';
 import { useContext } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom'
 import VASupport from './VirtualAssistants/support/Support';
+import Chats from './pages/chats/Chats';
 
 
 function App() {
@@ -106,6 +107,7 @@ function App() {
         <Route path='/csupport' element={
           <VASupport />
         } />
+        <Route path='/chats' element={<Chats />} />
         <Route path='/cfqas' element={<Fqas />} />
         <Route path='/myactiveorders' element={<MyActiveplan />} />
         <Route path='/mycompletedorders' element={<MyCompletedplan />} />

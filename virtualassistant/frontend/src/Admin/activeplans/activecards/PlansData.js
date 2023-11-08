@@ -4,7 +4,7 @@ import apply from '../../../images/vaco.jpg';
 import { db } from '../../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
 
-const PlansData = ({ isOpen, onClose, id, service, plan, period, cost, status, language, roleRequirements, roleTitle, timezone, assistants, updateStatus }) => {
+const PendingData = ({ isOpen, onClose, id, service, plan, period, cost, status, language, roleRequirements, roleTitle, timezone, assistants, updateStatus }) => {
   const navigate = useNavigate();
   const [notification, setNotification] = useState({ message: '', isSuccess: false });
 
@@ -17,6 +17,50 @@ const PlansData = ({ isOpen, onClose, id, service, plan, period, cost, status, l
       // Call the parent component's updateStatus function (if needed)
       if (updateStatus) {
         updateStatus('active');
+      }
+
+      // Set the success notification
+      setNotification({ message: 'Role taken successfully', isSuccess: true });
+
+      // Close the current dialog
+      // onClose();
+      navigate("/mydashboard");
+    } catch (error) {
+      console.error('Error updating document:', error);
+    }
+  };
+
+   const handleReassignRole = async () => {
+    try {
+      // Update the status to "active" in Firestore using the ID prop
+      const docRef = doc(db, 'serviced', id);
+      await updateDoc(docRef, { status: 'pending' });
+
+      // Call the parent component's updateStatus function (if needed)
+      if (updateStatus) {
+        updateStatus('pending');
+      }
+
+      // Set the success notification
+      setNotification({ message: 'Role taken successfully', isSuccess: true });
+
+      // Close the current dialog
+      // onClose();
+      navigate("/mydashboard");
+    } catch (error) {
+      console.error('Error updating document:', error);
+    }
+   };
+  
+   const handleCancelRole = async () => {
+    try {
+      // Update the status to "active" in Firestore using the ID prop
+      const docRef = doc(db, 'serviced', id);
+      await updateDoc(docRef, { status: 'canceled' });
+
+      // Call the parent component's updateStatus function (if needed)
+      if (updateStatus) {
+        updateStatus('canceled');
       }
 
       // Set the success notification
@@ -50,7 +94,7 @@ const PlansData = ({ isOpen, onClose, id, service, plan, period, cost, status, l
             </div>
             <div className="mynewplan_va_contact_data">
               <p>Plan:</p>
-              <p>${plan / 2} / month</p>
+              <p>${plan} / month</p>
             </div>
             <div className="mynewplan_va_contact_hr">
               <hr></hr>
@@ -85,7 +129,7 @@ const PlansData = ({ isOpen, onClose, id, service, plan, period, cost, status, l
             </div>
             <div className="mynewplan_va_contact_data">
               <p>Total cost:</p>
-              <p>${cost / 2}</p>
+              <p>${cost}</p>
             </div>
           </div>
           <div className="mynewplan_va_data_main_second">
@@ -100,11 +144,19 @@ const PlansData = ({ isOpen, onClose, id, service, plan, period, cost, status, l
                 <p>{roleRequirements}</p>
               </div>
               <div className="mynewplan_va_contact_data mynewplan_va_contact_data_btn">
-                <div></div>
-                {/* <button className="ton tin ton-tin" onClick={handleTakeRole}>
-                  Assign plan
-                </button> */}
-                <div></div>
+                <div>
+                  <button className="ton tin ton-tin" onClick={handleCancelRole}>
+                  Cancel
+                </button>
+                </div>
+                <button className="ton tin ton-tin" onClick={handleReassignRole}>
+                  Re-assign
+                </button>
+                <div>
+                  <button className="ton tin ton-tin" onClick={handleTakeRole}>
+                  Renew
+                </button>
+                </div>
               </div>
             </div>
           </div>
@@ -123,4 +175,4 @@ const PlansData = ({ isOpen, onClose, id, service, plan, period, cost, status, l
   );
 };
 
-export default PlansData
+export default PendingData

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { db } from '../../firebase/firebase'; // Import your Firebase configuration and 'db'
 import CountrySelector from './Contactcountry'; // Import your CountrySelector component
 import { addDoc, collection } from 'firebase/firestore';
+import { serverTimestamp } from "firebase/firestore";
 
 const Contactfrom = () => {
   const [formData, setFormData] = useState({
@@ -32,6 +33,7 @@ const Contactfrom = () => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
+      timestamp: serverTimestamp(),
     });
   };
 

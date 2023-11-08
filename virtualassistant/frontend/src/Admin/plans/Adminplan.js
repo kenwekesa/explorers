@@ -1,172 +1,211 @@
-import React, { useState } from 'react'
-import Footer from '../footer/Footer';
+import React, { useState, useEffect } from 'react';
+import Footer from '../../Admin/footer/Footer';
 import Navbar from '../navbar/Navbar';
-import "./orderhistory.css"
-import './orderhistory.scss'
+import './orderhistory.css';
+import './orderhistory.scss';
 import eye from "../../images/eye.png"
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from '../../firebase/firebase';
 import PlansData from './planscards/PlansData';
 
 function Adminplan() {
-  const data = [
-    { id: 1, service: 'Virtual Assistant',plan:"Top Professional",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Thomlo',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Thomlo',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
+  const [data, setData] = useState([]);
+  const [perPage, setPerPage] = useState(5);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchText, setSearchText] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedStatus, setSelectedStatus] = useState(''); // Default to 'All'
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-    // ... more data
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let queryRef = collection(db, "serviced");
 
-  const [isPayPalDialogOpen, setPayPalIsDialogOpen] = useState(false); // Open Edit dialog
-  const [perPage, setPerPage] = useState(5); // Number of items per page
-  const [currentPage, setCurrentPage] = useState(1); // Current page
-  const [searchText, setSearchText] = useState(''); // Search input
+        if (selectedStatus !== '') {
+          queryRef = query(queryRef, where('status', '==', selectedStatus));
+        }
+
+        const querySnapshot = await getDocs(queryRef);
+        const items = [];
+        querySnapshot.forEach((doc) => {
+          items.push({ id: doc.id, ...doc.data() });
+        });
+        setData(items);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [selectedStatus]);
+
   const filteredData = data.filter((item) =>
     item.service.toLowerCase().includes(searchText.toLowerCase())
   );
 
-  // Calculate pagination values
   const totalItems = filteredData.length;
   const totalPages = Math.ceil(totalItems / perPage);
 
-  // Function to paginate the data
   const paginatedData = filteredData.slice(
     (currentPage - 1) * perPage,
     currentPage * perPage
   );
 
-   // Fuctions to open and close the edit page
-  const openPayPalDialog = () => {
-    setPayPalIsDialogOpen(true);
+  const handleStatusClick = (status) => {
+    setSelectedStatus(status);
+    setCurrentPage(1); // Reset to the first page when a status is selected
+  };
+
+  const openPayPalDialog = (item) => {
+    setSelectedItem(item);
   };
 
   const closePayPalDialog = () => {
-    setPayPalIsDialogOpen(false);
+    setSelectedItem(null);
   };
+
   return (
     <div className='orderhistory'>
-      {/* <Navbar className='orderhistory_navbar'/> */}
       <div className='admin_clients_navbar'>
         <Navbar />
       </div>
-       <div className="orderhistory-content plans_orderhistory-content">
+      <div className="orderhistory-content">
         <div className="topContainer orderTopContainer">
-          {/* <h1 className="title">Order History</h1> */}
           <div className="buttonsBar">
-            {/* <div className="placeorder_btn">
-              Place Order
-            </div> */}
-            {/* <h1>Plans</h1> */}
             <p className='addnewplan'>Pl<span>ans</span></p>
             <div className="links_group order_links_group order_links_group_content">
-              <span className='link'>All</span>
-              <span className='link'>Pending </span>
-              <span className='link'>Active </span>
-              <span className='link'>Completed </span>
-              {/* <span className='link'>Referended </span> */}
-              <span className='link'>Canceled </span>
+              <span
+                className={`link ${selectedStatus === '' ? 'active' : ''}`}
+                onClick={() => handleStatusClick('')}
+              >
+                All
+              </span>
+              <span
+                className={`link ${selectedStatus === 'active' ? 'active' : ''}`}
+                onClick={() => handleStatusClick('active')}
+              >
+                Active
+              </span>
+              <span
+                className={`link ${selectedStatus === 'completed' ? 'active' : ''}`}
+                onClick={() => handleStatusClick('completed')}
+              >
+                Completed
+              </span>
+              <span
+                className={`link ${selectedStatus === 'canceled' ? 'active' : ''}`}
+                onClick={() => handleStatusClick('canceled')}
+              >
+                Canceled
+              </span>
             </div>
           </div>
         </div>
-        <div className="tableContainer">
-
-        {/* Filter and Search */}
-        <div className="filter-search">
-          <div className="filter">
-            <label>Show:</label>
-            <select onChange={(e) => setPerPage(Number(e.target.value))}>
-            <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-            </select>
-            entries
+         <div className="tableContainer">
+          <div className="filter-search">
+            <div className="filter">
+              <label>Show:</label>
+              <select onChange={(e) => setPerPage(Number(e.target.value))}>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+              </select>
+              entries
+            </div>
+            <div className="search">
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+              />
+            </div>
           </div>
-          <div className="search">
-            <input
-              type="text"
-              placeholder="Search..."
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
-            />
-          </div>
-        </div>
-
-        {/* Table */}
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Service</th>
-              <th>Plan</th>
-              <th>Assistants</th>
-              <th>Period</th>
-              {/* <th>Time zone</th> */}
-              <th>Amount</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {paginatedData.map((item,i) => (
-              <tr key={item.id}>
-                <td>{i+1}</td>
-                <td>{item.service}</td>
-                <td>{item.plan}</td>
-                <td>{item.assistants}</td>
-                <td>{item.period}</td>
-                {/* <td>{item.time_zone}</td> */}
-                <td>{item.amount} </td>
-                {/* <td>{item.date}</td> */}
-                <td>{item.status}</td>
-                <td className='admin_btn_view'><img src={eye} alt='logo' onClick={openPayPalDialog} />
-                  <PlansData
-                     isOpen={isPayPalDialogOpen}
-                    onClose={closePayPalDialog} 
-                  />
-                </td>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Service</th>
+                <th>Plan</th>
+                <th>Period</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-
-        {/* Pagination */}
-        <div className="pagination">
-          <div className="pagination-info">
-            Showing {perPage * (currentPage - 1) + 1} -{' '}
-            {perPage * currentPage} of {totalItems} entries
-          </div>
-          <div className="pagination-buttons">
-            <button
-              disabled={currentPage === 1}
-              onClick={() => setCurrentPage(currentPage - 1)}
-            >
-              Previous
-            </button>
-            <button
-              disabled={currentPage === totalPages}
-              onClick={() => setCurrentPage(currentPage + 1)}
-            >
-              Next
-            </button>
+            </thead>
+            <tbody>
+              {isLoading ? (
+                <tr>
+                  <td colSpan="7">Loading...</td>
+                </tr>
+              ) : totalItems === 0 ? (
+                <tr>
+                  <td colSpan="7">No plans available, please come back later!</td>
+                </tr>
+              ) : (
+                paginatedData.map((item, i) => (
+                  <tr key={item.id}>
+                    <td>{i + 1}</td>
+                    <td className='role_title_orderhistory_first'>{item.service}</td>
+                    <td>${item.plan / 2} /month</td>
+                    <td>{item.period} months</td>
+                    <td>${item.totalCost / 2}</td>
+                    <td>{item.status}</td>
+                    <td className="admin_btn_view">
+                      <img
+                        src={eye}
+                        alt="view"
+                        onClick={() => openPayPalDialog(item)}
+                      />
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+          <div className="pagination">
+            <div className="pagination-info">
+              Showing {perPage * (currentPage - 1) + 1} - {perPage * currentPage} of {totalItems} entries
+            </div>
+            <div className="pagination-buttons">
+              <button
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage(currentPage - 1)}
+              >
+                Previous
+              </button>
+              <button
+                disabled={currentPage === totalPages}
+                onClick={() => setCurrentPage(currentPage + 1)}
+              >
+                Next
+              </button>
+            </div>
           </div>
         </div>
-      </div>
       </div>
       <Footer />
-      {/* <Footer className="orderhistory_footer" /> */}
+      {selectedItem && (
+        <PlansData
+          isOpen={true}
+          onClose={closePayPalDialog}
+          service={selectedItem.service}
+          id={selectedItem.id}
+          plan={selectedItem.plan}
+          period={selectedItem.period}
+          cost={selectedItem.totalCost}
+          status={selectedItem.status}
+          language={selectedItem.language}
+          roleTitle={selectedItem.roleTitle}
+          timezone={selectedItem.timezone}
+          assistants={selectedItem.assistants}
+          roleRequirements={selectedItem.roleRequirements}
+        />
+      )}
     </div>
   );
 }

@@ -1,145 +1,197 @@
-import React, { useState } from 'react'
-import Footer from '../footer/Footer';
+import React, { useState, useEffect } from 'react';
+import Footer from '../../Admin/footer/Footer';
 import Navbar from '../navbar/Navbar';
-import "./orderhistory.css"
-import './orderhistory.scss'
-import eye from "../../images/eye.png"
+import './orderhistory.css';
+import './orderhistory.scss';
+import eye from '../../images/eye.png';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../firebase/firebase';
+import { useNavigate } from 'react-router-dom';
+import PendingData from './pendingcards/PlansData';
 
 function Pendingplan() {
-  const data = [
-    { id: 1, service: 'Virtual Assistant',plan:"Top Professional",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Thomlo',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Thomlo',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
+  const [data, setData] = useState([]);
+  const [perPage, setPerPage] = useState(5);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchText, setSearchText] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const navigate = useNavigate()
 
-    // ... more data
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true); // Set loading to true when fetching data
+      const q = query(collection(db, 'serviced'), where('status', '==', 'pending'));
+      const querySnapshot = await getDocs(q);
+      const items = [];
+      querySnapshot.forEach((doc) => {
+        items.push({ id: doc.id, ...doc.data() });
+      });
+      setData(items);
+      setIsLoading(false); // Set loading to false after data is retrieved
+    };
 
-  
-  const [perPage, setPerPage] = useState(5); // Number of items per page
-  const [currentPage, setCurrentPage] = useState(1); // Current page
-  const [searchText, setSearchText] = useState(''); // Search input
+    fetchData();
+  }, []);
+
   const filteredData = data.filter((item) =>
     item.service.toLowerCase().includes(searchText.toLowerCase())
   );
 
-  // Calculate pagination values
   const totalItems = filteredData.length;
   const totalPages = Math.ceil(totalItems / perPage);
 
-  // Function to paginate the data
   const paginatedData = filteredData.slice(
     (currentPage - 1) * perPage,
     currentPage * perPage
   );
+
+  const openPayPalDialog = (item) => {
+    setSelectedItem(item);
+  };
+
+  const closePayPalDialog = () => {
+    setSelectedItem(null);
+  };
+
+  const closeSuccessMessage = () => {
+    // Close the success message
+    setShowSuccessMessage(false);
+
+    // Navigate to "/dashboard" after success message is closed
+    navigate('/mydashboard')
+  };
+
   return (
-    <div className='orderhistory'>
-      {/* <Navbar className='orderhistory_navbar'/> */}
-      <div className='admin_clients_navbar'>
+    <div className="orderhistory">
+      <div className="admin_clients_navbar">
         <Navbar />
       </div>
-       <div className="orderhistory-content pending-orderhistory-content">
+      <div className="orderhistory-content">
         <div className="topContainer orderTopContainer">
-          <p className='addnewplan'>New <span>plans</span></p>
+          <p className="addnewplan">
+            New <span>plans</span>
+          </p>
         </div>
         <div className="tableContainer">
-
-        {/* Filter and Search */}
-        <div className="filter-search">
-          <div className="filter">
-            <label>Show:</label>
-            <select onChange={(e) => setPerPage(Number(e.target.value))}>
-            <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-            </select>
-            entries
+          <div className="filter-search">
+            <div className="filter">
+              <label>Show:</label>
+              <select onChange={(e) => setPerPage(Number(e.target.value))}>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+              </select>
+              entries
+            </div>
+            <div className="search">
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+              />
+            </div>
           </div>
-          <div className="search">
-            <input
-              type="text"
-              placeholder="Search..."
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
-            />
-          </div>
-        </div>
-
-        {/* Table */}
-        <table>
-          <thead>
-            <tr>
-              <th><span>ID</span></th>
-              <th>Service</th>
-              <th>Plan</th>
-              <th>Assistants</th>
-              <th>Period</th>
-              {/* <th>Time zone</th> */}
-              <th>Amount</th>
-              {/* <th>Date</th> */}
-              {/* <th>Status</th> */}
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {paginatedData.map((item,i) => (
-              <tr key={item.id}>
-                <td>{i+1}</td>
-                <td>{item.service}</td>
-                <td>{item.plan}</td>
-                <td>{item.assistants}</td>
-                <td>{item.period}</td>
-                {/* <td>{item.time_zone}</td> */}
-                <td>{item.amount} </td>
-                {/* <td>{item.date}</td> */}
-                {/* <td >{item.status}</td> */}
-                <td className='admin_btn_view'><img src={eye} alt='logo'/></td>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Service</th>
+                <th>Plan</th>
+                <th>Assistants</th>
+                <th>Period</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-
-        {/* Pagination */}
-        <div className="pagination">
-          <div className="pagination-info">
-            Showing {perPage * (currentPage - 1) + 1} -{' '}
-            {perPage * currentPage} of {totalItems} entries
-          </div>
-          <div className="pagination-buttons">
-            <button
-              disabled={currentPage === 1}
-              onClick={() => setCurrentPage(currentPage - 1)}
-            >
-              Previous
-            </button>
-            <button
-              disabled={currentPage === totalPages}
-              onClick={() => setCurrentPage(currentPage + 1)}
-            >
-              Next
-            </button>
+            </thead>
+            <tbody>
+              {isLoading ? (
+                // Show loading indicator if loading is true
+                <tr>
+                  <td colSpan="8">Loading...</td>
+                </tr>
+              ) : totalItems === 0 ? (
+                // Show "No data from the database" if no data
+                <tr>
+                  <td colSpan="8">
+                    No new order available, please come back later!
+                  </td>
+                </tr>
+              ) : (
+                paginatedData.map((item, i) => (
+                  <tr key={item.id}>
+                    <td>{i + 1}</td>
+                    <td className="services_pending_plan_main">{item.service}</td>
+                    <td>${item.plan / 2} / month</td>
+                    <td>{item.assistants}</td>
+                    <td>{item.period} months</td>
+                    <td>${item.totalCost /2 }</td>
+                    <td>{item.status}</td>
+                    <td className="admin_btn_view">
+                      <img
+                        src={eye}
+                        alt="view"
+                        onClick={() => openPayPalDialog(item)}
+                      />
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+          <div className="pagination">
+            <div className="pagination-info">
+              Showing {perPage * (currentPage - 1) + 1} - {perPage * currentPage} of {totalItems} entries
+            </div>
+            <div className="pagination-buttons">
+              <button
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage(currentPage - 1)}
+              >
+                Previous
+              </button>
+              <button
+                disabled={currentPage === totalPages}
+                onClick={() => setCurrentPage(currentPage + 1)}
+              >
+                Next
+              </button>
+            </div>
           </div>
         </div>
       </div>
-      </div>
+      {showSuccessMessage && (
+        <div className="success-dialog">
+          <div className="success-dialog-content">
+            <p>Role taken successfully</p>
+            <button onClick={closeSuccessMessage}>Close</button>
+          </div>
+        </div>
+      )}
       <Footer />
-      {/* <Footer className="orderhistory_footer" /> */}
+      {selectedItem && (
+        <PendingData
+          isOpen={true}
+          onClose={closePayPalDialog}
+          service={selectedItem.service}
+          id={selectedItem.id}
+          plan={selectedItem.plan}
+          period={selectedItem.period}
+          cost={selectedItem.totalCost}
+          status={selectedItem.status}
+          language={selectedItem.language}
+          roleTitle={selectedItem.roleTitle}
+          timezone={selectedItem.timezone}
+          assistants={selectedItem.assistants}
+          roleRequirements={selectedItem.roleRequirements}
+        />
+      )}
     </div>
   );
 }
+
 
 export default Pendingplan;

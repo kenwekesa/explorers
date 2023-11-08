@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import img6 from '../../../images/pending.png';
-import { collection, query, getDocs } from "firebase/firestore"; // Import Firestore functions
+import { collection, where, query, getDocs } from "firebase/firestore"; // Import Firestore functions
 import { db } from '../../../firebase/firebase'; // Import your Firebase config
 import './dashcards.css';
 
@@ -23,7 +23,7 @@ const Dashcancel = () => {
   // Use useEffect to fetch and update the user count
   useEffect(() => {
     const fetchUserCount = async () => {
-      const q = query(collection(db, "users"));
+      const q = query(collection(db, "serviced"), where("status", "==", "pending"));
       const querySnapshot = await getDocs(q);
       setUserCount(querySnapshot.size);
     };

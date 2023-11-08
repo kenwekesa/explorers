@@ -4,7 +4,7 @@ import apply from '../../../images/vaco.jpg';
 import { db } from '../../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
 
-const PlansData = ({ isOpen, onClose, id, service, plan, period, cost, status, language, roleRequirements, roleTitle, timezone, assistants, updateStatus }) => {
+const PendingData = ({ isOpen, onClose, id, service, plan, period, cost, status, language, roleRequirements, roleTitle, timezone, assistants, updateStatus }) => {
   const navigate = useNavigate();
   const [notification, setNotification] = useState({ message: '', isSuccess: false });
 
@@ -101,9 +101,9 @@ const PlansData = ({ isOpen, onClose, id, service, plan, period, cost, status, l
               </div>
               <div className="mynewplan_va_contact_data mynewplan_va_contact_data_btn">
                 <div></div>
-                {/* <button className="ton tin ton-tin" onClick={handleTakeRole}>
-                  Assign plan
-                </button> */}
+                <button className="ton tin ton-tin" onClick={handleTakeRole}>
+                  Assign Plan
+                </button>
                 <div></div>
               </div>
             </div>
@@ -123,4 +123,4 @@ const PlansData = ({ isOpen, onClose, id, service, plan, period, cost, status, l
   );
 };
 
-export default PlansData
+export default PendingData
