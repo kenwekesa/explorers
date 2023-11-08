@@ -131,7 +131,7 @@ function Myfunds() {
                 </tr>
               ) : totalItems === 0 ? (
                 <tr>
-                  <td colSpan="6">No plans available, please come back later!</td>
+                  <td colSpan="6">No funds available, please come back later!</td>
                 </tr>
               ) : (
                 paginatedData.map((item, i) => (
