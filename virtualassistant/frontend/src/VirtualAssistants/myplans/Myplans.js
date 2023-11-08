@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Footer from '../../Admin/footer/Footer';
-import ClientNavbar from '../../Admin/navbar/ClientNavbar';
+import Navbar from '../navbar/navbar/Navbar';
 import './orderhistory.css';
 import './orderhistory.scss';
 import { collection, getDocs, query, where } from "firebase/firestore";
@@ -59,7 +59,7 @@ function Myplans() {
   return (
     <div className='orderhistory'>
       <div className='admin_clients_navbar'>
-        <ClientNavbar />
+        <Navbar />
       </div>
       <div className="orderhistory-content">
         <div className="topContainer orderTopContainer">

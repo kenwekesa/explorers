@@ -6,6 +6,7 @@
     margin: 0px !important;
 }
 
+
 .mynewplan_va_data_main_content {
     display: flex;
     justify-content: space-between;
@@ -15,12 +16,10 @@
     z-index: 14 !important;
 }
 
-.mynewplan_va_data_main_profile {
-    width: 410px;
-    height: 76vh;
-    background: #ECEFF1;
-    overflow: hidden;
-    border-radius: 30px;
+.mynewplan_va_data_main_content p{
+    color: rgb(0, 0, 0, 0.6);
+    font-size: 14px!important;
+    text-align: justify;
 }
 
 .mynewplan_va_data_main_document {
@@ -42,6 +41,15 @@
     background: #ECEFF1;
     overflow: auto;
     /* Enable scrolling for overflown content */
+}
+
+.mynewplan_va_data_main_profile {
+    width: 430px;
+    height: 76vh;
+    background: #ECEFF1;
+    overflow: hidden;
+    border-radius: 30px;
+    overflow: auto!important;
 }
 
 .mynewplan_va_data_image img {
