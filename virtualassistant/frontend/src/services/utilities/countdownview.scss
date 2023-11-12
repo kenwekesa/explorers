@@ -1,0 +1,49 @@
+.countdown_container 
+{
+
+    .countdown 
+    {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        h4 
+        {
+            font-size: 26px;
+            color: rgb(37, 1, 78);
+        }
+        .elpased{
+            color: red!important;
+        }
+        .figures 
+        {
+
+            color: #333;
+            .deadline_days 
+            {
+                // background-color: rgb(53, 6, 6);
+                padding: 2px 9px;
+                font-weight: normal;
+            }
+            .deadline_hours 
+            {
+                // background-color: rgb(53, 6, 6);
+                padding: 2px 9px;
+                font-weight: normal;
+
+            }
+            .deadline_minutes 
+            {
+                background-color: rgb(53, 6, 6);
+                padding: 2px 9px;
+
+            }
+            .deadline_seconds 
+            {
+                background-color: rgb(53, 6, 6);
+                padding: 2px 9px;
+
+            }
+        }
+    }
+}

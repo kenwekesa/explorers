@@ -55,7 +55,7 @@ const Contactfrom = () => {
       // Send the form data to the 'contactinfo' collection in your Firebase Firestore database
       // await db.collection('contactinfo').add(formData);
 
-      await addDoc(collection(db, 'contactInfo'), formData);
+      await addDoc(collection(db, 'emails'), formData);
 
       setFormData({
         firstName: '',

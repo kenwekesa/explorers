@@ -1,10 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./ClientsData.css"
 import apply from "../../../images/vmainpage.jpg"
-const ClientsData = ({ isOpen, onClose }) => {
+import { ChatContext } from '../../../contextr/ChatsContext';
+import { AuthContext } from '../../../contextr/AuthContext';
+import { findUser } from '../../../services/api/DataApi';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
 
-    if (!isOpen) return null;
+const ClientsData = ({ isOpen, onClose, id, service, firstname, lastname, usercontact, email, about, org_name, location, timezone, assistants, updateStatus }) => {
 
+  
+
+     const [userr, setUserr] = useState([])
+      const [currentuser, setCurrentuser] = useState(null)
+      const {state} = useContext(AuthContext)
+      const {dispatch} = useContext(ChatContext)
+    
+      const navigate = useNavigate()
+    
+      const [client, setClient] =useState(null)
+      const [writer, setWriter] = useState(null)
+  
+
+  const fetchData = async () => {
+        
+        try{
+          
+         console.log(state.user.uid)
+        //const res = await findOne(state.user.uid)
+    
+        const res2 = await findUser(id)
+        const res = await findUser(state.user.uid)
+    
+    
+        //setUsers([...res])
+        setCurrentuser(res[0])
+        setClient(res2[0])
+        console.log(res)
+        }
+        catch(error)
+        {
+          console.log(error)
+        }
+        
+    }
+    
+    useEffect(() => {
+        fetchData()
+    }, [])
+  
+   const startChatClient = async() => 
+    {
+    
+      dispatch({ type: 'UPDATE_OTHER_USER', payload: client });
+      navigate('/messages')
+      
+      //const start_chat = await createCollection("chats", temp)
+    }
+
+  if (!isOpen) return null;
+  
   return (
     <div className="dialog-background vadate_dialog-background">
       <div className="dialog-box box_dialog-background">
@@ -14,23 +69,25 @@ const ClientsData = ({ isOpen, onClose }) => {
               <img src={apply} alt='profile'/>
             </div>
             <div className='assistant_va_data_paragraph_title'>
-              <p>Client’s Profile</p>
+              <p>Admin’s Profile</p>
             </div>
             <div className='assistant_va_contact_data'>
-              <p>Sam walima</p>
-              <p>+2547823929283</p>
+              <p>Name:</p>
+              <p>{firstname} { lastname}</p>
             </div>
             <div className='assistant_va_contact_hr'>
               <hr></hr>
             </div>
             <div className='assistant_va_contact_data'>
-              <p>samwalimaromelao@gmail.com</p>
+              <p>Email:</p>
+              <p>{email}</p>
             </div>
             <div className='assistant_va_contact_hr'>
               <hr></hr>
             </div>
             <div className='assistant_va_contact_data'>
-              <p>Country: Kenyan</p>
+              <p>Country: </p>
+              <p>{location}</p>
             </div>
             <div className='assistant_va_contact_hr'>
               <hr></hr>
@@ -39,6 +96,7 @@ const ClientsData = ({ isOpen, onClose }) => {
               <div></div>
               {/* <button className='ton tin ton-tin'>Verify</button> */}
               <button className='ton tin ton-tin'>Delete client</button>
+              {<button onClick={() => startChatClient()} className='ton tin ton-tin'>Initate chat</button>}
               {/* <button className='ton tin ton-tin'>Disable</button> */}
               <div></div>
             </div>
@@ -53,12 +111,13 @@ const ClientsData = ({ isOpen, onClose }) => {
               <hr></hr>
               </div>
             <div className='assistant_va_contact_data assistant_va_contact_data_paragraph_body'>
-              <p>Name:</p>
-              <p></p>
+              <p>Industry:</p>
+                <p>{ org_name}</p>
             </div>
             <div className='assistant_va_contact_data assistant_va_contact_data_paragraph_body'>
-              <p>Industry:</p>
-              <p></p>
+              
+              <p>Service:</p>
+                <p>{ service}</p>
             </div>
             {/* <div className='assistant_va_contact_data assistant_va_contact_data_paragraph_body'>
               <p>Transcripts:</p>
@@ -67,19 +126,19 @@ const ClientsData = ({ isOpen, onClose }) => {
             </div>
             <div className='va_data_main_qualifiction'>
               <div className='assistant_va_contact_data assistant_va_contact_data_paragraph_title'>
-              <p>Organization's services</p>
+              <p>Client's Contact</p>
               <p></p>
             </div>
             <div className='assistant_va_contact_hr'>
               <hr></hr>
               </div>
             <div className='assistant_va_contact_data assistant_va_contact_data_paragraph_body'>
-              <p>Services:</p>
-              <p></p>
+              <p>Contact:</p>
+                <p>{ usercontact}</p>
             </div>
             <div className='assistant_va_contact_data assistant_va_contact_data_paragraph_body'>
               <p>How heard about us:</p>
-              <p></p>
+                <p>{ about}</p>
             </div>
             </div>
           </div>

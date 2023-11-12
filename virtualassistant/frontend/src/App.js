@@ -1,4 +1,5 @@
-import { Route, Routes } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import MainAbout from './FComponents/about/MainAbout';
 import './App.css';
 import MainContact from './FComponents/contact/MainContact';
@@ -41,22 +42,123 @@ import Canceledplann from './pages/canceledplann/canceledplann';
 import ClientDashboard from './pages/dashboard/ClientDashboard';
 import AdminDashboard from './Admin/dashboard/AdminDashboard';
 import VirtualDashboard from './VirtualAssistants/dashboard/VirtualDashboard';
-import { useContext } from 'react';
-import { useNavigate, Navigate } from 'react-router-dom'
 import VASupport from './VirtualAssistants/support/Support';
-import Chats from './pages/chats/Chats';
+import { AuthContext } from './contextr/AuthContext';
+import { findUser } from './services/api/DataApi';
+
+
+const RequireAuth =({children}) => 
+  {
+    const {state} = useContext(AuthContext)
+     return state.user? children: <Navigate to='/login'/> 
+  }
+
+ const RequireAdmin = ({ children }) => {
+    const { state } = useContext(AuthContext);
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [isLoading, setIsLoading] = useState(true); // Add loading state
+  
+    useEffect(() => {
+      const checkAdminUser = async () => {
+        const temp = await findUser(state.user.uid);
+        const adminUser = temp[0];
+  
+        if (adminUser && adminUser.usertype === 'admin') {
+          setIsAdmin(true);
+        }
+        setIsLoading(false); // Set loading state to false once the check is complete
+      };
+  
+      checkAdminUser();
+    }, [state.user.uid]);
+  
+    // If still loading, display a loading indicator or any other desired UI
+    if (isLoading) {
+      return <div>Loading...</div>;
+    }
+  
+    // If not an admin, redirect to signin route
+    if (!isAdmin) {
+      return <Navigate to="/login" />;
+    }
+  
+    // Render children if user is an admin
+    return <>{children}</>;
+ };
+  
+const RequireClient = ({ children }) => {
+    const { state } = useContext(AuthContext);
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [isLoading, setIsLoading] = useState(true); // Add loading state
+  
+    useEffect(() => {
+      const checkAdminUser = async () => {
+        const temp = await findUser(state.user.uid);
+        const adminUser = temp[0];
+  
+        if (adminUser && adminUser.usertype === 'client') {
+          setIsAdmin(true);
+        }
+        setIsLoading(false); // Set loading state to false once the check is complete
+      };
+  
+      checkAdminUser();
+    }, [state.user.uid]);
+  
+    // If still loading, display a loading indicator or any other desired UI
+    if (isLoading) {
+      return <div>Loading...</div>;
+    }
+  
+    // If not an admin, redirect to signin route
+    if (!isAdmin) {
+      return <Navigate to="/login" />;
+    }
+  
+    // Render children if user is an admin
+    return <>{children}</>;
+  };
+
+  const RequireVa = ({ children }) => {
+    const { state } = useContext(AuthContext);
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [isLoading, setIsLoading] = useState(true); // Add loading state
+    const [isVerfied, setIsVerfied] = useState(false)
+    useEffect(() => {
+      const checkAdminUser = async () => {
+        const temp = await findUser(state.user.uid);
+        const adminUser = temp[0];
+  
+        if (adminUser && adminUser.usertype === 'va') {
+          setIsAdmin(true);
+          if (adminUser.status === 'verified') {
+            setIsVerfied(true)
+          }
+        }
+        setIsLoading(false); // Set loading state to false once the check is complete
+      };
+  
+      checkAdminUser();
+    }, [state.user.uid]);
+  
+    // If still loading, display a loading indicator or any other desired UI
+    if (isLoading) {
+      return <div>Loading...</div>;
+    }
+  
+
+    if (isAdmin && isVerfied) {
+      return <>{children}</>;
+    } else if (isAdmin && !isVerfied) {
+      return <Navigate to="/contact" />;
+    } else {
+      return <Navigate to="/login" />;
+    }
+  };
 
 
 function App() {
-
-  // const navigate = useNavigate()
-
-  // const RequireAuth =({children}) => 
-  // {
-  //   const {state} = useContext(AuthContext)
-  //    return state !=null && state.user? children: navigate('/login')
-  // }
-
+  
   return (
     <div className='mainapp'>
       <Routes>
@@ -70,52 +172,46 @@ function App() {
         <Route path='/login' element={<Mainlogin />} />
         <Route path='/signup' element={<Mainsignup />} />
         <Route path='/careers' element={<Maincareers />} />
-        {/* ********clinet Routes********** */}
-        <Route path='/dashboard' element={<ClientDashboard />} />
-        <Route path="/orderhistory" element={<Orderhistory />} />
-        <Route path="/addfunds" element={<Mainfund />} />
-        <Route path='/newplan' element={<Mainaddfunds />} />
-        <Route path="/support" element={
-         <MainSupport />
-        } />
-        <Route path='/servicelist' element={<Mainservicelist />} />
-        <Route path='/faqs' element={<Faq />} />
-        <Route path='/fund' element={<Fund />} />
-        <Route path='/active_plans' element={<Activeplann />} />
-        <Route path='/completed_plans' element={<Completedplann />} />
-        <Route path='/pending_plans' element={<Pendingplann />} />
-        <Route path='/canceled_plans' element={<Canceledplann />} />
+        {/* ********client Routes********** */}
+        <Route path='/dashboard' element={<RequireAuth><RequireClient><ClientDashboard /></RequireClient></RequireAuth>} />
+        <Route path="/orderhistory" element={<RequireAuth><RequireClient><Orderhistory /></RequireClient></RequireAuth>} />
+        <Route path="/addfunds" element={<RequireAuth><RequireClient><Mainfund /></RequireClient></RequireAuth>} />
+        <Route path='/newplan' element={<RequireAuth><RequireClient><Mainaddfunds /></RequireClient></RequireAuth>} />
+        <Route path="/support" element={<RequireAuth><RequireClient><MainSupport /></RequireClient></RequireAuth>} />
+        <Route path='/servicelist' element={<RequireAuth><RequireClient><Mainservicelist /></RequireClient></RequireAuth>} />
+        <Route path='/faqs' element={<RequireAuth><RequireClient><Faq /></RequireClient></RequireAuth>} />
+        <Route path='/fund' element={<RequireAuth><RequireClient><Fund /></RequireClient></RequireAuth>} />
+        <Route path='/active_plans' element={<RequireAuth><RequireClient><Activeplann /></RequireClient></RequireAuth>} />
+        <Route path='/completed_plans' element={<RequireAuth><RequireClient><Completedplann /></RequireClient></RequireAuth>} />
+        <Route path='/pending_plans' element={<RequireAuth><RequireClient><Pendingplann /></RequireClient></RequireAuth>} />
+        <Route path='/canceled_plans' element={<RequireAuth><RequireClient><Canceledplann /></RequireClient></RequireAuth>} />
         {/* ******* Admin Routes************ */}
-        <Route path='/admin_dashboard' element={<AdminDashboard />} />
-        <Route path='/clients' element={<Adminclients />} />
-        <Route path='/assistants' element={<Adminassistants />} />
-        <Route path='/funds' element={<Adminfunds />} />
-        <Route path='/messages' element={
-          <Adminmessages />
-        } />
-        <Route path='/register' element={<AdminRegister />} />
-        <Route path='/plans' element={<Adminplan />} />
-        <Route path='/updates' element={<Adminupdates />} />
-        <Route path='/emails' element={<Emailplan />} />
-        <Route path='/administrators' element={<Adminsplan />} />
-        <Route path='/activeplans' element={<Activeplan />} />
-        <Route path='/pendingplans' element={<Pendingplan />} />
+        <Route path='/admin_dashboard' element={<RequireAuth><RequireAdmin><AdminDashboard /></RequireAdmin></RequireAuth>} />
+        <Route path='/clients' element={<RequireAuth><RequireAdmin><Adminclients /></RequireAdmin></RequireAuth>} />
+        <Route path='/assistants' element={<RequireAuth><RequireAdmin><Adminassistants /></RequireAdmin></RequireAuth>} />
+        <Route path='/funds' element={<RequireAuth><RequireAdmin><Adminfunds /></RequireAdmin></RequireAuth>} />
+        <Route path='/messages' element={<RequireAuth><RequireAdmin><Adminmessages /></RequireAdmin></RequireAuth>} />
+        <Route path='/register' element={<RequireAuth><RequireAdmin><AdminRegister /></RequireAdmin></RequireAuth>} />
+        <Route path='/plans' element={<RequireAuth><RequireAdmin><Adminplan /></RequireAdmin></RequireAuth>} />
+        <Route path='/updates' element={<RequireAuth><RequireAdmin><Adminupdates /></RequireAdmin></RequireAuth>} />
+        <Route path='/emails' element={<RequireAuth><RequireAdmin><Emailplan /></RequireAdmin></RequireAuth>} />
+        <Route path='/administrators' element={<RequireAuth><RequireAdmin><Adminsplan /></RequireAdmin></RequireAuth>} />
+        <Route path='/activeplans' element={<RequireAuth><RequireAdmin><Activeplan /></RequireAdmin></RequireAuth>} />
+        <Route path='/pendingplans' element={<RequireAuth><RequireAdmin><Pendingplan /></RequireAdmin></RequireAuth>} />
         {/***********virtual Assistants Routes*********/}
-        <Route path='/mydashboard' element={<VirtualDashboard/>} />
-        <Route path='/myplans' element={<Myplans />} />
-        <Route path='/myfunds' element={<Myfunds />} />
-        <Route path='/csupport' element={
-          <VASupport />
-        } />
-        <Route path='/chats' element={<Chats />} />
-        <Route path='/cfqas' element={<Fqas />} />
-        <Route path='/myactiveorders' element={<MyActiveplan />} />
-        <Route path='/mycompletedorders' element={<MyCompletedplan />} />
-        <Route path='/mycanceledorders' element={<MyCanceledplan />} />
-        <Route path='/myneworders' element={<Mynewplan />} />
+        <Route path='/mydashboard' element={<RequireAuth><RequireVa><VirtualDashboard /></RequireVa></RequireAuth>} />
+        <Route path='/myplans' element={<RequireAuth><RequireVa><Myplans /></RequireVa></RequireAuth>} />
+        <Route path='/myfunds' element={<RequireAuth><RequireVa><Myfunds /></RequireVa></RequireAuth>} />
+        <Route path='/csupport' element={<RequireAuth><RequireVa><VASupport /></RequireVa></RequireAuth>} />
+        <Route path='/cfqas' element={<RequireAuth><RequireVa><Fqas /></RequireVa></RequireAuth>} />
+        <Route path='/myactiveorders' element={<RequireAuth><RequireVa><MyActiveplan /></RequireVa></RequireAuth>} />
+        <Route path='/mycompletedorders' element={<RequireAuth><RequireVa><MyCompletedplan /></RequireVa></RequireAuth>} />
+        <Route path='/mycanceledorders' element={<RequireAuth><RequireVa><MyCanceledplan /></RequireVa></RequireAuth>} />
+        <Route path='/myneworders' element={<RequireAuth><RequireVa><Mynewplan /></RequireVa></RequireAuth>} />
       </Routes>
     </div>
   );
 }
 
 export default App;
+

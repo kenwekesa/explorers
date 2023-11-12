@@ -22,7 +22,7 @@ function Activeplan() {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true); // Set loading to true when fetching data
-      const q = query(collection(db, 'serviced'), where('status', '==', 'pending'));
+      const q = query(collection(db, 'serviced'), where('status', '==', 'active'));
       const querySnapshot = await getDocs(q);
       const items = [];
       querySnapshot.forEach((doc) => {
@@ -60,7 +60,7 @@ function Activeplan() {
     setShowSuccessMessage(false);
 
     // Navigate to "/dashboard" after success message is closed
-    navigate('/mydashboard')
+    navigate('/admin_dashboard')
   };
 
   return (
@@ -117,7 +117,7 @@ function Activeplan() {
                 // Show "No data from the database" if no data
                 <tr>
                   <td colSpan="8">
-                    No active order available, please come back later!
+                    No new order available, please come back later!
                   </td>
                 </tr>
               ) : (
@@ -192,5 +192,4 @@ function Activeplan() {
     </div>
   );
 }
-
 export default Activeplan;

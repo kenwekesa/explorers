@@ -1,91 +1,143 @@
 import React, { useState } from 'react';
-import "./EmailsData.css"
-import apply from "../../../images/vaco.jpg"
-const EmailsData = ({ isOpen, onClose }) => {
+import { doc, updateDoc } from 'firebase/firestore';
+import apply from '../../../images/vaco.jpg';
+import { db } from '../../../firebase/firebase';
+import { useNavigate } from 'react-router-dom';
 
-    if (!isOpen) return null;
+const EmailsData = ({ isOpen, onClose, id, contact, country, email, firstName, lastName, message, subject, roleTitle, timezone, assistants, updateStatus }) => {
+  const navigate = useNavigate();
+  const [notification, setNotification] = useState({ message: '', isSuccess: false });
+
+  const handleTakeRole = async () => {
+    try {
+      // Update the status to "active" in Firestore using the ID prop
+      const docRef = doc(db, 'serviced', id);
+      await updateDoc(docRef, { status: 'pending' });
+
+      // Call the parent component's updateStatus function (if needed)
+      if (updateStatus) {
+        updateStatus('pending');
+      }
+
+      // Set the success notification
+      setNotification({ message: 'Role taken successfully', isSuccess: true });
+
+      // Close the current dialog
+      // onClose();
+      navigate("/admin_dashboard");
+    } catch (error) {
+      console.error('Error updating document:', error);
+    }
+  };
+
+   const handleReassignRole = async () => {
+    try {
+      // Update the status to "active" in Firestore using the ID prop
+      const docRef = doc(db, 'serviced', id);
+      await updateDoc(docRef, { status: 'pending' });
+
+      // Call the parent component's updateStatus function (if needed)
+      if (updateStatus) {
+        updateStatus('pending');
+      }
+
+      // Set the success notification
+      setNotification({ message: 'Role taken successfully', isSuccess: true });
+
+      // Close the current dialog
+      // onClose();
+      navigate("/admin_dashboard");
+    } catch (error) {
+      console.error('Error updating document:', error);
+    }
+   };
+  
+   const handleCancelRole = async () => {
+    try {
+      // Update the status to "active" in Firestore using the ID prop
+      const docRef = doc(db, 'serviced', id);
+      await updateDoc(docRef, { status: 'canceled' });
+
+      // Call the parent component's updateStatus function (if needed)
+      if (updateStatus) {
+        updateStatus('canceled');
+      }
+
+      // Set the success notification
+      setNotification({ message: 'Role taken successfully', isSuccess: true });
+
+      // Close the current dialog
+      // onClose();
+      navigate("/admin_dashboard");
+    } catch (error) {
+      console.error('Error updating document:', error);
+    }
+  };
 
   return (
-    <div className="dialog-background vadate_dialog-background">
+    <div className={`dialog-background vadate_dialog-background ${isOpen ? 'show' : ''}`}>
       <div className="dialog-box box_dialog-background">
-        <div className='client_va_data_main_content'>
-          <div className='client_va_data_main_profile'>
-            {/* <div className='email_va_data_image'>
-              <img src={apply} alt='profile'/>
-            </div> */}
-            <div className='email_va_data_paragraph_title'>
-              <p>Email Details</p>
+        <div className="mynewplan_va_data_main_content">
+          <div className="mynewplan_va_data_main_profile">
+            <div className="mynewplan_va_data_paragraph_title">
+              <h5>Email details</h5>
             </div>
-            <div className='email_va_contact_hr'>
+            <div className="mynewplan_va_contact_hr">
               <hr></hr>
             </div>
-            <div className='email_va_contact_data'>
+            <div className="mynewplan_va_contact_data">
               <p>Subject:</p>
-              <p>Registration</p>
+              <p>{subject}</p>
             </div>
-            <div className='email_va_contact_hr'>
+            <div className="mynewplan_va_contact_hr">
               <hr></hr>
             </div>
-            <div className='email_va_contact_data'>
+            <div className="mynewplan_va_contact_data">
               <p>Name:</p>
-              <p>Alice Kole</p>
+              <p>{firstName} {lastName }</p>
             </div>
-            <div className='email_va_contact_hr'>
+            <div className="mynewplan_va_contact_hr">
               <hr></hr>
             </div>
-            <div className='email_va_contact_data'>
+            <div className="mynewplan_va_contact_data">
+              <p>Contact:</p>
+              <p>{contact}</p>
+            </div>
+            <div className="mynewplan_va_contact_hr">
+              <hr></hr>
+            </div>
+            <div className="mynewplan_va_contact_data">
               <p>Country:</p>
-              <p>Kenyan</p>
+              <p>{country}</p>
             </div>
-            <div className='email_va_contact_hr'>
+            <div className="mynewplan_va_contact_hr">
               <hr></hr>
             </div>
-            <div className='email_va_contact_data'>
-              <p>Contact</p>
-              <p>+2548293929</p>
-            </div>
-            <div className='email_va_contact_hr'>
-              <hr></hr>
-            </div>
-            <div className='email_va_contact_data'>
-              <p>Karenmalma@gmail.com</p>
-              {/* <p>Kenyan</p> */}
-            </div>
-            <div className='email_va_contact_hr'>
-              <hr></hr>
-            </div>
-            <div className='email_va_contact_data assistant_va_contact_data_btn'>
-              <div></div>
-              {/* <button className='ton tin ton-tin'>Verify</button> */}
-              {/* <button className='ton tin ton-tin'>Delete client</button> */}
-              {/* <button className='ton tin ton-tin'>Disable</button> */}
-              <div></div>
+            <div className="mynewplan_va_contact_data">
+              <p>Email:</p>
+              <p>{email}</p>
             </div>
           </div>
-          <div className='client_va_data_main_second'>
-            <div className='client_va_data_main_document'>
-              <div className='email_va_contact_data email_va_contact_data_paragraph_title'>
-              <p>Email content</p>
-              <p></p>
-            </div>
-            <div className='assistant_va_contact_hr'>
-              <hr></hr>
+          <div className="mynewplan_va_data_main_second">
+            <div className="mynewplan_va_data_main_document">
+              <div className="mynewplan_va_contact_data mynewplan_va_contact_data_paragraph_title">
+                <p>Message content</p>
               </div>
-            <div className='email_va_contact_data email_va_contact_data_paragraph_body'>
-              <p>Content</p>
-              <p></p>
-            </div>
-            {/* <div className='email_va_contact_data email_va_contact_data_paragraph_body'>
-              <p>Industry:</p>
-              <p></p>
-            </div> */}
-              <div className='email_va_contact_data assistant_va_contact_data_btn'>
-              <div></div>
-              {/* <button className='ton tin ton-tin'>Verify</button> */}
-              <button className='ton tin ton-tin'>Reply Email</button>
-              {/* <button className='ton tin ton-tin'>Disable</button> */}
-              <div></div>
-            </div>
+              <div className="assistant_va_contact_hr">
+                <hr></hr>
+              </div>
+              <div className="mynewplan_va_contact_data mynewplan_va_contact_data_paragraph_body">
+                <p>{message}</p>
+              </div>
+              <div className="mynewplan_va_contact_data mynewplan_va_contact_data_btn">
+                <div>
+                </div>
+                <button className="ton tin ton-tin" onClick={handleReassignRole}>
+                  Reply email
+                </button>
+                <div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -93,6 +145,12 @@ const EmailsData = ({ isOpen, onClose }) => {
           X
         </button>
       </div>
+
+      {notification.isSuccess && (
+        <div className="notification">
+          <p>{notification.message}</p>
+        </div>
+      )}
     </div>
   );
 };

@@ -85,40 +85,49 @@ const Signupcard = () => {
     setIsLoading(true); // Set loading state
 
     try {
-      await createUserWithEmailAndPassword(auth, formData.email, formData.password);
+      const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
 
-      const userData = {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        org_name: formData.org_name,
-        contact: formData.contact,
-        location: formData.location,
-        service: formData.service,
-        about: formData.about,
-        usertype: 'client', // Set 'usertype' as 'Admin' by default
-      };
+      const user = userCredential.user;
 
-      await addDoc(collection(db, 'clients'), userData);
+      if (user) {
+        const userData = {
+          user_id: user.uid,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          org_name: formData.org_name,
+          contact: formData.contact,
+          location: formData.location,
+          service: formData.service,
+          about: formData.about,
+          usertype: 'client',
+        };
 
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        org_name: '',
-        contact: '',
-        location: '',
-        service: '',
-        about: '',
-        password: '',
-        match_password: '',
-      });
+        await addDoc(collection(db, 'users'), userData);
 
-      setTermsChecked(false);
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          org_name: '',
+          contact: '',
+          location: '',
+          service: '',
+          about: '',
+          password: '',
+          match_password: '',
+        });
 
-      setNotification({ message: `Registration successful and a verification email has been sent to ${formData.email}!`, isSuccess: true });
+        setTermsChecked(false);
 
-      setShowDialog(true);
+        setNotification({
+          // message: `Registration successful, and a verification email has been sent to ${formData.email}!`,
+          message: `Registration successful, proceed and login to complete the application process!`,
+          isSuccess: true,
+        });
+
+        setShowDialog(true);
+      }
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
         setError('Email is already in use.');
@@ -129,9 +138,8 @@ const Signupcard = () => {
       } else {
         setError(`An error occurred: ${error.message}`);
       }
-      // setShowDialog(true);
     } finally {
-      setIsLoading(false); // Reset loading state
+      setIsLoading(false);
     }
   };
 

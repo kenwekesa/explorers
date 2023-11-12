@@ -182,51 +182,59 @@ const handleDegreeFileChange = (e) => {
       ) : [];
      
     // const cvURL = await uploadFile(formData.cvFile, 'cv/cv.pdf');
+     const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
 
-    const userData = {
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-      org_name: formData.org_name,
-      contact: formData.contact,
-      location: formData.location,
-      service: formData.service,
-      about: formData.about,
-      degreeURL,
-      transcriptURLs,
-      cvURL,
-      usertype: 'va', // Set 'usertype' as 'Admin' by default
-    };
-
-    await createUserWithEmailAndPassword(auth, formData.email, formData.password);
-    await addDoc(collection(db, 'clients'), userData);
-
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      org_name: '',
-      contact: '',
-      location: '',
-      service: '',
-      about: '',
-      password: '',
-      match_password: '',
-      degreeFile: [],
-      transcriptFiles: [],
-      cvFile: [],
-    });
-
-    setTermsChecked(false);
-
-    setIsSubmitting(false);
+     const user = userCredential.user;
      
-     setNotification({
-        message: `Your application has been submitted successfully, we will be in touch between 3 to 7 business days, through ${formData.email}!`,
-        isSuccess: true,
-      });
+     if (user) {
+       const userData = {
+         user_id: user.uid,
+         firstName: formData.firstName,
+         lastName: formData.lastName,
+         email: formData.email,
+         org_name: formData.org_name,
+         contact: formData.contact,
+         location: formData.location,
+         service: formData.service,
+         about: formData.about,
+         degreeURL,
+         transcriptURLs,
+         cvURL,
+         usertype: 'va', // Set 'usertype' as 'Admin' by default
+         status: 'unverified',
+       };
 
-      setShowDialog(true);
+       
+       await addDoc(collection(db, 'users'), userData);
+
+       setFormData({
+         firstName: '',
+         lastName: '',
+         email: '',
+         org_name: '',
+         contact: '',
+         location: '',
+         service: '',
+         about: '',
+         password: '',
+         match_password: '',
+         degreeFile: [],
+         transcriptFiles: [],
+         cvFile: [],
+       });
+
+       setTermsChecked(false);
+
+       setIsSubmitting(false);
+     
+       setNotification({
+         message: `Your application has been submitted successfully, we will be in touch between 3 to 7 business days, through ${formData.email}!`,
+         isSuccess: true,
+       });
+
+       setShowDialog(true);
+     }
+     
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
         setError('Email already in use');
@@ -234,7 +242,11 @@ const handleDegreeFileChange = (e) => {
         setError('Check your internet connection and try again.');
       } else if (error.code === 'auth/invalid-email') {
         setError('Incorrect email format.');
-      } else {
+      }
+      // else if (error.code === 'storage/unauthorized') {
+      //   setError('User does not have permission to access a file, choose a new file.');
+      // }
+      else {
         setError(`An error occurred: ${error.message}`);
       }
       // setShowDialog(true);

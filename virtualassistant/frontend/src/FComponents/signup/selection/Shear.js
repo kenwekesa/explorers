@@ -16,13 +16,13 @@ const Shear = ({ selectedAbout, onChange }) => {
   return (
     <div>
       <select value={selectedOption} onChange={handleOptionChange} className="Sselectoptions">
-        <option value="option0">Select a medium...</option>
-        <option value="option1">Online</option>
-        <option value="option2">Friend</option>
-        <option value="option3">Advertisment</option>
-        <option value="option4">Search</option>
-        <option value="option5">Social Media</option>
-        <option value="option6">Event</option>
+        <option value="Select a medium...">Select a medium...</option>
+        <option value="Online">Online</option>
+        <option value="Friend">Friend</option>
+        <option value="Advertisment">Advertisment</option>
+        <option value="Search">Search</option>
+        <option value="Social Media">Social Media</option>
+        <option value="Event">Event</option>
       </select>
     </div>
   );

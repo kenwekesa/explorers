@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { doc, updateDoc } from 'firebase/firestore';
-import apply from '../../../images/vaco.jpg';
+// ... (other imports)
+
+import { doc, deleteDoc } from 'firebase/firestore';
 import { db } from '../../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const PlansData = ({ isOpen, onClose, id, service, plan, period, cost, status, language, roleRequirements, roleTitle, timezone, assistants, updateStatus }) => {
   const navigate = useNavigate();
@@ -10,23 +11,22 @@ const PlansData = ({ isOpen, onClose, id, service, plan, period, cost, status, l
 
   const handleTakeRole = async () => {
     try {
-      // Update the status to "active" in Firestore using the ID prop
+      // Delete the document from Firestore using the ID prop
       const docRef = doc(db, 'serviced', id);
-      await updateDoc(docRef, { status: 'active' });
+      await deleteDoc(docRef);
 
       // Call the parent component's updateStatus function (if needed)
       if (updateStatus) {
-        updateStatus('active');
+        updateStatus('deleted');
       }
 
       // Set the success notification
-      setNotification({ message: 'Role taken successfully', isSuccess: true });
+      setNotification({ message: 'Role deleted successfully', isSuccess: true });
 
       // Close the current dialog
-      // onClose();
-      navigate("/mydashboard");
+      navigate("/admin_dashboard");
     } catch (error) {
-      console.error('Error updating document:', error);
+      console.error('Error deleting document:', error);
     }
   };
 
@@ -101,9 +101,9 @@ const PlansData = ({ isOpen, onClose, id, service, plan, period, cost, status, l
               </div>
               <div className="mynewplan_va_contact_data mynewplan_va_contact_data_btn">
                 <div></div>
-                {/* <button className="ton tin ton-tin" onClick={handleTakeRole}>
-                  Assign plan
-                </button> */}
+                <button className="ton tin ton-tin" onClick={handleTakeRole}>
+                  Delete plan
+                </button>
                 <div></div>
               </div>
             </div>

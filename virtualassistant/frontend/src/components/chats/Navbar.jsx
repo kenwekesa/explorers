@@ -1,19 +1,18 @@
-import { MoreVertOutlined } from '@mui/icons-material'
 import React, { useContext, useEffect, useState } from 'react'
 
-// import { MoreVertOutlined } from '@mui/icons-material'
-// import { AuthContext } from '../../contextr/AuthContext'
+import { MoreVertOutlined } from '@mui/icons-material'
+import { AuthContext } from '../../contextr/AuthContext'
 
-// import { findUser } from '../../services/api/DataApi'
+import { findUser } from '../../services/api/DataApi'
 
 
 
 function Chatsnavbar() {
 
-  // const {state} = useContext(AuthContext)
-  // const [currentuser, setCurrentuser] = useState(null)
+  const {state} = useContext(AuthContext)
+  const [currentuser, setCurrentuser] = useState(null)
 
-  // const user = findUser(state.user.uid)
+  const user = findUser(state.user.uid)
 
 
   return (
@@ -22,8 +21,7 @@ function Chatsnavbar() {
         <div className='user_wrapper'>
             <div className="user">
             <img className='profile_pic' src={require('../../images/dummyuser.webp')} alt='Image'/>
-          {/* <MoreVertOutlined className='options'/> */}
-            <MoreVertOutlined />
+                <MoreVertOutlined className='options'/>
             </div>
         </div>
     </div>

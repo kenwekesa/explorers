@@ -58,38 +58,44 @@ const ContactForm = () => {
         return;
       }
 
+      const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
+
+      const user = userCredential.user;
       // Set the default 'usertype' as 'Admin'
-      const userData = {
-        firstname: formData.firstname,
-        lastname: formData.lastname,
-        email: formData.email,
-        usercontact: formData.usercontact,
-        service: formData.service,
-        usertype: 'admin', // Set 'usertype' as 'Admin' by default
-      };
+      if (user) {
+        const userData = {
+          user_id: user.uid,
+          firstname: formData.firstname,
+          lastname: formData.lastname,
+          email: formData.email,
+          usercontact: formData.usercontact,
+          service: formData.service,
+          usertype: 'admin', // Set 'usertype' as 'Admin' by default
+        };
 
-      // Create a user with email and password
-      const { user } = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
+        // Create a user with email and password
+      
 
-      // Save user data to Firestore using addDoc
-      const userCollection = collection(db, 'users');
-      const docRef = await addDoc(userCollection, userData);
+        // Save user data to Firestore using addDoc
+        const userCollection = collection(db, 'users');
+        const docRef = await addDoc(userCollection, userData);
 
-      setSuccess('Account created successfully, the new administrator should proceed and login');
-      setShowDialog(true);
+        setSuccess('Account created successfully, the new administrator should proceed and login');
+        setShowDialog(true);
 
-      // Clear the form data
-      setFormData({
-        firstname: '',
-        lastname: '',
-        email: '',
-        usercontact: '',
-        service: '',
-        password: '',
-        confirmPassword: '',
-      });
+        // Clear the form data
+        setFormData({
+          firstname: '',
+          lastname: '',
+          email: '',
+          usercontact: '',
+          service: '',
+          password: '',
+          confirmPassword: '',
+        });
 
-      setIsLoading(false); // Set loading state to false
+        setIsLoading(false); // Set loading state to false
+      }
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
         setError('Email is already in use.');

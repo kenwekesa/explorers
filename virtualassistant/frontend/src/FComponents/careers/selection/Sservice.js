@@ -16,15 +16,15 @@ const Sservice = ({ selectedServices, onChange }) => {
   return (
     <div>
       <select value={selectedOption} onChange={handleOptionChange} className="Sselectoptions">
-        <option value="option0">Select an Industry...</option>
-        <option value="option1">Insurance solutions</option>
-        <option value="option2">Health care solutions</option>
-        <option value="option3">Real estate solutions</option>
-        <option value="option4">E-commerce business solutions</option>
-        <option value="option5">Small business solutions</option>
-        <option value="option6">Logistic support services</option>
-        <option value="option7">Educational support services</option>
-        <option value="option8">Web design and development</option>
+        <option value="Select an Industry...">Select an Industry...</option>
+        <option value="Insurance solutions">Insurance solutions</option>
+        <option value="Health care solutions">Health care solutions</option>
+        <option value="Real estate solutions">Real estate solutions</option>
+        <option value="E-commerce business solutions">E-commerce business solutions</option>
+        <option value="Small business solutions">Small business solutions</option>
+        <option value="Logistic support services">Logistic support services</option>
+        <option value="Educational support services">Educational support services</option>
+        <option value="Web design and development">Web design and development</option>
       </select>
     </div>
   );

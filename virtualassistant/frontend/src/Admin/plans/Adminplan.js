@@ -23,9 +23,7 @@ function Adminplan() {
       try {
         let queryRef = collection(db, "serviced");
 
-        if (selectedStatus !== '') {
-          queryRef = query(queryRef, where('status', '==', selectedStatus));
-        }
+        queryRef = query(queryRef, where('status', 'in', ['completed', 'canceled']));
 
         const querySnapshot = await getDocs(queryRef);
         const items = [];
@@ -78,18 +76,6 @@ function Adminplan() {
           <div className="buttonsBar">
             <p className='addnewplan'>Pl<span>ans</span></p>
             <div className="links_group order_links_group order_links_group_content">
-              <span
-                className={`link ${selectedStatus === '' ? 'active' : ''}`}
-                onClick={() => handleStatusClick('')}
-              >
-                All
-              </span>
-              <span
-                className={`link ${selectedStatus === 'active' ? 'active' : ''}`}
-                onClick={() => handleStatusClick('active')}
-              >
-                Active
-              </span>
               <span
                 className={`link ${selectedStatus === 'completed' ? 'active' : ''}`}
                 onClick={() => handleStatusClick('completed')}
