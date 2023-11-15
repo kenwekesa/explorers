@@ -1,0 +1,118 @@
+.mcontactform{
+    background: #F5F5F5;
+    padding-top: 20px;
+    padding-bottom: 80px;
+    padding-left: 60px;
+    padding-right: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.mcontactimg img {
+    width: 650px;
+    height: 600px;
+    flex-shrink: 0;
+    border-radius: 30px;
+}
+.mcontfrm{
+    width: 670px;
+    height: 704px;
+    flex-shrink: 0;
+    border-radius: 15.213px;
+    background: #ECEFF1;
+    box-shadow: 0px 5.77999px 28.89997px 4.81666px rgba(0, 0, 0, 0.12);
+    padding: 30px;
+}
+.mtpfi{
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.contactinputfield{
+    padding: 13px;
+}
+
+.contactinputfield input{
+    display: inline-flex;
+    padding: 10.45px 114.64px 10.607px 19.266px;
+    align-items: center;
+    border-radius: 13.267px;
+    margin-left: 15px;
+    border: 0.963px solid rgba(97, 97, 97, 0.60);
+}
+
+.contactinputselect{
+    display: inline-flex;
+    padding: 9.45px 70.64px 9.607px 19.266px;
+    align-items: center;
+    border-radius: 13.267px;
+    margin-left: 30px;
+    border: 0.963px solid rgba(97, 97, 97, 0.60);
+}
+
+.contacttextareainput{
+    display: flex;
+    width: 175.006px;
+    height: 125.233px;
+    padding: 14.45px 417.74px 86.783px 19.266px;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 19.267px;
+    border: 0.963px solid rgba(97, 97, 97, 0.60);
+}
+
+.contactcountryo{
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.contacttext{
+    margin-left: 30px;
+    padding-top: 10px;
+}
+
+.contactpara_main_form{
+    margin-left: 30px;
+    padding-bottom: 10px;
+    padding-top: 15px;
+}
+
+.contabutton{
+    text-align: center;
+}
+
+.mcontfrmpara{
+    margin-left: 30px;
+}
+
+.contactsrpasno{
+    font-weight: 800;
+}
+
+.contactsrpasnoi{
+    background: var(--Button-Hover-color, linear-gradient(96deg, rgba(36, 20, 19, 0.77) -10.44%, rgba(31, 106, 88, 0.77) 108.53%, rgba(1, 255, 209, 0.77) 108.54%, rgba(3, 255, 195, 0.77) 108.87%, rgba(11, 255, 196, 0.77) 108.87%, rgba(13, 253, 195, 0.77) 108.87%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* font-size: 19.267px; */
+    font-style: normal;
+    font-weight: 400;
+    /* line-height: 23.12px; */
+}
+
+.contact_scroll_to_top{
+    text-decoration: none;
+    color: rgb(33, 33, 108, 0.8);
+    padding-left: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.contact_form_btn_main{
+    padding: 0px !important;;
+}
+
+.contat_subject_field{
+    
+}

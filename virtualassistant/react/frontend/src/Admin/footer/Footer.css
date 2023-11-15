@@ -1,0 +1,29 @@
+.adminfooter {
+    height: 65px;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    align-items: center;
+    padding-left: 32px;
+    padding-right: 32px;
+    position: relative;
+    overflow: hidden;
+}
+
+.adminfooter p {
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+.adminfooter a {
+    position: relative;
+    z-index: 1;
+}
+
+.adminfooter img {
+    padding-left: 18px;
+    height: 28px;
+    width: 28px;
+}

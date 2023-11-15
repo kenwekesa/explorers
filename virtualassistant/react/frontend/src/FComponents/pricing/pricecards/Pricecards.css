@@ -1,0 +1,65 @@
+
+/* * CardContentToggle.css  */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    
+}
+
+.card {
+    width: 90%;
+    padding: 20px;
+    height: 400px;
+    background-color: #f0f0f0;
+    text-align: center;
+    border: 1px solid #ccc;
+    /* transition: height 0.5s; */
+}
+
+.card.expanded {
+    height: 400px;
+}
+
+.butprice {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    background: #FFF;
+    width: 189px;
+    height: 56px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.butprice:hover{
+  width: 189px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) -10.44%, rgba(11, 255, 196, 0.77) 108.53%, rgba(11, 138, 255, 0.77) 108.54%));
+}
+
+.previous-content {
+    background-color: #f0f0f0;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.button-container{
+  background-color: #FFF;
+  border-radius: 30px;
+  margin-bottom: 30px;
+}
+
+.cardpricem{
+  border-radius: 30px;
+  background: #FFF;
+  text-align: center;
+  padding: 30px 20px;
+  width: 90%;
+}

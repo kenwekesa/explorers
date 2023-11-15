@@ -1,0 +1,59 @@
+.mainservicelist {
+  background: #F5F5F5;
+}
+
+.faqhead h1{
+  font-family: Nunito;
+  font-size: 30px;
+  font-weight: 800;
+  padding-left: 32px; 
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+
+.faq_navbar{
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.faqhead1 h1{
+  font-family: Nunito;
+  font-size: 30px;
+  font-weight: 800;
+  padding-left: 32px; 
+  margin-bottom: 2%;
+  margin-top: 3%;
+}
+
+.faqhead1{
+  margin-bottom: 5%;
+  cursor: pointer;
+}
+
+.faqhead p{
+  margin-left: 40px;
+  border-radius: 15px;
+  display: flex;
+  width: 1228px;
+  padding: 31px 102px 25px 25px;
+  align-items: center;
+  gap: 39px;
+  background-color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.faqp{
+  color: var(--Navbar-color, #616161);
+  font-family: Nunito;
+  font-weight: 600;
+  line-height: 27.927px; 
+  }
+
+  .hidediv{
+    font-family: Nunito;
+    font-weight: 400;
+    padding-left: 65px;
+    padding-bottom: 10px;
+    color: var(--Navbar-color, #616161);
+  }

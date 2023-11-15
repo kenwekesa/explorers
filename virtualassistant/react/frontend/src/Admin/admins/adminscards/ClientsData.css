@@ -1,0 +1,112 @@
+/* VAData.css */
+
+.vadate_dialog-background {
+    background-color: rgba(0, 0, 0, 0.12) !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.va_data_main_content {
+    display: flex;
+    justify-content: space-between;
+    height: 80vh;
+    overflow: auto;
+    gap: 30px;
+    z-index: 14 !important;
+}
+
+.va_data_main_profile {
+    width: 380px;
+    /* Adjust the width as needed */
+    height:76vh;
+    /* Adjust the height as needed */
+    /* To make it a circle */
+    background: #ECEFF1;
+    overflow: hidden;
+    border-radius: 30px;
+    /* Ensure the image doesn't overflow the circle */
+}
+
+.va_data_main_document {
+    width: 420px;
+    height: 36vh;
+    margin-bottom: 4vh;
+    /* Adjust the height as needed */
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #ECEFF1;
+    overflow: hidden;
+}
+
+.va_data_main_qualifiction {
+    width: 412px;
+    height: 36vh;
+    /* Adjust the height as needed */
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #ECEFF1;
+    overflow: hidden;
+}
+
+.client_va_data_image {
+    padding-top: 40px !important;
+    padding-bottom: 20px !important;
+}
+
+
+/* .assistant_va_data_image img {
+    height: 40px !important;
+    width: 40px !important;
+    border-radius: 50% !important;
+} */
+
+.client_va_data_image img {
+    height: 85px !important;
+    width: 85px !important;
+    border-radius: 50% !important;
+    border: 3px solid white;
+    /* width: 100%!important;
+    height: 100%!important; */
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+.assistant_va_contact_data{
+    display: flex!important;
+    justify-content: space-between!important;
+    padding-left: 20px!important;
+    padding-right: 20px!important;
+}
+
+.assistant_va_contact_hr{
+   padding-left: 20px !important;
+   padding-right: 20px !important;
+}
+.assistant_va_contact_data_btn{
+    padding-top: 30px!important;
+}
+
+.assistant_va_contact_data_btn button{
+    font-size: 14px!important;
+    margin-bottom: 50px!important;
+}
+
+.assistant_va_data_paragraph_title p{
+    color: black!important;
+    font-weight: 600!important;
+}
+
+.assistant_va_contact_data_paragraph_title p{
+    font-weight: 600!important;
+    color: black!important;
+}
+
+.assistant_va_contact_data_paragraph_body p{
+    font-weight: 400 !important;
+    color: black !important;
+}
+/* ... rest of your CSS ... */
+.assistant_va_contact_data p{
+    color: rgb(0, 0, 0, 0.6);
+    font-size: 14px;
+}

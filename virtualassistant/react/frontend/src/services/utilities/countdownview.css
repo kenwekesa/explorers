@@ -1,0 +1,355 @@
+.countdown_container .countdown {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.countdown_container .countdown h4 {
+  font-size: 26px;
+  color: rgb(37, 1, 78);
+}
+.countdown_container .countdown .elpased {
+  color: red !important;
+}
+.countdown_container .countdown .figures {
+  color: #333;
+}
+.countdown_container .countdown .figures .deadline_days {
+  padding: 2px 9px;
+  font-weight: normal;
+}
+.countdown_container .countdown .figures .deadline_hours {
+  padding: 2px 9px;
+  font-weight: normal;
+}
+.countdown_container .countdown .figures .deadline_minutes {
+  background-color: rgb(53, 6, 6);
+  padding: 2px 9px;
+}
+.countdown_container .countdown .figures .deadline_seconds {
+  background-color: rgb(53, 6, 6);
+  padding: 2px 9px;
+}
+
+.pcountes{
+  border: 4px solid #4A7FBD;
+  min-width: 80px;
+  min-height: 75px;
+  text-align: center;
+  align-items: center;
+  padding-top: 14px;
+  border-radius: 50%;
+}
+
+@media (max-width:319px) {
+  .pcountes {
+      border: 2px solid #4A7FBD;
+      min-width: 40px;
+      min-height: 35px;
+      text-align: center;
+      align-items: center;
+      padding-top: 16px;
+      border-radius: 50%;
+      margin-top: 0.4rem;
+    }
+        .countdown_container .countdown .elpased {
+          color: red !important;
+          font-size: 1rem !important;
+          margin: 0% !important;
+          padding: 0% !important;
+        }
+    
+        .countdown_container .countdown .figures {
+          color: #000;
+          font-size: 0.58rem!important;
+          margin: 0%!important;
+          padding: 0%!important;
+          margin-left: -20%!important;
+          overflow: hidden !important;
+          white-space: nowrap !important;
+          text-overflow: ellipsis !important;
+          max-width: 16ch !important;
+        }
+}
+
+@media (min-width:320px) and (max-width:480px) {
+  .pcountes {
+      border: 2px solid #4A7FBD;
+      min-width: 45px;
+      min-height: 40px;
+      text-align: center;
+      align-items: center;
+      padding-top: 18px;
+      border-radius: 50%;
+      margin-top: 0.4rem;
+    }
+        .countdown_container .countdown .elpased {
+          color: red !important;
+          font-size: 10px !important;
+          margin: 0% !important;
+          padding: 0% !important;
+        }
+        .countdown_container .countdown .figures {
+          color: #000;
+          font-size: 10px !important;
+          margin: 0% !important;
+          padding: 0% !important;
+          margin-left: -10% !important;
+          overflow: hidden !important;
+          white-space: nowrap !important;
+          text-overflow: ellipsis !important;
+          max-width: 16ch !important;
+        }
+}
+
+@media (min-width:481px) and (max-width:768px) {
+    .pcountes {
+      border: 2px solid #4A7FBD;
+      min-width: 50px;
+      min-height: 40px;
+      text-align: center;
+      align-items: center;
+      padding-top: 5px;
+      border-radius: 50%;
+      margin-top: 0.4rem;
+    }
+        .countdown_container .countdown .elpased {
+          color: red !important;
+          font-size: 10px !important;
+          margin: 0% !important;
+          padding: 0% !important;
+        }
+    
+        .countdown_container .countdown .figures {
+          color: #000;
+          font-size: 10px !important;
+          margin: 0% !important;
+          padding: 0% !important;
+          margin-left: -20% !important;
+          overflow: hidden !important;
+          white-space: nowrap !important;
+          text-overflow: ellipsis !important;
+          max-width: 16ch !important;
+        }
+}
+
+@media (min-width:769px) and (max-width:1024px) {
+  .pcountes {
+    border: 3px solid #4A7FBD;
+    min-width: 70px;
+    min-height: 60px;
+    text-align: center;
+    align-items: center;
+    padding-top: 5px;
+    border-radius: 50%;
+    margin-top: 0.4rem;
+  }
+    .countdown_container .countdown .elpased {
+      color: red !important;
+      font-size: 12px !important;
+      margin: 0% !important;
+      padding: 0% !important;
+    }
+  
+    .countdown_container .countdown .figures {
+      color: #000;
+      font-size: 12px !important;
+      margin: 0% !important;
+      padding: 0% !important;
+      margin-left: -8% !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      text-overflow: ellipsis !important;
+      max-width: 16ch !important;
+    }
+}
+
+@media (min-width:1025px) and (max-width:1200px) {
+  .pcountes {
+      border: 3px solid #4A7FBD;
+      min-width: 70px;
+      min-height: 60px;
+      text-align: center;
+      align-items: center;
+      padding-top: 5px;
+      border-radius: 50%;
+      margin-top: 0.4rem;
+    }
+  .countdown_container .countdown .elpased {
+      color: red !important;
+      font-size: 13px !important;
+      margin: 0% !important;
+      padding: 0% !important;
+    }
+  
+    .countdown_container .countdown .figures {
+      color: #000;
+      font-size: 13px !important;
+      margin: 0% !important;
+      padding: 0% !important;
+      margin-left: -8% !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      text-overflow: ellipsis !important;
+      max-width: 16ch !important;
+    }
+}
+
+@media (min-width:1201px) and (max-width: 1300px) {
+  .pcountes {
+      border: 4px solid #4A7FBD;
+      min-width: 70px;
+      min-height: 65px;
+      text-align: center;
+      align-items: center;
+      padding-top: 9px;
+      border-radius: 50%;
+      margin-top: 0.4rem;
+    }
+  
+    .countdown_container .countdown .elpased {
+      color: red !important;
+      font-size: 13px !important;
+      margin: 0% !important;
+      padding: 0% !important;
+    }
+  
+    .countdown_container .countdown .figures {
+      color: #000;
+      font-size: 13px !important;
+      margin: 0% !important;
+      padding: 0% !important;
+      margin-left: -8% !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      text-overflow: ellipsis !important;
+      max-width: 16ch !important;
+    }
+}
+
+@media (min-width:1301px) and (max-width: 1430px) {
+  .pcountes {
+    border: 4px solid #4A7FBD;
+    min-width: 73px;
+    min-height: 68px;
+    text-align: center;
+    align-items: center;
+    padding-top: 10px;
+    border-radius: 50%;
+    margin-top: 0.4rem;
+  }
+
+  .countdown_container .countdown .elpased {
+    color: red !important;
+    font-size: 13px !important;
+    margin: 0% !important;
+    padding: 0% !important;
+  }
+
+  .countdown_container .countdown .figures {
+    color: #000;
+    font-size: 13px !important;
+    margin: 0% !important;
+    padding: 0% !important;
+    margin-left: -8% !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    max-width: 16ch !important;
+  }
+}
+
+@media (min-width:1431px) and (max-width:1590px) {
+  .pcountes {
+      border: 4px solid #4A7FBD;
+      min-width: 72px;
+      min-height: 70px;
+      text-align: center;
+      align-items: center;
+      padding-top: 13px;
+      border-radius: 50%;
+      margin-top: 0.4rem;
+    }
+  
+    .countdown_container .countdown .elpased {
+      color: red !important;
+      font-size: 13px !important;
+      margin: 0% !important;
+      padding: 0% !important;
+    }
+  
+    .countdown_container .countdown .figures {
+      color: #000;
+      font-size: 13px !important;
+      margin: 0% !important;
+      padding: 0% !important;
+      margin-left: 3% !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      text-overflow: ellipsis !important;
+      max-width: 16ch !important;
+    }
+}
+
+@media (min-width:1591px) and (max-width:1845px) {
+  .pcountes {
+      border: 4.3px solid #4A7FBD;
+      min-width: 70px;
+      min-height: 68px;
+      text-align: center;
+      align-items: center;
+      padding-top: 11.5px;
+      border-radius: 50%;
+      margin-top: 0.4rem;
+    }
+  
+    .countdown_container .countdown .elpased {
+      color: red !important;
+      font-size: 13px !important;
+      margin: 0% !important;
+      padding: 0% !important;
+    }
+  
+    .countdown_container .countdown .figures {
+      color: #000;
+      font-size: 13px !important;
+      margin: 0% !important;
+      padding: 0% !important;
+      margin-left: 3% !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      text-overflow: ellipsis !important;
+      max-width: 16ch !important;
+    }
+}
+
+@media (min-width:1846px) {
+  .pcountes {
+      border: 4px solid #4A7FBD;
+      min-width: 70px;
+      min-height: 67px;
+      text-align: center;
+      align-items: center;
+      padding-top: 11px;
+      border-radius: 50%;
+      margin-top: 0.4rem;
+    }
+  
+    .countdown_container .countdown .elpased {
+      color: red !important;
+      font-size: 13px !important;
+      margin: 0% !important;
+      padding: 0% !important;
+    }
+  
+    .countdown_container .countdown .figures {
+      color: #000;
+      font-size: 13px !important;
+      margin: 0% !important;
+      padding: 0% !important;
+      margin-left: 3% !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      text-overflow: ellipsis !important;
+      max-width: 16ch !important;
+    }
+}

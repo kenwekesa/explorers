@@ -1,0 +1,192 @@
+.afcontactform {
+    background: #F5F5F5;
+    /*padding-top: 20px;
+    padding-bottom: 80px;
+    padding-left: 60px;
+    padding-right: 60px;*/
+    /*padding-right: 10px;*/
+    /*display: flex;*/
+    width: 50%;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+.ascontactform {
+    background: #F5F5F5;
+    /*padding-top: 20px;
+    padding-bottom: 80px;
+    padding-left: 60px;
+    padding-right: 60px;*/
+    padding-left: 50px;
+    /*display: flex;*/
+    width: 50%;
+    /*justify-content: space-between;*/
+    align-items: center;
+}
+
+.asmcontactimg img {
+    width: 625px;
+    height: 600px;
+    flex-shrink: 0;
+    border-radius: 30px;
+}
+
+.add_contact_form {
+    width: 660px;
+    height: 628px;
+    flex-shrink: 0;
+    padding-top: 0.6%!important;
+    border-radius: 30px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.08);
+}
+
+/* .add_contact_form input{
+    width: 30%;
+} */
+
+.ascontfrm {
+    width: 100%;
+    height: 628px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.08);
+}
+
+.ascontfrmpara{
+    text-align: center;
+    font-weight: 600;
+    font-size: 21px;
+    color: rgba(140, 39, 39, 0.842);
+    padding-top: 10px;
+}
+
+.aspcontfrmpara_top{
+    padding-left: 20px;
+    padding-top: -4%;
+}
+
+.aspcontfrmpara{
+    padding-left: 20px;
+}
+
+.aspcontfrmparai{
+    padding-left: 26px!important;
+}
+
+.asmtpfi {
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.ascontactinputfield {
+    padding: 13px;
+}
+
+.ascontactinputfield input {
+    /* display: inline-flex; */
+    padding: 10.45px 0px 10.607px 19.266px;
+    align-items: center;
+    width: 88%;
+    border-radius: 13.267px;
+    margin-left: 15px;
+    border: 0.963px solid rgba(97, 97, 97, 0.60);
+}
+
+.ascontactinputselect {
+    display: inline-flex;
+    padding: 9.45px 70.64px 9.607px 19.266px;
+    align-items: center;
+    border-radius: 13.267px;
+    margin-left: 30px;
+    border: 0.963px solid rgba(97, 97, 97, 0.60);
+}
+
+/* .ascontacttextareainput {
+    display: flex;
+    width: 120px;
+    height: 100px;
+    padding: 14.45px 417.74px 86.783px 19.266px;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 19.267px;
+    border: 0.963px solid rgba(97, 97, 97, 0.60);
+} */
+
+.textarea_role_input{
+   display: flex;
+    width: 90%;
+    height: 100px;
+    padding: 14.45px 0px 86.783px 19.266px;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 19.267px;
+    border: 0.963px solid rgba(97, 97, 97, 0.60);
+}
+.ascontactcountryo {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.ascontacttext {
+    margin-left: 30px;
+    padding-top: 10px;
+}
+
+.ascontactpar {
+    margin-left: 30px;
+    padding-bottom: 40px;
+    padding-top: 20px;
+}
+
+.ascontabutton {
+    text-align: center;
+}
+
+.asmcontfrmpara {
+    margin-left: 30px;
+}
+
+.ascontactsrpasno {
+    font-weight: 800;
+}
+
+.ascontactsrpasnoi {
+    background: var(--Button-Hover-color, linear-gradient(96deg, rgba(36, 20, 19, 0.77) -10.44%, rgba(31, 106, 88, 0.77) 108.53%, rgba(1, 255, 209, 0.77) 108.54%, rgba(3, 255, 195, 0.77) 108.87%, rgba(11, 255, 196, 0.77) 108.87%, rgba(13, 253, 195, 0.77) 108.87%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* font-size: 19.267px; */
+    font-style: normal;
+    font-weight: 400;
+    /* line-height: 23.12px; */
+}
+
+.ascost{
+    padding-left: 26px;
+}
+
+.ascost span{
+    font-weight: 800;
+    color: rgba(32, 8, 8, 0.938);
+}
+
+.service_main_content{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.application_components{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.service_main_content p{
+    background: var(--Button-Hover-color, linear-gradient(96deg, rgba(36, 20, 19, 0.77) -10.44%, rgba(31, 106, 88, 0.77) 108.53%, rgba(1, 255, 209, 0.77) 108.54%, rgba(3, 255, 195, 0.77) 108.87%, rgba(11, 255, 196, 0.77) 108.87%, rgba(13, 253, 195, 0.77) 108.87%));
+     background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

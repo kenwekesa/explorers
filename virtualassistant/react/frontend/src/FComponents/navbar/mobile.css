@@ -1,0 +1,32 @@
+@media screen and (max-width: 600px) {
+
+    /* Show the toggle only for screens up to 600px wide */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .links {
+        margin-top: 20px;
+        text-align: left;
+        display: none;
+        flex-direction: column !important;
+    }
+
+    .link {
+        flex-direction: column;
+    }
+
+    .button {
+        margin-top: 10px;
+        text-align: left;
+    }
+
+    .menu-toggle {
+        display: block;
+        /* position: absolute; */
+        align-items: flex-end;
+        text-align: end;
+    }
+}

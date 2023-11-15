@@ -1,0 +1,163 @@
+.orderhistory {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-color: #f2f2f2;
+}
+
+.admin_clients_navbar{
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.admin_btn_view{
+  /* gap: 100px; */
+  display: flex;
+  align-items: center;
+}
+
+.admin_btn_view img{
+  /* padding-right: 100px; */
+  padding-left: 10px;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+.orderhistory .orderhistory_navbar {
+  /* Add styles for the navbar if needed */
+}
+.order_links_group{
+  height: 20px!important;
+  padding: 4px 10px!important;
+  margin-top: 10vh!important;
+}
+
+.orderTopContainer{
+  align-items: center!important;
+
+}
+
+.orderhistory-content{
+  padding-top: 20px!important;
+  padding-bottom: 65px!important;
+}
+
+.admin-orderhistory-content{
+  padding-left: 75px!important;
+  padding-right: 75px!important;
+}
+
+.orderhistory .orderhistory-content {
+  flex-grow: 1;
+  padding: 10px 30px;
+  /* Filter and Search styles */
+}
+
+.orderhistory-content Table{
+font-size: 14px!important;
+margin-bottom: 20px!important;
+margin-top: 20px!important;
+}
+
+.orderhistory-content tbody{
+color: rgb(0, 0, 0, 0.6) !important;
+}
+.orderhistory .orderhistory-content .topContainer {
+  margin-bottom: 25px;
+}
+.orderhistory .orderhistory-content .topContainer .buttonsBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.orderhistory .orderhistory-content .topContainer .buttonsBar .placeorder_btn {
+  background: linear-gradient(to right, #24cd48, #57eaaa);
+  color: black;
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-weight: bold;
+}
+.orderhistory .orderhistory-content .topContainer .buttonsBar .links_group {
+  background-color: #333;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+}
+.orderhistory .orderhistory-content .topContainer .buttonsBar .links_group .link:hover {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.888);
+}
+.orderhistory .orderhistory-content .tableContainer {
+  padding: 12px;
+  background-color: white;
+  border-radius: 12px;
+  /* Table styles */
+  /* Pagination styles */
+}
+.orderhistory .orderhistory-content .tableContainer .filter-search {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px; /* Adjust as needed */
+}
+.orderhistory .orderhistory-content .tableContainer .filter {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+}
+.orderhistory .orderhistory-content .tableContainer .filter label {
+  margin-right: 8px; /* Adjust spacing */
+}
+.orderhistory .orderhistory-content .tableContainer .filter select {
+  /* Add styles for the select input */
+}
+.orderhistory .orderhistory-content .tableContainer .search input {
+  /* Add styles for the search input */
+  padding: 1px 5px;
+}
+.orderhistory .orderhistory-content .tableContainer table {
+  width: 100%;
+  border-collapse: collapse;
+  /* Add more table styles as needed */
+}
+.orderhistory .orderhistory-content .tableContainer table th, .orderhistory .orderhistory-content .tableContainer table td {
+  padding: 8px; /* Adjust padding as needed */
+  border: 1px solid #ccc; /* Add border styles */
+  text-align: left;
+}
+.orderhistory .orderhistory-content .tableContainer table th {
+  background-color: #f2f2f2; /* Header background color */
+}
+.orderhistory .orderhistory-content .tableContainer table tr:nth-child(even) {
+  background-color: #f2f2f2; /* Alternate row background color */
+}
+.orderhistory .orderhistory-content .tableContainer .pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px; /* Adjust spacing */
+  font-size: 14px; /* Adjust font size */
+  color: #333; /* Text color */
+}
+.orderhistory .orderhistory-content .tableContainer .pagination .pagination-info {
+  /* Add styles for pagination info */
+}
+.orderhistory .orderhistory-content .tableContainer .pagination .pagination-buttons button {
+  margin-left: 8px; /* Adjust button spacing */
+  /* Add button styles */
+}
+.orderhistory .orderhistory-content .tableContainer .pagination .pagination-buttons button:disabled {
+  opacity: 0.5; /* Style for disabled buttons */
+  cursor: not-allowed;
+}
+.orderhistory .orderhistory_footer {
+  position: absolute;
+  bottom: 0;
+  /* Add styles for the footer if needed */
+}

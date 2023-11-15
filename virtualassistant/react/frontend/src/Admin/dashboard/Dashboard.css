@@ -1,0 +1,58 @@
+/* .admindashboard{
+  background: #F5F5F5;
+}
+.admindashboardcontent{
+    height: 100vh;
+    padding-top: 300px;
+    padding-bottom: 300px;
+    color: red;
+    background: #F5F5F5;
+    text-align: center;
+} */
+
+.admin_dashboards_main {
+    background: #F5F5F5;
+    min-height: 100vh;
+    padding: 0px!important;
+    margin: 0px!important;
+}
+
+.admin_dashboards_main_navbar{
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+.admin_dashboards_content_title{
+    display: block!important;
+    padding-left: 75px;
+    padding-right: 75px;
+    padding-top: 0px;
+    padding-bottom: 50px;
+}
+
+.admin_dashboards_cards{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Dashboard navbar customization */
+
+/* .dashboardnav{
+    position: sticky;
+    top: 0;
+    width: 100%;
+} */
+
+/* .admin_dashboard_title h1{
+    padding-top: 30px;
+    padding-bottom: 5px;
+    margin-left: 70px;
+} */
+
+/* .admin_dashp{
+    padding-left: 70px;
+    padding-right: 70px;
+} */
