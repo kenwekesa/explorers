@@ -113,6 +113,7 @@ const ClientNavbar = () => {
   const [isListVisible, setListVisible] = useState(false);
   const [userDetails, setUserDetails] = useState(null);
   const [totalAmount, setTotalAmount] = useState(0);
+  const [totalCost, setTotalCost] = useState(0);
 
 
   const toggleListVisibility = () => {
@@ -167,7 +168,34 @@ const ClientNavbar = () => {
     };
 
     fetchData();
-  }, []); // Emp
+  }, []); // Empty dependency array, so it runs only once on mount
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const banksCollection = collection(db, 'serviced');
+      const querySnapshot = await getDocs(banksCollection);
+
+      let total = 0;
+
+      querySnapshot.forEach((doc) => {
+        // Assuming the 'amount' field is stored as a string
+        const amountString = doc.data().totalCost;
+        const amountFloat = parseFloat(amountString);
+
+        if (!isNaN(amountFloat)) {
+          total += amountFloat;
+        }
+      });
+
+      // Set the total amount in state
+      setTotalCost(total);
+    };
+
+    fetchData();
+  }, []); // Empty dependency array, so it runs only once on mount
+
+  const totalAmounts = totalAmount - totalCost;
 
   return (
     <div className='adminnavbar'>
@@ -177,7 +205,7 @@ const ClientNavbar = () => {
         </div>
         <div className='adminnavbartopleft'>
           <div className="logo">
-            <p className='adminuser'><img src={wallet} loading="lazy" alt="Logo" /><span> ${totalAmount.toFixed(2)}</span></p>
+            <p className='adminuser'><img src={wallet} loading="lazy" alt="Logo" /><span> ${totalAmounts}</span></p>
           </div>
           <div className="logo toggle-btn" onClick={toggleListVisibility}>
             <p className='adminuser' ><img src={userIcon} loading="lazy" alt="Logo" /><span>Joe Bilado</span></p>

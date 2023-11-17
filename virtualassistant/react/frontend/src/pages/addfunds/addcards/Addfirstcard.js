@@ -3,7 +3,7 @@ import Sservice from '../selection/Sservice';
 import Splan from '../selection/Splan';
 import Slanguage from '../selection/Slanguage';
 import TimezoneSelector from '../selection/TimeZoneselector';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, getDocs, query, orderBy, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../../firebase/firebase';
 import "./addcard.css";
 import { useNavigate } from 'react-router-dom';
@@ -26,14 +26,17 @@ const Addfirstcard = () => {
   const [notification, setNotification] = useState({ message: '', isSuccess: false });
   const [showDialog, setShowDialog] = useState(false);
   const navigate = useNavigate();
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [totalCost, setTotalCost] = useState(0);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
+    const sanitizedValue = value < 0 ? 0 : value;
     // Update the form data
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: sanitizedValue,
     });
   };
 
@@ -89,11 +92,20 @@ const Addfirstcard = () => {
       // Simulate some asynchronous operation (replace with your actual logic)
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
+      // Calculate account balance
+      const accountBalance = totalAmount.toFixed(2) - formData.totalCost.toFixed(2);
+
+      if (accountBalance <= 0) {
+        throw new Error("Your account balance is limited. Please add funds to your account.");
+      }
+
       // Add data to Firestore (replace with your Firestore logic)
       const documentData = {
         ...formData,
         // Set the status variable here
         status: 'pending', // Set the status to 'pending'
+        accountBalance,
+        timestamp: serverTimestamp(),
       };
 
       await addDoc(collection(db, 'serviced'), documentData);
@@ -113,7 +125,7 @@ const Addfirstcard = () => {
       setNotification({ message: 'Application submitted successfully!', isSuccess: true });
       setShowDialog(true);
     } catch (error) {
-      setError('Error submitting application. Please try again.');
+      setError(error.message || 'Error submitting application. Please try again.');
       setShowDialog(true);
     } finally {
       setIsLoading(false);
@@ -126,6 +138,59 @@ const Addfirstcard = () => {
       navigate("/dashboard");
     }
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const banksCollection = collection(db, 'banks');
+      const querySnapshot = await getDocs(banksCollection);
+
+      let total = 0;
+
+      querySnapshot.forEach((doc) => {
+        // Assuming the 'amount' field is stored as a string
+        const amountString = doc.data().amount;
+        const amountFloat = parseFloat(amountString);
+
+        if (!isNaN(amountFloat)) {
+          total += amountFloat;
+        }
+      });
+
+      // Set the total amount in state
+      setTotalAmount(total);
+    };
+
+    fetchData();
+  }, []); // Empty dependency array, so it runs only once on mount
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const banksCollection = collection(db, 'serviced');
+      const querySnapshot = await getDocs(banksCollection);
+
+      let total = 0;
+
+      querySnapshot.forEach((doc) => {
+        // Assuming the 'amount' field is stored as a string
+        const amountString = doc.data().totalCost;
+        const amountFloat = parseFloat(amountString);
+
+        if (!isNaN(amountFloat)) {
+          total += amountFloat;
+        }
+      });
+
+      // Set the total amount in state
+      setTotalCost(total);
+    };
+
+    fetchData();
+  }, []); // Empty dependency array, so it runs only once on mount
+
+  const totalAmounts = totalAmount - totalCost - formData.totalCost;
+
+  const isAccountBalanceLimited = totalAmounts - formData.totalCost <= 0;
 
   return (
     <div className='afcontactform'>
@@ -159,6 +224,7 @@ const Addfirstcard = () => {
                 name="assistants"
                 value={formData.assistants}
                 onChange={handleInputChange}
+                min="0"
               />
               <p className='aspcontfrmpara'>Period</p>
               <input
@@ -168,6 +234,7 @@ const Addfirstcard = () => {
                 value={formData.period}
                 onChange={handleInputChange}
                 required
+                min="0"
               />
 
               <p className='aspcontfrmpara'>Role Title</p>
@@ -215,14 +282,23 @@ const Addfirstcard = () => {
               </div>
               <div className='ascost'>
                 <p>Total Cost: <span>${formData.totalCost}</span></p>
+                <p>
+                  Account Balance: <span>${totalAmounts}</span>
+                  {isAccountBalanceLimited && <span style={{ color: 'red' }}></span>}
+                </p>
               </div>
               <div className='ascontabutton'>
-                <button className='ton tin' type='submit' disabled={isLoading}>
-                  {isLoading ? 'Submitting...' : 'Submit Application'}
+                <button className='ton tin' type='submit' disabled={isLoading || isAccountBalanceLimited}>
+                  {isLoading ? 'Submitting...' : isAccountBalanceLimited ? 'Add funds to your account' : 'Submit Application'}
                 </button>
                 {isLoading && (
                   <p style={{ color: 'green' }} className="contact_form_paragraph_loading">
                     Application in progress...
+                  </p>
+                )}
+                {isAccountBalanceLimited && (
+                  <p style={{ color: 'red' }}>
+                    Your account balance is limited. Please recharge your account.
                   </p>
                 )}
               </div>
@@ -252,3 +328,4 @@ const Addfirstcard = () => {
 }
 
 export default Addfirstcard;
+
