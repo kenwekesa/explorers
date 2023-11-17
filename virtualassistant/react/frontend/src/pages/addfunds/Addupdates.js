@@ -1,13 +1,16 @@
-import React, { useState} from 'react'
-import Addadmincard from './Addadmincard'
-import "./Addupdates.css"
+import React, { useState, useEffect } from 'react';
+import Addadmincard from './Addadmincard';
+import { collection, query, where, orderBy, getDocs, limit } from 'firebase/firestore';
+import { db } from '../../firebase/firebase';
+import './Addupdates.css';
 
+function Addupdates() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [updates, setUpdates] = useState([]);
+  const [selectedUpdate, setSelectedUpdate] = useState({ title: '', content: '' });
 
-const Addupdates = () => {
-
- const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  const openDialog = () => {
+  const openDialog = (update) => {
+    setSelectedUpdate(update);
     setIsDialogOpen(true);
   };
 
@@ -15,31 +18,56 @@ const Addupdates = () => {
     setIsDialogOpen(false);
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const q = query(
+          collection(db, 'updates'),
+          where('status', '==', 'client'),
+          // orderBy('timestamp', 'desc'),
+          limit(1)
+        );
+
+        const querySnapshot = await getDocs(q);
+        const updateList = [];
+
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          updateList.push({ id: doc.id, title: data.title, content: data.content });
+        });
+
+        setUpdates(updateList);
+      } catch (error) {
+        console.error('Error fetching updates:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className='addupdates'>
-    <h1>Admin Updates</h1>
-    <div className='cardupdates'>   
-        <p className='paragraph-word-limit'>This is the first thing we should be doing in the first place,
-            this is the first thing we should be doing in the first place,
-            this is the first thing we should be doing in the first place</p>
-       <button className='ton tin tun' onClick={openDialog}>Read Update</button>
-        <Addadmincard
-              isOpen={isDialogOpen}
-              onClose={closeDialog} 
-              />
+      <h1>Important Updates</h1>
+      <div className='cardupdates'>
+        {updates.map((update) => (
+          <div key={update.id}>
+            <p className='paragraph-word-limit'>{update.content}</p>
+            <button className='ton tin tun' onClick={() => openDialog(update)}>
+              Read Update
+            </button>
           </div>
-        <div className='cardupdates'>   
-        <p className='paragraph-word-limit'>This is the first thing we should be doing in the first place,
-            this is the first thing we should be doing in the first place,
-            this is the first thing we should be doing in the first place</p>
-       <button className='ton tin tun' onClick={openDialog}>Read Update</button>
+        ))}
+      </div>
+      {isDialogOpen && (
         <Addadmincard
-              isOpen={isDialogOpen}
-              onClose={closeDialog} 
-              />
-          </div>
+          isOpen={isDialogOpen}
+          onClose={closeDialog}
+          title={selectedUpdate.title}
+          content={selectedUpdate.content}
+        />
+      )}
     </div>
-  )
+  );
 }
 
-export default Addupdates
+export default Addupdates;

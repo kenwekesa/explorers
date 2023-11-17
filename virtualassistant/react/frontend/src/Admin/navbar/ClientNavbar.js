@@ -107,13 +107,14 @@ import coins from "../../images/coins.png";
 import plans from "../../images/newplans.png";
 import admin from "../../images/help.png";
 import { db } from '../../firebase/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
 
 const ClientNavbar = () => {
   const [isListVisible, setListVisible] = useState(false);
   const [userDetails, setUserDetails] = useState(null);
   const [totalAmount, setTotalAmount] = useState(0);
   const [totalCost, setTotalCost] = useState(0);
+  const [totalCanceled, setTotalCanceled] = useState(0);
 
 
   const toggleListVisibility = () => {
@@ -175,6 +176,7 @@ const ClientNavbar = () => {
     const fetchData = async () => {
       const banksCollection = collection(db, 'serviced');
       const querySnapshot = await getDocs(banksCollection);
+      // const querySnapshot = await getDocs(banksCollection);
 
       let total = 0;
 
@@ -195,7 +197,35 @@ const ClientNavbar = () => {
     fetchData();
   }, []); // Empty dependency array, so it runs only once on mount
 
-  const totalAmounts = totalAmount - totalCost;
+ 
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const banksCollection = collection(db, 'serviced');
+      const q = query(banksCollection, where('status', '==', 'canceled'));
+      const querySnapshot = await getDocs(q);
+      // const querySnapshot = await getDocs(banksCollection);
+
+      let total = 0;
+
+      querySnapshot.forEach((doc) => {
+        // Assuming the 'amount' field is stored as a string
+        const amountString = doc.data().totalCost;
+        const amountFloat = parseFloat(amountString);
+
+        if (!isNaN(amountFloat)) {
+          total += amountFloat;
+        }
+      });
+
+      // Set the total amount in state
+      setTotalCanceled(total);
+    };
+
+    fetchData();
+  }, []); // Empty dependency array, so it runs only once on mount
+
+  const totalAmounts = totalAmount - totalCost + totalCanceled;
 
   return (
     <div className='adminnavbar'>
@@ -208,7 +238,7 @@ const ClientNavbar = () => {
             <p className='adminuser'><img src={wallet} loading="lazy" alt="Logo" /><span> ${totalAmounts}</span></p>
           </div>
           <div className="logo toggle-btn" onClick={toggleListVisibility}>
-            <p className='adminuser' ><img src={userIcon} loading="lazy" alt="Logo" /><span>Joe Bilado</span></p>
+            <p className='adminuser' ><img src={userIcon} loading="lazy" alt="Logo" /><span>Bilado</span></p>
           </div>
           <div className='toggle-nav-btn'>
             {isListVisible && (

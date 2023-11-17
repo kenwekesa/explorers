@@ -3,7 +3,7 @@ import Footer from '../../Admin/footer/Footer';
 import ClientNavbar from '../../Admin/navbar/ClientNavbar';
 import './orderhistory.css';
 import './orderhistory.scss';
-import { collection, getDocs, query } from "firebase/firestore";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { db } from '../../firebase/firebase';
 
 function Fund() {
@@ -14,20 +14,20 @@ function Fund() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true); // Set loading to true when fetching data
-      const q = query(collection(db, "banks"));
-      const querySnapshot = await getDocs(q);
-      const items = [];
-      querySnapshot.forEach((doc) => {
-        items.push({ id: doc.id, ...doc.data() });
-      });
-      setData(items);
-      setIsLoading(false); // Set loading to false after data is retrieved
-    };
+  const fetchData = async () => {
+    setIsLoading(true); // Set loading to true when fetching data
+    const q = query(collection(db, "banks"), orderBy("timestamp", "desc")); // Assuming "date" is the field you want to order by
+    const querySnapshot = await getDocs(q);
+    const items = [];
+    querySnapshot.forEach((doc) => {
+      items.push({ id: doc.id, ...doc.data() });
+    });
+    setData(items);
+    setIsLoading(false); // Set loading to false after data is retrieved
+  };
 
-    fetchData();
-  }, []);
+  fetchData();
+}, []);
 
   const formatDate = (timestamp) => {
     const date = new Date(timestamp.seconds * 1000);
@@ -80,8 +80,8 @@ function Fund() {
               <tr>
                 <th>ID</th>
                 <th>Order ID</th>
-                <th>Timestamp</th>
-                <th>Given Name</th>
+                <th>Payment Date</th>
+                <th>Payer Name</th>
                 <th>Amount</th>
               </tr>
             </thead>

@@ -43,7 +43,7 @@ const ClientAvailableFund = () => {
         <img src={img6} alt="logo" />
         <p className='client_dashboard_paragraph'>{userCount}</p>
         {isHovered && (
-          <Link onClick={scrollToTop} to="/fund" className='ton tin ton-tin'>View funds</Link>
+          <Link onClick={scrollToTop} to="/fund" className='ton tin ton-tin'>View transactions</Link>
         )}
       </div>
     </div>

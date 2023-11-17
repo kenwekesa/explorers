@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { db } from '../../firebase/firebase'; // Import 'db' from your Firebase configuration
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import "./Contacform.css";
 
 const Contactupdate = () => {
@@ -33,8 +33,9 @@ const Contactupdate = () => {
       const updateCollection = collection(db, 'updates');
       const updateData = {
         title: formData.title,
+        timestamp: serverTimestamp(),
         content: formData.content,
-        usetype: "assistant",
+        status: "assistant",
       };
 
       const docRef = await addDoc(updateCollection, updateData);

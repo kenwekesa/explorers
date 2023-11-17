@@ -78,7 +78,7 @@ function Pendingplann() {
                 <th>Plan</th>
                 <th>Assistants</th>
                 <th>Period</th>
-                <th>Amount</th>
+                <th>Total cost</th>
               </tr>
             </thead>
             <tbody>
