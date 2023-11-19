@@ -27,6 +27,42 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-50@585-!jhmyge^y$9&%c7##9$01=x37%9b3)b#u3f6y_7ip+b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
+
+
+#MPESA
+# MPESA_CONFIG = {
+# 'CONSUMER_KEY': 'cFqxX0kIhex5yYC2BmneEwwb8FYUtBh6', 
+# 'CONSUMER_SECRET': 'd9ixa15Vhx8GGGzj',
+#  'HOST_NAME': '<Your hostname e.g https://myhostname>',
+#   'PASS_KEY': 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919', 
+#   'SAFARICOM_API': 'https://sandbox.safaricom.co.ke',
+#    'SHORT_CODE': '174379'
+# }
+
+
+MPESA_ENVIRONMENT = 'sandbox'
+# Credentials for the daraja app
+MPESA_CONSUMER_KEY = 'cFqxX0kIhex5yYC2BmneEwwb8FYUtBh6'
+MPESA_CONSUMER_SECRET = 'd9ixa15Vhx8GGGzj'
+MPESA_PASSKEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
+#Shortcode to use for transactions. For sandbox use the Shortcode 1
+
+MPESA_SHORTCODE = '174379'
+
+
+
+MPESA_EXPRESS_SHORTCODE = 'kk'
+
+MPESA_SHORTCODE_TYPE = 'paybill'
+
+
+MPESA_INITIATOR_USERNAME = 'jk'
+
+MPESA_INITIATOR_SECURITY_CREDENTIAL = 'jj'
+
+
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -41,9 +77,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_daraja',
     'backside',
     'corsheaders',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
