@@ -8,6 +8,9 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from '../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
 import ClientsData from "./clientscards/ClientsData"
+import { useContext } from 'react';
+import { AuthContext } from '../../contextr/AuthContext';
+
 
 function Adminclients() {
   const [data, setData] = useState([]);
@@ -19,6 +22,7 @@ function Adminclients() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const navigate = useNavigate()
+  const {state} = useContext(AuthContext)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -165,7 +169,7 @@ function Adminclients() {
                   <tr key={item.id}>
                     <td>{i + 1}</td>
                     <td className='role_title_orderhistory_first'>{item.service}</td>
-                    <td className='role_title_orderhistory_first'>{item.firstName} {item.lastName}</td>
+                    <td className='role_title_orderhistory_first'>{item.firstname} {item.lastname}</td>
                     <td className='role_title_orderhistory_first'>{item.contact}</td>
                     <td>{item.location}</td>
                     <td className="admin_btn_view">

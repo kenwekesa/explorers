@@ -5,7 +5,6 @@ import user from "../../../images/users.png"
 import wallet from "../../../images/wallets.png"
 import dashboard from "../../../images/dashboard.png"
 import message from "../../../images/customer.png"
-import assistants from "../../../images/assistants.png"
 import cash from "../../../images/cash.png"
 import clients from "../../../images/clients.png"
 import pending from "../../../images/pending.png"
@@ -13,15 +12,131 @@ import plans from "../../../images/newplans.png"
 import admin from "../../../images/admin.png"
 import help from "../../../images/help.png"
 import { Link } from 'react-router-dom'
+import { useState} from 'react'
+import { db } from '../../../firebase/firebase';
+import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
+import { useEffect } from 'react'
+import { findUser } from '../../../services/api/DataApi'
+import { useContext } from 'react'
+import { AuthContext } from '../../../contextr/AuthContext'
 
 const Navbar = () => {
+
+  const [totalCanceled, setTotalCanceled] = useState(0);
+  const [totalCompleted, setTotalCompleted] = useState(0);
+  const [totalPaid, setTotalPaid] = useState(0);
+  const {state} = useContext(AuthContext)
+  const [currentuser, setCurrentuser] = useState(null)
+  
+
+
+  const fetchData = async () => {
+    
+    try{
+     console.log(state.user.uid)
+   
+    const res = await findUser(state.user.uid)
+  
+    setCurrentuser(res[0])
+    console.log(res)
+    }
+    catch(error)
+    {
+      console.log(error)
+    }
+    
+  }
+  
+  useEffect(() => {
+    fetchData()
+  }, [])
 
    const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       // behavior: 'smooth', // Add smooth scrolling behavior
     });
-  };
+   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const banksCollection = collection(db, 'serviced');
+      const q = query(banksCollection, where('status', '==', 'canceled'));
+      const querySnapshot = await getDocs(q);
+      // const querySnapshot = await getDocs(banksCollection);
+
+      let total = 0;
+
+      querySnapshot.forEach((doc) => {
+        // Assuming the 'amount' field is stored as a string
+        const amountString = doc.data().totalCost;
+        const amountFloat = parseFloat(amountString);
+
+        if (!isNaN(amountFloat)) {
+          total += amountFloat;
+        }
+      });
+
+      // Set the total amount in state
+      setTotalCompleted(total);
+    };
+
+    fetchData();
+  }, []); // Empty dependency array, so it runs only once on mount
+
+   useEffect(() => {
+    const fetchData = async () => {
+      const banksCollection = collection(db, 'serviced');
+      const q = query(banksCollection, where('status', '==', 'canceled'));
+      const querySnapshot = await getDocs(q);
+      // const querySnapshot = await getDocs(banksCollection);
+
+      let total = 0;
+
+      querySnapshot.forEach((doc) => {
+        // Assuming the 'amount' field is stored as a string
+        const amountString = doc.data().totalCost;
+        const amountFloat = parseFloat(amountString);
+
+        if (!isNaN(amountFloat)) {
+          total += amountFloat;
+        }
+      });
+
+      // Set the total amount in state
+      setTotalPaid(total);
+    };
+
+    fetchData();
+   }, []); // Empty dependency array, so it runs only once on mount
+  
+   useEffect(() => {
+    const fetchData = async () => {
+      const banksCollection = collection(db, 'serviced');
+      const q = query(banksCollection, where('status', '==', 'canceled'));
+      const querySnapshot = await getDocs(q);
+      // const querySnapshot = await getDocs(banksCollection);
+
+      let total = 0;
+
+      querySnapshot.forEach((doc) => {
+        // Assuming the 'amount' field is stored as a string
+        const amountString = doc.data().totalCost;
+        const amountFloat = parseFloat(amountString);
+
+        if (!isNaN(amountFloat)) {
+          total += amountFloat;
+        }
+      });
+
+      // Set the total amount in state
+      setTotalCanceled(total);
+    };
+
+    fetchData();
+  }, []); // Empty dependency array, so it runs only once on mount
+
+  const totalAmounts = totalCompleted - totalPaid + totalCanceled;
 
   return (
       <div className='adminnavbar'>
@@ -31,17 +146,17 @@ const Navbar = () => {
               </div>
             <div className='adminnavbartopleft'>
             <div className="logo">
-             <p className='adminuser'><img src={wallet} loading="lazy" alt="Logo" /><span>$100.00</span></p>
+            <p className='adminuser'><img src={wallet} loading="lazy" alt="Logo" /><span>${totalAmounts}</span></p>
               </div>
-            <div className="logo">
-            <p className='adminuser' ><img src={user} loading="lazy" alt="Logo" /><span>John Doe</span></p>
+            <div className="logo username_logo_main">
+            <p className='adminuser' >
+              <img src={user} loading="lazy" alt="Logo" />
+              <span>{currentuser ? `${currentuser.firstname} ${currentuser.lastname}` : '...'}</span>
+            </p>
           </div>
            </div>    
           </div>
           <div className='virtualassistantnavbarbottom'>
-            {/* <div className="logo">
-            <p className='adminnavusers' ><img src={user} loading="lazy" alt="Logo" /><span>John Doe</span></p>
-              </div> */}
             <div className="logo adminlogo">
             <Link to="/mydashboard" onClick={scrollToTop}  className='adminlink'><p className='adminuser' ><img src={dashboard} loading="lazy" alt="Logo" /><span>Dashboard</span></p></Link>
               </div>
@@ -57,18 +172,6 @@ const Navbar = () => {
             <div className="logo adminlogo">
             <Link to="/cfqas" onClick={scrollToTop}  className='adminlink linkalignleft'><p className='adminuser linkalignleft' ><img src={help} loading="lazy" alt="Logo" /><span>Faqs</span></p></Link>
               </div>
-            {/* <div className="logo adminlogo"> */}
-            {/* <Link to='/funds' className='adminlink'><p className='adminuser' ><img src={cash} loading="lazy" alt="Logo" /><span>Funds</span></p></Link>
-              </div>
-            <div className="logo adminlogo">
-            <Link to="/register" className='adminlink'><p className='adminuser' ><img src={admin} loading="lazy" alt="Logo" /><span>Register</span></p></Link>
-              </div>
-            <div className="logo adminlogo"> */}
-            {/* <Link to="/updates" className='adminlink'><p className='adminuser' ><img src={pending} loading="lazy" alt="Logo" /><span>Updates</span></p></Link>
-              </div> */}
-              {/* <div className="logo">
-            <p className='adminuser' ><img src={user} loading="lazy" alt="Logo" /><span>John Doe</span></p>
-          </div> */}
           </div>
       </div>
   )

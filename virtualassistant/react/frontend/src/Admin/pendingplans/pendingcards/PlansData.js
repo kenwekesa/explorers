@@ -50,7 +50,7 @@ const PendingData = ({ isOpen, onClose, id, service, plan, period, cost, status,
             </div>
             <div className="mynewplan_va_contact_data">
               <p>Plan:</p>
-              <p>${plan / 2} / month</p>
+              <p>${plan} / month</p>
             </div>
             <div className="mynewplan_va_contact_hr">
               <hr></hr>
@@ -85,7 +85,7 @@ const PendingData = ({ isOpen, onClose, id, service, plan, period, cost, status,
             </div>
             <div className="mynewplan_va_contact_data">
               <p>Total cost:</p>
-              <p>${cost / 2}</p>
+              <p>${cost}</p>
             </div>
           </div>
           <div className="mynewplan_va_data_main_second">
@@ -103,6 +103,9 @@ const PendingData = ({ isOpen, onClose, id, service, plan, period, cost, status,
                 <div></div>
                 <button className="ton tin ton-tin" onClick={handleTakeRole}>
                   Assign Plan
+                </button>
+                <button className="ton tin ton-tin" onClick={handleTakeRole}>
+                  Cancel Plan
                 </button>
                 <div></div>
               </div>

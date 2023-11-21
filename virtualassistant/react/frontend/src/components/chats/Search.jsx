@@ -38,7 +38,7 @@ function Search() {
   return (
     <div className='chat_search'>
 
-        <div className='search_form'>
+        <div className='search_form serch_form_input'>
             <input type='text' placeholder='Find the chat' onKeyDown={handleKey} onChange={(e)=>setUsername(e.target.value)}/>
         </div>
         {user &&

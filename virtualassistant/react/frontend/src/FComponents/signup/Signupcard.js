@@ -16,8 +16,8 @@ import { useNavigate } from 'react-router-dom'
 const Signupcard = () => {
  const [termsChecked, setTermsChecked] = useState(false);
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    firstname: '',
+    lastname: '',
     email: '',
     org_name: '',
     contact: '',
@@ -92,8 +92,8 @@ const Signupcard = () => {
       if (user) {
         const userData = {
           user_id: user.uid,
-          firstName: formData.firstName,
-          lastName: formData.lastName,
+          firstname: formData.firstname,
+          lastname: formData.lastname,
           email: formData.email,
           org_name: formData.org_name,
           contact: formData.contact,
@@ -106,8 +106,8 @@ const Signupcard = () => {
         await addDoc(collection(db, 'users'), userData);
 
         setFormData({
-          firstName: '',
-          lastName: '',
+          firstname: '',
+          lastname: '',
           email: '',
           org_name: '',
           contact: '',
@@ -150,11 +150,11 @@ const Signupcard = () => {
          <form onSubmit={handleRegister}>
             <div className='signcardcontent'>
               <p>First Name <span>(required)</span></p>
-              <input type="text" name='firstName' value={formData.firstName} onChange={handleInputChange} className='signcardiinput' required/>
+              <input type="text" name='firstname' value={formData.firstname} onChange={handleInputChange} className='signcardiinput' required/>
             </div>
             <div className='signcardcontent'>
               <p>Last Name <span>(required)</span></p>
-              <input type="text" name='lastName' value={formData.lastName} onChange={handleInputChange}  className='signcardiinput' required/>
+              <input type="text" name='lastname' value={formData.lastname} onChange={handleInputChange}  className='signcardiinput' required/>
             </div>
             <div className='signcardcontent'>
               <p>Email Address <span>(required)</span></p>

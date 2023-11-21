@@ -23,6 +23,9 @@ const MainSupport = () => {
         {/* <ClientNavbar /> */}
         <ClientNavbar />
       </div>
+      <div className='client_dashboard_title_paragraph admin_inqueries'>
+          <p>Inq<span>ueries</span></p>
+        </div>
        <div>
         <RequireAuth><Chats /></RequireAuth>
        </div>

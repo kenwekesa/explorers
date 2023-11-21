@@ -65,10 +65,10 @@ function UserChats() {
   return (
     <div className="user_chats">
       {conversations.map((convo) => (
-        <div className="user_chat" key={convo.id} onClick={() => handleSelect(convo,convo.user_details)}>
-          <img className="profile_pic" src={require('../../images/dummyuser.webp')} alt="Image" />
-          <div className="user_chat_info">
-            <span className="user_chat_name">{convo.user_details.firstname}</span>
+        <div className="user_chat user_chats_span" key={convo.id} onClick={() => handleSelect(convo,convo.user_details)}>
+          <img className="profile_pic profile_pic_span" src={require('../../images/dummyuser.webp')} alt="Image" />
+          <div className="user_chat_info user_chat_info_span">
+            <span className="user_chat_name user_chat_names">{convo.user_details.firstname}</span>
             <span className="chat_message_preview">{convo.data.lastMessage.text}</span>
           </div>
         </div>

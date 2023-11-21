@@ -108,13 +108,42 @@ import plans from "../../images/newplans.png";
 import admin from "../../images/help.png";
 import { db } from '../../firebase/firebase';
 import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
+import { findUser } from '../../services/api/DataApi';
+import { useContext } from 'react';
+import { AuthContext } from '../../contextr/AuthContext';
 
 const ClientNavbar = () => {
   const [isListVisible, setListVisible] = useState(false);
   const [userDetails, setUserDetails] = useState(null);
-  const [totalAmount, setTotalAmount] = useState(0);
+  const [totalAmount, setTotalAmount] = useState('...'); // Initial state set to '...'
   const [totalCost, setTotalCost] = useState(0);
   const [totalCanceled, setTotalCanceled] = useState(0);
+  const [loading, setLoading] = useState(true); // Loading state
+  const {state} = useContext(AuthContext)
+  const [currentuser, setCurrentuser] = useState(null)
+  
+
+
+  const fetchData = async () => {
+    
+    try{
+     console.log(state.user.uid)
+   
+    const res = await findUser(state.user.uid)
+  
+    setCurrentuser(res[0])
+    console.log(res)
+    }
+    catch(error)
+    {
+      console.log(error)
+    }
+    
+  }
+  
+  useEffect(() => {
+    fetchData()
+  }, [])
 
 
   const toggleListVisibility = () => {
@@ -129,25 +158,6 @@ const ClientNavbar = () => {
   };
 
   useEffect(() => {
-    const auth = getAuth();
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in
-        setUserDetails({
-          firstName: user.firstName, // Replace with the actual property name from your Firebase user object
-          lastName: user.lastName,   // Replace with the actual property name from your Firebase user object
-        });
-      } else {
-        // User is signed out
-        setUserDetails(null);
-      }
-    });
-
-    return () => unsubscribe(); // Cleanup function to unsubscribe from the auth state observer
-  }, []);
-
-
-  useEffect(() => {
     const fetchData = async () => {
       const banksCollection = collection(db, 'banks');
       const querySnapshot = await getDocs(banksCollection);
@@ -155,7 +165,6 @@ const ClientNavbar = () => {
       let total = 0;
 
       querySnapshot.forEach((doc) => {
-        // Assuming the 'amount' field is stored as a string
         const amountString = doc.data().amount;
         const amountFloat = parseFloat(amountString);
 
@@ -164,24 +173,21 @@ const ClientNavbar = () => {
         }
       });
 
-      // Set the total amount in state
       setTotalAmount(total);
+      setLoading(false); // Set loading to false once data is retrieved
     };
 
     fetchData();
-  }, []); // Empty dependency array, so it runs only once on mount
-
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
       const banksCollection = collection(db, 'serviced');
       const querySnapshot = await getDocs(banksCollection);
-      // const querySnapshot = await getDocs(banksCollection);
 
       let total = 0;
 
       querySnapshot.forEach((doc) => {
-        // Assuming the 'amount' field is stored as a string
         const amountString = doc.data().totalCost;
         const amountFloat = parseFloat(amountString);
 
@@ -190,26 +196,21 @@ const ClientNavbar = () => {
         }
       });
 
-      // Set the total amount in state
       setTotalCost(total);
     };
 
     fetchData();
-  }, []); // Empty dependency array, so it runs only once on mount
-
- 
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
       const banksCollection = collection(db, 'serviced');
       const q = query(banksCollection, where('status', '==', 'canceled'));
       const querySnapshot = await getDocs(q);
-      // const querySnapshot = await getDocs(banksCollection);
 
       let total = 0;
 
       querySnapshot.forEach((doc) => {
-        // Assuming the 'amount' field is stored as a string
         const amountString = doc.data().totalCost;
         const amountFloat = parseFloat(amountString);
 
@@ -218,14 +219,15 @@ const ClientNavbar = () => {
         }
       });
 
-      // Set the total amount in state
       setTotalCanceled(total);
     };
 
     fetchData();
-  }, []); // Empty dependency array, so it runs only once on mount
+  }, []);
 
-  const totalAmounts = totalAmount - totalCost + totalCanceled;
+  const totalAmounts = loading
+    ? '...' // Display '...' during the loading period
+    : totalAmount - totalCost + totalCanceled;
 
   return (
     <div className='adminnavbar'>
@@ -237,8 +239,11 @@ const ClientNavbar = () => {
           <div className="logo">
             <p className='adminuser'><img src={wallet} loading="lazy" alt="Logo" /><span> ${totalAmounts}</span></p>
           </div>
-          <div className="logo toggle-btn" onClick={toggleListVisibility}>
-            <p className='adminuser' ><img src={userIcon} loading="lazy" alt="Logo" /><span>Bilado</span></p>
+          <div className="logo toggle-btn username_logo_main" onClick={toggleListVisibility}>
+            <p className='adminuser' >
+              <img src={userIcon} loading="lazy" alt="Logo" />
+              <span>{currentuser ? `${currentuser.firstname} ${currentuser.lastname}` : '...'}</span>
+            </p>
           </div>
           <div className='toggle-nav-btn'>
             {isListVisible && (
@@ -279,6 +284,7 @@ const ClientNavbar = () => {
 };
 
 export default ClientNavbar;
+
 
 // import React, { useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom';

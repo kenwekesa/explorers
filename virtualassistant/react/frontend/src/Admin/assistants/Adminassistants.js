@@ -243,8 +243,8 @@ function Adminassistants() {
           onClose={closePayPalDialog}
           service={selectedItem.service}
           id={selectedItem.id}
-          firstname={selectedItem.firstName}
-          lastname={selectedItem.lastName}
+          firstname={selectedItem.firstname}
+          lastname={selectedItem.lastname}
           email={selectedItem.email}
           contact={selectedItem.contact}
           about={selectedItem.about}

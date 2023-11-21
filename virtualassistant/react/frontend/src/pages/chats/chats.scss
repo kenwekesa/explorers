@@ -3,10 +3,17 @@ $primary-color:#4A7FBD;
 .chats
 {
     display: flex;
-    min-height: 100vh;
+    height: 100vh!important;
     padding: 0px 25px;
     // background-color: black;
     overflow: hidden;
+    margin-top: 2%!important;
+    margin-bottom: -4%!important;
+    margin-left: 4%!important;
+    margin-right: 4%!important;
+    border-radius: 1%!important;
+    // position: fixed;
+    // top: 14vh!important;
 
     .chats_sidebar 
     {
@@ -92,6 +99,7 @@ $primary-color:#4A7FBD;
                 &:hover 
                 {
                     background-color: $primary-color;
+                    color: white!important;
                 }
             }
         }
@@ -134,7 +142,9 @@ $primary-color:#4A7FBD;
 
                 &:hover 
                 {
-                    background-color: rgb(3, 3, 63);
+                    background-color: #f5f5f5;
+                    color: white!important;
+
                 }
             }
         }
@@ -211,7 +221,7 @@ $primary-color:#4A7FBD;
                             {
                                 display: flex;
                                 gap: 8px;
-                                background-color: rgba(234, 208, 159, 0.582);
+                                // background-color: #BFEAF5;
                                 padding: 6px 9px;
 
                                 .message_icon, .download_icon 
@@ -308,6 +318,7 @@ $primary-color:#4A7FBD;
                         &:hover 
                         {
                             cursor: pointer;
+                            color: white;
                         }
                     }
                     

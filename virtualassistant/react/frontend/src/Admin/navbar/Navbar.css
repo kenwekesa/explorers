@@ -230,3 +230,12 @@
     /* Scale up to show the underline */
     transform-origin: right;
 }
+
+.adminuser span{
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.username_logo_main span{
+    width: 8vw;
+}

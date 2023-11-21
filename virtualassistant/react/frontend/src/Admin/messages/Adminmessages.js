@@ -22,7 +22,10 @@ const Adminmessages = () => {
           <div className="dashboardnav">
             <Navbar/>
           </div>
-          <div>
+        <div>
+        <div className='client_dashboard_title_paragraph admin_inqueries'>
+          <p>Inq<span>ueries</span></p>
+        </div>
           <div className='admin_messages'>
           <RequireAuth><Chats /></RequireAuth>
           </div>

@@ -6,6 +6,7 @@ import { AuthContext } from '../../../contextr/AuthContext';
 import { findUser } from '../../../services/api/DataApi';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
+// import FundsData from "../fundcards/FundsData"
 
 const ClientsData = ({ isOpen, onClose, id, service, firstname, lastname, usercontact, email, about, org_name, location, timezone, assistants, updateStatus }) => {
 
@@ -20,6 +21,8 @@ const ClientsData = ({ isOpen, onClose, id, service, firstname, lastname, userco
     
       const [client, setClient] =useState(null)
       const [writer, setWriter] = useState(null)
+  
+      const [selectedItem, setSelectedItem] = useState(null);
   
 
   const fetchData = async () => {
@@ -56,7 +59,15 @@ const ClientsData = ({ isOpen, onClose, id, service, firstname, lastname, userco
       navigate('/messages')
       
       //const start_chat = await createCollection("chats", temp)
-    }
+   }
+  
+  const openPayPalDialog = (item) => {
+    setSelectedItem(item);
+  };
+
+  const closePayPalDialog = () => {
+    setSelectedItem(null);
+  };
 
   if (!isOpen) return null;
   
@@ -95,10 +106,12 @@ const ClientsData = ({ isOpen, onClose, id, service, firstname, lastname, userco
             <div className='assistant_va_contact_data assistant_va_contact_data_btn'>
               <div></div>
               {/* <button className='ton tin ton-tin'>Verify</button> */}
-              <button className='ton tin ton-tin'>Delete client</button>
-              {<button onClick={() => startChatClient()} className='ton tin ton-tin'>Initate chat</button>}
-              {/* <button className='ton tin ton-tin'>Disable</button> */}
-              <div></div>
+              <button className='ton tin ton-tin'>Delete</button>
+              {<button onClick={() => startChatClient()} className='ton tin ton-tin'>Chat</button>}
+              <button className='ton tin ton-tin'
+                onClick={() => openPayPalDialog()}
+              >Funds</button>
+              
             </div>
           </div>
           <div className='va_data_main_second'>
@@ -147,6 +160,21 @@ const ClientsData = ({ isOpen, onClose, id, service, firstname, lastname, userco
           X
         </button>
       </div>
+      {/* {selectedItem && (
+        <FundsData
+          isOpen={true}
+          onClose={closePayPalDialog}
+          service={selectedItem.service}
+          id={selectedItem.user_id}
+          firstname={selectedItem.firstName}
+          lastname={selectedItem.lastName}
+          email={selectedItem.email}
+          usercontact={selectedItem.contact}
+          about={selectedItem.about}
+          org_name={selectedItem.org_name}
+          location={selectedItem.location}
+        />
+      )} */}
     </div>
   );
 };

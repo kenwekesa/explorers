@@ -103,7 +103,8 @@ function Pendingplan() {
                 <th>Assistants</th>
                 <th>Period</th>
                 <th>Amount</th>
-                <th>Date</th>
+                <th>Deadline</th>
+                <th>Account Balance</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -111,12 +112,12 @@ function Pendingplan() {
               {isLoading ? (
                 // Show loading indicator if loading is true
                 <tr>
-                  <td colSpan="8">Loading...</td>
+                  <td colSpan="9">Loading...</td>
                 </tr>
               ) : totalItems === 0 ? (
                 // Show "No data from the database" if no data
                 <tr>
-                  <td colSpan="8">
+                  <td colSpan="9">
                     No new order available, please come back later!
                   </td>
                 </tr>
@@ -125,11 +126,12 @@ function Pendingplan() {
                   <tr key={item.id}>
                     <td>{i + 1}</td>
                     <td className="services_pending_plan_main">{item.service}</td>
-                    <td>${item.plan / 2} / month</td>
+                    <td>${item.plan} / month</td>
                     <td>{item.assistants}</td>
                     <td>{item.period} months</td>
-                    <td>${item.totalCost /2 }</td>
-                    <td>{item.status}</td>
+                    <td>${item.totalCost }</td>
+                    <td>{item.deadline}</td>
+                    <td>${item.remainingBalance}</td>
                     <td className="admin_btn_view">
                       <img
                         src={eye}

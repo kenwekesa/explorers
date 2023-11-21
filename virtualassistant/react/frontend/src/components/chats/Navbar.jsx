@@ -17,7 +17,7 @@ function Chatsnavbar() {
 
   return (
     <div className='chats_navbar'>
-        <div className='nav_logo'><span>Chats</span> </div>
+        <div className='nav_logo'><span>Inqueires</span> </div>
         <div className='user_wrapper'>
             <div className="user">
             <img className='profile_pic' src={require('../../images/dummyuser.webp')} alt='Image'/>

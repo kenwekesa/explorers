@@ -2,6 +2,7 @@ import { MoreVertOutlined } from '@mui/icons-material'
 import React, { memo, useContext, useEffect } from 'react'
 import Messages from './Messages'
 import Input from './Input'
+import "./chats.css"
 
 import { ChatContext } from '../../contextr/ChatsContext'
 

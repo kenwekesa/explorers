@@ -5,6 +5,8 @@ import './orderhistory.css';
 import './orderhistory.scss';
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from '../../firebase/firebase';
+import { useContext } from 'react';
+import { AuthContext } from '../../contextr/AuthContext';
 
 function Activeplann() {
   const [data, setData] = useState([]);
@@ -12,11 +14,12 @@ function Activeplann() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchText, setSearchText] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const {state} = useContext(AuthContext)
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true); // Set loading to true when fetching data
-      const q = query(collection(db, "serviced"), where("status", "==", "active"));
+      const q = query(collection(db, "serviced"), where("status", "==", "active"), where("user_id", "==", state.user.uid));
       const querySnapshot = await getDocs(q);
       const items = [];
       querySnapshot.forEach((doc) => {

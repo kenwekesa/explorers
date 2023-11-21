@@ -1,0 +1,87 @@
+.chat{
+    height: 78vh!important;
+    background-color: #DDE6ED!important;
+    /* margin-left: 6%!important; */
+    margin-right: 14%!important;
+}
+
+.chat_info{
+    color: #daf0da!important;
+}
+
+.chat_input_parent{
+    color: red;
+}
+
+.chats_sidebar {
+    color: red !important;
+    background-color: #fff !important;
+    height: 78vh !important;
+    margin-left: 8% !important;
+    /* border: 1px solid gray; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Adjust the values as needed */
+}
+
+.chat_input_parent{
+    /* background-color: red!important;
+    height: 3vh!important; */
+}
+
+.chat_input textarea{
+    background-color: #fff !important;
+    height: 5vh!important;
+    width: 80%!important;
+    margin-left: 3%;
+    margin-top: 1%;
+    border-radius: 1%;
+    border: none!important;
+}
+
+.send_input_chats{
+    height: 5vh !important;
+    display: flex;
+    align-items: center;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
+.chat_input_parent_group{
+    
+}
+
+.chat_input{
+    display: flex;
+    justify-content: space-between;
+    align-items: center!important;
+}
+
+.selected_files{
+    display: flex!important;
+}
+
+.chat_input_parent_group{
+    /* background-color: red!important;
+    padding-bottom: 27px!important; */
+}
+
+.input_chat_btn{
+    padding: 5px 13px;
+}
+
+.serch_form_input input{
+    font-size: 14px!important;
+}
+
+.user_chat_info_span span{
+    font-size: 15px!important;
+    color: rgb(51, 51, 51, 0.8)!important;
+}
+
+.user_chats_span span:hover{
+    cursor: pointer!important;
+}
+
+.user_chat_names{
+    color: green!important;
+}
