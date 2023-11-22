@@ -3,8 +3,10 @@ import Footer from '../../Admin/footer/Footer';
 import ClientNavbar from '../../Admin/navbar/ClientNavbar';
 import './orderhistory.css';
 import './orderhistory.scss';
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { collection, getDocs, query, orderBy, where } from "firebase/firestore";
 import { db } from '../../firebase/firebase';
+import { useContext } from 'react';
+import { AuthContext } from '../../contextr/AuthContext';
 
 function Fund() {
   const [data, setData] = useState([]);
@@ -12,11 +14,13 @@ function Fund() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchText, setSearchText] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const {state} = useContext(AuthContext)
 
   useEffect(() => {
   const fetchData = async () => {
     setIsLoading(true); // Set loading to true when fetching data
-    const q = query(collection(db, "banks"), orderBy("timestamp", "desc")); // Assuming "date" is the field you want to order by
+    // const q = query(collection(db, "banks"), orderBy("timestamp", "desc"), where("user_id", "==", state.user.uid)); // Assuming "date" is the field you want to order by
+     const q = query(collection(db, "banks"), where("user_id", "==", state.user.uid)); // Assuming "date" is the field you want to order by
     const querySnapshot = await getDocs(q);
     const items = [];
     querySnapshot.forEach((doc) => {

@@ -69,7 +69,7 @@ function UserChats() {
           <img className="profile_pic profile_pic_span" src={require('../../images/dummyuser.webp')} alt="Image" />
           <div className="user_chat_info user_chat_info_span">
             <span className="user_chat_name user_chat_names">{convo.user_details.firstname}</span>
-            <span className="chat_message_preview">{convo.data.lastMessage.text}</span>
+            <span className="chat_message_preview chat_message_preview_main">{convo.data.lastMessage.text}</span>
           </div>
         </div>
       ))}

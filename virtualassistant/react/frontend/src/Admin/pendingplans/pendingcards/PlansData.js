@@ -107,7 +107,9 @@ const PendingData = ({ isOpen, onClose, id, service, plan, period, cost, status,
                 <button className="ton tin ton-tin" onClick={handleTakeRole}>
                   Cancel Plan
                 </button>
-                <div></div>
+                <button className="ton tin ton-tin" onClick={handleTakeRole}>
+                  Assign Bids
+                </button>
               </div>
             </div>
           </div>

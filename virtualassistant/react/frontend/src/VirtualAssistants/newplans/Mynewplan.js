@@ -103,7 +103,7 @@ function Mynewplan() {
                 <th>Plan</th>
                 <th>Period</th>
                 <th>Amount</th>
-                <th>Date</th>
+                <th>Deadline</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -128,7 +128,7 @@ function Mynewplan() {
                     <td>${item.plan /2 } / month</td>
                     <td>{item.period} months</td>
                     <td>${item.totalCost /2 }</td>
-                    <td>{item.status}</td>
+                    <td>{item.deadline}</td>
                     <td className="admin_btn_view">
                       <img
                         src={eye}

@@ -4,10 +4,13 @@ import img6 from '../../../images/cashinhand.png';
 import { collection, where, query, getDocs } from "firebase/firestore"; // Import Firestore functions
 import { db } from '../../../firebase/firebase'; // Import your Firebase config
 import './dashcards.css';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contextr/AuthContext';
 
 const Available = () => {
   const [isHovered, setHovered] = useState(false);
   const [userCount, setUserCount] = useState("...");
+  const {state} = useContext(AuthContext)
 
   const toggleHover = () => {
     setHovered(!isHovered);
@@ -24,7 +27,7 @@ const Available = () => {
   useEffect(() => {
     const fetchUserCount = async () => {
       // const q = query(collection(db, "users"), where("usetype", "==", "admin"));
-      const q = query(collection(db, "users"), where("usertype", "==", "admin"));
+      const q = query(collection(db, "serviced"), where("status", "==", "paid"), where("user_id", "==", state.user.uid));
       const querySnapshot = await getDocs(q);
       setUserCount(querySnapshot.size);
     };
@@ -39,9 +42,9 @@ const Available = () => {
         onMouseEnter={toggleHover}
         onMouseLeave={toggleHover}
       >
-        <p>Available funds</p>
+        <p>My payments</p>
         <img src={img6} alt="logo" />
-        <p className='client_dashboard_paragraph'>${userCount}</p>
+        <p className='client_dashboard_paragraph'>{userCount}</p>
         {isHovered && (
           <Link onClick={scrollToTop} to="/myfunds" className='ton tin ton-tin'>View funds</Link>
         )}

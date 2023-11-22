@@ -6,6 +6,8 @@ import eye from '../../images/eye.png';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
 import MyCompletePlanData from './myacompleteplancards/MyCompletePlanData';
+import { useContext } from 'react';
+import { AuthContext } from '../../contextr/AuthContext';
 
 function MyCompletedplan() {
   const [data, setData] = useState([]);
@@ -15,11 +17,12 @@ function MyCompletedplan() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedItem, setSelectedItem] = useState(null);
   const navigate = useNavigate();
+  const {state} = useContext(AuthContext)
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const q = query(collection(db, 'serviced'), where('status', '==', 'completed'));
+      const q = query(collection(db, 'serviced'), where('status', '==', 'completed'), where("user_id", "==", state.user.uid));
       const querySnapshot = await getDocs(q);
       const items = [];
       querySnapshot.forEach((doc) => {

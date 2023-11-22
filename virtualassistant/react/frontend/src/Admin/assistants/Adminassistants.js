@@ -201,7 +201,7 @@ function Adminassistants() {
                   <tr key={item.id}>
                     <td>{i + 1}</td>
                     <td className='role_title_orderhistory_first'>{item.service}</td>
-                    <td className='role_title_orderhistory_first'>{item.firstName} {item.lastName}</td>
+                    <td className='role_title_orderhistory_first'>{item.firstname} {item.lastname}</td>
                     <td className='role_title_orderhistory_first'>{item.contact}</td>
                     <td className="admin_btn_view">
                       <img

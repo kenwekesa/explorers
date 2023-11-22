@@ -3,6 +3,8 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contextr/AuthContext';
 
 const Paypalbutton = (props) => {
   const { pay_amount, product, onClose } = props;
@@ -11,6 +13,7 @@ const Paypalbutton = (props) => {
   const [paidFor, setPaidFor] = useState(false);
   const [error, setError] = useState(null);
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
+  const {state} = useContext(AuthContext)
 
   const handleApprove = async (orderId, payerEmail, payerName) => {
     // handle backend function to fulfill order
@@ -27,6 +30,7 @@ const Paypalbutton = (props) => {
       timestamp: serverTimestamp(),
       email_address: payerEmail,
       given_name: payerName,
+      user_id: state.user.uid,
     };
 
     try {

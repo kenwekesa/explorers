@@ -4,10 +4,13 @@ import img6 from '../../../images/newplans.png';
 import { collection, where, query, getDocs } from "firebase/firestore"; // Import Firestore functions
 import { db } from '../../../firebase/firebase'; // Import your Firebase config
 import './dashcards.css';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contextr/AuthContext';
 
 const NewPlans = () => {
   const [isHovered, setHovered] = useState(false);
   const [userCount, setUserCount] = useState("...");
+  const {state} = useContext(AuthContext)
 
   const toggleHover = () => {
     setHovered(!isHovered);

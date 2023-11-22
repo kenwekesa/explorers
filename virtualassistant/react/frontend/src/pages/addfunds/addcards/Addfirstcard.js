@@ -836,6 +836,7 @@ const Addfirstcard = () => {
         timestamp: serverTimestamp(),
         remainingBalance,
         user_id: state.user.uid,
+        bidders: [],
       };
 
       await addDoc(collection(db, 'serviced'), documentData);
@@ -872,7 +873,7 @@ const Addfirstcard = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const banksCollection = collection(db, 'banks');
+      const banksCollection = query(collection(db, 'banks'), where("user_id", "==", state.user.uid));
       const querySnapshot = await getDocs(banksCollection);
 
       let total = 0;
@@ -894,7 +895,7 @@ const Addfirstcard = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const banksCollection = collection(db, 'serviced');
+      const banksCollection = query(collection(db, 'serviced'), where("user_id", "==", state.user.uid));
       const querySnapshot = await getDocs(banksCollection);
 
       let total = 0;
@@ -917,7 +918,7 @@ const Addfirstcard = () => {
   useEffect(() => {
     const fetchData = async () => {
       const banksCollection = collection(db, 'serviced');
-      const q = query(banksCollection, where('status', '==', 'canceled'));
+      const q = query(banksCollection, where('status', '==', 'canceled'), where("user_id", "==", state.user.uid));
       const querySnapshot = await getDocs(q);
 
       let total = 0;

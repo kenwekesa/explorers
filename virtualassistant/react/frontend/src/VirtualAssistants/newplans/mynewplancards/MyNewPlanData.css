@@ -106,4 +106,9 @@
     line-height: 30px!important;
 }
 
+.success-message_main{
+    margin-bottom: 3px!important;
+    color: red!important;
+}
+
 /* ... rest of your CSS ... */

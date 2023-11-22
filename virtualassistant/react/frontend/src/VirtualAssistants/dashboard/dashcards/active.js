@@ -4,10 +4,13 @@ import img6 from '../../../images/inprogress.png';
 import { collection, where, query, getDocs } from "firebase/firestore"; // Import Firestore functions
 import { db } from '../../../firebase/firebase'; // Import your Firebase config
 import './dashcards.css';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contextr/AuthContext';
 
 const Active = () => {
   const [isHovered, setHovered] = useState(false);
   const [userCount, setUserCount] = useState("...");
+  const {state} = useContext(AuthContext)
 
   const toggleHover = () => {
     setHovered(!isHovered);
@@ -23,7 +26,7 @@ const Active = () => {
   // Use useEffect to fetch and update the user count
  useEffect(() => {
     const fetchUserCount = async () => {
-      const q = query(collection(db, "serviced"), where("status", "==", "active"));
+      const q = query(collection(db, "serviced"), where("status", "==", "active"), where("user_id", "==", state.user.uid));
       const querySnapshot = await getDocs(q);
       setUserCount(querySnapshot.size);
     };

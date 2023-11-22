@@ -5,6 +5,8 @@ import './orderhistory.css';
 import './orderhistory.scss';
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from '../../firebase/firebase';
+import { useContext } from 'react';
+import { AuthContext } from '../../contextr/AuthContext';
 
 function Myfunds() {
   const [data, setData] = useState([]);
@@ -13,11 +15,12 @@ function Myfunds() {
   const [searchText, setSearchText] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [selectedStatus, setSelectedStatus] = useState(''); // Default to 'All'
+  const {state} = useContext(AuthContext)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let queryRef = collection(db, "serviced");
+        let queryRef = query(collection(db, "serviced"), where("user_id", "==", state.user.uid));
 
         if (selectedStatus !== '') {
           queryRef = query(queryRef, where('status', '==', selectedStatus));

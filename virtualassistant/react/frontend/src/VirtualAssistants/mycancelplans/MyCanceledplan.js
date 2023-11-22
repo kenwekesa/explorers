@@ -6,6 +6,8 @@ import eye from '../../images/eye.png';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
 import MyCancelPlanData from './myacancelplancards/MyCancelPlanData';
+import { useContext } from 'react';
+import { AuthContext } from '../../contextr/AuthContext';
 
 function MyCanceledplan() {
   const [data, setData] = useState([]);
@@ -15,11 +17,12 @@ function MyCanceledplan() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedItem, setSelectedItem] = useState(null);
   const navigate = useNavigate();
+  const {state} = useContext(AuthContext)
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const q = query(collection(db, 'serviced'), where('status', '==', 'active'));
+      const q = query(collection(db, 'serviced'), where('status', '==', 'active'), where("user_id", "==", state.user.uid));
       const querySnapshot = await getDocs(q);
       const items = [];
       querySnapshot.forEach((doc) => {

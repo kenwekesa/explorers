@@ -4,10 +4,13 @@ import img6 from '../../../images/cashinhand.png';
 import { collection, where, query, getDocs } from "firebase/firestore"; // Import Firestore functions
 import { db } from '../../../firebase/firebase'; // Import your Firebase config
 import './clientdashcards.css';
+import { AuthContext } from '../../../contextr/AuthContext';
+import { useContext } from 'react';
 
 const ClientAvailableFund = () => {
   const [isHovered, setHovered] = useState(false);
   const [userCount, setUserCount] = useState("...");
+  const {state} = useContext(AuthContext)
 
   const toggleHover = () => {
     setHovered(!isHovered);
@@ -24,7 +27,7 @@ const ClientAvailableFund = () => {
   useEffect(() => {
     const fetchUserCount = async () => {
       // const q = query(collection(db, "users"), where("usetype", "==", "admin"));
-      const q = query(collection(db, "banks"));
+      const q = query(collection(db, "banks"), where("user_id", "==", state.user.uid));
       const querySnapshot = await getDocs(q);
       setUserCount(querySnapshot.size);
     };

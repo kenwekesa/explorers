@@ -27,6 +27,7 @@ const Navbar = () => {
   const [totalPaid, setTotalPaid] = useState(0);
   const {state} = useContext(AuthContext)
   const [currentuser, setCurrentuser] = useState(null)
+   const [loading, setLoading] = useState(true); // Loading state
   
 
 
@@ -60,7 +61,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const banksCollection = collection(db, 'serviced');
+      const banksCollection = query(collection(db, 'serviced'), where("user_id", "==", state.user.uid));
       const q = query(banksCollection, where('status', '==', 'canceled'));
       const querySnapshot = await getDocs(q);
       // const querySnapshot = await getDocs(banksCollection);
@@ -79,6 +80,7 @@ const Navbar = () => {
 
       // Set the total amount in state
       setTotalCompleted(total);
+      setLoading(false); // Set loading to false once data is retrieved
     };
 
     fetchData();
@@ -86,7 +88,7 @@ const Navbar = () => {
 
    useEffect(() => {
     const fetchData = async () => {
-      const banksCollection = collection(db, 'serviced');
+      const banksCollection = query(collection(db, 'serviced'), where("user_id", "==", state.user.uid));
       const q = query(banksCollection, where('status', '==', 'canceled'));
       const querySnapshot = await getDocs(q);
       // const querySnapshot = await getDocs(banksCollection);
@@ -112,7 +114,7 @@ const Navbar = () => {
   
    useEffect(() => {
     const fetchData = async () => {
-      const banksCollection = collection(db, 'serviced');
+      const banksCollection = query(collection(db, 'serviced'), where("user_id", "==", state.user.uid));
       const q = query(banksCollection, where('status', '==', 'canceled'));
       const querySnapshot = await getDocs(q);
       // const querySnapshot = await getDocs(banksCollection);
@@ -136,7 +138,11 @@ const Navbar = () => {
     fetchData();
   }, []); // Empty dependency array, so it runs only once on mount
 
-  const totalAmounts = totalCompleted - totalPaid + totalCanceled;
+  // const totalAmounts = totalCompleted - totalPaid + totalCanceled;
+
+  const totalAmounts = loading
+    ? '...' // Display '...' during the loading period
+    : totalCompleted - totalPaid + totalCanceled;
 
   return (
       <div className='adminnavbar'>

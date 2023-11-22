@@ -4,10 +4,13 @@ import img6 from '../../../images/checkmark.png';
 import { collection, where, query, getDocs } from "firebase/firestore"; // Import Firestore functions
 import { db } from '../../../firebase/firebase'; // Import your Firebase config
 import './clientdashcards.css';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contextr/AuthContext';
 
 const ClientComplete = () => {
   const [isHovered, setHovered] = useState(false);
   const [userCount, setUserCount] = useState("...");
+  const {state} = useContext(AuthContext)
 
   const toggleHover = () => {
     setHovered(!isHovered);
@@ -24,7 +27,7 @@ const ClientComplete = () => {
   useEffect(() => {
     const fetchUserCount = async () => {
       // const q = query(collection(db, "users"), where("usetype", "==", "admin"));
-      const q = query(collection(db, "serviced"), where("status", "==", "completed"));
+      const q = query(collection(db, "serviced"), where("status", "==", "completed"), where("user_id", "==", state.user.uid));
       const querySnapshot = await getDocs(q);
       setUserCount(querySnapshot.size);
     };

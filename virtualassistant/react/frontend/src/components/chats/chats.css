@@ -73,9 +73,14 @@
     font-size: 14px!important;
 }
 
-.user_chat_info_span span{
-    font-size: 15px!important;
-    color: rgb(51, 51, 51, 0.8)!important;
+.user_chat_info_span span {
+    font-size: 15px !important;
+    color: rgba(51, 51, 51, 0.8) !important;
+    display: block;
+    overflow: hidden;
+    width: 20vw!important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .user_chats_span span:hover{

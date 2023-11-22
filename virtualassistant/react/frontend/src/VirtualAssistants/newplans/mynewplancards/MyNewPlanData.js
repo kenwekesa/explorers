@@ -1,31 +1,51 @@
 import React, { useState } from 'react';
 import './MyNewPlanData.css';
-import { doc, updateDoc } from 'firebase/firestore';
+import { doc, updateDoc, getDoc } from 'firebase/firestore';
 import apply from '../../../images/vaco.jpg';
 import { db } from '../../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contextr/AuthContext';
 
 const MyNewPlanData = ({ isOpen, onClose, id, service, plan, period, cost, status, language, roleRequirements, roleTitle, timezone, assistants, updateStatus }) => {
   const navigate = useNavigate();
   const [notification, setNotification] = useState({ message: '', isSuccess: false });
+  const { state } = useContext(AuthContext);
+
+  const [bidSuccess, setBidSuccess] = useState(false);
+  const [buttonClicked, setButtonClicked] = useState(false);
+  const [bidPlaced, setBidPlaced] = useState(false); // New state to track if bid is already placed
 
   const handleTakeRole = async () => {
     try {
-      // Update the status to "active" in Firestore using the ID prop
-      const docRef = doc(db, 'serviced', id);
-      await updateDoc(docRef, { status: 'active' });
+      setButtonClicked(true);
 
-      // Call the parent component's updateStatus function (if needed)
-      if (updateStatus) {
-        updateStatus('active');
+      const docRef = await getDoc(doc(db, 'serviced', id));
+
+      if (docRef.exists()) {
+        const bidders = docRef.data().bidders || [];
+
+        if (bidders.includes(state.user.uid)) {
+          // Bid already placed
+          setBidPlaced(true);
+          return;
+        }
+
+        const updatedBidders = [...bidders, state.user.uid];
+
+        await updateDoc(docRef.ref, {
+          bidders: updatedBidders,
+        });
+
+        setNotification({ message: 'Role taken successfully', isSuccess: true });
+        setBidSuccess(true);
+
+        setTimeout(() => {
+          navigate("/mydashboard");
+        }, 3000);
+      } else {
+        console.error('Document does not exist.');
       }
-
-      // Set the success notification
-      setNotification({ message: 'Role taken successfully', isSuccess: true });
-
-      // Close the current dialog
-      // onClose();
-      navigate("/mydashboard");
     } catch (error) {
       console.error('Error updating document:', error);
     }
@@ -102,9 +122,21 @@ const MyNewPlanData = ({ isOpen, onClose, id, service, plan, period, cost, statu
               </div>
               <div className="mynewplan_va_contact_data mynewplan_va_contact_data_btn">
                 <div></div>
-                <button className="ton tin ton-tin" onClick={handleTakeRole}>
-                  Take Role
-                </button>
+                {!bidSuccess && !bidPlaced && (
+                  <button className='ton tin ton-tin' onClick={handleTakeRole} disabled={buttonClicked}>
+                    Bid for Role
+                  </button>
+                )}
+                {bidPlaced && (
+                  <div className="success-message_main ton tin ton-tin">
+                    You have already placed a bid.
+                  </div>
+                )}
+                {bidSuccess && (
+                  <div className="success-message_main">
+                    Bidding successful! You will be notified soon.
+                  </div>
+                )}
                 <div></div>
               </div>
             </div>
@@ -114,6 +146,7 @@ const MyNewPlanData = ({ isOpen, onClose, id, service, plan, period, cost, statu
           X
         </button>
       </div>
+
 
       {notification.isSuccess && (
         <div className="notification">

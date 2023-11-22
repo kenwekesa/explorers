@@ -6,6 +6,8 @@ import eye from '../../images/eye.png';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
 import MyActivePlanData from './myactiveplancards/MyActivePlanData';
+import { useContext } from 'react';
+import { AuthContext } from '../../contextr/AuthContext';
 
 function MyActiveplan() {
   const [data, setData] = useState([]);
@@ -14,12 +16,13 @@ function MyActiveplan() {
   const [searchText, setSearchText] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [selectedItem, setSelectedItem] = useState(null);
+  const {state} = useContext(AuthContext)
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const q = query(collection(db, 'serviced'), where('status', '==', 'active'));
+      const q = query(collection(db, 'serviced'), where('status', '==', 'active'), where("user_id", "==", state.user.uid));
       const querySnapshot = await getDocs(q);
       const items = [];
       querySnapshot.forEach((doc) => {
