@@ -185,6 +185,7 @@ function Pendingplan() {
           cost={selectedItem.totalCost}
           status={selectedItem.status}
           language={selectedItem.language}
+          bidder={selectedItem.bidders}
           roleTitle={selectedItem.roleTitle}
           timezone={selectedItem.timezone}
           assistants={selectedItem.assistants}

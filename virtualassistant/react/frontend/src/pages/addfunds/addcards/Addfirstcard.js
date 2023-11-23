@@ -837,6 +837,7 @@ const Addfirstcard = () => {
         remainingBalance,
         user_id: state.user.uid,
         bidders: [],
+        vas:[],
       };
 
       await addDoc(collection(db, 'serviced'), documentData);

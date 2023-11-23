@@ -3,12 +3,17 @@ import { doc, updateDoc } from 'firebase/firestore';
 import apply from '../../../images/vaco.jpg';
 import { db } from '../../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
+import Bidding from './Googlepay';
+import Bids from './Mpesa';
 
-const PendingData = ({ isOpen, onClose, id, service, plan, period, cost, status, language, roleRequirements, roleTitle, timezone, assistants, updateStatus }) => {
+const PendingData = ({ isOpen, onClose, id, service, plan, period, bidders, vas, cost, user_id, status, language, roleRequirements, roleTitle, timezone, assistants, updateStatus }) => {
   const navigate = useNavigate();
   const [notification, setNotification] = useState({ message: '', isSuccess: false });
+  const [isBankDialogOpen, setBankIsDialogOpen] = useState(false);
+  const [isMpesaDialogOpen, setMpesaIsDialogOpen] = useState(false);
 
   const handleTakeRole = async () => {
+    
     try {
       // Update the status to "active" in Firestore using the ID prop
       const docRef = doc(db, 'serviced', id);
@@ -28,6 +33,22 @@ const PendingData = ({ isOpen, onClose, id, service, plan, period, cost, status,
     } catch (error) {
       console.error('Error updating document:', error);
     }
+  };
+
+  const openBankDialog = () => {
+    setBankIsDialogOpen(true);
+  };
+
+  const closeBankDialog = () => {
+    setBankIsDialogOpen(false);
+  };
+
+  const openMpesaDialog = () => {
+    setMpesaIsDialogOpen(true);
+  };
+
+  const closeMpesaDialog = () => {
+    setMpesaIsDialogOpen(false);
   };
 
   return (
@@ -101,15 +122,33 @@ const PendingData = ({ isOpen, onClose, id, service, plan, period, cost, status,
               </div>
               <div className="mynewplan_va_contact_data mynewplan_va_contact_data_btn">
                 <div></div>
-                <button className="ton tin ton-tin" onClick={handleTakeRole}>
+                <button className="ton tin ton-tin" onClick={openBankDialog}>
                   Assign Plan
                 </button>
+                <Bidding
+                  isOpen={isBankDialogOpen}
+                  onClose={closeBankDialog} 
+                  bidders={bidders}
+                  id={id}
+                  user_id={user_id}
+                  vas={vas}
+                  status={status}
+                />
                 <button className="ton tin ton-tin" onClick={handleTakeRole}>
                   Cancel Plan
                 </button>
-                <button className="ton tin ton-tin" onClick={handleTakeRole}>
+                <button className="ton tin ton-tin" onClick={openMpesaDialog}>
                   Assign Bids
                 </button>
+                <Bids
+                  isOpen={isMpesaDialogOpen}
+                  onClose={closeMpesaDialog} 
+                  bidders={bidders}
+                  id={id}
+                  user_id={user_id}
+                  vas={vas}
+                  status={status}
+                />
               </div>
             </div>
           </div>
