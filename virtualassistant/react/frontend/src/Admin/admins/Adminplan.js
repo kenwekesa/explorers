@@ -91,7 +91,8 @@ function Adminsplan() {
         <div className="topContainer orderTopContainer">
           <div className="buttonsBar">
             <p className='addnewplan'>Admin<span>istrators</span></p>
-            <div className="links_group order_links_group order_links_group_content">
+            <div></div>
+            {/* <div className="links_group order_links_group order_links_group_content">
               <span
                 className={`link ${selectedStatus === '' ? 'active' : ''}`}
                 onClick={() => handleStatusClick('')}
@@ -116,7 +117,7 @@ function Adminsplan() {
               >
                 Business
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
          <div className="tableContainer">

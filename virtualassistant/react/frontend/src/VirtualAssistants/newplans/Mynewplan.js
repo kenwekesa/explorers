@@ -125,9 +125,9 @@ function Mynewplan() {
                   <tr key={item.id}>
                     <td>{i + 1}</td>
                     <td className="services_pending_plan_main">{item.service}</td>
-                    <td>${item.plan /2 } / month</td>
+                    <td>${item.plan / 2} / month</td>
                     <td>{item.period} months</td>
-                    <td>${item.totalCost /2 }</td>
+                    <td>${item.totalCost / (item.assistants * 2) }</td>
                     <td>{item.deadline}</td>
                     <td className="admin_btn_view">
                       <img

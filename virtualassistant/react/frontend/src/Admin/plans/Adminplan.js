@@ -1,12 +1,744 @@
+// import React, { useState, useEffect } from 'react';
+// import Footer from '../../Admin/footer/Footer';
+// import Navbar from '../navbar/Navbar';
+// import './orderhistory.css';
+// import './orderhistory.scss';
+// import eye from "../../images/eye.png";
+// import PlansData from './planscards/PlansData';
+// import PlansDatas from './planscards/PlansDatas';
+// import { collection, getDocs, query, where } from "firebase/firestore";
+// import { db } from '../../firebase/firebase';
+
+// function Adminplan() {
+//   const [data, setData] = useState([]);
+//   const [perPage, setPerPage] = useState(5);
+//   const [currentPage, setCurrentPage] = useState(1);
+//   const [searchText, setSearchText] = useState('');
+//   const [isLoading, setIsLoading] = useState(true);
+//   const [selectedStatus, setSelectedStatus] = useState(''); // Default to 'All'
+//   const [selectedItem, setSelectedItem] = useState(null);
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         let queryRef = collection(db, "serviced");
+
+//         queryRef = query(queryRef, where('status', 'in', ['completed', 'canceled']));
+
+//         const querySnapshot = await getDocs(queryRef);
+//         const items = [];
+//         querySnapshot.forEach((doc) => {
+//           items.push({ id: doc.id, ...doc.data() });
+//         });
+//         setData(items);
+//         setIsLoading(false);
+//       } catch (error) {
+//         console.error("Error fetching data:", error);
+//         setIsLoading(false);
+//       }
+//     };
+
+//     fetchData();
+//   }, [selectedStatus]);
+
+//   const filteredData = data.filter((item) =>
+//     item.service.toLowerCase().includes(searchText.toLowerCase())
+//   );
+
+//   const totalItems = filteredData.length;
+//   const totalPages = Math.ceil(totalItems / perPage);
+
+//   const paginatedData = filteredData.slice(
+//     (currentPage - 1) * perPage,
+//     currentPage * perPage
+//   );
+
+//   const handleStatusClick = (status) => {
+//     setSelectedStatus(status);
+//     setCurrentPage(1); // Reset to the first page when a status is selected
+//   };
+
+//   const openMpesaDialog = (item) => {
+//     setSelectedItem(item);
+//   };
+
+//   const closeMpesaDialog = () => {
+//     setSelectedItem(null);
+//   };
+
+//   const closeDialog = () => {
+//     setSelectedItem(null);
+//   };
+
+//   return (
+//     <div className='orderhistory'>
+//       <div className='admin_clients_navbar'>
+//         <Navbar />
+//       </div>
+//       <div className="orderhistory-content">
+//         <div className="topContainer orderTopContainer">
+//           <div className="buttonsBar">
+//             <p className='addnewplan'>Pl<span>ans</span></p>
+//             <div className="links_group order_links_group order_links_group_content">
+//               <span
+//                 className={`link ${selectedStatus === 'completed' ? 'active' : ''}`}
+//                 onClick={() => handleStatusClick('completed')}
+//               >
+//                 Completed
+//               </span>
+//               <span
+//                 className={`link ${selectedStatus === 'canceled' ? 'active' : ''}`}
+//                 onClick={() => handleStatusClick('canceled')}
+//               >
+//                 Canceled
+//               </span>
+//             </div>
+//           </div>
+//         </div>
+//          <div className="tableContainer">
+//           <div className="filter-search">
+//             <div className="filter">
+//               <label>Show:</label>
+//               <select onChange={(e) => setPerPage(Number(e.target.value))}>
+//                 <option value="5">5</option>
+//                 <option value="10">10</option>
+//                 <option value="20">20</option>
+//               </select>
+//               entries
+//             </div>
+//             <div className="search">
+//               <input
+//                 type="text"
+//                 placeholder="Search..."
+//                 value={searchText}
+//                 onChange={(e) => setSearchText(e.target.value)}
+//               />
+//             </div>
+//           </div>
+//           <table>
+//             <thead>
+//               <tr>
+//                 <th>ID</th>
+//                 <th>Service</th>
+//                 <th>Plan</th>
+//                 <th>Period</th>
+//                 <th>Amount</th>
+//                 <th>Status</th>
+//                 <th>Action</th>
+//               </tr>
+//             </thead>
+//             <tbody>
+//               {isLoading ? (
+//                 <tr>
+//                   <td colSpan="7">Loading...</td>
+//                 </tr>
+//               ) : totalItems === 0 ? (
+//                 <tr>
+//                   <td colSpan="7">No plans available, please come back later!</td>
+//                 </tr>
+//               ) : (
+//                 paginatedData.map((item, i) => (
+//                   <tr key={item.id}>
+//                     <td>{i + 1}</td>
+//                     <td className='role_title_orderhistory_first'>{item.service}</td>
+//                     <td>${item.plan} /month</td>
+//                     <td>{item.period} months</td>
+//                     <td>${item.totalCost}</td>
+//                     <td>{item.status}</td>
+//                     <td className="admin_btn_view">
+//                       {['completed', 'canceled'].includes(item.status) && (
+//                         <img src={eye} alt="view" onClick={() => openMpesaDialog(item)} />
+//                       )}
+//                     </td>
+//                   </tr>
+//                 ))
+//               )}
+//             </tbody>
+//           </table>
+//           <div className="pagination">
+//             <div className="pagination-info">
+//               Showing {perPage * (currentPage - 1) + 1} - {perPage * currentPage} of {totalItems} entries
+//             </div>
+//             <div className="pagination-buttons">
+//               <button
+//                 disabled={currentPage === 1}
+//                 onClick={() => setCurrentPage(currentPage - 1)}
+//               >
+//                 Previous
+//               </button>
+//               <button
+//                 disabled={currentPage === totalPages}
+//                 onClick={() => setCurrentPage(currentPage + 1)}
+//               >
+//                 Next
+//               </button>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//       <Footer />
+//       {selectedItem && selectedItem.status === 'canceled' && (
+//         <PlansData
+//           isOpen={true}
+//           onClose={closeDialog}
+//           service={selectedItem.service}
+//           id={selectedItem.id}
+//           plan={selectedItem.plan}
+//           period={selectedItem.period}
+//           cost={selectedItem.totalCost}
+//           status={selectedItem.status}
+//           language={selectedItem.language}
+//           roleTitle={selectedItem.roleTitle}
+//           timezone={selectedItem.timezone}
+//           assistants={selectedItem.assistants}
+//           roleRequirements={selectedItem.roleRequirements}
+//         />
+//       )}
+//       {selectedItem && selectedItem.status === 'completed' && (
+//         <PlansDatas
+//           isOpen={true}
+//           onClose={closeMpesaDialog}
+//           service={selectedItem.service}
+//           id={selectedItem.id}
+//           plan={selectedItem.plan}
+//           period={selectedItem.period}
+//           cost={selectedItem.totalCost}
+//           status={selectedItem.status}
+//           language={selectedItem.language}
+//           roleTitle={selectedItem.roleTitle}
+//           timezone={selectedItem.timezone}
+//           assistants={selectedItem.assistants}
+//           roleRequirements={selectedItem.roleRequirements}
+//         />
+//       )}
+//     </div>
+//   );
+// }
+
+// export default Adminplan;
+
+// import React, { useState, useEffect } from 'react';
+// import Footer from '../../Admin/footer/Footer';
+// import Navbar from '../navbar/Navbar';
+// import './orderhistory.css';
+// import './orderhistory.scss';
+// import eye from "../../images/eye.png";
+// import PlansData from './planscards/PlansData';
+// import PlansDatas from './planscards/PlansDatas';
+// import PlansDataset from './planscards/PlansDataset'; // Import the new component
+// import { collection, getDocs, query, where } from "firebase/firestore";
+// import { db } from '../../firebase/firebase';
+
+// function Adminplan() {
+//   const [data, setData] = useState([]);
+//   const [perPage, setPerPage] = useState(5);
+//   const [currentPage, setCurrentPage] = useState(1);
+//   const [searchText, setSearchText] = useState('');
+//   const [isLoading, setIsLoading] = useState(true);
+//   const [selectedStatus, setSelectedStatus] = useState(''); // Default to 'All'
+//   const [selectedItem, setSelectedItem] = useState(null);
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         let queryRef = collection(db, "serviced");
+
+//         // Include 'paid' in the selectedStatus state
+//         queryRef = query(queryRef, where('status', 'in', ['completed', 'canceled', 'paid']));
+
+//         const querySnapshot = await getDocs(queryRef);
+//         const items = [];
+//         querySnapshot.forEach((doc) => {
+//           items.push({ id: doc.id, ...doc.data() });
+//         });
+//         setData(items);
+//         setIsLoading(false);
+//       } catch (error) {
+//         console.error("Error fetching data:", error);
+//         setIsLoading(false);
+//       }
+//     };
+
+//     fetchData();
+//   }, [selectedStatus]);
+
+//   const filteredData = data.filter((item) =>
+//     item.service.toLowerCase().includes(searchText.toLowerCase())
+//   );
+
+//   const totalItems = filteredData.length;
+//   const totalPages = Math.ceil(totalItems / perPage);
+
+//   const paginatedData = filteredData.slice(
+//     (currentPage - 1) * perPage,
+//     currentPage * perPage
+//   );
+
+//   const handleStatusClick = (status) => {
+//     setSelectedStatus(status);
+//     setCurrentPage(1); // Reset to the first page when a status is selected
+//   };
+
+//   const openMpesaDialog = (item) => {
+//     setSelectedItem(item);
+//   };
+
+//   const closeMpesaDialog = () => {
+//     setSelectedItem(null);
+//   };
+
+//   const closeDialog = () => {
+//     setSelectedItem(null);
+//   };
+
+//   return (
+//     <div className='orderhistory'>
+//       <div className='admin_clients_navbar'>
+//         <Navbar />
+//       </div>
+//       <div className="orderhistory-content">
+//         <div className="topContainer orderTopContainer">
+//           <div className="buttonsBar">
+//             <p className='addnewplan'>Pl<span>ans</span></p>
+//             <div className="links_group order_links_group order_links_group_content">
+//               <span
+//                 className={`link ${selectedStatus === 'completed' ? 'active' : ''}`}
+//                 onClick={() => handleStatusClick('completed')}
+//               >
+//                 Completed
+//               </span>
+//               <span
+//                 className={`link ${selectedStatus === 'canceled' ? 'active' : ''}`}
+//                 onClick={() => handleStatusClick('canceled')}
+//               >
+//                 Canceled
+//               </span>
+//               {/* Add 'Paid' status option */}
+//               <span
+//                 className={`link ${selectedStatus === 'paid' ? 'active' : ''}`}
+//                 onClick={() => handleStatusClick('paid')}
+//               >
+//                 Paid
+//               </span>
+//             </div>
+//           </div>
+//         </div>
+//          <div className="tableContainer">
+//           <div className="filter-search">
+//             <div className="filter">
+//               <label>Show:</label>
+//               <select onChange={(e) => setPerPage(Number(e.target.value))}>
+//                 <option value="5">5</option>
+//                 <option value="10">10</option>
+//                 <option value="20">20</option>
+//               </select>
+//               entries
+//             </div>
+//             <div className="search">
+//               <input
+//                 type="text"
+//                 placeholder="Search..."
+//                 value={searchText}
+//                 onChange={(e) => setSearchText(e.target.value)}
+//               />
+//             </div>
+//           </div>
+//           <table>
+//             <thead>
+//               <tr>
+//                 <th>ID</th>
+//                 <th>Service</th>
+//                 <th>Plan</th>
+//                 <th>Period</th>
+//                 <th>Amount</th>
+//                 <th>Status</th>
+//                 <th>Action</th>
+//               </tr>
+//             </thead>
+//             <tbody>
+//               {isLoading ? (
+//                 <tr>
+//                   <td colSpan="7">Loading...</td>
+//                 </tr>
+//               ) : totalItems === 0 ? (
+//                 <tr>
+//                   <td colSpan="7">No plans available, please come back later!</td>
+//                 </tr>
+//               ) : (
+//                 paginatedData.map((item, i) => (
+//                   <tr key={item.id}>
+//                     <td>{i + 1}</td>
+//                     <td className='role_title_orderhistory_first'>{item.service}</td>
+//                     <td>${item.plan} /month</td>
+//                     <td>{item.period} months</td>
+//                     <td>${item.totalCost}</td>
+//                     <td>{item.status}</td>
+//                     <td className="admin_btn_view">
+//                       {['completed', 'canceled', 'paid'].includes(item.status) && (
+//                         <img src={eye} alt="view" onClick={() => openMpesaDialog(item)} />
+//                       )}
+//                     </td>
+//                   </tr>
+//                 ))
+//               )}
+//             </tbody>
+//           </table>
+//           <div className="pagination">
+//             <div className="pagination-info">
+//               Showing {perPage * (currentPage - 1) + 1} - {perPage * currentPage} of {totalItems} entries
+//             </div>
+//             <div className="pagination-buttons">
+//               <button
+//                 disabled={currentPage === 1}
+//                 onClick={() => setCurrentPage(currentPage - 1)}
+//               >
+//                 Previous
+//               </button>
+//               <button
+//                 disabled={currentPage === totalPages}
+//                 onClick={() => setCurrentPage(currentPage + 1)}
+//               >
+//                 Next
+//               </button>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//       <Footer />
+//       {selectedItem && selectedItem.status === 'canceled' && (
+//         <PlansData
+//           isOpen={true}
+//           onClose={closeDialog}
+//           service={selectedItem.service}
+//           id={selectedItem.id}
+//           plan={selectedItem.plan}
+//           period={selectedItem.period}
+//           cost={selectedItem.totalCost}
+//           status={selectedItem.status}
+//           language={selectedItem.language}
+//           roleTitle={selectedItem.roleTitle}
+//           timezone={selectedItem.timezone}
+//           assistants={selectedItem.assistants}
+//           roleRequirements={selectedItem.roleRequirements}
+//         />
+//       )}
+//       {selectedItem && selectedItem.status === 'completed' && (
+//         <PlansDatas
+//           isOpen={true}
+//           onClose={closeMpesaDialog}
+//           service={selectedItem.service}
+//           id={selectedItem.id}
+//           plan={selectedItem.plan}
+//           period={selectedItem.period}
+//           cost={selectedItem.totalCost}
+//           status={selectedItem.status}
+//           language={selectedItem.language}
+//           roleTitle={selectedItem.roleTitle}
+//           timezone={selectedItem.timezone}
+//           assistants={selectedItem.assistants}
+//           roleRequirements={selectedItem.roleRequirements}
+//         />
+//       )}
+//       {/* Add the new component for 'paid' status */}
+//       {selectedItem && selectedItem.status === 'paid' && (
+//         <PlansDataset
+//           isOpen={true}
+//           onClose={closeDialog}
+//           service={selectedItem.service}
+//           id={selectedItem.id}
+//           plan={selectedItem.plan}
+//           period={selectedItem.period}
+//           cost={selectedItem.totalCost}
+//           status={selectedItem.status}
+//           language={selectedItem.language}
+//           roleTitle={selectedItem.roleTitle}
+//           timezone={selectedItem.timezone}
+//           assistants={selectedItem.assistants}
+//           roleRequirements={selectedItem.roleRequirements}
+//         />
+//       )}
+//     </div>
+//   );
+// }
+
+// export default Adminplan;
+
+// import React, { useState, useEffect } from 'react';
+// import Footer from '../../Admin/footer/Footer';
+// import Navbar from '../navbar/Navbar';
+// import './orderhistory.css';
+// import './orderhistory.scss';
+// import eye from "../../images/eye.png";
+// import PlansData from './planscards/PlansData';
+// import PlansDatas from './planscards/PlansDatas';
+// import PlansDataset from './planscards/PlansDataset'; // Import the new component
+// import { collection, getDocs, query, where } from "firebase/firestore";
+// import { db } from '../../firebase/firebase';
+
+// function Adminplan() {
+//   const [data, setData] = useState([]);
+//   const [perPage, setPerPage] = useState(5);
+//   const [currentPage, setCurrentPage] = useState(1);
+//   const [searchText, setSearchText] = useState('');
+//   const [isLoading, setIsLoading] = useState(true);
+//   const [selectedStatus, setSelectedStatus] = useState(''); // Default to 'All'
+//   const [selectedItem, setSelectedItem] = useState(null);
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         let queryRef = collection(db, "serviced");
+
+//         // Include 'paid' in the selectedStatus state
+//         queryRef = query(queryRef, where('status', 'in', ['completed', 'canceled', 'paid']));
+
+//         const querySnapshot = await getDocs(queryRef);
+//         const items = [];
+//         querySnapshot.forEach((doc) => {
+//           items.push({ id: doc.id, ...doc.data() });
+//         });
+//         setData(items);
+//         setIsLoading(false);
+//       } catch (error) {
+//         console.error("Error fetching data:", error);
+//         setIsLoading(false);
+//       }
+//     };
+
+//     fetchData();
+//   }, [selectedStatus]);
+
+//   const filteredData = data.filter((item) =>
+//     item.service.toLowerCase().includes(searchText.toLowerCase())
+//   );
+
+//   const totalItems = filteredData.length;
+//   const totalPages = Math.ceil(totalItems / perPage);
+
+//   const paginatedData = filteredData.slice(
+//     (currentPage - 1) * perPage,
+//     currentPage * perPage
+//   );
+
+//   const handleStatusClick = async (status) => {
+//     try {
+//       let queryRef = collection(db, "serviced");
+
+//       // Modify the query to fetch data for the selected status
+//       queryRef = query(queryRef, where('status', '==', status));
+
+//       const querySnapshot = await getDocs(queryRef);
+//       const items = [];
+//       querySnapshot.forEach((doc) => {
+//         items.push({ id: doc.id, ...doc.data() });
+//       });
+//       setData(items);
+//       setIsLoading(false);
+//     } catch (error) {
+//       console.error("Error fetching data:", error);
+//       setIsLoading(false);
+//     }
+
+//     // Update the selected status
+//     setSelectedStatus(status);
+//     setCurrentPage(1); // Reset to the first page when a status is selected
+//   };
+
+//   const openMpesaDialog = (item) => {
+//     setSelectedItem(item);
+//   };
+
+//   const closeMpesaDialog = () => {
+//     setSelectedItem(null);
+//   };
+
+//   const closeDialog = () => {
+//     setSelectedItem(null);
+//   };
+
+//   return (
+//     <div className='orderhistory'>
+//       <div className='admin_clients_navbar'>
+//         <Navbar />
+//       </div>
+//       <div className="orderhistory-content">
+//         <div className="topContainer orderTopContainer">
+//           <div className="buttonsBar">
+//             <p className='addnewplan'>Pl<span>ans</span></p>
+//             <div className="links_group order_links_group order_links_group_content">
+//               <span
+//                 className={`link ${selectedStatus === 'completed' ? 'active' : ''}`}
+//                 onClick={() => handleStatusClick('completed')}
+//               >
+//                 Completed
+//               </span>
+//               <span
+//                 className={`link ${selectedStatus === 'canceled' ? 'active' : ''}`}
+//                 onClick={() => handleStatusClick('canceled')}
+//               >
+//                 Canceled
+//               </span>
+//               {/* Add 'Paid' status option */}
+//               <span
+//                 className={`link ${selectedStatus === 'paid' ? 'active' : ''}`}
+//                 onClick={() => handleStatusClick('paid')}
+//               >
+//                 Paid
+//               </span>
+//             </div>
+//           </div>
+//         </div>
+//          <div className="tableContainer">
+//           <div className="filter-search">
+//             <div className="filter">
+//               <label>Show:</label>
+//               <select onChange={(e) => setPerPage(Number(e.target.value))}>
+//                 <option value="5">5</option>
+//                 <option value="10">10</option>
+//                 <option value="20">20</option>
+//               </select>
+//               entries
+//             </div>
+//             <div className="search">
+//               <input
+//                 type="text"
+//                 placeholder="Search..."
+//                 value={searchText}
+//                 onChange={(e) => setSearchText(e.target.value)}
+//               />
+//             </div>
+//           </div>
+//           <table>
+//             <thead>
+//               <tr>
+//                 <th>ID</th>
+//                 <th>Service</th>
+//                 <th>Plan</th>
+//                 <th>Period</th>
+//                 <th>Amount</th>
+//                 <th>Status</th>
+//                 <th>Action</th>
+//               </tr>
+//             </thead>
+//             <tbody>
+//               {isLoading ? (
+//                 <tr>
+//                   <td colSpan="7">Loading...</td>
+//                 </tr>
+//               ) : totalItems === 0 ? (
+//                 <tr>
+//                   <td colSpan="7">No plans available, please come back later!</td>
+//                 </tr>
+//               ) : (
+//                 paginatedData.map((item, i) => (
+//                   <tr key={item.id}>
+//                     <td>{i + 1}</td>
+//                     <td className='role_title_orderhistory_first'>{item.service}</td>
+//                     <td>${item.plan} /month</td>
+//                     <td>{item.period} months</td>
+//                     <td>${item.totalCost}</td>
+//                     <td>{item.status}</td>
+//                     <td className="admin_btn_view">
+//                       {['completed', 'canceled', 'paid'].includes(item.status) && (
+//                         <img src={eye} alt="view" onClick={() => openMpesaDialog(item)} />
+//                       )}
+//                     </td>
+//                   </tr>
+//                 ))
+//               )}
+//             </tbody>
+//           </table>
+//           <div className="pagination">
+//             <div className="pagination-info">
+//               Showing {perPage * (currentPage - 1) + 1} - {perPage * currentPage} of {totalItems} entries
+//             </div>
+//             <div className="pagination-buttons">
+//               <button
+//                 disabled={currentPage === 1}
+//                 onClick={() => setCurrentPage(currentPage - 1)}
+//               >
+//                 Previous
+//               </button>
+//               <button
+//                 disabled={currentPage === totalPages}
+//                 onClick={() => setCurrentPage(currentPage + 1)}
+//               >
+//                 Next
+//               </button>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//       <Footer />
+//       {selectedItem && selectedItem.status === 'canceled' && (
+//         <PlansData
+//           isOpen={true}
+//           onClose={closeDialog}
+//           service={selectedItem.service}
+//           id={selectedItem.id}
+//           plan={selectedItem.plan}
+//           period={selectedItem.period}
+//           cost={selectedItem.totalCost}
+//           status={selectedItem.status}
+//           language={selectedItem.language}
+//           roleTitle={selectedItem.roleTitle}
+//           timezone={selectedItem.timezone}
+//           assistants={selectedItem.assistants}
+//           roleRequirements={selectedItem.roleRequirements}
+//         />
+//       )}
+//       {selectedItem && selectedItem.status === 'completed' && (
+//         <PlansDatas
+//           isOpen={true}
+//           onClose={closeMpesaDialog}
+//           service={selectedItem.service}
+//           id={selectedItem.id}
+//           plan={selectedItem.plan}
+//           period={selectedItem.period}
+//           cost={selectedItem.totalCost}
+//           status={selectedItem.status}
+//           language={selectedItem.language}
+//           roleTitle={selectedItem.roleTitle}
+//           timezone={selectedItem.timezone}
+//           assistants={selectedItem.assistants}
+//           roleRequirements={selectedItem.roleRequirements}
+//         />
+//       )}
+//       {/* Add the new component for 'paid' status */}
+//       {selectedItem && selectedItem.status === 'paid' && (
+//         <PlansDataset
+//           isOpen={true}
+//           onClose={closeDialog}
+//           service={selectedItem.service}
+//           id={selectedItem.id}
+//           plan={selectedItem.plan}
+//           period={selectedItem.period}
+//           cost={selectedItem.totalCost}
+//           status={selectedItem.status}
+//           language={selectedItem.language}
+//           roleTitle={selectedItem.roleTitle}
+//           timezone={selectedItem.timezone}
+//           assistants={selectedItem.assistants}
+//           roleRequirements={selectedItem.roleRequirements}
+//         />
+//       )}
+//     </div>
+//   );
+// }
+
+// export default Adminplan;
+
 import React, { useState, useEffect } from 'react';
 import Footer from '../../Admin/footer/Footer';
 import Navbar from '../navbar/Navbar';
 import './orderhistory.css';
 import './orderhistory.scss';
-import eye from "../../images/eye.png"
+import eye from "../../images/eye.png";
+import PlansData from './planscards/PlansData';
+import PlansDatas from './planscards/PlansDatas';
+import PlansDataset from './planscards/PlansDataset'; // Import the new component
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from '../../firebase/firebase';
-import PlansData from './planscards/PlansData';
 
 function Adminplan() {
   const [data, setData] = useState([]);
@@ -16,14 +748,16 @@ function Adminplan() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedStatus, setSelectedStatus] = useState(''); // Default to 'All'
   const [selectedItem, setSelectedItem] = useState(null);
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         let queryRef = collection(db, "serviced");
 
-        queryRef = query(queryRef, where('status', 'in', ['completed', 'canceled']));
+        // Include 'paid' in the selectedStatus state
+        if (selectedStatus) {
+          queryRef = query(queryRef, where('status', '==', selectedStatus));
+        }
 
         const querySnapshot = await getDocs(queryRef);
         const items = [];
@@ -54,15 +788,20 @@ function Adminplan() {
   );
 
   const handleStatusClick = (status) => {
+    // Update the selected status
     setSelectedStatus(status);
     setCurrentPage(1); // Reset to the first page when a status is selected
   };
 
-  const openPayPalDialog = (item) => {
+  const openMpesaDialog = (item) => {
     setSelectedItem(item);
   };
 
-  const closePayPalDialog = () => {
+  const closeMpesaDialog = () => {
+    setSelectedItem(null);
+  };
+
+  const closeDialog = () => {
     setSelectedItem(null);
   };
 
@@ -87,6 +826,13 @@ function Adminplan() {
                 onClick={() => handleStatusClick('canceled')}
               >
                 Canceled
+              </span>
+              {/* Add 'Paid' status option */}
+              <span
+                className={`link ${selectedStatus === 'paid' ? 'active' : ''}`}
+                onClick={() => handleStatusClick('paid')}
+              >
+                Paid
               </span>
             </div>
           </div>
@@ -137,16 +883,14 @@ function Adminplan() {
                   <tr key={item.id}>
                     <td>{i + 1}</td>
                     <td className='role_title_orderhistory_first'>{item.service}</td>
-                    <td>${item.plan / 2} /month</td>
+                    <td>${item.plan} /month</td>
                     <td>{item.period} months</td>
-                    <td>${item.totalCost / 2}</td>
+                    <td>${item.totalCost}</td>
                     <td>{item.status}</td>
                     <td className="admin_btn_view">
-                      <img
-                        src={eye}
-                        alt="view"
-                        onClick={() => openPayPalDialog(item)}
-                      />
+                      {['completed', 'canceled', 'paid'].includes(item.status) && (
+                        <img src={eye} alt="view" onClick={() => openMpesaDialog(item)} />
+                      )}
                     </td>
                   </tr>
                 ))
@@ -175,10 +919,45 @@ function Adminplan() {
         </div>
       </div>
       <Footer />
-      {selectedItem && (
+      {selectedItem && selectedItem.status === 'canceled' && (
         <PlansData
           isOpen={true}
-          onClose={closePayPalDialog}
+          onClose={closeDialog}
+          service={selectedItem.service}
+          id={selectedItem.id}
+          plan={selectedItem.plan}
+          period={selectedItem.period}
+          cost={selectedItem.totalCost}
+          status={selectedItem.status}
+          language={selectedItem.language}
+          roleTitle={selectedItem.roleTitle}
+          timezone={selectedItem.timezone}
+          assistants={selectedItem.assistants}
+          roleRequirements={selectedItem.roleRequirements}
+        />
+      )}
+      {selectedItem && selectedItem.status === 'completed' && (
+        <PlansDatas
+          isOpen={true}
+          onClose={closeMpesaDialog}
+          service={selectedItem.service}
+          id={selectedItem.id}
+          plan={selectedItem.plan}
+          period={selectedItem.period}
+          cost={selectedItem.totalCost}
+          status={selectedItem.status}
+          language={selectedItem.language}
+          roleTitle={selectedItem.roleTitle}
+          timezone={selectedItem.timezone}
+          assistants={selectedItem.assistants}
+          roleRequirements={selectedItem.roleRequirements}
+        />
+      )}
+      {/* Add the new component for 'paid' status */}
+      {selectedItem && selectedItem.status === 'paid' && (
+        <PlansDataset
+          isOpen={true}
+          onClose={closeDialog}
           service={selectedItem.service}
           id={selectedItem.id}
           plan={selectedItem.plan}
@@ -197,3 +976,7 @@ function Adminplan() {
 }
 
 export default Adminplan;
+
+
+
+

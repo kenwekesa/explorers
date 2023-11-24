@@ -19,21 +19,53 @@ function MyActiveplan() {
   const {state} = useContext(AuthContext)
   const navigate = useNavigate();
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     setIsLoading(true);
+  //     const q = query(collection(db, 'serviced'), where('status', '==', 'active'), where("user_id", "==", state.user.uid));
+  //     const querySnapshot = await getDocs(q);
+  //     const items = [];
+  //     querySnapshot.forEach((doc) => {
+  //       items.push({ id: doc.id, ...doc.data() });
+  //     });
+  //     setData(items);
+  //     setIsLoading(false);
+  //   };
+
+  //   fetchData();
+  // }, []);
+
   useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      const q = query(collection(db, 'serviced'), where('status', '==', 'active'), where("user_id", "==", state.user.uid));
+  const fetchData = async () => {
+    setIsLoading(true);
+
+    try {
+      const q = query(collection(db, 'serviced'), where('status', '==', 'active'));
       const querySnapshot = await getDocs(q);
       const items = [];
-      querySnapshot.forEach((doc) => {
-        items.push({ id: doc.id, ...doc.data() });
-      });
-      setData(items);
-      setIsLoading(false);
-    };
 
-    fetchData();
-  }, []);
+      const { user } = state; // Assuming that `state` contains the user information
+      const userId = user.uid;
+
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const { vas } = data;
+
+        if (vas && vas.includes(userId)) {
+          items.push({ id: doc.id, ...data });
+        }
+      });
+
+      setData(items);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  fetchData();
+ }, [state]);
 
   const filteredData = data.filter((item) =>
     item.service.toLowerCase().includes(searchText.toLowerCase())
@@ -113,9 +145,9 @@ function MyActiveplan() {
                   <tr key={item.id}>
                     <td>{i + 1}</td>
                     <td className="services_pending_plan_main">{item.service}</td>
-                    <td>${item.plan / 2} / month</td>
+                    <td>${item.plan /  2} / month</td>
                     <td>{item.period} months</td>
-                    <td>${item.totalCost / 2}</td>
+                    <td>${item.totalCost / (item.assistants * 2)}</td>
                     <td className="admin_btn_view">
                       <img
                         src={eye}

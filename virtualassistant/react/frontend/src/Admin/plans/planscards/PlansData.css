@@ -97,3 +97,13 @@
     overflow: auto;
 }
 /* ... rest of your CSS ... */
+
+.notification.success {
+    color: green;
+    border: 1px solid green;
+}
+
+.notification.error {
+    color: red;
+    border: 1px solid red;
+}

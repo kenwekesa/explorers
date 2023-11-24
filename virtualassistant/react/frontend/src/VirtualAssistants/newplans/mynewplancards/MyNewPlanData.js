@@ -14,7 +14,7 @@ const MyNewPlanData = ({ isOpen, onClose, id, service, plan, period, cost, statu
 
   const [bidSuccess, setBidSuccess] = useState(false);
   const [buttonClicked, setButtonClicked] = useState(false);
-  const [bidPlaced, setBidPlaced] = useState(false); // New state to track if bid is already placed
+  const [bidPlaced, setBidPlaced] = useState(false);
 
   const handleTakeRole = async () => {
     try {
@@ -26,7 +26,6 @@ const MyNewPlanData = ({ isOpen, onClose, id, service, plan, period, cost, statu
         const bidders = docRef.data().bidders || [];
 
         if (bidders.includes(state.user.uid)) {
-          // Bid already placed
           setBidPlaced(true);
           return;
         }
@@ -48,6 +47,8 @@ const MyNewPlanData = ({ isOpen, onClose, id, service, plan, period, cost, statu
       }
     } catch (error) {
       console.error('Error updating document:', error);
+    } finally {
+      setButtonClicked(false); // Reset buttonClicked state
     }
   };
 
@@ -124,7 +125,7 @@ const MyNewPlanData = ({ isOpen, onClose, id, service, plan, period, cost, statu
                 <div></div>
                 {!bidSuccess && !bidPlaced && (
                   <button className='ton tin ton-tin' onClick={handleTakeRole} disabled={buttonClicked}>
-                    Bid for Role
+                    {buttonClicked ? 'Bidding...' : 'Bid for Role'}
                   </button>
                 )}
                 {bidPlaced && (
@@ -146,7 +147,6 @@ const MyNewPlanData = ({ isOpen, onClose, id, service, plan, period, cost, statu
           X
         </button>
       </div>
-
 
       {notification.isSuccess && (
         <div className="notification">

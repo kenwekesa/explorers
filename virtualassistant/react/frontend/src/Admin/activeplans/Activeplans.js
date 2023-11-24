@@ -125,11 +125,11 @@ function Activeplan() {
                   <tr key={item.id}>
                     <td>{i + 1}</td>
                     <td className="services_pending_plan_main">{item.service}</td>
-                    <td>${item.plan / 2} / month</td>
+                    <td>${item.plan} / month</td>
                     <td>{item.assistants}</td>
                     <td>{item.period} months</td>
-                    <td>${item.totalCost /2 }</td>
-                    <td>{item.status}</td>
+                    <td>${item.totalCost}</td>
+                    <td>{item.deadline}</td>
                     <td className="admin_btn_view">
                       <img
                         src={eye}

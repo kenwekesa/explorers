@@ -17,11 +17,11 @@ const PendingData = ({ isOpen, onClose, id, service, plan, period, bidders, vas,
     try {
       // Update the status to "active" in Firestore using the ID prop
       const docRef = doc(db, 'serviced', id);
-      await updateDoc(docRef, { status: 'active' });
+      await updateDoc(docRef, { status: 'canceled' });
 
       // Call the parent component's updateStatus function (if needed)
       if (updateStatus) {
-        updateStatus('active');
+        updateStatus('canceled');
       }
 
       // Set the success notification
@@ -29,7 +29,7 @@ const PendingData = ({ isOpen, onClose, id, service, plan, period, bidders, vas,
 
       // Close the current dialog
       // onClose();
-      navigate("/mydashboard");
+      navigate("/admin_dashboard");
     } catch (error) {
       console.error('Error updating document:', error);
     }

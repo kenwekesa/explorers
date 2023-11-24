@@ -17,30 +17,62 @@ function Myplans() {
   const [selectedStatus, setSelectedStatus] = useState(''); // Default to 'All'
   const {state} = useContext(AuthContext)
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       let queryRef = query(collection(db, "serviced"), where("user_id", "==", state.user.uid));
+
+  //       if (selectedStatus !== '') {
+  //         queryRef = query(queryRef, where('status', '==', selectedStatus));
+  //       }
+
+  //       const querySnapshot = await getDocs(queryRef);
+  //       const items = [];
+  //       querySnapshot.forEach((doc) => {
+  //         items.push({ id: doc.id, ...doc.data() });
+  //       });
+  //       setData(items);
+  //       setIsLoading(false);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //       setIsLoading(false);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, [selectedStatus]);
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        let queryRef = query(collection(db, "serviced"), where("user_id", "==", state.user.uid));
+  const fetchData = async () => {
+    setIsLoading(true);
 
-        if (selectedStatus !== '') {
-          queryRef = query(queryRef, where('status', '==', selectedStatus));
+    try {
+      const q = query(collection(db, 'serviced'));
+      const querySnapshot = await getDocs(q);
+      const items = [];
+
+      const { user } = state; // Assuming that `state` contains the user information
+      const userId = user.uid;
+
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const { vas } = data;
+
+        if (vas && vas.includes(userId)) {
+          items.push({ id: doc.id, ...data });
         }
+      });
 
-        const querySnapshot = await getDocs(queryRef);
-        const items = [];
-        querySnapshot.forEach((doc) => {
-          items.push({ id: doc.id, ...doc.data() });
-        });
-        setData(items);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setIsLoading(false);
-      }
-    };
+      setData(items);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-    fetchData();
-  }, [selectedStatus]);
+  fetchData();
+ }, [state]);
 
   const filteredData = data.filter((item) =>
     item.service.toLowerCase().includes(searchText.toLowerCase())
@@ -143,7 +175,7 @@ function Myplans() {
                     <td className='role_title_orderhistory_first'>{item.service}</td>
                     <td>${item.plan / 2} /month</td>
                     <td>{item.period} months</td>
-                    <td>${item.totalCost / 2}</td>
+                    <td>${item.totalCost / (item.assistants * 2)}</td>
                     <td>{item.status}</td>
                   </tr>
                 ))

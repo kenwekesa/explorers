@@ -24,16 +24,48 @@ const Available = () => {
   };
 
   // Use useEffect to fetch and update the user count
-  useEffect(() => {
-    const fetchUserCount = async () => {
-      // const q = query(collection(db, "users"), where("usetype", "==", "admin"));
-      const q = query(collection(db, "serviced"), where("status", "==", "paid"), where("user_id", "==", state.user.uid));
-      const querySnapshot = await getDocs(q);
-      setUserCount(querySnapshot.size);
-    };
+  // useEffect(() => {
+  //   const fetchUserCount = async () => {
+  //     // const q = query(collection(db, "users"), where("usetype", "==", "admin"));
+  //     const q = query(collection(db, "serviced"), where("status", "==", "paid"), where("user_id", "==", state.user.uid));
+  //     const querySnapshot = await getDocs(q);
+  //     setUserCount(querySnapshot.size);
+  //   };
 
-    fetchUserCount();
-  }, []);
+  //   fetchUserCount();
+  // }, []);
+  useEffect(() => {
+  const fetchData = async () => {
+    // setIsLoading(true);
+
+    try {
+      const q = query(collection(db, 'serviced'), where('status', '==', 'paid'));
+      const querySnapshot = await getDocs(q);
+      const items = [];
+
+      const { user } = state; // Assuming that `state` contains the user information
+      const userId = user.uid;
+
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const { vas } = data;
+
+        if (vas && vas.includes(userId)) {
+          items.push({ id: doc.id, ...data });
+        }
+      });
+
+      // setData(items);
+      setUserCount(querySnapshot.size);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    } finally {
+      // setIsLoading(false);
+    }
+  };
+
+  fetchData();
+ }, [state]);
 
   return (
     <div>

@@ -1,158 +1,141 @@
-import React, { useState } from 'react'
-import Footer from '../footer/Footer';
+import React, { useState, useEffect } from 'react';
+import Footer from '../../Admin/footer/Footer';
+import './orderhistory.css';
+import './orderhistory.scss';
+import { collection, getDocs, query, orderBy, where } from "firebase/firestore";
+import { db } from '../../firebase/firebase';
+import { useContext } from 'react';
+import { AuthContext } from '../../contextr/AuthContext';
 import Navbar from '../navbar/Navbar';
-import "./orderhistory.css"
-import './orderhistory.scss'
-import eye from "../../images/eye.png"
 
 function Adminfunds() {
-  
-  const data = [
-    { id: 1, service: 'Virtual',plan:"Professional",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Pending'},
-    { id: 1, service: 'Item 1',plan:"Team",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Active'},
-    { id: 1, service: 'Thomlo',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Enterprenuer",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Cancelled'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Thomlo',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    { id: 1, service: 'Item 1',plan:"Starter",assistants:2, period: '1 year', time_zone: 'EAT', amount:'10000', date:'12/3/23',status:'Completed'},
-    // ... more data
-  ];
+  const [data, setData] = useState([]);
+  const [perPage, setPerPage] = useState(5);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchText, setSearchText] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+  const {state} = useContext(AuthContext)
 
-  
-  const [perPage, setPerPage] = useState(5); // Number of items per page
-  const [currentPage, setCurrentPage] = useState(1); // Current page
-  const [searchText, setSearchText] = useState(''); // Search input
+  useEffect(() => {
+  const fetchData = async () => {
+    setIsLoading(true); // Set loading to true when fetching data
+    // const q = query(collection(db, "banks"), orderBy("timestamp", "desc"), where("user_id", "==", state.user.uid)); // Assuming "date" is the field you want to order by
+     const q = query(collection(db, "banks")); // Assuming "date" is the field you want to order by
+    const querySnapshot = await getDocs(q);
+    const items = [];
+    querySnapshot.forEach((doc) => {
+      items.push({ id: doc.id, ...doc.data() });
+    });
+    setData(items);
+    setIsLoading(false); // Set loading to false after data is retrieved
+  };
+
+  fetchData();
+}, []);
+
+  const formatDate = (timestamp) => {
+    const date = new Date(timestamp.seconds * 1000);
+    return date.toLocaleString(); // Adjust the format as needed
+  };
+
   const filteredData = data.filter((item) =>
-    item.service.toLowerCase().includes(searchText.toLowerCase())
+    (item.given_name || '').toLowerCase().includes(searchText.toLowerCase())
   );
 
-  // Calculate pagination values
   const totalItems = filteredData.length;
   const totalPages = Math.ceil(totalItems / perPage);
 
-  // Function to paginate the data
   const paginatedData = filteredData.slice(
     (currentPage - 1) * perPage,
     currentPage * perPage
   );
+
   return (
     <div className='orderhistory'>
-      {/* <Navbar className='orderhistory_navbar'/> */}
       <div className='admin_clients_navbar'>
         <Navbar />
       </div>
-       <div className="orderhistory-content fund-orderhistory-content">
+      <div className="orderhistory-content">
         <div className="topContainer orderTopContainer">
-          {/* <h1 className="title">Order History</h1> */}
-          <div className="buttonsBar">
-            {/* <div className="placeorder_btn">
-              Place Order
-            </div> */}
-            <p className='addnewplan'>Fu<span>nds</span></p>
-            <div className="links_group order_links_group order_links_group_content">
-              <span className='link'>All</span>
-              <span className='link'>Active </span>
-              <span className='link'>Pending </span>
-              {/* <span className='link'>Completed </span>
-              <span className='link'>Referended </span>
-              <span className='link'>Canceled </span> */}
+          <p className='addnewplan'>All <span>transactions</span></p>
+        </div>
+        <div className="tableContainer">
+          <div className="filter-search">
+            <div className="filter">
+              <label>Show:</label>
+              <select onChange={(e) => setPerPage(Number(e.target.value))}>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+              </select>
+              entries
+            </div>
+            <div className="search">
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+              />
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Order ID</th>
+                <th>Payment Date</th>
+                <th>Payer Name</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              {isLoading ? ( // Show loading indicator if loading is true
+                <tr>
+                  <td colSpan="5">Loading...</td>
+                </tr>
+              ) : totalItems === 0 ? ( // Show "No data from the database" if no data
+                <tr>
+                  <td colSpan="5">No funds available please come back later!</td>
+                </tr>
+              ) : (
+                paginatedData.map((item, i) => (
+                  <tr key={item.id}>
+                    <td>{i + 1}</td>
+                    <td>{item.id}</td>
+                    <td>{formatDate(item.timestamp)}</td>
+                    <td>{item.given_name}</td>
+                    <td>${item.amount}</td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+          <div className="pagination">
+            <div className="pagination-info">
+              Showing {perPage * (currentPage - 1) + 1} - {perPage * currentPage} of {totalItems} entries
+            </div>
+            <div className="pagination-buttons">
+              <button
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage(currentPage - 1)}
+              >
+                Previous
+              </button>
+              <button
+                disabled={currentPage === totalPages}
+                onClick={() => setCurrentPage(currentPage + 1)}
+              >
+                Next
+              </button>
             </div>
           </div>
         </div>
-        <div className="tableContainer">
-
-        {/* Filter and Search */}
-        <div className="filter-search">
-          <div className="filter">
-            <label>Show:</label>
-            <select onChange={(e) => setPerPage(Number(e.target.value))}>
-            <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-            </select>
-            entries
-          </div>
-          <div className="search">
-            <input
-              type="text"
-              placeholder="Search..."
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
-            />
-          </div>
-        </div>
-
-        {/* Table */}
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Service</th>
-              <th>Plan</th>
-              <th>Amount</th>
-              {/* <th>Time zone</th>
-              <th>Amount</th>
-              <th>Date</th> */}
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {paginatedData.map((item,i) => (
-              <tr key={item.id}>
-                <td>{i+1}</td>
-                <td>{item.service}</td>
-                <td>{item.plan}</td>
-                <td>{item.assistants}</td>
-                <td>{item.period}</td>
-                {/* <td>{item.time_zone}</td>
-                <td>{item.amount} </td> */}
-                <td>{item.status}</td>
-                <td className='admin_btn_view'><img src={eye} alt='logo'/></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        {/* Pagination */}
-        <div className="pagination">
-          <div className="pagination-info">
-            Showing {perPage * (currentPage - 1) + 1} -{' '}
-            {perPage * currentPage} of {totalItems} entries
-          </div>
-          <div className="pagination-buttons">
-            <button
-              disabled={currentPage === 1}
-              onClick={() => setCurrentPage(currentPage - 1)}
-            >
-              Previous
-            </button>
-            <button
-              disabled={currentPage === totalPages}
-              onClick={() => setCurrentPage(currentPage + 1)}
-            >
-              Next
-            </button>
-          </div>
-        </div>
-      </div>
       </div>
       <Footer />
-      {/* <Footer className="orderhistory_footer" /> */}
     </div>
   );
 }
+
 
 export default Adminfunds;

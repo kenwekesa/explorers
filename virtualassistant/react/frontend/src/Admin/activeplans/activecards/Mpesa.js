@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../../../firebase/firebase';
-import { getDocs, collection, where, query, doc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import "./PlansData.css";
 
-const Bidding = ({ isOpen, onClose, id }) => {
+const Bids = ({ isOpen, onClose, id, status }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
   const [vas, setVas] = useState([]);
   const [submitting, setSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [assigningIndex, setAssigningIndex] = useState(-1);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,19 +18,27 @@ const Bidding = ({ isOpen, onClose, id }) => {
       setIsLoading(true);
 
       try {
-        const usersCollectionRef = collection(db, 'users');
-        const usersQuery = query(usersCollectionRef, where('usertype', '==', 'va'));
-        const usersSnapshot = await getDocs(usersQuery);
+        console.log(id);
+        if (id) {
+          const orderDocRef = doc(db, 'serviced', id);
+          const orderDocSnapshot = await getDoc(orderDocRef);
 
-        const items = [];
+          if (orderDocSnapshot.exists()) {
+            const bidders = orderDocSnapshot.data().bidders || [];
+            const items = [];
 
-        usersSnapshot.forEach((userDoc) => {
-          // Access user_id, firstname, and lastname directly from userDoc
-          const { user_id, firstname, lastname, service } = userDoc.data();
-          items.push({ user_id, firstname, lastname, service });
-        });
+            // Loop through each bidder ID and add to the items array
+            for (const bidderId of bidders) {
+              items.push({ id: bidderId });
+            }
 
-        setData(items);
+            setData(items);
+          } else {
+            console.error('Order with ID not found:', id);
+          }
+        } else {
+          console.error('Invalid or missing ID:', id);
+        }
       } catch (error) {
         console.error('Error fetching data:', error);
         setErrorMessage('Error fetching data. Please try again.');
@@ -43,30 +50,23 @@ const Bidding = ({ isOpen, onClose, id }) => {
     if (isOpen) {
       fetchData();
     }
-  }, [isOpen]);
+  }, [isOpen, id]);
 
-  const handleAssignPlan = async (userId, index) => {
+  const handleAssignPlan = async (bidderId) => {
     try {
       setSubmitting(true);
-      setAssigningIndex(index);
 
-      // Update the status to "active" and add userId to vas in the order document
-      const orderDocRef = doc(db, 'serviced', id); // Use prop id as the document ID
+      // Update the status to "active" and add bidderId to vas in the order document
+      const orderDocRef = doc(db, 'serviced', id);
       await updateDoc(orderDocRef, {
         status: 'active',
-        vas: [...vas, userId], // Add userId to the existing vas array
+        vas: [...vas, bidderId], // Add bidderId to the existing vas array
       });
 
-      // Update the local vas state
-      setVas((prevVas) => [...prevVas, userId]);
-
-      setSuccessMessage('Assigning...');
+      setSuccessMessage('Plan assigned successfully!');
       setErrorMessage(''); // Reset error message
-
-      // Redirect to "/admin_dashboard" after a short delay (simulating an asynchronous process)
-      setTimeout(() => {
-        navigate('/admin_dashboard');
-      }, 3000);
+      // Redirect to "/admin_dashboard"
+      navigate('/admin_dashboard');
 
       // Handle any other logic or state updates as needed
     } catch (error) {
@@ -74,10 +74,9 @@ const Bidding = ({ isOpen, onClose, id }) => {
       setErrorMessage('Error assigning plan. Please try again.');
     } finally {
       setSubmitting(false);
-      setAssigningIndex(-1); // Reset assigning index
     }
   };
-
+  
   if (!isOpen) return null;
 
   return (
@@ -89,19 +88,15 @@ const Bidding = ({ isOpen, onClose, id }) => {
         {isLoading ? (
           <p>Loading...</p>
         ) : data.length === 0 ? (
-          <p>No users available with status "va".</p>
+          <p>No bidder available, come back later!</p>
         ) : (
           <>
             <ol>
-              {data.map((user, index) => (
-                <li key={user.user_id}>
-                  {`${user.firstname} ${user.lastname}: (${user.service})`}
-                  <button
-                    className='tin ton tin-ton'
-                    onClick={() => handleAssignPlan(user.user_id, index)}
-                    disabled={submitting}
-                  >
-                    {index === assigningIndex ? 'Assigning...' : 'Assign Plan'}
+              {data.map((bidder) => (
+                <li key={bidder.id}>
+                  {`Bidder ID: ${bidder.id}`}
+                  <button className='tin ton tin-ton' onClick={() => handleAssignPlan(bidder.id)}>
+                    {submitting ? 'Submitting...' : 'Assign plan'}
                   </button>
                 </li>
               ))}
@@ -118,5 +113,7 @@ const Bidding = ({ isOpen, onClose, id }) => {
   );
 };
 
-export default Bidding;
+export default Bids;
+
+
 

@@ -1,117 +1,98 @@
-import React, { useState } from 'react';
-import { doc, updateDoc } from 'firebase/firestore';
-import apply from '../../../images/vaco.jpg';
+import { doc, deleteDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
-import Bidding from './Googlepay';
+import { useState, useEffect } from 'react';
 
-const PendingData = ({ isOpen, onClose, id, service, plan, vas, user_id, period, cost, status, language, roleRequirements, roleTitle, timezone, assistants, updateStatus }) => {
+const PlansDataset = ({ isOpen, onClose, id, service, plan, period, cost, status, language, roleRequirements, roleTitle, timezone, assistants, updateStatus }) => {
   const navigate = useNavigate();
-  const [notification, setNotification] = useState({ message: '', isSuccess: false });
- const [isMpesaDialogOpen, setMpesaIsDialogOpen] = useState(false);
+
+
+  const handleActivateRole = async () => {
+    try {
+      // Set the "In progress..." notification
+
+      // Update the status to "active" in Firestore using the ID prop
+      const docRef = doc(db, 'serviced', id);
+      await updateDoc(docRef, { status: 'active' });
+
+      // Call the parent component's updateStatus function (if needed)
+      if (updateStatus) {
+        updateStatus('active');
+      }
+
+      // Set the success notification after a delay
+
+
+      // Delay for 5 seconds before redirecting to "/admin_dashboard"
+      setTimeout(() => {
+        navigate("/admin_dashboard");
+      }, 3000);
+    } catch (error) {
+      console.error('Error updating document:', error);
+    
+    }
+  };
+
+  const handlePaidRole = async () => {
+    try {
+      // Set the "In progress..." notification
+
+      // Update the status to "paid" in Firestore using the ID prop
+      const docRef = doc(db, 'serviced', id);
+      await updateDoc(docRef, { status: 'paid' });
+
+      // Call the parent component's updateStatus function (if needed)
+      if (updateStatus) {
+        updateStatus('paid');
+      }
+
+      // Set the success notification after a delay
+
+
+      // Delay for 5 seconds before redirecting to "/admin_dashboard"
+      setTimeout(() => {
+        navigate("/admin_dashboard");
+      }, 3000);
+    } catch (error) {
+      console.error('Error updating document:', error);
+    
+    }
+  };
 
   const handleTakeRole = async () => {
     try {
-      // Update the status to "active" in Firestore using the ID prop
+      // Set the "In progress..." notification
+
+
+      // Delete the document from Firestore using the ID prop
       const docRef = doc(db, 'serviced', id);
-      await updateDoc(docRef, { status: 'pending' });
+      await deleteDoc(docRef);
 
       // Call the parent component's updateStatus function (if needed)
       if (updateStatus) {
-        updateStatus('pending');
+        updateStatus('deleted');
       }
 
-      // Set the success notification
-      setNotification({ message: 'Role taken successfully', isSuccess: true });
+      // Set the success notification after a delay
+    
 
-      // Close the current dialog
-      // onClose();
-      navigate("/admin_dashboard");
+      // Delay for 5 seconds before redirecting to "/admin_dashboard"
+      setTimeout(() => {
+        navigate("/admin_dashboard");
+      }, 3000);
     } catch (error) {
-      console.error('Error updating document:', error);
+      console.error('Error deleting document:', error);
     }
   };
 
-   const handleCompleteRole = async () => {
-    try {
-      // Update the status to "active" in Firestore using the ID prop
-      const docRef = doc(db, 'serviced', id);
-      await updateDoc(docRef, { status: 'completed' });
+  // Reset notification state on component unmount
+  useEffect(() => {
+    return () => {
 
-      // Call the parent component's updateStatus function (if needed)
-      if (updateStatus) {
-        updateStatus('completed');
-      }
+    };
+  }, []);
 
-      // Set the success notification
-      setNotification({ message: 'Role taken successfully', isSuccess: true });
-
-      // Close the current dialog
-      // onClose();
-      navigate("/admin_dashboard");
-    } catch (error) {
-      console.error('Error updating document:', error);
-    }
-   };
-  
-  const handleReassignRole = async () => {
-  try {
-    // Update status, var, and bidders fields in Firestore using the ID prop
-    const docRef = doc(db, 'serviced', id);
-    await updateDoc(docRef, {
-      status: 'pending',
-      var: [],
-      bidders: []
-    });
-
-    // Call the parent component's updateStatus function (if needed)
-    if (updateStatus) {
-      updateStatus('pending');
-    }
-
-    // Set the success notification
-    setNotification({ message: 'Role taken successfully', isSuccess: true });
-
-    // Close the current dialog
-    // onClose();
-    navigate("/admin_dashboard");
-  } catch (error) {
-    console.error('Error updating document:', error);
-  }
-  };
-  
-   const handleCancelRole = async () => {
-    try {
-      // Update the status to "active" in Firestore using the ID prop
-      const docRef = doc(db, 'serviced', id);
-      await updateDoc(docRef, { status: 'canceled' });
-
-      // Call the parent component's updateStatus function (if needed)
-      if (updateStatus) {
-        updateStatus('canceled');
-      }
-
-      // Set the success notification
-      setNotification({ message: 'Role taken successfully', isSuccess: true });
-
-      // Close the current dialog
-      // onClose();
-      navigate("/admin_dashboard");
-    } catch (error) {
-      console.error('Error updating document:', error);
-    }
-  };
-
-   const openMpesaDialog = () => {
-    setMpesaIsDialogOpen(true);
-  };
-
-  const closeMpesaDialog = () => {
-    setMpesaIsDialogOpen(false);
-  };
-
-
-  return (
+   return (
     <div className={`dialog-background vadate_dialog-background ${isOpen ? 'show' : ''}`}>
       <div className="dialog-box box_dialog-background">
         <div className="mynewplan_va_data_main_content">
@@ -181,48 +162,27 @@ const PendingData = ({ isOpen, onClose, id, service, plan, vas, user_id, period,
                 <p>{roleRequirements}</p>
               </div>
               <div className="mynewplan_va_contact_data mynewplan_va_contact_data_btn">
-                <div>
-                <button className="ton tin ton-tin" onClick={handleCancelRole}>
-                  Cancel
+                <div></div>
+                {/* <button className="ton tin ton-tin" onClick={handlePaidRole}>
+                  Set paid
+                </button> */}
+                <button className="ton tin ton-tin" onClick={handleTakeRole}>
+                  Delete plan
                 </button>
-                </div>
-                 <div>
-                <button className="ton tin ton-tin" onClick={handleCompleteRole}>
-                  Complete
-                </button>
-                </div>
-                <button className="ton tin ton-tin" onClick={openMpesaDialog}>
-                  Add
-                </button>
-                <Bidding
-                  isOpen={isMpesaDialogOpen}
-                  onClose={closeMpesaDialog} 
-                  id={id}
-                  user_id={user_id}
-                  vas={vas}
-                  status={status}
-                />
-                <div>
-                <button className="ton tin ton-tin" onClick={handleReassignRole}>
-                  Reset
-                </button>
-                </div>
+                {/* <button className="ton tin ton-tin" onClick={handleActivateRole}>
+                  Reactivate
+                </button> */}
+                <div></div>
               </div>
             </div>
-          </div>
         </div>
+    </div>
         <button className="close-button" onClick={onClose}>
           X
         </button>
       </div>
-
-      {notification.isSuccess && (
-        <div className="notification">
-          <p>{notification.message}</p>
-        </div>
-      )}
-    </div>
+      </div>
   );
 };
 
-export default PendingData
+export default PlansDataset

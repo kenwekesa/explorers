@@ -23,7 +23,7 @@ const Available = () => {
   // Use useEffect to fetch and update the user count
   useEffect(() => {
     const fetchUserCount = async () => {
-      const q = query(collection(db, "serviced"));
+      const q = query(collection(db, "banks"));
       const querySnapshot = await getDocs(q);
       setUserCount(querySnapshot.size);
     };
@@ -38,11 +38,11 @@ const Available = () => {
         onMouseEnter={toggleHover}
         onMouseLeave={toggleHover}
       >
-        <p>Available Funds</p>
+        <p>All transactions</p>
         <img src={img6} alt="logo" />
-        <p className='admin_dashboard_paragraph'>${userCount}</p>
+        <p className='admin_dashboard_paragraph'>{userCount}</p>
         {isHovered && (
-          <Link onClick={scrollToTop} to="/funds" className='ton tin ton-tin'>View all funds</Link>
+          <Link onClick={scrollToTop} to="/funds" className='ton tin ton-tin'>View transactions</Link>
         )}
       </div>
     </div>
