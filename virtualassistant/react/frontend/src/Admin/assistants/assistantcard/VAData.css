@@ -18,34 +18,46 @@
 .va_data_main_profile {
     width: 380px;
     /* Adjust the width as needed */
-    height:76vh;
+    height:78vh;
     /* Adjust the height as needed */
     /* To make it a circle */
     background: #ECEFF1;
-    overflow: hidden;
     border-radius: 30px;
     /* Ensure the image doesn't overflow the circle */
+    overflow-y: auto;
+}
+
+.va_data_main_profile_main{
+    height: 84vh!important;
+}
+
+.va_data_main_document_main{
+    height: 40vh!important;
+}
+
+.va_data_main_qualifiction_main{
+    height: 40vh!important;
 }
 
 .va_data_main_document {
     width: 420px;
-    height: 36vh;
+    height: 37vh;
     margin-bottom: 4vh;
     /* Adjust the height as needed */
     flex-shrink: 0;
     border-radius: 30px;
     background: #ECEFF1;
-    overflow: hidden;
+    overflow-y: auto;
 }
 
 .va_data_main_qualifiction {
     width: 412px;
-    height: 36vh;
+    height: 37vh;
     /* Adjust the height as needed */
     flex-shrink: 0;
     border-radius: 30px;
     background: #ECEFF1;
-    overflow: hidden;
+    overflow-y: auto;
 }
 
 .assistant_va_data_image{
@@ -94,8 +106,8 @@
     color: black!important;
 }
 
-.assistant_va_contact_data_paragraph_body p{
-    font-weight: 400 !important;
-    color: black !important;
-}
 /* ... rest of your CSS ... */
+
+.assistant_va_contact_data_paragraph_body p{
+    color: rgb(0, 0, 0, 0.6)!important;
+}

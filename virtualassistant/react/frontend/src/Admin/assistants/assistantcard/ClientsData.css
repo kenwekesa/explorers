@@ -22,7 +22,7 @@
     /* Adjust the height as needed */
     /* To make it a circle */
     background: #ECEFF1;
-    overflow: hidden;
+    overflow: auto;
     border-radius: 30px;
     /* Ensure the image doesn't overflow the circle */
 }
@@ -35,7 +35,7 @@
     flex-shrink: 0;
     border-radius: 30px;
     background: #ECEFF1;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .va_data_main_qualifiction {
@@ -45,7 +45,7 @@
     flex-shrink: 0;
     border-radius: 30px;
     background: #ECEFF1;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .client_va_data_image_pro {
@@ -103,6 +103,6 @@
 
 .assistant_va_contact_data_paragraph_body p{
     font-weight: 400 !important;
-    color: black !important;
+    color: rgb(0, 0, 0, 0.6) !important;
 }
 /* ... rest of your CSS ... */

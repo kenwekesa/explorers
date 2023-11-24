@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { getDownloadURL, ref } from 'firebase/storage'; // Corrected import
 import { storage } from '../../firebase/firebase';
 import VAData from './assistantcard/VAData';
+import VADatas from './assistantcard/VADatas';
 
 function Adminassistants() {
   const [data, setData] = useState([]);
@@ -136,22 +137,16 @@ function Adminassistants() {
                 All
               </span>
               <span
-                className={`link ${selectedStatus === 'active' ? 'active' : ''}`}
-                onClick={() => handleStatusClick('active')}
+                className={`link ${selectedStatus === 'verified' ? 'active' : ''}`}
+                onClick={() => handleStatusClick('verified')}
               >
-                Logistic
+                Verified
               </span>
               <span
-                className={`link ${selectedStatus === 'completed' ? 'active' : ''}`}
-                onClick={() => handleStatusClick('completed')}
+                className={`link ${selectedStatus === 'unverified' ? 'active' : ''}`}
+                onClick={() => handleStatusClick('unverified')}
               >
-                Health
-              </span>
-              <span
-                className={`link ${selectedStatus === 'canceled' ? 'active' : ''}`}
-                onClick={() => handleStatusClick('canceled')}
-              >
-                Business
+                Unverified
               </span>
             </div>
           </div>
@@ -183,18 +178,18 @@ function Adminassistants() {
                 <th>Industry</th>
                 <th>Name</th>
                 <th>Contact</th>
+                <th>Status</th>
                 <th>Action</th>
-                {/* <th>Status</th> */}
               </tr>
             </thead>
             <tbody>
               {isLoading ? (
                 <tr>
-                  <td colSpan="6">Loading...</td>
+                  <td colSpan="7">Loading...</td>
                 </tr>
               ) : totalItems === 0 ? (
                 <tr>
-                  <td colSpan="6">No assistants available, please come back later!</td>
+                  <td colSpan="7">No assistants available, please come back later!</td>
                 </tr>
               ) : (
                 paginatedData.map((item, i) => (
@@ -203,6 +198,7 @@ function Adminassistants() {
                     <td className='role_title_orderhistory_first'>{item.service}</td>
                     <td className='role_title_orderhistory_first'>{item.firstname} {item.lastname}</td>
                     <td className='role_title_orderhistory_first'>{item.contact}</td>
+                    <td className='role_title_orderhistory_first'>{item.status}</td>
                     <td className="admin_btn_view">
                       <img
                         src={eye}
@@ -237,12 +233,34 @@ function Adminassistants() {
         </div>
       </div>
       <Footer />
-      {selectedItem && (
-        <VAData
+      {selectedItem && selectedItem.status === 'verified' && (
+         <VAData
+          selectedItem={selectedItem}
           isOpen={true}
           onClose={closePayPalDialog}
           service={selectedItem.service}
-          id={selectedItem.id}
+          id={selectedItem.user_id}
+          user_Id={selectedItem.id}
+          firstname={selectedItem.firstname}
+          lastname={selectedItem.lastname}
+          email={selectedItem.email}
+          contact={selectedItem.contact}
+          about={selectedItem.about}
+          location={selectedItem.location}
+          org_name={selectedItem.org_name}
+          degreeURLs={degreeURLs[selectedItem.id] || []}
+          transcriptsURLs={transcriptURLs[selectedItem.id] || []}
+          cvURLs={cvURLs[selectedItem.id] || []}
+        />
+      )}
+      {selectedItem && selectedItem.status === 'unverified' && (
+         <VADatas
+          selectedItem={selectedItem}
+          isOpen={true}
+          onClose={closePayPalDialog}
+          service={selectedItem.service}
+          id={selectedItem.user_id}
+          user_Id={selectedItem.id}
           firstname={selectedItem.firstname}
           lastname={selectedItem.lastname}
           email={selectedItem.email}
