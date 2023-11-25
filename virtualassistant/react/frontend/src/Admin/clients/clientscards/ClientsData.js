@@ -6,23 +6,20 @@ import { AuthContext } from '../../../contextr/AuthContext';
 import { findUser } from '../../../services/api/DataApi';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
+import FundsDataas from '../fundcards/FundsData';
 // import FundsData from "../fundcards/FundsData"
 
-const ClientsData = ({ isOpen, onClose, id, service, firstname, lastname, usercontact, email, about, org_name, location, timezone, assistants, updateStatus }) => {
-
-  
+const ClientsData = ({ isOpen, onClose, id, service, user_id, firstname, lastname, usercontact, email, about, org_name, location, timezone, assistants, updateStatus }) => {
 
      const [userr, setUserr] = useState([])
-      const [currentuser, setCurrentuser] = useState(null)
-      const {state} = useContext(AuthContext)
-      const {dispatch} = useContext(ChatContext)
-    
-      const navigate = useNavigate()
-    
-      const [client, setClient] =useState(null)
-      const [writer, setWriter] = useState(null)
-  
-      const [selectedItem, setSelectedItem] = useState(null);
+     const [currentuser, setCurrentuser] = useState(null)
+     const {state} = useContext(AuthContext)
+     const {dispatch} = useContext(ChatContext)
+     const navigate = useNavigate()
+     const [client, setClient] =useState(null)
+     const [writer, setWriter] = useState(null)
+     const [selectedItem, setSelectedItem] = useState(null);
+     const [isBankDialogOpen, setBankIsDialogOpen] = useState(false);
   
 
   const fetchData = async () => {
@@ -61,12 +58,12 @@ const ClientsData = ({ isOpen, onClose, id, service, firstname, lastname, userco
       //const start_chat = await createCollection("chats", temp)
    }
   
-  const openPayPalDialog = (item) => {
-    setSelectedItem(item);
+  const openBankDialog = () => {
+    setBankIsDialogOpen(true);
   };
 
-  const closePayPalDialog = () => {
-    setSelectedItem(null);
+  const closeBankDialog = () => {
+    setBankIsDialogOpen(false);
   };
 
   if (!isOpen) return null;
@@ -109,9 +106,8 @@ const ClientsData = ({ isOpen, onClose, id, service, firstname, lastname, userco
               <button className='ton tin ton-tin'>Delete</button>
               {<button onClick={() => startChatClient()} className='ton tin ton-tin'>Chat</button>}
               <button className='ton tin ton-tin'
-                onClick={() => openPayPalDialog()}
+                onClick={openBankDialog}
               >Funds</button>
-              
             </div>
           </div>
           <div className='va_data_main_second'>
@@ -132,10 +128,6 @@ const ClientsData = ({ isOpen, onClose, id, service, firstname, lastname, userco
               <p>Service:</p>
                 <p>{ service}</p>
             </div>
-            {/* <div className='assistant_va_contact_data assistant_va_contact_data_paragraph_body'>
-              <p>Transcripts:</p>
-              <p></p>
-            </div> */}
             </div>
             <div className='va_data_main_qualifiction'>
               <div className='assistant_va_contact_data assistant_va_contact_data_paragraph_title'>
@@ -160,21 +152,15 @@ const ClientsData = ({ isOpen, onClose, id, service, firstname, lastname, userco
           X
         </button>
       </div>
-      {/* {selectedItem && (
-        <FundsData
-          isOpen={true}
-          onClose={closePayPalDialog}
-          service={selectedItem.service}
-          id={selectedItem.user_id}
-          firstname={selectedItem.firstName}
-          lastname={selectedItem.lastName}
-          email={selectedItem.email}
-          usercontact={selectedItem.contact}
-          about={selectedItem.about}
-          org_name={selectedItem.org_name}
-          location={selectedItem.location}
+        <FundsDataas
+          isOpen={isBankDialogOpen}
+          onClose={closeBankDialog}  
+          service={service}
+          id={id}
+          user_id={user_id}
+          lastname={lastname}
+          firstname={firstname}
         />
-      )} */}
     </div>
   );
 };

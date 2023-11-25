@@ -28,15 +28,15 @@
 }
 
 .va_data_main_profile_main{
-    height: 84vh!important;
+    height: 86vh!important;
 }
 
 .va_data_main_document_main{
-    height: 40vh!important;
+    height: 41vh!important;
 }
 
 .va_data_main_qualifiction_main{
-    height: 40vh!important;
+    height: 41vh!important;
 }
 
 .va_data_main_document {
@@ -88,12 +88,12 @@
    padding-right: 20px !important;
 }
 .assistant_va_contact_data_btn{
-    padding-top: 30px!important;
+    padding-top: 8px!important;
 }
 
 .assistant_va_contact_data_btn button{
     font-size: 14px!important;
-    margin-bottom: 50px!important;
+    margin-bottom: 0px!important;
 }
 
 .assistant_va_data_paragraph_title p{

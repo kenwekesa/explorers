@@ -18,7 +18,7 @@
 .va_data_main_profile {
     width: 380px;
     /* Adjust the width as needed */
-    height:76vh;
+    height:80vh;
     /* Adjust the height as needed */
     /* To make it a circle */
     background: #ECEFF1;
@@ -29,7 +29,7 @@
 
 .va_data_main_document {
     width: 420px;
-    height: 36vh;
+    height: 37vh;
     margin-bottom: 4vh;
     /* Adjust the height as needed */
     flex-shrink: 0;
@@ -40,7 +40,7 @@
 
 .va_data_main_qualifiction {
     width: 412px;
-    height: 36vh;
+    height: 37vh;
     /* Adjust the height as needed */
     flex-shrink: 0;
     border-radius: 30px;
@@ -83,12 +83,12 @@
    padding-right: 20px !important;
 }
 .assistant_va_contact_data_btn{
-    padding-top: 30px!important;
+    padding-top: 7px!important;
 }
 
 .assistant_va_contact_data_btn button{
     font-size: 14px!important;
-    margin-bottom: 50px!important;
+    margin-bottom: 0px!important;
 }
 
 .assistant_va_data_paragraph_title p{

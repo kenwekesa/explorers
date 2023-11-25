@@ -115,12 +115,12 @@ const ContactForm = () => {
   return (
     <div className='register_main_contact_form'>
       <div className='register_main_register_form_update'>
-        Register a user
+       Register an admin
       </div>
       <div className='register_contact_form_outline'>
         <div className='mcontactimg'>
           <div className='register_register_form'>
-            <p className='register_contact_form_paragraph'>Provide user details</p>
+            <p className='register_contact_form_paragraph'>Provide admin details</p>
             <form onSubmit={handleSubmit}>
               <div className='register_contact_input_field'>
                 <input name='firstname' value={formData.firstname} onChange={handleInputChange} placeholder='First name' required type="text" />
