@@ -32,7 +32,7 @@ const AdminProfile = ({ isOpen, onClose }) => {
 
   if (!isOpen || !userData) return null;
 
-  const { firstname, lastname, email, location } = userData;
+  const { firstname, lastname, email, service, usercontact } = userData;
 
   return (
     <div className="dialog-background vadate_dialog-background vadate_dialog-background_profile">
@@ -60,11 +60,15 @@ const AdminProfile = ({ isOpen, onClose }) => {
               <hr></hr>
             </div>
             <div className='assistant_va_contact_data'>
-              <p>Country:</p>
-              <p>{location}</p>
+              <p>Industry:</p>
+              <p>{service}</p>
             </div>
             <div className='assistant_va_contact_hr'>
               <hr></hr>
+            </div>
+            <div className='assistant_va_contact_data'>
+              <p>Contact:</p>
+              <p>{usercontact}</p>
             </div>
           </div>
         </div>

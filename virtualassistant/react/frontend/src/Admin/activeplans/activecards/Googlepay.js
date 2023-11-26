@@ -263,14 +263,14 @@ const Bidding = ({ isOpen, onClose, id }) => {
 
       try {
         const usersCollectionRef = collection(db, 'users');
-        const usersQuery = query(usersCollectionRef, where('usertype', '==', 'va'));
+        const usersQuery = query(usersCollectionRef, where('usertype', '==', 'va'), where('status', '==', 'verified'));
         const usersSnapshot = await getDocs(usersQuery);
 
         const items = [];
 
         usersSnapshot.forEach((userDoc) => {
-          const { user_id, firstname, lastname } = userDoc.data();
-          items.push({ user_id, firstname, lastname });
+          const { user_id, firstname, lastname, service } = userDoc.data();
+          items.push({ user_id, firstname, lastname, service });
         });
 
         setData(items);
@@ -343,7 +343,7 @@ const Bidding = ({ isOpen, onClose, id }) => {
             <ol>
               {data.map((user, index) => (
                 <li key={user.user_id}>
-                  {`${user.firstname} ${user.lastname}`}
+                  {`${user.firstname} ${user.lastname} (${user.service})`}
                   <button
                     className='tin ton tin-ton'
                     onClick={() => handleAssignPlan(user.user_id, index)}

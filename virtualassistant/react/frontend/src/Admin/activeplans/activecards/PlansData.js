@@ -192,7 +192,7 @@ const PendingData = ({ isOpen, onClose, id, service, plan, vas, user_id, period,
                 </button>
                 </div>
                 <button className="ton tin ton-tin" onClick={openMpesaDialog}>
-                  Add
+                  Assign
                 </button>
                 <Bidding
                   isOpen={isMpesaDialogOpen}

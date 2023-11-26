@@ -20,7 +20,7 @@ const Bidding = ({ isOpen, onClose, id }) => {
 
       try {
         const usersCollectionRef = collection(db, 'users');
-        const usersQuery = query(usersCollectionRef, where('usertype', '==', 'va'));
+        const usersQuery = query(usersCollectionRef, where('usertype', '==', 'va'), where('status', '==', 'verified'));
         const usersSnapshot = await getDocs(usersQuery);
 
         const items = [];

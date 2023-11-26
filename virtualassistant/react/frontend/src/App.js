@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Link, Navigate, Route, Routes } from 'react-router-dom';
 import MainAbout from './FComponents/about/MainAbout';
 import './App.css';
 import MainContact from './FComponents/contact/MainContact';
@@ -45,6 +45,7 @@ import VirtualDashboard from './VirtualAssistants/dashboard/VirtualDashboard';
 import VASupport from './VirtualAssistants/support/Support';
 import { AuthContext } from './contextr/AuthContext';
 import { findUser } from './services/api/DataApi';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@mui/material'; // Assuming you are using Material-UI components
 
 
 const RequireAuth =({children}) => 
@@ -119,42 +120,99 @@ const RequireClient = ({ children }) => {
     return <>{children}</>;
   };
 
+  // const RequireVa = ({ children }) => {
+  //   const { state } = useContext(AuthContext);
+  //   const [isAdmin, setIsAdmin] = useState(false);
+  //   const [isLoading, setIsLoading] = useState(true); // Add loading state
+  //   const [isVerfied, setIsVerfied] = useState(false)
+  //   useEffect(() => {
+  //     const checkAdminUser = async () => {
+  //       const temp = await findUser(state.user.uid);
+  //       const adminUser = temp[0];
+  
+  //       if (adminUser && adminUser.usertype === 'va') {
+  //         setIsAdmin(true);
+  //         if (adminUser.status === 'verified') {
+  //           setIsVerfied(true)
+  //         }
+  //       }
+  //       setIsLoading(false); // Set loading state to false once the check is complete
+  //     };
+  
+  //     checkAdminUser();
+  //   }, [state.user.uid]);
+  
+  //   // If still loading, display a loading indicator or any other desired UI
+  //   if (isLoading) {
+  //     return <div>Loading...</div>;
+  //   }
+  
+
+  //   if (isAdmin && isVerfied) {
+  //     return <>{children}</>;
+  //   } else if (isAdmin && !isVerfied) {
+  //     return <Navigate to="/contact" />;
+  //   } else {
+  //     return <Navigate to="/login" />;
+  //   }
+  // };
+
   const RequireVa = ({ children }) => {
-    const { state } = useContext(AuthContext);
-    const [isAdmin, setIsAdmin] = useState(false);
-    const [isLoading, setIsLoading] = useState(true); // Add loading state
-    const [isVerfied, setIsVerfied] = useState(false)
-    useEffect(() => {
-      const checkAdminUser = async () => {
+  const { state } = useContext(AuthContext);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isVerified, setIsVerified] = useState(false);
+  const [showVerificationDialog, setShowVerificationDialog] = useState(false);
+
+  useEffect(() => {
+    const checkAdminUser = async () => {
+      try {
         const temp = await findUser(state.user.uid);
         const adminUser = temp[0];
-  
+
         if (adminUser && adminUser.usertype === 'va') {
           setIsAdmin(true);
           if (adminUser.status === 'verified') {
-            setIsVerfied(true)
+            setIsVerified(true);
+          } else {
+            setShowVerificationDialog(true);
           }
         }
-        setIsLoading(false); // Set loading state to false once the check is complete
-      };
-  
-      checkAdminUser();
-    }, [state.user.uid]);
-  
-    // If still loading, display a loading indicator or any other desired UI
-    if (isLoading) {
-      return <div>Loading...</div>;
-    }
-  
+      } catch (error) {
+        console.error('Error checking admin user:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-    if (isAdmin && isVerfied) {
-      return <>{children}</>;
-    } else if (isAdmin && !isVerfied) {
-      return <Navigate to="/contact" />;
-    } else {
-      return <Navigate to="/login" />;
-    }
-  };
+    checkAdminUser();
+  }, [state.user.uid]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isAdmin && isVerified) {
+    return <>{children}</>;
+  } else if (isAdmin && !isVerified) {
+    return (
+      <>
+        {/* Dialog Box */}
+        <Dialog open={showVerificationDialog} onClose={() => setShowVerificationDialog(false)}>
+          <DialogTitle>Your account is under verification</DialogTitle>
+          <DialogContent>
+            <p>Check back later!</p>
+          </DialogContent>
+          <DialogActions>
+            <Link className='tin ton tin-ton' to="/login" onClick={() => setShowVerificationDialog(false)}>Close</Link>
+          </DialogActions>
+        </Dialog>
+      </>
+    );
+  } else {
+    return <Navigate to="/login" />;
+  }
+};
 
 
 function App() {
