@@ -35,7 +35,7 @@ const AdminProfile = ({ isOpen, onClose }) => {
   const { firstname, lastname, email, service, usercontact } = userData;
 
   return (
-    <div className="dialog-background vadate_dialog-background vadate_dialog-background_profile">
+    <div className="dialog-background vadate_dialog-background vadate_dialog-background_profile_main vadate_dialog-background_profile">
       <div className="dialog-box box_dialog-background">
         <div className='va_data_main_content'>
           <div className='va_data_main_profile va_data_main_profile_main_profile'>
