@@ -4,7 +4,7 @@ import { collection, query, where, orderBy, getDocs, limit } from 'firebase/fire
 import { db } from '../../firebase/firebase';
 import './Addupdates.css';
 
-function Addupdates() {
+function Addupdatess() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [updates, setUpdates] = useState([]);
   const [selectedUpdate, setSelectedUpdate] = useState({ title: '', content: '' });
@@ -23,8 +23,8 @@ function Addupdates() {
       try {
         const q = query(
           collection(db, 'updates'),
-          where('status', '==', 'client'),
-          orderBy('timestamp', 'desc'),
+          where('status', '==', 'assistant'),
+          // orderBy('timestamp', 'desc'),
           limit(1)
         );
 
@@ -70,4 +70,4 @@ function Addupdates() {
   );
 }
 
-export default Addupdates;
+export default Addupdatess

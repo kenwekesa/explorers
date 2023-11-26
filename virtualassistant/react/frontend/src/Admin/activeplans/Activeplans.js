@@ -4,7 +4,7 @@ import Navbar from '../navbar/Navbar';
 import './orderhistory.css';
 import './orderhistory.scss';
 import eye from '../../images/eye.png';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
 import PendingData from './activecards/PlansData';
@@ -22,7 +22,7 @@ function Activeplan() {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true); // Set loading to true when fetching data
-      const q = query(collection(db, 'serviced'), where('status', '==', 'active'));
+      const q = query(collection(db, 'serviced'), where('status', '==', 'active'), orderBy("timestamp", "desc"));
       const querySnapshot = await getDocs(q);
       const items = [];
       querySnapshot.forEach((doc) => {

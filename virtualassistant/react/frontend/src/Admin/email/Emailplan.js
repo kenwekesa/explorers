@@ -4,7 +4,7 @@ import Navbar from '../navbar/Navbar';
 import './orderhistory.css';
 import './orderhistory.scss';
 import eye from '../../images/eye.png';
-import { collection, getDocs, query } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
 import EmailsData from './emailscards/EmailsData';
@@ -23,7 +23,7 @@ const Emailplan = () => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const q = query(collection(db, 'emails'));
+        const q = query(collection(db, 'emails'), orderBy("timestamp", "desc"));
         const querySnapshot = await getDocs(q);
         const items = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
         setData(items);

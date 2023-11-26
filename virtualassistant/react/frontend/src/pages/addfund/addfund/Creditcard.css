@@ -84,3 +84,6 @@
 .success-dialog-paragraph_sure p{
     color: green;
 }
+.credicard-active-options span{
+    padding-left: 10px;
+}

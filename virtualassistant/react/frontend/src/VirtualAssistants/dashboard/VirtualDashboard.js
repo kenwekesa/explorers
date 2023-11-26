@@ -1,6 +1,6 @@
 import React from 'react'
 import Footer from '../../Admin/footer/Footer'
-import Addupdates from '../../pages/addfunds/Addupdates'
+import Addupdatess from '../../pages/addfunds/Addupdatess'
 import Navbar from '../navbar/navbar/Navbar'
 import "./Dashboard.css"
 import Active from './dashcards/active'
@@ -35,7 +35,7 @@ const VirtualDashboard = () => {
             </div>
         </div>
         <div className='addmainupdates'>
-            <Addupdates /> 
+            <Addupdatess /> 
         </div>
             </div>
           <div>

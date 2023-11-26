@@ -3,7 +3,7 @@ import Footer from '../../Admin/footer/Footer';
 import Navbar from '../navbar/navbar/Navbar';
 import './orderhistory.css';
 import './orderhistory.scss';
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
 import { db } from '../../firebase/firebase';
 import { useContext } from 'react';
 import { AuthContext } from '../../contextr/AuthContext';
@@ -47,7 +47,7 @@ function Myfunds() {
     setIsLoading(true);
 
     try {
-      const q = query(collection(db, 'serviced'), where('status', '==', 'paid'));
+      const q = query(collection(db, 'serviced'), where('status', '==', 'paid'), orderBy('timestamp', 'desc'));
       const querySnapshot = await getDocs(q);
       const items = [];
 

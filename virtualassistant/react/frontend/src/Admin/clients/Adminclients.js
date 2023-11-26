@@ -455,8 +455,8 @@ function Adminclients() {
           onClose={closePayPalDialog}
           service={selectedItem.service}
           id={selectedItem.user_id}
-          firstname={selectedItem.firstName}
-          lastname={selectedItem.lastName}
+          firstname={selectedItem.firstname}
+          lastname={selectedItem.lastname}
           email={selectedItem.email}
           usercontact={selectedItem.contact}
           about={selectedItem.about}

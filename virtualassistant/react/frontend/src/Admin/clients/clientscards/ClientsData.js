@@ -66,6 +66,9 @@ const ClientsData = ({ isOpen, onClose, id, service, user_id, firstname, lastnam
     setBankIsDialogOpen(false);
   };
 
+  console.log('first name', firstname)
+  console.log('first name', lastname)
+
   if (!isOpen) return null;
   
   return (

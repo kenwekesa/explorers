@@ -20,7 +20,7 @@ function Adminfunds() {
   const fetchData = async () => {
     setIsLoading(true); // Set loading to true when fetching data
     // const q = query(collection(db, "banks"), orderBy("timestamp", "desc"), where("user_id", "==", state.user.uid)); // Assuming "date" is the field you want to order by
-     const q = query(collection(db, "banks")); // Assuming "date" is the field you want to order by
+     const q = query(collection(db, "banks"), orderBy("timestamp", "desc")); // Assuming "date" is the field you want to order by
     const querySnapshot = await getDocs(q);
     const items = [];
     querySnapshot.forEach((doc) => {

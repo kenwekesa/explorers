@@ -3,7 +3,7 @@ import Footer from '../../Admin/footer/Footer';
 import ClientNavbar from '../../Admin/navbar/ClientNavbar';
 import './orderhistory.css';
 import './orderhistory.scss';
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
 import { db } from '../../firebase/firebase';
 import { useContext } from 'react';
 import { AuthContext } from '../../contextr/AuthContext';
@@ -19,7 +19,10 @@ function Completedplann() {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true); // Set loading to true when fetching data
-      const q = query(collection(db, "serviced"), where("status", "==", "completed"), where("user_id", "==", state.user.uid));
+      const q = query(collection(db, "serviced"),
+        where("status", "==", "completed"),
+        orderBy("timestamp", "desc"),
+        where("user_id", "==", state.user.uid));
       const querySnapshot = await getDocs(q);
       const items = [];
       querySnapshot.forEach((doc) => {

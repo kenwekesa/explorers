@@ -26,6 +26,7 @@ const FundsDataas = ({ isOpen, onClose, id, user_id }) => {
   const [lastname, setLastname] = useState('');
   const [orderID, setOrderID] = useState('');
   const [isLoading, setIsLoading] = useState(false); // Add loading state
+  const [successMessage, setSuccessMessage] = useState(null); // Add success message state
   const [location, setLocation] = useState('');
 
   const fetchData = async () => {
@@ -46,13 +47,12 @@ const FundsDataas = ({ isOpen, onClose, id, user_id }) => {
     fetchData();
   }, []);
 
-  const handleAddFunds = async () => {
+  const handleAddFunds = async (e) => {
+    e.preventDefault(); // Prevent the default form submission
+
     try {
       setIsLoading(true); // Set loading state to true
 
-      // console.log(user_id)
-      // console.log(id)
-      // console.log(state.user.uid)
       // Add funds to Firestore
       const fundsCollection = collection(db, 'banks');
       const fundsData = {
@@ -70,8 +70,20 @@ const FundsDataas = ({ isOpen, onClose, id, user_id }) => {
       // Display "Adding..." to the user
       console.log('Adding...');
 
-      // Navigate to "/admin_dashboard"
-      navigate('/admin_dashboard');
+      // Set success message
+      setSuccessMessage('Amount recorded successfully');
+
+      // Clear form fields
+      setAmount('');
+      setEmail('');
+      setFirstname('');
+      setLastname('');
+      setOrderID('');
+
+      // Navigate to "/admin_dashboard" after 3 seconds
+      setTimeout(() => {
+        navigate('/admin_dashboard');
+      }, 3000);
     } catch (error) {
       console.error('Error adding funds to Firestore:', error);
     } finally {
@@ -92,20 +104,23 @@ const FundsDataas = ({ isOpen, onClose, id, user_id }) => {
             <div className='assistant_va_contact_hr'>
               <hr></hr>
             </div>
-            <div className='admin_addufunds_inputs'>
-              <input type="number" required placeholder='Enter Amount in $' value={amount} onChange={(e) => setAmount(e.target.value)} />
-              <input type="email" required placeholder='Enter Email' value={email} onChange={(e) => setEmail(e.target.value)} />
-              <input type="text" required placeholder='Enter First Name' value={firstname} onChange={(e) => setFirstname(e.target.value)} />
-              <input type="text" required placeholder='Enter Last Name' value={lastname} onChange={(e) => setLastname(e.target.value)} />
-              <input type="text" required placeholder='Enter Order ID' value={orderID} onChange={(e) => setOrderID(e.target.value)} />
-            </div>
-            <div className='assistant_va_contact_data assistant_va_contact_data_btn'>
-              <div></div>
-              <button className='ton tin ton-tin' onClick={handleAddFunds}>
-                {isLoading ? 'Adding...' : 'Add Funds'}
-              </button>
-              <div></div>
-            </div>
+            <form onSubmit={handleAddFunds}>
+              <div className='admin_addufunds_inputs'>
+                <input type="number" placeholder='Enter Amount in $' value={amount} onChange={(e) => setAmount(e.target.value)} required />
+                <input type="email" placeholder='Enter Email' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                <input type="text" placeholder='Enter client Name' value={firstname} onChange={(e) => setFirstname(e.target.value)} required />
+                <input type="text" placeholder='Enter Required Service' value={lastname} onChange={(e) => setLastname(e.target.value)} required />
+                <input type="text" placeholder='Enter Payment ID' value={orderID} onChange={(e) => setOrderID(e.target.value)} required />
+              </div>
+              <div className='assistant_va_contact_data assistant_va_contact_data_btn'>
+                <div></div>
+                <button className='ton tin ton-tin' type="submit">
+                  {isLoading ? 'Adding...' : 'Add Funds'}
+                </button>
+                <div></div>
+              </div>
+              <div>{successMessage}</div>
+            </form>
           </div>
         </div>
         <button className="close-button" onClick={onClose}>

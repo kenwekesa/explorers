@@ -3,7 +3,7 @@ import Footer from '../../Admin/footer/Footer';
 import ClientNavbar from '../../Admin/navbar/ClientNavbar';
 import './orderhistory.css';
 import './orderhistory.scss';
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
 import { db } from '../../firebase/firebase';
 
 function Orderhistory() {
@@ -17,7 +17,7 @@ function Orderhistory() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let queryRef = collection(db, "serviced");
+        let queryRef = query(collection(db, "serviced"), orderBy("timestamp", "desc"));
 
         if (selectedStatus !== '') {
           queryRef = query(queryRef, where('status', '==', selectedStatus));
