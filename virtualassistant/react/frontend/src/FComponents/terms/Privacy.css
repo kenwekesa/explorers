@@ -1,0 +1,11 @@
+.privacy_policy_paragraphs p{
+    text-align: justify;
+    font-size: 14px;
+    font-style: italic;
+}
+.privacy_policy_h4 {
+    text-align: start;
+}
+.privacy_policy_h5{
+    text-align: start;
+}

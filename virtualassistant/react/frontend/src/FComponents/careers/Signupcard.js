@@ -255,6 +255,12 @@ const handleDegreeFileChange = (e) => {
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      // behavior: 'smooth', // Add smooth scrolling behavior
+    });
+  };
 
   return (
    <div className='cardsignupone'>
@@ -406,7 +412,7 @@ const handleDegreeFileChange = (e) => {
               {/* <CountrySelector /> */}
             </div>
             <div className='signcardcontentir'>
-              <p> <input type="checkbox" onChange={handleTermsChange} /> By checking this box I agree to the <Link>Terms</Link> and <Link>privacy policy</Link></p>
+              <p> <input type="checkbox" onChange={handleTermsChange} /> By checking this box I agree to the <Link className='terms_privacy_links' onClick={scrollToTop} to='/terms'>terms</Link> and <Link className='terms_privacy_links' onClick={scrollToTop} to='/terms'>privacy policy</Link></p>
             </div>
             <button className="ton tin" type="submit" disabled={!termsChecked}>
               {isSubmitting ? 'Submitting...' : 'Submit'}
@@ -434,33 +440,3 @@ const handleDegreeFileChange = (e) => {
 }
 
 export default Signupcard
-
-
-{/* Degree File Input */}
-        //        <div className='signcardcontent'>
-        //           <p>Degree/Diploma/Certificates (PDF) <span>(required)</span></p>
-        //   {/* <input type="file" accept=".pdf" name='degreeFile' onChange={(e) => setFormData({ ...formData, degreeFile: e.target.files[0] })} required /> */}
-        //      <div className='signcardcontent_file'>  
-        //        <input type="file" accept=".pdf" multiple name='transcriptFiles' className="signup_file-input" onChange={handleDegreeFileChange} required />
-        //        <label className="file-label">No file chosen</label>
-        //       </div>
-        //      </div>
-        
-        //         <div className='signcardcontent'>
-        //           <p>Transcript Documents (PDF) <span>(required)</span></p>
-        //    {/* <input type="file" accept=".pdf" multiple name='transcriptFiles' onChange={(e) => setFormData({ ...formData, transcriptFiles: e.target.files })} required /> */}
-        //        <div className='signcardcontent_file'> 
-        //        <input type="file" accept=".pdf" multiple name='transcriptFiles' onChange={handleTranscriptFileChange} className="signup_file-input" required />
-        //       <label className="file-label">No file chosen</label>
-        //       </div>
-        //       </div>
-
-        //         <div className='signcardcontent'>
-        //           <p>CVs (PDF) <span>(required)</span></p>
-        //      {/* <input type="file" accept=".pdf" name='cvFile' onChange={(e) => setFormData({ ...formData, cvFile: e.target.files[0] })} required /> */}
-        //         <div className='signcardcontent_file'> 
-        //         <input type="file" accept=".pdf" className="signup_file-input" id='file-label' multiple name='cvFile' onChange={handleCvFileChange} required />
-        //         <label className="file-label">No file chosen</label>
-        //        </div>
-        // </div>
-        

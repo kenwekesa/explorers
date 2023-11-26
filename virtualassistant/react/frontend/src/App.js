@@ -46,6 +46,7 @@ import VASupport from './VirtualAssistants/support/Support';
 import { AuthContext } from './contextr/AuthContext';
 import { findUser } from './services/api/DataApi';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@mui/material'; // Assuming you are using Material-UI components
+import MainTerms from './FComponents/terms/MainTerms';
 
 
 const RequireAuth =({children}) => 
@@ -230,6 +231,7 @@ function App() {
         <Route path='/login' element={<Mainlogin />} />
         <Route path='/signup' element={<Mainsignup />} />
         <Route path='/careers' element={<Maincareers />} />
+        <Route path='/terms' element={<MainTerms />} />
         {/* ********client Routes********** */}
         <Route path='/dashboard' element={<RequireAuth><RequireClient><ClientDashboard /></RequireClient></RequireAuth>} />
         <Route path="/orderhistory" element={<RequireAuth><RequireClient><Orderhistory /></RequireClient></RequireAuth>} />

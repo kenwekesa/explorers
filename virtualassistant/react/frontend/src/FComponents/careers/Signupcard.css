@@ -33,7 +33,7 @@
 }
 
 .signcardcontent span {
-    color: rgba(255, 11, 11, 0.5);
+    color: rgba(255, 11, 11, 0.5)!important;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -96,4 +96,8 @@
 .no-file-chosen {
     margin-top: 5px;
     color: #888;
+}
+
+.signcardcontentir Link{
+    font-style: italic;
 }

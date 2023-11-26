@@ -143,6 +143,12 @@ const Signupcard = () => {
     }
   };
 
+   const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      // behavior: 'smooth', // Add smooth scrolling behavior
+    });
+  };
 
   return (
    <div className='cardsignupone'>
@@ -199,7 +205,7 @@ const Signupcard = () => {
               {/* <CountrySelector /> */}
             </div>
             <div className='signcardcontentir'>
-              <p> <input type="checkbox" onChange={handleTermsChange} /> By checking this box I agree to the <Link>Terms</Link> and <Link>privacy policy</Link></p>
+              <p> <input type="checkbox" onChange={handleTermsChange} /> By checking this box I agree to the <Link className='terms_privacy_links' onClick={scrollToTop} to='/terms'>terms</Link> and <Link className='terms_privacy_links' onClick={scrollToTop} to='/terms'>privacy policy</Link></p>
             </div>
             <div className='signcardsub'>
               <button className='ton tin' type='submit' disabled={!termsChecked}>Submit</button>

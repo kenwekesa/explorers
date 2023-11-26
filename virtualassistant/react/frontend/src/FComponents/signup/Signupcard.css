@@ -108,3 +108,8 @@
 }
 
 /* Add more styling as needed */
+.terms_privacy_links{
+    text-decoration: none!important;
+    font-style: italic!important;
+    color: rgb(23, 23, 99)!important;
+}
