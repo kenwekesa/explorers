@@ -111,3 +111,10 @@
 .assistant_va_contact_data_paragraph_body p{
     color: rgb(0, 0, 0, 0.6)!important;
 }
+
+.file_btn_download{
+    padding: 0px 10px!important;
+    margin-top: 2px!important;
+    border: none;
+    cursor: pointer;
+}

@@ -158,14 +158,14 @@ const VADatas = ({ isOpen, onClose, id, service, user_Id, firstname, lastname, l
                 <hr></hr>
               </div>
               <div className='assistant_va_contact_data assistant_va_contact_data_paragraph_body'>
-                <p>CVs:</p>
+                <p>CV:</p>
                 {cvURLs && cvURLs.map((cv, index) => {
                   const path = cv; // Remove decodeURI
                   const fileName = path.split('/').pop();
                   return (
-                    <p key={index} onClick={() => downloadFirestoreFile(path, fileName)}>
-                      {fileName}
-                    </p>
+                    <button key={index} className='file_btn_download' onClick={() => downloadFirestoreFile(path, fileName)}>
+                      File {index + 1}
+                    </button>
                   );
                 })}
               </div>
@@ -175,9 +175,9 @@ const VADatas = ({ isOpen, onClose, id, service, user_Id, firstname, lastname, l
                   const path = degree; // Remove decodeURI
                   const fileName = path.split('/').pop();
                   return (
-                    <p key={index} onClick={() => downloadFirestoreFile(path, fileName)}>
-                      {fileName}
-                    </p>
+                    <button key={index} className='file_btn_download' onClick={() => downloadFirestoreFile(path, fileName)}>
+                      File {index + 1}
+                    </button>
                   );
                 })}
               </div>
@@ -187,9 +187,9 @@ const VADatas = ({ isOpen, onClose, id, service, user_Id, firstname, lastname, l
                   const path = transcript; // Remove decodeURI
                   const fileName = path.split('/').pop();
                   return (
-                    <p key={index} onClick={() => downloadFirestoreFile(path, fileName)}>
-                      {fileName}
-                    </p>
+                    <button key={index} className='file_btn_download' onClick={() => downloadFirestoreFile(path, fileName)}>
+                      File {index + 1}
+                    </button>
                   );
                 })}
               </div>

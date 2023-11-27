@@ -43,7 +43,7 @@ const Dashcancel = () => {
         <img src={img6} alt="logo" />
         <p className='admin_dashboard_paragraph'>{userCount}</p>
         {isHovered && (
-          <Link onClick={scrollToTop} to="/pendingplans" className='ton tin ton-tin'>View all pending plans</Link>
+          <Link onClick={scrollToTop} to="/pendingplans" className='ton tin ton-tin'>View new plans</Link>
         )}
       </div>
     </div>

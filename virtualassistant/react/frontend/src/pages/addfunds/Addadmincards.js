@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./Addadmincard.css"
 
-const Addadmincard = ({ isOpen, onClose, title, content }) => {
+const Addadmincards = ({ isOpen, onClose, title, content }) => {
 
   if (!isOpen) return null;
 
@@ -18,4 +18,4 @@ const Addadmincard = ({ isOpen, onClose, title, content }) => {
   );
 };
 
-export default Addadmincard
+export default Addadmincards

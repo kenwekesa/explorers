@@ -4,10 +4,13 @@ import img6 from '../../../images/mymessages.png';
 import { collection, where, query, getDocs } from "firebase/firestore"; // Import Firestore functions
 import { db } from '../../../firebase/firebase'; // Import your Firebase config
 import './dashcards.css';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contextr/AuthContext';
 
 const Dashmess = () => {
   const [isHovered, setHovered] = useState(false);
   const [userCount, setUserCount] = useState("...");
+  const { state } = useContext(AuthContext);
 
   const toggleHover = () => {
     setHovered(!isHovered);
@@ -23,14 +26,14 @@ const Dashmess = () => {
   // Use useEffect to fetch and update the user count
   useEffect(() => {
     const fetchUserCount = async () => {
-      // const q = query(collection(db, "users"), where("usetype", "==", "admin"));
-      const q = query(collection(db, "users"), where("usertype", "==", "admin"));
+      // Query conversations where the user_id is equal to the current logged-in user's ID (state.user.uid)
+      const q = query(collection(db, "conversations"), where('user2Id', '==', state.user.uid));
       const querySnapshot = await getDocs(q);
       setUserCount(querySnapshot.size);
     };
 
     fetchUserCount();
-  }, []);
+  }, [state.user.uid]); // Include state.user.uid in the dependency array
 
   return (
     <div>
@@ -43,7 +46,7 @@ const Dashmess = () => {
         <img src={img6} alt="logo" />
         <p className='client_dashboard_paragraph'>{userCount}</p>
         {isHovered && (
-          <Link onClick={scrollToTop} to="/mymessages" className='ton tin ton-tin'>View new messages</Link>
+          <Link onClick={scrollToTop} to="/csupport" className='ton tin ton-tin'>View messages</Link>
         )}
       </div>
     </div>
@@ -51,3 +54,4 @@ const Dashmess = () => {
 };
 
 export default Dashmess;
+

@@ -348,7 +348,7 @@ const handleDegreeFileChange = (e) => {
 
     {/* CV File Input */}
     <div className="signcardcontent">
-      <p>CVs (PDF) <span>(required)</span></p>
+      <p>CV (PDF) <span>(required)</span></p>
       <div className="signcardcontent_file">
         <input
           type="file"

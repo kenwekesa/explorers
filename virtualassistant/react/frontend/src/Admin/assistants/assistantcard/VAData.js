@@ -8,6 +8,8 @@ import { findUser } from '../../../services/api/DataApi';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../../../firebase/firebase';
 import { updateDoc, doc } from 'firebase/firestore';
+import { storage } from '../../../firebase/firebase';
+import { ref, getMetadata, getDownloadURL } from 'firebase/storage';
 
 const VAData = ({ isOpen, onClose, id, service, user_Id, firstname, lastname, location, contact, email, about, org_name, cvURLs, transcriptsURLs, degreeURLs, updateStatus }) => {
   const [userr, setUserr] = useState([]);
@@ -86,16 +88,28 @@ const VAData = ({ isOpen, onClose, id, service, user_Id, firstname, lastname, lo
     }
   };
 
-  const downloadFile = async (url) => {
-    try {
-      const response = await fetch(url);
-      const blob = await response.blob();
-      const objectURL = URL.createObjectURL(blob);
-      window.open(objectURL);
-    } catch (error) {
-      console.error("Error downloading file:", error);
-    }
+  const downloadFirestoreFile = async (path, filename) => {
+  try {
+    const fileRef = ref(storage, path);
+    const url = await getDownloadURL(fileRef);
+
+    const linkElement = document.createElement('a');
+    linkElement.href = url;
+    linkElement.download = filename;
+    linkElement.click();
+  } catch (error) {
+    console.error("Error downloading Firestore file:", error);
+  }
   };
+  
+  const openFirestoreFile = (path, fileName) => {
+  // Assuming downloadFirestoreFile is a function that downloads the file
+  // You might need to adjust this part based on how you handle file downloads
+  downloadFirestoreFile(path, fileName);
+
+  // Open the file in a new window or tab
+  window.open(`/path/to/files/${fileName}`, '_blank');
+};
 
   if (!isOpen) return null;
 
@@ -165,31 +179,40 @@ const VAData = ({ isOpen, onClose, id, service, user_Id, firstname, lastname, lo
                 <hr></hr>
               </div>
               <div className='assistant_va_contact_data assistant_va_contact_data_paragraph_body'>
-                <p>CVs:</p>
-                {cvURLs &&
-                  cvURLs.map((cv, index) => (
-                    <p key={index} onClick={() => downloadFile(cv)}>
-                      Download CV {index + 1}
-                    </p>
-                  ))}
+                <p>CV:</p>
+                {cvURLs && cvURLs.map((cv, index) => {
+                  const path = cv; // Remove decodeURI
+                  const fileName = path.split('/').pop();
+                  return (
+                    <button className='ton tin tin-ton file_btn_download' key={index} onClick={() => openFirestoreFile(path, fileName)}>
+                      File {index + 1}
+                    </button>
+                  );
+                })}
               </div>
               <div className='assistant_va_contact_data assistant_va_contact_data_paragraph_body'>
                 <p>Degree:</p>
-                {degreeURLs &&
-                  degreeURLs.map((degree, index) => (
-                    <p key={index} onClick={() => downloadFile(degree)}>
-                      Download Degree {index + 1}
-                    </p>
-                  ))}
+                {degreeURLs && degreeURLs.map((degree, index) => {
+                  const path = degree; // Remove decodeURI
+                  const fileName = path.split('/').pop();
+                  return (
+                    <button key={index} className='tin ton tin-ton file_btn_download' onClick={() => downloadFirestoreFile(path, fileName)}>
+                      File {index + 1}
+                    </button>
+                  );
+                })}
               </div>
               <div className='assistant_va_contact_data assistant_va_contact_data_paragraph_body'>
                 <p>Transcripts:</p>
-                {transcriptsURLs &&
-                  transcriptsURLs.map((transcript, index) => (
-                    <p key={index} onClick={() => downloadFile(transcript)}>
-                      Download Transcript {index + 1}
-                    </p>
-                  ))}
+                {transcriptsURLs && transcriptsURLs.map((transcript, index) => {
+                  const path = transcript; // Remove decodeURI
+                  const fileName = path.split('/').pop();
+                  return (
+                    <button className='tin ton tin-ton file_btn_download' key={index} onClick={() => downloadFirestoreFile(path, fileName)}>
+                      File {index + 1}
+                    </button>
+                  );
+                })}
               </div>
             </div>
             <div className='va_data_main_qualifiction va_data_main_qualifiction_main'>

@@ -27,9 +27,9 @@ const AdminDashboard = () => {
                 </div>
 
                 <div className='admin_dashboards_cards'>
-                <Available />
-                <Dashmess/>
-                <Supportdas/>
+                {/* <Available /> */}
+                {/* <Dashmess/> */}
+                {/* <Supportdas/> */}
                 </div>
 
                 <div className='admin_dashboards_cards'>

@@ -3,6 +3,7 @@ import Addadmincard from './Addadmincard';
 import { collection, query, where, orderBy, getDocs, limit } from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
 import './Addupdates.css';
+import Addadmincards from './Addadmincards';
 
 function Addupdatess() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -24,7 +25,7 @@ function Addupdatess() {
         const q = query(
           collection(db, 'updates'),
           where('status', '==', 'assistant'),
-          // orderBy('timestamp', 'desc'),
+          orderBy('timestamp', 'desc'),
           limit(1)
         );
 
@@ -59,7 +60,7 @@ function Addupdatess() {
         ))}
       </div>
       {isDialogOpen && (
-        <Addadmincard
+        <Addadmincards
           isOpen={isDialogOpen}
           onClose={closeDialog}
           title={selectedUpdate.title}
