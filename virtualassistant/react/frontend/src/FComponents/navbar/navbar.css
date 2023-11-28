@@ -1,5 +1,4 @@
-/* Navbar.css */
-.themainnavbar {
+/* .themainnavbar {
     font-family: 'Courier New', Courier, monospace;
     display: flex;
     justify-content: space-between;
@@ -34,23 +33,8 @@
     width: 35px;
 }
 
-.links {
-    flex: 2.5;
-    text-align: center;
-    display: flex;
-    justify-content: space-between !important;
-    padding: 0px 0px;
-    align-items: center;
-    flex-direction: row;
-}
 
-.links.open {
-    display: flex;
-}
-.links a{
-    /* margin-left: -0.0%; */
-    margin-left: 10px;
-}
+
 .button {
     flex: 1;
     text-align: right;
@@ -78,7 +62,6 @@ background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) 
 
 .menu-toggle {
     display: none;
-    /* Initially hide the toggle */
     cursor: pointer;
     font-size: 24px;
 }
@@ -86,64 +69,176 @@ background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) 
 
 .navlinkse{
     display: inline-block;
-        /* Make the link inline-block to contain the underline */
     position: relative;
-        /* Position relative for pseudo-element */
 }
 
-/* Define the orange underline for the navigation link */
 .navlinkse::before {
     content: '';
-        /* Create an empty pseudo-element */
         width: 100%;
         height: 2px;
-        /* Adjust the thickness of the underline */
         background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) -10.44%, rgba(11, 255, 196, 0.77) 108.53%, rgba(11, 138, 255, 0.77) 108.54%));
-        /* Orange color for the underline */
         position: absolute;
-        /* Position absolute within the relative parent */
         bottom: 0;
-        /* Position it at the bottom of the link */
         left: 0;
         transform: scaleX(0);
-        /* Initial scale to 0 for animation */
         transform-origin: left;
         transition: transform 0.2s ease;
-        /* Add animation for the underline */
 }
 
-/* Add animation when hovering over the navigation link */
+
 .navlinkse:hover::before {
     transform: scaleX(1);
-        /* Scale up to show the underline */
+
         transform-origin: left;
 }
 
-/* Add animation for exiting the hover state */
 .navlinkse::after {
     content: '';
-        /* Create an empty pseudo-element */
         width: 100%;
         height: 2px;
-        /* Adjust the thickness of the underline */
         background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) -10.44%, rgba(11, 255, 196, 0.77) 108.53%, rgba(11, 138, 255, 0.77) 108.54%));
-        /* Orange color for the underline */
         position: absolute;
-        /* Position absolute within the relative parent */
         bottom: 0;
-        /* Position it at the bottom of the link */
         left: 0;
         transform: scaleX(0);
-        /* Initial scale to 0 for animation */
         transform-origin: left;
         transition: transform 100s ease;
-        /* Add animation for the underline */
 }
 
-/* Add animation for exiting the hover state */
+
 .navlinkse:hover::after {
     transform: scaleX(1);
-        /* Scale up to show the underline */
         transform-origin: right;
 }
+
+.button-main-navbar{
+    display: none;
+} */
+
+.themainnavbar {
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 32px;
+    height: 7vh;
+}
+
+.themainnavbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 0px;
+}
+
+.logo {
+    /* flex: 1; */
+    align-items: center;
+}
+
+.logo a {
+    align-items: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    line-height: 44px;
+}
+
+.logo img {
+    height: 35px;
+    width: 35px;
+}
+
+
+
+.button {
+    /* flex: 1; */
+    /* text-align: right; */
+}
+
+.ton {
+    display: inline-flex;
+    padding: 10px 30px;
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 15px;
+    background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) -10.44%, rgba(11, 255, 196, 0.77) 108.53%, rgba(11, 138, 255, 0.77) 108.54%));
+}
+
+.ton:hover {
+    border-radius: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    background: var(--Button-Hover-color, linear-gradient(96deg, rgba(36, 20, 19, 0.77) -10.44%, rgba(31, 106, 88, 0.77) 108.53%, rgba(1, 255, 209, 0.77) 108.54%, rgba(3, 255, 195, 0.77) 108.87%, rgba(11, 255, 196, 0.77) 108.87%, rgba(13, 253, 195, 0.77) 108.87%));
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.main-navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 77px;
+}
+
+
+.navlinkse {
+    display: inline-block;
+    position: relative;
+    /* line-height: 40px; */
+}
+
+.navlinkse::before {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) -10.44%, rgba(11, 255, 196, 0.77) 108.53%, rgba(11, 138, 255, 0.77) 108.54%));
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+}
+
+
+.navlinkse:hover::before {
+    transform: scaleX(1);
+
+    transform-origin: left;
+}
+
+.navlinkse::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) -10.44%, rgba(11, 255, 196, 0.77) 108.53%, rgba(11, 138, 255, 0.77) 108.54%));
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 100s ease;
+}
+
+
+.navlinkse:hover::after {
+    transform: scaleX(1);
+    transform-origin: right;
+}
+
+.button-main-navbar {
+    display: none;
+}
+
+
+
 

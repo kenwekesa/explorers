@@ -80,7 +80,7 @@ const Dashmess = () => {
   useEffect(() => {
     const fetchUserCount = async () => {
       // Query conversations where the user_id is equal to the current logged-in user's ID (state.user.uid)
-      const q = query(collection(db, "conversations"), where('user2Id', '==', state.user.uid));
+      const q = query(collection(db, "conversations"), where('user1Id', '==', state.user.uid));
       const querySnapshot = await getDocs(q);
       setUserCount(querySnapshot.size);
     };

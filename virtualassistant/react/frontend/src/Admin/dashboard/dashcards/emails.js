@@ -228,7 +228,7 @@ const Emails = () => {
         onMouseEnter={toggleHover}
         onMouseLeave={toggleHover}
       >
-        <p>New emails</p>
+        <p>Emails</p>
         {/* Replace img6 with your actual image */}
         <img src={img6} alt="logo" />
         <p className="admin_dashboard_paragraph">{userCount}</p>

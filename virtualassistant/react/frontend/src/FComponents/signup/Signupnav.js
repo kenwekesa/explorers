@@ -5,7 +5,7 @@ import "./Signupnav.css"
 const Signupnav = () => {
 
     return (
-    <div className='mathsignup'>
+    <div className='mathsignup_main'>
       <div className='maasignup'>
         <MainNav />
         </div>

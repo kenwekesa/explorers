@@ -1,5 +1,4 @@
-/* Navbar.css */
-.navbartwo {
+/* .navbartwo {
     font-family: 'Courier New', Courier, monospace;
     display: flex;
     justify-content: space-between;
@@ -49,9 +48,7 @@
 }
 
 .linkss a {
-    /* margin-left: -0.0%; */
     margin-left: 10px;
-    /* color: rgb(250, 128, 6); */
     color: white;
 }
 
@@ -87,16 +84,6 @@
 
 .twomenu-toggle {
     display: none;
-    /* Initially hide the toggle */
     cursor: pointer;
     font-size: 24px;
-}
-
-/* .navlogo{
-    color: white;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    font-size: 20px
 } */

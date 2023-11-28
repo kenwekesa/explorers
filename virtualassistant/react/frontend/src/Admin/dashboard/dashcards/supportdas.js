@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import img6 from '../../../images/assistants.png';
-import { collection, query, getDocs } from "firebase/firestore"; // Import Firestore functions
+import { collection, query, where, getDocs } from "firebase/firestore"; // Import Firestore functions
 import { db } from '../../../firebase/firebase'; // Import your Firebase config
 import './dashcards.css';
 
@@ -23,7 +23,7 @@ const Supportdas = () => {
 // Use useEffect to fetch and update the user count
   useEffect(() => {
     const fetchUserCount = async () => {
-      const q = query(collection(db, "users"));
+      const q = query(collection(db, "users"), where("usertype", "==", "va"), where('status', '==', 'verified'));
       const querySnapshot = await getDocs(q);
       setUserCount(querySnapshot.size);
     };
@@ -43,7 +43,7 @@ const Supportdas = () => {
         <img src={img6} alt="logo" />
         <p className='admin_dashboard_paragraph'>{userCount}</p>
         {isHovered && (
-          <Link onClick={scrollToTop} to="/assistants" className='ton tin ton-tin'>View all assistants</Link>
+          <Link onClick={scrollToTop} to="/assistants" className='ton tin ton-tin'>View assistants</Link>
         )}
       </div>
     </div>
