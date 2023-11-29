@@ -1,14 +1,25 @@
-@media (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {
             .main-navbar-links {
                 flex-direction: column;
-                text-align: start;
+                text-align: start!important;
                 display: none;
                 gap: 20px !important;
                 background-color: #001C30;
                 opacity: 0;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                position: fixed;
                 /* Initially hide the mobile menu */
                 transform: translateY(-20px);
                 /* Initial position above */
+            }
+
+            .main-navbar-links Link{
+                left: 0!important;
+                top: 0!important;
+                text-align: start!important;
             }
     
             .main-navbar-links.open {
@@ -51,7 +62,7 @@
 }
 
 /* Small devices (portrait) */
-@media (min-width: 481px) and (max-width: 767px) and (orientation: portrait) {
+@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {
 
             .main-navbar-links {
                 flex-direction: column;
