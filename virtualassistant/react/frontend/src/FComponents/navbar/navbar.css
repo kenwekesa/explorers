@@ -186,7 +186,7 @@ background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) 
 .main-navbar-links {
     display: flex;
     align-items: center;
-    gap: 77px;
+    gap: 80px;
 }
 
 
