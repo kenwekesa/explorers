@@ -57,3 +57,9 @@ margin-top: 30px;
 .contactform_country_select{
     padding-top: 11px;
 }
+
+/* Mobile */
+@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
+
+/* Small devices (portrait) */
+@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}

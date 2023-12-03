@@ -165,3 +165,9 @@ color: rgb(0, 0, 0, 0.6) !important;
 th{
   color: #001C30 !important;
 }
+
+/* Mobile */
+@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
+
+/* Small devices (portrait) */
+@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}

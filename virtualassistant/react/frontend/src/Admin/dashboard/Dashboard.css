@@ -38,21 +38,8 @@
     padding-bottom: 5px;
 }
 
-/* Dashboard navbar customization */
+/* Mobile */
+@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
 
-/* .dashboardnav{
-    position: sticky;
-    top: 0;
-    width: 100%;
-} */
-
-/* .admin_dashboard_title h1{
-    padding-top: 30px;
-    padding-bottom: 5px;
-    margin-left: 70px;
-} */
-
-/* .admin_dashp{
-    padding-left: 70px;
-    padding-right: 70px;
-} */
+/* Small devices (portrait) */
+@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}

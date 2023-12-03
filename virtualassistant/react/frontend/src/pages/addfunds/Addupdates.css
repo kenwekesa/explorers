@@ -52,3 +52,9 @@
     max-width: 85%;
     /* Limit the paragraph to its container width */
 }
+
+/* Mobile */
+@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
+
+/* Small devices (portrait) */
+@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}

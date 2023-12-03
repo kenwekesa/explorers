@@ -10,3 +10,9 @@
     margin-top: 5px;
     color: rgb(0, 0, 0, 0.5);
 }
+
+/* Mobile */
+@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
+
+/* Small devices (portrait) */
+@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}

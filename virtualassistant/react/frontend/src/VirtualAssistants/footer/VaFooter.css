@@ -33,3 +33,9 @@
     margin-left: -1px;
     background: radial-gradient(circle at bottom right, transparent 68%, rgb(16, 4, 4) 70%);
 }
+
+/* Mobile */
+@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
+
+/* Small devices (portrait) */
+@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}

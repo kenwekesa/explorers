@@ -27,7 +27,7 @@ const Mlandcard = () => {
           We'll guide you through setup, where you specify your preferences. We prioritize a personalized approach to tailor
           our services precisely to your business needs.</p>     
         </div> 
-       <div className='mlandcards'>
+       <div className='mlandcards mlandcards-mobiles'>
         <div className='mlandhead1'>
                   {/* <hr className='mlandhr'></hr>  */}
           <img src={ bar } alt="bar" className='mlaimg' loading="lazy"/>  

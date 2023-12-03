@@ -7,3 +7,9 @@
     border: 0.54px solid rgba(0, 0, 0, 0.60);
     background: var(--Background-onecolor, #fff);
 }
+
+/* Mobile */
+@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
+
+/* Small devices (portrait) */
+@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}

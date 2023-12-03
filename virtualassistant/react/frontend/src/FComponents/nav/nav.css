@@ -35,8 +35,8 @@
         flex-shrink: 0;
 }
 
-.nav {
-    position: sticky;
+.main_nav_nav {
+    position: fixed;
     width: 100%;
     top: 0;
     z-index: 20!important;
@@ -66,3 +66,9 @@
 .navcontent p {
     line-height: 55px;
 }
+
+/* Mobile */
+@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
+
+/* Small devices (portrait) */
+@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}

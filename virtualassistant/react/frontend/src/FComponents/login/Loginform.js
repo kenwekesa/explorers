@@ -141,8 +141,8 @@ const Loginform = () => {
           } else if (errorCode === 'auth/missing-password') {
             errorMessage = "Invalid email address. Please check and try again.";
           } else if (errorCode === 'auth/network-request-failed') {
-            errorMessage = "Check your internet connection";
-          }
+            errorMessage = "Check your internet connection.";
+          } 
 
           setErrorMessage(errorMessage);
           setResettingPassword(false);

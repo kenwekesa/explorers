@@ -5,7 +5,7 @@ import "./nav.css"
 function Nav() {
     return (
     <div className='thenav'>
-      <div className='nav'>
+      <div className='nav main_nav_nav'>
         <MainNav />
         </div>
         <div className='navcontent'>

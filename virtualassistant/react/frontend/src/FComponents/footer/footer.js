@@ -25,7 +25,7 @@ function Footer() {
       </div>
       <hr className='fthr' />
       <div className='footersecond'>
-        <div>
+        <div className='footersecond-mobile'>
           <p>Accomplish with the best</p>
           <p>Part time</p>
            <p> full time</p>
