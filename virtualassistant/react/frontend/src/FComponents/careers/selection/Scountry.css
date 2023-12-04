@@ -7,3 +7,7 @@
     border: 0.54px solid rgba(0, 0, 0, 0.60);
     background: var(--Background-onecolor, #fff);
 }
+
+@media (max-width: 575px){
+    
+}

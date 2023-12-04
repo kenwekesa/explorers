@@ -32,3 +32,8 @@
     font-weight: 800;
     font-size: larger;
 }
+
+/* Mobile */
+@media (max-width: 575px){
+
+}

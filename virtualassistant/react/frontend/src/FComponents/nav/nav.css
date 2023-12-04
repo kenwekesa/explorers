@@ -1,13 +1,3 @@
-/* body {
-    background-image: url(./images/serve.png);
-    width: 1292px;
-    height: 50vh !important;
-    flex-shrink: 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-} */
-
 .thenav{
     /* background-image: url('../images/services.png'); */
     background-color: rgba(207, 194, 117, 0.64);
@@ -68,7 +58,4 @@
 }
 
 /* Mobile */
-@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
-
-/* Small devices (portrait) */
-@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}
+@media (max-width: 575px) {}

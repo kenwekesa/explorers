@@ -95,8 +95,37 @@
 }
 
 /* Mobile */
-@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
+@media (max-width: 575px) {
+    .mamlandingcontent_main {
+        font-size: 30px;
+    }
+    
+    .mamlandingcontent_main p {
+        font-size: 30px;
+    }
 
-/* Small devices (portrait) */
-@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}
+    .Landingspancolor1{
+        font-size: 30px;
+    }
+
+    .memlandcontent{
+        padding-top: 10px;
+        font-size: 18px;
+    }
+
+    .memlandcontenti{
+        padding-top: 10px;
+        font-size: 16px;
+    }
+
+    .memlandcontente{
+        padding-top: 6px;
+        font-size: 16px;
+    }
+
+    .landcolrone{
+        padding-top: 6px;
+        font-size: 16px;
+    }
+}
 

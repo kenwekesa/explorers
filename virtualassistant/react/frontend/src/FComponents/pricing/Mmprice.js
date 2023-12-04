@@ -11,7 +11,9 @@ const Mmprice = () => {
         <p className='mmpric'>Choose the plan that best fit your needs and see what <br/>
           our virtual assistants can do for your business.</p>
       </div>
-      <Pricecards/>
+      <div className='mmpri-pricing-main-price'>
+        <Pricecards />
+      </div>
     </div>
   )
 }

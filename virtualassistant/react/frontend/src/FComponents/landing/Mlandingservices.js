@@ -30,7 +30,7 @@ const Mlandingservices = () => {
         <Mlcustomer />
         <Mlsocial />
         <Mladmin />
-        <Mldata/>      
+        <Mldata />      
       </div>
       {/* <div className='mlandservone'>
         <Mldigital />

@@ -51,3 +51,23 @@
 .mlaparass{
     font-weight: 500;
 }
+
+/* Small devices (portrait) */
+@media (max-width: 575px){
+   .Mlandcard {
+    width: 96%;
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    }
+        .Mlandimg {
+            height: 35px;
+            width: 35px;
+            margin-top: 15px;
+        }
+        .MlandTop {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 30px;
+        }
+}

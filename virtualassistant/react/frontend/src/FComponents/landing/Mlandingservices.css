@@ -46,7 +46,7 @@
 }
 
 /* Mobile */
-@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {
+@media (max-width: 575px) {
     .mlandingservices {
             /* background: #F5F5F5; */
             padding: 0px 10px;
@@ -93,54 +93,5 @@
             padding-top: 20px;
             padding-bottom: 20px;
         }
-}
 
-/* Small devices (portrait) */
-@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {
-    .mlandingservices {
-            /* background: #F5F5F5; */
-            padding: 0px 10px;
-            text-align: center;
-            background: white;
-        }
-    
-        .mlandpara {
-            font-weight: 800;
-            font-size: 22px;
-            line-height: 40px;
-        }
-    
-        .mlandparei {
-            background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.77) -10.44%, rgba(11, 255, 196, 0.77) 108.53%, rgba(11, 138, 255, 0.77) 108.54%));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 22px;
-            font-style: normal;
-            font-weight: 800;
-            line-height: 40px;
-        }
-    
-        .mlandparagr {
-            font-weight: 400;
-            /* line-height: 20px; */
-            font-size: 17px;
-        }
-    
-        .mlandparagri {
-            font-size: 15px;
-            font-weight: 300;
-        }
-    
-        .mlandservone {
-            display: block;
-            justify-content: space-between;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-    
-        .mlandserbtn {
-            padding-top: 20px;
-            padding-bottom: 20px;
-        }
 }

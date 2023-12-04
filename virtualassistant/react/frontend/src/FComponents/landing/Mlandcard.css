@@ -42,57 +42,7 @@
 }
 
 /* Mobile */
-@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {
-    .mlandcard {
-            border-radius: 30px;
-            background: #FFF;
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-bottom: 30px;
-            padding-top: 30px;
-            display: flex;
-            justify-content: space-between;
-        }
-    
-        .mlandhead1 {
-            /* display: flex;
-        justify-content: space-between; */
-        }
-    
-        .mlandhr {
-            width: 50px;
-            text-align: start;
-        }
-    
-        .mlandparagraph {
-            text-align: justify;
-            color: var(--Navbar-color, #616161);
-            text-align:start;
-            line-height: 23px;
-            padding-left: 7px;
-            padding-right: 20px;
-            font-size: 12.5px;
-        }
-    
-        .mlandcards {
-            width: 360px;
-        }
-    
-        .mlandphrei {
-            /* color: var(--Navbar-color, #616161); */
-            font-size: 16.59px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 30.746px;
-        }
-
-        .mlandcards-mobiles{
-            display: none;
-        }
-}
-
-/* Small devices (portrait) */
-@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {
+@media (max-width: 575px) {
     .mlandcard {
             border-radius: 30px;
             background: #FFF;

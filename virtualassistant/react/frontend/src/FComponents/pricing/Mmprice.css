@@ -27,7 +27,21 @@
 }
 
 /* Mobile */
-@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
+@media (max-width: 575px) {
+  .mmprice{
+    height: 136vh;
+  }
+  .mmpri{
+    padding-top: 135px;
+    font-size: 0px;
+  }
 
-/* Small devices (portrait) */
-@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}
+  .mmpric{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 0px;
+  }
+  .mmpri-pricing-main-price{
+    padding-top: 70px;
+  }
+}
