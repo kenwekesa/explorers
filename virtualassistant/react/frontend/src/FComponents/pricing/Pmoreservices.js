@@ -19,7 +19,7 @@ const Pmoreservices = () => {
           <Database/>
         </div>
       </div>
-      <div className='Pours'>
+      <div className='Pours Pours-more-main'>
         <p>More <span className='spancolor1'>services</span></p>
       </div>
     </div>

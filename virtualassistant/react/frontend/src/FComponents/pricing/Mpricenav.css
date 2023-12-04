@@ -44,4 +44,8 @@
 }
 
 /* Mobile */
-@media (max-width: 575px) {}
+@media (max-width: 575px) {
+  .mapricecontent{
+    font-size: 30px;
+  }
+}

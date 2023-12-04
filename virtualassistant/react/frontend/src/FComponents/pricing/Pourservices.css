@@ -30,4 +30,19 @@
 }
 
 /* Mobile */
-@media (max-width: 575px) {}
+@media (max-width: 575px) {
+  .Pour{
+    display: block;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+  }
+
+  .Pserv{
+    display: block!important;
+  }
+
+  .Pours{
+    font-size: 26px!important;
+  }
+}

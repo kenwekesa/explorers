@@ -27,9 +27,70 @@
 }
 
 /* Mobile */
-@media (max-width: 575px) {
+@media (min-width:401px) and (max-width: 480px){
+  .mmprice {
+      height: 142vh;
+  }
+    .mmpri {
+      padding-top: 135px;
+      font-size: 0px;
+    }
+  
+    .mmpric {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      font-size: 0px;
+    }
+  
+    .mmpri-pricing-main-price {
+      padding-top: 70px;
+    }
+}
+
+@media (min-width:381px) and (max-width: 400px) {
+  .mmprice {
+    height: 150vh;
+  }
+
+  .mmpri {
+    padding-top: 135px;
+    font-size: 0px;
+  }
+
+  .mmpric {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 0px;
+  }
+
+  .mmpri-pricing-main-price {
+    padding-top: 70px;
+  }
+}
+
+@media (min-width:300px) and (max-width: 380px) {
+  .mmprice {
+    height: 190vh;
+  }
+    .mmpri {
+      padding-top: 135px;
+      font-size: 0px;
+    }
+  
+    .mmpric {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      font-size: 0px;
+    }
+  
+    .mmpri-pricing-main-price {
+      padding-top: 70px;
+    }
+}
+
+@media (min-width:481px) and (max-width: 575px) {
   .mmprice{
-    height: 136vh;
+    height: 169vh;
   }
   .mmpri{
     padding-top: 135px;

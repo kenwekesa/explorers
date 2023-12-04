@@ -32,4 +32,13 @@
 }
 
 /* Mobile */
-@media (max-width: 575px) {}
+@media (max-width: 575px) {
+  .Mour{
+    display: block;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .Pours-more-main {
+    display: none!important;
+  }
+}
