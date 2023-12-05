@@ -47,5 +47,7 @@
 
 /* Mobile */
 @media (max-width: 575px){
-    
+    .maindustrycontent{
+        font-size: 30px;
+    }
 }

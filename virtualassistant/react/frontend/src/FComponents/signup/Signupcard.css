@@ -115,4 +115,98 @@
 }
 
 /* Mobile */
-@media (max-width: 575px) {}
+@media (min-width:0px) and (max-width: 399px) {
+    .cardsignupone {
+        width: 81.5%!important;
+        margin-left: 1%!important;
+        margin-right: 0%!important;
+        margin-top: -15%!important;
+    }
+
+    .signcardiinput {
+        width: 86% !important;
+
+    }
+
+    .signcardcontent p{
+        font-size: 13px!important;
+    }
+
+    .login_change_password p {
+        font-size: 13px!important;
+    }
+
+    .Sselectoptions{
+        width: 91.5% !important;
+        margin-left: 1% !important;
+        margin-right: 0% !important;
+    }
+}
+
+@media (min-width:400px) and (max-width: 469px) {
+    .cardsignupone {
+        width: 83%!important;
+        margin-left: 1%!important;
+        margin-right: 0%!important;
+        margin-top: -15%!important;
+    }
+
+        .signcardcontent p {
+            font-size: 13px!important;
+        }
+
+    .loginputone-lops {
+        padding: 10.45px 90.64px 10.607px 19.266px;
+        width: 55% !important;
+
+    }
+
+        .signcardiinput {
+            width: 86% !important;
+    
+        }
+
+    .login_change_password p {
+        font-size: 13px!important;
+    }
+
+        .Sselectoptions {
+            width: 91.5% !important;
+            margin-left: 1% !important;
+            margin-right: 0% !important;
+        }
+}
+
+@media (min-width:470px) and (max-width: 575px) {
+    .cardsignupone {
+        width: 86.5%!important;
+        margin-left: 1%!important;
+        margin-right: 1%!important;
+        margin-top: -15%!important;
+    }
+
+    .signcardcontent p {
+        font-size: 13px!important;
+    }
+
+        .signcardiinput {
+            width: 86% !important;
+    
+        }
+
+    .loginputone-lops {
+        padding: 10.45px 90.64px 10.607px 19.266px;
+        width: 60% !important;
+
+    }
+
+    .login_change_password p {
+        font-size: 14px!important;
+    }
+
+        .Sselectoptions {
+            width: 91.5% !important;
+            margin-left: 1% !important;
+            margin-right: 0% !important;
+        }
+}

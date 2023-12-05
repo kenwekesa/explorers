@@ -16,7 +16,7 @@
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 10;
+    z-index: 14!important;
 }
 
 .maaboutcontent {
@@ -45,5 +45,7 @@
 
 /* Mobile */
 @media (max-width: 575px){
-    
+    .maaboutcontent{
+        font-size: 29px;
+    }
 }

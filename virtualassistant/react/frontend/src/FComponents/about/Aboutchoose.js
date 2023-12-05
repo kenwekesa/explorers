@@ -15,7 +15,7 @@ const Aboutchoose = () => {
             <div className='ofsecond'>
               <Servicecard />      
             </div>
-            <div className='ofone'>
+            <div className='ofone ofone-ofone-ofone'>
               <p>Choose a <span className='offcolor'>Plan</span></p>      
             </div>
         </div>

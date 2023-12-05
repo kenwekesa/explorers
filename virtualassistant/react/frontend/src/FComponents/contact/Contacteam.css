@@ -59,7 +59,8 @@ margin-top: 30px;
 }
 
 /* Mobile */
-@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
-
-/* Small devices (portrait) */
-@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}
+@media (max-width: 575px){
+    .mteam{
+        display: none;
+    }
+}

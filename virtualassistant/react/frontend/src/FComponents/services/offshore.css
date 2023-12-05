@@ -49,4 +49,25 @@
 
 
 /* Mobile */
-@media (max-width: 575px) {}
+@media (max-width: 575px) {
+    .offshore{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .offfirst{
+        display: none;
+    }
+    .offsecond{
+        display: block;
+        text-align: center;
+    }
+    .ofsecond{
+        width: 100%;
+    }
+    .ofone{
+        width: 100%;
+    }
+    .ofone-ofone{
+        display: none;
+    }
+}

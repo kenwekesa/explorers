@@ -83,7 +83,7 @@ const Contactfrom = () => {
 
   return (
     <div className="mcontactform">
-      <div className="mcontactimg">
+      <div className="mcontactimg mcontactimg-main">
         <img src={image} alt="logo" loading="lazy" />
       </div>
       <div>

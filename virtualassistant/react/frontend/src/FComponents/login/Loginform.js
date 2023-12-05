@@ -157,14 +157,14 @@ const Loginform = () => {
         <hr></hr>
         <form>
           <input
-            className='loginputone logtop'
+            className='loginputone loginputone-lops logtop'
             placeholder='Email'
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           /><br></br>
           <input
-            className='loginputone logtopi'
+            className='loginputone loginputone-lops logtopi'
             placeholder='Password'
             type="password"
             value={password}

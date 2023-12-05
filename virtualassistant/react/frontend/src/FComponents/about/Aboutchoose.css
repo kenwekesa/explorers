@@ -60,5 +60,7 @@
 
 /* Mobile */
 @media (max-width: 575px){
-    
+    .ofone-ofone-ofone{
+        display: none;
+    }
 }

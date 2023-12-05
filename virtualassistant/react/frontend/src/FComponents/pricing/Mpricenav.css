@@ -46,6 +46,6 @@
 /* Mobile */
 @media (max-width: 575px) {
   .mapricecontent{
-    font-size: 30px;
+    font-size: 30px!important;
   }
 }

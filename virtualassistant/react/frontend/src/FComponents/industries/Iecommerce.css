@@ -44,5 +44,11 @@
 
 /* Mobile */
 @media (max-width: 575px){
-    
+   .induoimg{
+    display: none;
+   }
+   .induowner{
+    padding-left: 10px;
+    padding-right: 10px;
+   }
 }

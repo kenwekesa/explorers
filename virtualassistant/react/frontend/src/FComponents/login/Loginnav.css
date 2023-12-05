@@ -45,4 +45,8 @@
 }
 
 /* Mobile */
-@media (max-width: 575px) {}
+@media (max-width: 575px) {
+    .malogincontent{
+        font-size: 30px!important;
+    }
+}

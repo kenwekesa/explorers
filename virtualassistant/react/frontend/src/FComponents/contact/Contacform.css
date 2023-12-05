@@ -118,6 +118,88 @@
 }
 
 /* Mobile */
-@media (max-width: 575px){
+@media (min-width:0px) and (max-width: 449px) {
+    .mcontactform {
+        padding-left: 20px;
+        padding-right: 10px;
+    }
+
+    .mcontactimg-main {
+        display: none;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .contactinputfield input {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .mcontfrm {
+        width: 80%;
+        height: auto;
+    }
+
+    .contactinputfield input {
+        padding: 10.45px 90.64px 10.607px 19.266px;
+        width: 55% !important;
+
+    }
+
+    .contactinputselect {
+        padding: 9.45px 90.64px 9.607px 19.266px !important;
+        width: 55% !important;
+    }
+
+    .contacttextareainput {
+        width: 55% !important;
+        height: 125.233px;
+        padding: 14.45px 90.64px 86.783px 19.266px !important;
+
+    }
+
+    .mtpfi{
+        font-size: 24px!important;
+    }
+}
+
+@media (min-width:450px) and (max-width: 575px){
+    .mcontactform{
+        padding-left: 20px;
+        padding-right: 10px;
+    }
+    .mcontactimg-main{
+        display: none;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .contactinputfield input{
+        display: block;
+        margin-bottom: 20px;
+    }
+    .mcontfrm{
+        width: 87%;
+        height: auto;
+    }
+        .contactinputfield input {
+            padding: 10.45px 90.64px 10.607px 19.266px;
+            width: 60%!important;
+            
+        }
     
+        .contactinputselect {
+            padding: 9.45px 90.64px 9.607px 19.266px!important;
+            width: 60% !important;
+        }
+    
+        .contacttextareainput {
+            width: 60% !important;
+            height: 125.233px;
+            padding: 14.45px 90.64px 86.783px 19.266px !important;
+           
+        }
+
+        .mtpfi{
+            font-size: 26px!important;
+        }
 }

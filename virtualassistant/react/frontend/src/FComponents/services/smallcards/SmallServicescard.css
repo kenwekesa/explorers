@@ -35,4 +35,22 @@
 }
 
 /* Mobile */
-@media (max-width: 575px) {}
+@media (min-width: 0px) and (max-width: 400px) {
+    .ficard {
+        width: 66%;
+        margin-bottom: 30px;
+    }
+}
+@media (min-width: 401px) and (max-width: 500px) {
+    .ficard{
+        width: 69%;
+        margin-bottom: 30px;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 575px) {
+    .ficard {
+        width: 77%;
+        margin-bottom: 30px;
+    }
+}

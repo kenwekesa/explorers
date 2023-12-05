@@ -13,7 +13,7 @@ const Webshore = () => {
             <div className='ofsecond'>
               <Servicecardtwo />      
             </div>
-            <div className='ofone'>
+            <div className='ofone ofone-ofone'>
               <p>Web <span className='offcolor'>Plan</span></p>      
             </div>
         </div>

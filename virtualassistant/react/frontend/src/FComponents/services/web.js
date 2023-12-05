@@ -34,7 +34,7 @@ const Web = () => {
                   <a href="home.html" className='ton'>Hire VA</a> */}
                   <SmallServicethird />
               </div>
-              <div>
+              <div className='webmain-main-card-forth'>
               {/* <div className='websor'> */}
                   {/* <p><img src={airplane} alt='logo' loading="lazy" className='webimg'/></p>
                   <p className='webTop'>Surprise Yourself</p>

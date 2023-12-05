@@ -66,5 +66,16 @@ background-clip: text;
 
 /* Mobile */
 @media (max-width: 575px){
+    .aboutfsec{
+        display: none;
+    }
+        .aboutsecond {
+            padding-left: 10px;
+            padding-right: 0px;
+        }
+        .aboutprice {
+            padding-left: 80px;
+            padding-right: 80px;
+        }
     
 }
