@@ -63,8 +63,17 @@
     color: var(--Navbar-color, #616161);
   }
 
-    /* Mobile */
-    @media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
-  
-    /* Small devices (portrait) */
-    @media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}
+/* Mobile */
+@media (min-width:0px) and (max-width: 450px) {
+.faqhead {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (min-width:451px) and (max-width: 575px) {
+.faqhead {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

@@ -33,7 +33,16 @@
 }
 
 /* Mobile */
-@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
+@media (min-width:0px) and (max-width: 450px) {
+    .mainfundcontent {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
 
-/* Small devices (portrait) */
-@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}
+@media (min-width:451px) and (max-width: 575px) {
+    .mainfundcontent {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

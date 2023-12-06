@@ -35,7 +35,17 @@
 }
 
 /* Mobile */
-@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
+@media (max-width: 575px) {
+    .virtual_dashboard_main {
+            padding-left: 10px;
+            padding-right: 10px;
+    }
 
-/* Small devices (portrait) */
-@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}
+    .addmainupdates{
+        display: none;
+    }
+
+    .virtual_dashboard_title p{
+        padding-top: 0px;
+    }
+}

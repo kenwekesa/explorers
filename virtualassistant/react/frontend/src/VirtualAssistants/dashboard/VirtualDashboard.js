@@ -22,8 +22,8 @@ const VirtualDashboard = () => {
                 </div>
                 <div className='dashp'>
             <div className='mlandservone'>
-                      <NewPlans />
-                      <Active/>
+                <NewPlans />
+                <Active/>
             
             <Dascomplete/>
             </div>

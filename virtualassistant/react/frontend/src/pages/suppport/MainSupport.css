@@ -8,3 +8,18 @@
 .MainSupport{
     background-color: #f5f5f5;
 }
+
+/* Mobile */
+@media (min-width:0px) and (max-width: 450px) {
+    .orderhistory-content {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media (min-width:451px) and (max-width: 575px) {
+    .orderhistory-content {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

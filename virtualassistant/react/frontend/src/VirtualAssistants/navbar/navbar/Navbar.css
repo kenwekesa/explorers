@@ -25,7 +25,7 @@
     padding-bottom: 12px;
     align-items: center;
     padding-left: 32px;
-    gap: 220px;
+    gap: 228px;
     /* width: 100%; */
     padding-right: 32px;
     background: #FFF;
@@ -131,6 +131,12 @@
     transform-origin: right;
 }
 
+.menu-toggle {
+    display: none;
+    /* Hide the menu toggle by default */
+    cursor: pointer;
+}
+
 /* Mobile */
 @media (max-width: 575px){
  .adminuser_logo span{
@@ -142,133 +148,41 @@
  .adminuser_logo img{
     display: block;
  }
- 
+
 }
 
-
-.adminnavbar {
-    /* Add any common styles for your navbar here */
-}
-
-.adminnavbar img {
-    height: 27px;
-    width: 27px;
-}
-
-.adminnavbartop {
-    height: 30px;
-    padding-left: 32px;
-    padding-right: 56px;
-    align-items: center;
-    padding-top: 10px;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 10px;
-    background: #001C30;
-}
-
-.virtualassistantnavbarbottom {
-    display: flex;
-    height: 24px;
-    padding-top: 18px;
-    padding-bottom: 12px;
-    align-items: center;
-    padding-left: 32px;
-    gap: 220px;
-    padding-right: 32px;
-    background: #FFF;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.09);
-}
-
-.virtualassistantnavbarbottom p {
-    align-items: center;
-    cursor: pointer;
-}
-
-.adminlink {
-    text-decoration: none;
-    font-weight: 400 !important;
-    color: black;
-}
-
-.adminnavbartopleft {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.adminnavbartopleft p {
-    padding-left: 28px;
-    align-items: center;
-    font-weight: 600;
-}
-
-.adminuser {
-    display: flex;
-    width: 100%;
-    font-size: 17px;
-}
-
-.adminuser span {
-    padding-left: 7px;
-}
-
-/* Mobile */
 @media (max-width: 575px) {
-    .adminuser_logo span {
+    .virtualassistantnavbarbottom {
         display: none;
+        /* Hide the bottom navigation on smaller screens */
     }
 
-    .adminuser img {
-        display: none;
-    }
-
-    .adminuser_logo img {
+    .menu-toggle {
         display: block;
+        /* Show the menu toggle on smaller screens */
     }
 
-    /* Add any additional mobile styles here */
-        .adminnavbar.mobile .virtualassistantnavbarbottom {
-            display: none;
-        }
-    
-        .adminnavbar.mobile .virtualassistantnavbarbottom.mobile {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-    
-        .adminnavbar.mobile .virtualassistantnavbarbottom.mobile .mobile-dash-icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-    
-        .adminnavbar.mobile .virtualassistantnavbarbottom.mobile .mobile-dash-icon img {
-            height: 27px;
-            width: 27px;
-        }
-    
-        .adminnavbar.mobile .virtualassistantnavbarbottom.mobile .adminlogo {
-            display: none;
-        }
-    
-        .adminnavbar.mobile .toggle-nav-btn {
-            display: flex;
-            align-items: center;
-        }
-    
-        .adminnavbar.mobile .toggle-nav-btn_body {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+    .adminnavbar.mobile-menu-open .virtualassistantnavbarbottom {
+        display: flex;
+        /* Show the bottom navigation when the mobile menu is open */
+    }
 }
 
+@media (max-width: 575px) {
+    .virtualassistantnavbarbottom {
+        display: none;
+        /* Hide the bottom navigation on smaller screens */
+    }
 
+    .menu-toggle {
+        display: block;
+        /* Show the menu toggle on smaller screens */
+    }
+
+    .adminnavbar.mobile-menu-open .virtualassistantnavbarbottom {
+        display: flex;
+        /* Show the bottom navigation when the mobile menu is open */
+    }
+}
 
 /* Add any additional styling for the mobile view here */
