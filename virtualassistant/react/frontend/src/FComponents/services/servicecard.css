@@ -97,6 +97,11 @@
             font-weight: 400 !important;
             font-size: 14px !important;
             line-height: 30px;
+            padding-top: 30px;
+        }
+
+        .servp-spy{
+            display: none!important;
         }
     
         .servc {

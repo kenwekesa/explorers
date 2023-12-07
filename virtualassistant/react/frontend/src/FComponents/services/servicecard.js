@@ -19,7 +19,7 @@ const Servicecard = () => {
               {/* <p>$300 <span className='servp'>/ month</span></p> */}
               <hr className='serhr'/>
               <p className='servp spy'><img src={checked} alt='logo' loading="lazy" className='servc'/> 25hrs / month</p>
-              <p className='servp spy'><img src={checked} alt='logo' loading="lazy" className='servc'/> Monthly Membership</p>
+              <p className='servp spy servp-spy'><img src={checked} alt='logo' loading="lazy" className='servc'/> Monthly Membership</p>
               <p className='servp spy'><img src={checked} alt='logo' loading="lazy" className='servc'/> 24/7 Support</p>
               <Link className='footerbtn footernavlinkbtn' onClick={scrollToTop} to="/signup">Sign Up</Link>
           </div>
@@ -28,7 +28,7 @@ const Servicecard = () => {
               {/* <p>$600 <span className='servp'>/ month</span></p> */}
               <hr className='serhr'/>
               <p className='servp spy'><img src={checked} alt='logo' loading="lazy" className='servc'/> 50hrs / month</p>
-              <p className='servp spy'><img src={checked} alt='logo' loading="lazy" className='servc'/> Monthly Membership</p>
+              <p className='servp spy servp-spy'><img src={checked} alt='logo' loading="lazy" className='servc'/> Monthly Membership</p>
               <p className='servp spy'><img src={checked} alt='logo' loading="lazy" className='servc'/> 24/7 Support</p>
               <Link className='footerbtn footernavlinkbtn' onClick={scrollToTop} to="/signup">Sign Up</Link>
           </div>
@@ -37,7 +37,7 @@ const Servicecard = () => {
               {/* <p>$700 <span className='servp'>/ month</span></p> */}
               <hr className='serhr'/>
                <p className='servp spy'><img src={checked} alt='logo' loading="lazy" className='servc'/> 80hrs / month</p>
-              <p className='servp spy'><img src={checked} alt='logo' loading="lazy" className='servc'/> Monthly Membership</p>
+              <p className='servp spy servp-spy'><img src={checked} alt='logo' loading="lazy" className='servc'/> Monthly Membership</p>
               <p className='servp spy'><img src={checked} alt='logo' loading="lazy" className='servc'/> 24/7 Support</p>
               <Link className='footerbtn footernavlinkbtn' onClick={scrollToTop} to="/signup">Sign Up</Link>
           </div>

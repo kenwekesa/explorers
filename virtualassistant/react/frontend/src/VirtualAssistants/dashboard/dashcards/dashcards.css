@@ -68,5 +68,6 @@
 @media (max-width: 575px){
   .dashcard{
     width: 94.8%;
+    height: auto;
   }
 }
