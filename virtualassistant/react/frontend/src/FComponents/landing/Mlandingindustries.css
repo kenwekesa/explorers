@@ -56,4 +56,8 @@
 }
 
 /* Mobile */
-@media (max-width: 575px) {}
+@media (max-width: 575px) {
+    .landing-services-industries{
+        display: none;
+    }
+}

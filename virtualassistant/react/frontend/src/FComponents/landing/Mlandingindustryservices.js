@@ -18,7 +18,9 @@ const Mlandingindustryservices = () => {
         <Mlinsurance />
         <Mlhealthcare />
         <Mlrealestate />
-        <Mlecommerce />      
+        <div className='landing-services-industries'>
+        <Mlecommerce />  
+        </div>  
         </div> 
         <div className='mlandserbtn'>
         {/* <a href='home.html' className='ton tin'>View all industries</a> */}
