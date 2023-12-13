@@ -188,14 +188,42 @@ color: rgb(0, 0, 0, 0.6) !important;
 /* Mobile */
 @media (min-width:0px) and (max-width: 450px) {
   .myplans-orderhistory-content {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .addnewplan{
+    font-size: 18px!important;
+  }
+
+  .plans-headers th{
+    font-size: 12px!important;
+  }
+
+  .plans-headers td{
+    font-size: 11px!important;
+  }
+
+  .order_links_group_content span{
+    font-size: 11px!important;
   }
 }
 
 @media (min-width:451px) and (max-width: 575px) {
 .myplans-orderhistory-content {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
+    .addnewplan {
+      font-size: 18px !important;
+    }
+    .plans-headers th {
+      font-size: 12px !important;
+    }
+    .plans-headers td {
+      font-size: 11px !important;
+    }
+    .order_links_group_content span {
+      font-size: 11px !important;
+    }
 }

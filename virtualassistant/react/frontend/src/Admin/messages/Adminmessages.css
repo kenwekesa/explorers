@@ -12,14 +12,27 @@
 /* Mobile */
 @media (min-width:0px) and (max-width: 450px) {
     .fund-orderhistory-content {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 10px!important;
+        padding-right: 10px!important;
+    }
+    .admin_messages{
+        padding-left: 0px!important;
+        padding-right: 0px!important;
+        margin-left: 0px!important;
+        margin-right: 0px!important;
     }
 }
 
 @media (min-width:451px) and (max-width: 575px) {
     .fund-orderhistory-content {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+    
+        .admin_messages {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
 }

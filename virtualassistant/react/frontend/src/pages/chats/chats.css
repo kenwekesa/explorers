@@ -227,14 +227,49 @@
 /* Mobile */
 @media (min-width:0px) and (max-width: 450px) {
   .addpagecontent {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 0px!important;
+    padding-right: 0px!important;
   }
+    .chats {
+      display: flex;
+      height: 100vh !important;
+      padding: 0px 0px!important;
+      overflow: hidden;
+      margin-top: 2% !important;
+      margin-bottom: 0% !important;
+      margin-left: 0% !important;
+      margin-right: 0% !important;
+      border-radius: 1% !important;
+    }
+    .chats_sidebar {
+      flex: 1!important;
+    }
+        .chats {
+          flex: 2!important;
+        }
 }
 
 @media (min-width:451px) and (max-width: 575px) {
   .addpagecontent {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 0px!important;
+    padding-right: 0px!important;
   }
+    .chats {
+      display: flex;
+        height: 100vh !important;
+        padding: 0px 0px !important;
+        overflow: hidden;
+        margin-top: 2% !important;
+        margin-bottom: 0% !important;
+        margin-left: 0% !important;
+        margin-right: 0% !important;
+        border-radius: 1% !important;
+    }
+         .chats_sidebar {
+           flex: 1 !important;
+         }
+    
+         .chats {
+           flex: 2 !important;
+         }
 }

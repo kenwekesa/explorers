@@ -120,7 +120,7 @@ function MyActiveplan() {
           </div>
           <table>
             <thead>
-              <tr>
+              <tr className='plans-headers'>
                 <th>ID</th>
                 <th>Service</th>
                 <th>Plan</th>
@@ -142,7 +142,7 @@ function MyActiveplan() {
                 </tr>
               ) : (
                 paginatedData.map((item, i) => (
-                  <tr key={item.id}>
+                  <tr className='plans-headers' key={item.id}>
                     <td>{i + 1}</td>
                     <td className="services_pending_plan_main">{item.service}</td>
                     <td>${item.plan /  2} / month</td>

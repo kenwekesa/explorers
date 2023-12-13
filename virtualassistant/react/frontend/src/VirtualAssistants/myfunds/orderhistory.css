@@ -152,14 +152,14 @@ color: rgb(0, 0, 0, 0.6) !important;
 /* Mobile */
 @media (min-width:0px) and (max-width: 450px) {
   .orderhistory-content {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
 }
 
 @media (min-width:451px) and (max-width: 575px) {
   .orderhistory-content {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
 }

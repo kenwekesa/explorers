@@ -22,7 +22,7 @@ const VASupport = () => {
           <div className='virtual_support_navbar'>
               <Navbar />
           </div>
-      <div>
+      <div className='support-messages-main'>
         <div className='client_dashboard_title_paragraph admin_inqueries'>
           <p>Inqu<span>eries</span></p>
         </div>
