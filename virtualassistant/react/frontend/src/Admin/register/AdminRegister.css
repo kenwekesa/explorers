@@ -17,6 +17,9 @@
     padding-left: 10px;
     padding-right: 10px;
   }
+  .register_Adminregister_card{
+    margin-left: 0px!important;
+  }
 }
 
 @media (min-width:451px) and (max-width: 575px) {
@@ -24,4 +27,7 @@
     padding-left: 10px;
     padding-right: 10px;
   }
+    .register_Adminregister_card {
+      margin-left: 0px !important;
+    }
 }

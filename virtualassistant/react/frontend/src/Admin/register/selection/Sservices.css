@@ -12,7 +12,16 @@
 }
 
 /* Mobile */
-@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
-
-/* Small devices (portrait) */
-@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}
+@media (min-width: 30px) and (max-width: 575px){
+.S_selectoptions {
+        margin: 10px;
+            width: 85% !important;
+            margin-left: 0px !important;
+            display: inline-flex;
+            padding: 10.45px 0px 10.607px 19.266px;
+            align-items: center;
+            border-radius: 13.267px;
+            margin-left: 3px;
+            border: 0.963px solid rgba(97, 97, 97, 0.60);
+    }
+}
