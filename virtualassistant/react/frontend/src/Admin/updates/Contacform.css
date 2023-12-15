@@ -16,12 +16,6 @@
     padding-bottom: 15px!important;
     font-weight: 800;
 }
-/* .mcontactimg img {
-    width: 650px;
-    height: 600px;
-    flex-shrink: 0;
-    border-radius: 30px;
-} */
 .admin_contact_form{
     width: 601px;
     height: 444px;
@@ -180,7 +174,7 @@
     }
 
     .admin_contact_form {
-        width: 95% !important;
+        width: 63vh !important;
         height: auto !important;
     }
 
