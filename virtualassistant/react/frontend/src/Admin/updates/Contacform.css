@@ -114,16 +114,81 @@
 }
 
 /* Mobile */
-@media (min-width:0px) and (max-width: 450px) {
+
+
+@media (min-width:0px) and (max-width: 380px) {
     .adminregister_card {
         padding-left: 10px;
         padding-right: 10px;
     }
+
+    .admin_contact_form {
+        width: 86% !important;
+        height: auto !important;
+    }
+
+    .admin_update_input_field input {
+        display: inline-flex;
+        padding: 10.45px 0px 10.607px 19.266px;
+        align-items: center;
+        border-radius: 13.267px;
+        width: 85.9% !important;
+    }
 }
 
+@media (min-width:381px) and (max-width: 400px) {
+    .adminregister_card {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .admin_contact_form {
+        width: 92% !important;
+        height: auto !important;
+    }
+
+    .admin_update_input_field input {
+        display: inline-flex;
+        padding: 10.45px 0px 10.607px 19.266px;
+        align-items: center;
+        border-radius: 13.267px;
+        width: 85.9% !important;
+    }
+}
+
+@media (min-width:401px) and (max-width: 450px) {
+    .adminregister_card {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+ .admin_contact_form {
+     width: 100% !important;
+     height: auto !important;
+ }
+ .admin_update_input_field input {
+     display: inline-flex;
+     padding: 10.45px 0px 10.607px 19.266px;
+     align-items: center;
+     border-radius: 13.267px;
+     width: 85.9% !important;
+ }
+}
 @media (min-width:451px) and (max-width: 575px) {
     .adminregister_card {
         padding-left: 10px;
         padding-right: 10px;
+    }
+
+    .admin_contact_form {
+        width: 95% !important;
+        height: auto !important;
+    }
+
+    .admin_update_input_field input {
+        display: inline-flex;
+        padding: 10.45px 0px 10.607px 19.266px;
+        align-items: center;
+        border-radius: 13.267px;
+        width: 85.9% !important;
     }
 }

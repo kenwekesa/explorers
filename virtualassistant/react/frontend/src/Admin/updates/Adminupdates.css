@@ -24,6 +24,7 @@
     .adminregister_card {
         padding-left: 10px;
         padding-right: 10px;
+        display: block!important;
     }
 }
 
@@ -31,5 +32,6 @@
     .adminregister_card {
         padding-left: 10px;
         padding-right: 10px;
+        display: block !important;
     }
 }
