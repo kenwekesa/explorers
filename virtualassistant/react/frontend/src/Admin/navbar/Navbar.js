@@ -35,6 +35,11 @@ const Navbar = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isListVisible, setListVisible] = useState(false);
   const navigate = useNavigate()
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
 
   const openDialog = () => {
     setIsDialogOpen(true);
@@ -196,7 +201,7 @@ const Navbar = () => {
           />
         </div>
         </div>
-        <div className='adminmainnavbarbottom'>
+        <div className={`adminmainnavbarbottom ${isOpen ? 'active' : ''}`}>
             <div className="logo adminlogo">
             <Link to="/admin_dashboard" onClick={scrollToTop}  className='adminlink'><p className='adminuser' ><img src={dashboard} loading="lazy" alt="Logo" /><span>Dashboard</span></p></Link>
               </div>
@@ -224,7 +229,10 @@ const Navbar = () => {
               {/* <div className="logo">
             <p className='adminuser' ><img src={user} loading="lazy" alt="Logo" /><span>John Doe</span></p>
           </div> */}
-          </div>
+      </div>
+       <div className="mobile-toggle-btn" onClick={toggleNavbar}>
+        <span>&#9776;</span>
+      </div>
       </div>
   )
 }

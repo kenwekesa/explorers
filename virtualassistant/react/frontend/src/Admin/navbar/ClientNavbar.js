@@ -22,6 +22,7 @@ import { AuthContext } from '../../contextr/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import Clientprofile from '../../pages/profiles/Clientprofile';
 
+
 const ClientNavbar = () => {
   const [isListVisible, setListVisible] = useState(false);
   const [userDetails, setUserDetails] = useState(null);
@@ -33,6 +34,12 @@ const ClientNavbar = () => {
   const [currentuser, setCurrentuser] = useState(null)
   const navigate = useNavigate()
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
+
 
   const openDialog = () => {
     setIsDialogOpen(true);
@@ -189,7 +196,7 @@ const ClientNavbar = () => {
           />
         </div>
       </div>
-      <div className='adminnavbarbottom'>
+      <div className={`adminnavbarbottom ${isOpen ? 'active' : ''}`}>
         <div className="logo adminlogo">
           <Link to="/dashboard" onClick={scrollToTop} className='adminlink'><p className='adminuser' ><img src={dashboard} loading="lazy" alt="Logo" /><span>Dashboard</span></p></Link>
         </div>
@@ -211,6 +218,9 @@ const ClientNavbar = () => {
         <div className="logo adminlogo">
           <Link to="/FAQS" onClick={scrollToTop} className='adminlink'><p className='adminuser adminuserlast' ><img src={admin} loading="lazy" alt="Logo" /><span>Faqs</span></p></Link>
         </div>
+      </div>
+      <div className="mobile-toggle-btn" onClick={toggleNavbar}>
+        <span>&#9776;</span>
       </div>
     </div>
   );

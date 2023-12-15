@@ -61,7 +61,23 @@
 }
 
 /* Mobile */
-@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
+@media (min-width: 0px) and (max-width: 480px) {
+  .admin_dashcard{
+    width: 90%!important;
+    height: auto!important;
+  }
+    .empty{
+      display: none!important;
+    }
+}
 
 /* Small devices (portrait) */
-@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}
+@media (min-width: 481px) and (max-width: 575px){
+  .admin_dashcard {
+      width: 95% !important;
+      height: auto !important;
+    }
+        .empty {
+          display: none !important;
+        }
+}

@@ -66,14 +66,204 @@
 /* Mobile */
 @media (min-width:0px) and (max-width: 450px) {
 .faqhead {
+    padding-left: 5px!important;
+    padding-right: 5px!important;
+    min-height: 100vh!important;
+  }
+
+  .faqhead img {
+    height: 25px !important;
+    width: 25px !important;
+  }
+
+  .faqhead h1 {
+    font-family: Nunito;
+    font-size: 18px!important;
+    font-weight: 600;
     padding-left: 10px !important;
-    padding-right: 10px !important;
+    margin-bottom: 2% !important;
+    margin-top: 2%;
+  }
+
+  .faq_navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+  }
+
+  .faqhead1 h1 {
+    font-family: Nunito;
+    font-size: 18px!important;
+    font-weight: 600;
+    padding-left: 10px !important;
+    margin-bottom: 2%;
+    margin-top: 3%;
+  }
+
+  .faqhead1 {
+    margin-bottom: 5%;
+    cursor: pointer;
+  }
+
+  .faqhead p {
+    margin-left: 10px!important;
+    border-radius: 15px;
+    display: flex;
+    width: 86% !important;
+    padding: 10px 10px 10px 10px !important;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  }
+
+  .faqp {
+    color: var(--Navbar-color, #616161);
+    font-family: Nunito;
+    font-weight: 600;
+    line-height: 27.927px;
+  }
+
+  .hidediv {
+    font-family: Nunito;
+    font-weight: 400;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    color: var(--Navbar-color, #616161);
   }
 }
 
-@media (min-width:451px) and (max-width: 575px) {
+@media (min-width:401px) and (max-width: 500px) {
 .faqhead {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    min-height: 100vh!important;
+  }
+
+  .faqhead img {
+    height: 25px !important;
+    width: 25px !important;
+  }
+
+  .faqhead h1 {
+    font-family: Nunito;
+    font-size: 18px!important;
+    font-weight: 600;
     padding-left: 10px !important;
-    padding-right: 10px !important;
+    margin-bottom: 2% !important;
+    margin-top: 2%;
+  }
+
+  .faq_navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+  }
+
+  .faqhead1 h1 {
+    font-family: Nunito;
+    font-size: 18px!important;
+    font-weight: 600;
+    padding-left: 10px !important;
+    margin-bottom: 2%;
+    margin-top: 3%;
+  }
+
+  .faqhead1 {
+    margin-bottom: 5%;
+    cursor: pointer;
+  }
+
+  .faqhead p {
+    margin-left: 10px !important;
+    border-radius: 15px;
+    display: flex;
+    width: 89% !important;
+    padding: 10px 10px 10px 10px !important;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  }
+
+  .faqp {
+    color: var(--Navbar-color, #616161);
+    font-family: Nunito;
+    font-weight: 600;
+    line-height: 27.927px;
+  }
+
+  .hidediv {
+    font-family: Nunito;
+    font-weight: 400;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    color: var(--Navbar-color, #616161);
+  }
+}
+
+@media (min-width:501px) and (max-width: 575px) {
+  .faqhead {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    min-height: 100vh !important;
+  }
+
+  .faqhead img {
+    height: 25px !important;
+    width: 25px !important;
+  }
+
+  .faqhead h1 {
+    font-family: Nunito;
+    font-size: 18px !important;
+    font-weight: 600;
+    padding-left: 10px !important;
+    margin-bottom: 2% !important;
+    margin-top: 2%;
+  }
+
+  .faq_navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+  }
+
+  .faqhead1 h1 {
+    font-family: Nunito;
+    font-size: 18px !important;
+    font-weight: 600;
+    padding-left: 10px !important;
+    margin-bottom: 2%;
+    margin-top: 3%;
+  }
+
+  .faqhead1 {
+    margin-bottom: 5%;
+    cursor: pointer;
+  }
+
+  .faqhead p {
+    margin-left: 10px !important;
+    border-radius: 15px;
+    display: flex;
+    width: 92% !important;
+    padding: 10px 10px 10px 10px !important;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  }
+
+  .faqp {
+    color: var(--Navbar-color, #616161);
+    font-family: Nunito;
+    font-weight: 600;
+    line-height: 27.927px;
+  }
+
+  .hidediv {
+    font-family: Nunito;
+    font-weight: 400;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    color: var(--Navbar-color, #616161);
   }
 }
