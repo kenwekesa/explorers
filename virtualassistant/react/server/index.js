@@ -1,9 +1,14 @@
-const express = require("express");
+// const express = require("express");
+import  express  from "express";
 
 const app = express();
-const TokenRoute= require("./routes/token") 
+// const TokenRoute = require("./routes/token") 
+// const UserRoute = require("./routes/users")
+import TokenRoute from './routes/token.js'
+import UserRoute from './routes/users.js'
 // require("dotenv").config();
-const cors = require("cors");
+// const cors = require("cors");
+import cors from 'cors';
 // const { default: axios } = require("axios");
 
 app.listen(5000, () => {
@@ -18,6 +23,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/token", TokenRoute)
+app.use("/users", UserRoute)
 
 app.post('/mpesa-callback', (req, res) => {
   const transactionId = req.body.TransactionID;

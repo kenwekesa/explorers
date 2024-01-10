@@ -1,6 +1,7 @@
-const axios = require("axios");
+// const axios = require("axios");
+import axios from "axios";
 
-const createToken = async (req, res, next) => {
+export const createToken = async (req, res, next) => {
   const secret = "29DHIKNae8Y21TYR";
   const consumer = "p9t508mOsABPsSU11muULdrfnbmw0vjX";
   const auth = new Buffer.from(`${consumer}:${secret}`).toString("base64");
@@ -24,7 +25,9 @@ const createToken = async (req, res, next) => {
     });
 };
 
-const postStk = async (req, res) => {
+
+
+export const postStk = async (req, res) => {
   const shortCode = 4119567;
   const phone = req.body.phone.substring(1);
   const amount = req.body.amount;
@@ -72,7 +75,7 @@ const postStk = async (req, res) => {
     });
 };
 
-module.exports = { createToken, postStk };
+// module.exports = { createToken, postStk };
 
 
 // const axios = require("axios");

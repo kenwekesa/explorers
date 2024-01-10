@@ -1,6 +1,9 @@
-const express = require('express');
-const cors = require('cors');
-const paypal = require('@paypal/checkout-server-sdk');
+// const express = require('express');
+import { express } from 'express';
+// const cors = require('cors');
+// const paypal = require('@paypal/checkout-server-sdk');
+import { cors } from 'cors'
+import { paypal } from '@paypal/checkout-server-sdk'
 
 const app = express();
 const port = 5000;
