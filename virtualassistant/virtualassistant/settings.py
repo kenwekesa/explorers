@@ -10,10 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,9 +27,45 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-50@585-!jhmyge^y$9&%c7##9$01=x37%9b3)b#u3f6y_7ip+b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
+
+
+#MPESA
+# MPESA_CONFIG = {
+# 'CONSUMER_KEY': 'cFqxX0kIhex5yYC2BmneEwwb8FYUtBh6', 
+# 'CONSUMER_SECRET': 'd9ixa15Vhx8GGGzj',
+#  'HOST_NAME': '<Your hostname e.g https://myhostname>',
+#   'PASS_KEY': 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919', 
+#   'SAFARICOM_API': 'https://sandbox.safaricom.co.ke',
+#    'SHORT_CODE': '174379'
+# }
+
+
+MPESA_ENVIRONMENT = 'sandbox'
+# Credentials for the daraja app
+MPESA_CONSUMER_KEY = '3XykouZOHf6vdTkTTA5rRb694BFYy3LP'
+MPESA_CONSUMER_SECRET = 'yQz6YHrdjVwmBllQ'
+MPESA_PASSKEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
+#Shortcode to use for transactions. For sandbox use the Shortcode 1
+
+MPESA_SHORTCODE = '174379'
+
+
+
+MPESA_EXPRESS_SHORTCODE = '174379'
+
+MPESA_SHORTCODE_TYPE = 'paybill'
+
+
+MPESA_INITIATOR_USERNAME = 'jk'
+
+MPESA_INITIATOR_SECURITY_CREDENTIAL = 'jj'
+
+
+
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -37,24 +77,79 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_daraja',
+    'backside',
+    'rest_framework',
+    'corsheaders',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
-ROOT_URLCONF = 'backend.urls'
+# Configure CORS settings
+
+# Access-Control-Allow-Origin: ["http://localhost:3000"]
+
+CORS_ORIGIN_ALLOW_ALL=True
+CORS_ALLOW_ALL_ORIGINS = True
+
+# ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['localhost', 'localhost:3000']
+
+ALLOWED_HOSTS = ['localhost', 'localhost:3000', '127.0.0.1', '0e94-2c0f-fe38-232b-f21b-65b3-b927-7466-13f8.ngrok-free.app']
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://0e94-2c0f-fe38-232b-f21b-65b3-b927-7466-13f8.ngrok-free.app",
+    'https://0d0e-41-60-239-128.ngrok-free.app',
+    'https://03e9-41-60-239-128.ngrok-free.app'
+]
+
+# CORS_ORIGIN_WHITELIST = (
+#     'http://localhost:3000',  # React default port = 3000
+# )
+
+CORS_ALLOW_METHODS = [
+  'GET',
+  'POST',
+]
+
+# CORS_ALLOW_METHODS = [
+#     "DELETE",
+#     "GET",
+#     "OPTIONS",
+#     "PATCH",
+#     "POST",
+#     "PUT",
+# ]
+# CORS_ALLOW_HEADERS = [
+#     "accept",
+#     "accept-encoding",
+#     "authorization",
+#     "content-type",
+#     "dnt",
+#     "origin",
+#     "user-agent",
+#     "x-csrftoken",
+#     "x-requested-with",
+# ]
+
+
+ROOT_URLCONF = 'virtualassistant.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,7 +162,15 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'backend.wsgi.application'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
+
+
+WSGI_APPLICATION = 'virtualassistant.wsgi.application'
 
 
 # Database
@@ -116,6 +219,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'public']  
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

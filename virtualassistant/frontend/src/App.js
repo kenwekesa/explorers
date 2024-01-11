@@ -146,7 +146,6 @@ const RequireClient = ({ children }) => {
       return <div>Loading...</div>;
     }
   
-
     if (isAdmin && isVerfied) {
       return <>{children}</>;
     } else if (isAdmin && !isVerfied) {
