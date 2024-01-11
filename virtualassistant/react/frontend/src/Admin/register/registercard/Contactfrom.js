@@ -5,6 +5,7 @@ import { addDoc, collection } from 'firebase/firestore';
 import "./Contacform.css"
 import { useNavigate } from 'react-router-dom';
 import Sservice from '../selection/Sservice';
+import Axios from 'axios';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -82,6 +83,41 @@ const ContactForm = () => {
 
         setSuccess('Account created successfully, the new administrator should proceed and login');
         setShowDialog(true);
+
+        const apiUrl = 'http://localhost:5000/users/email/';
+        console.log('Making request to: ', apiUrl); 
+
+        const sendEmail = async (subject, message, recipient) => {
+
+          const response = await Axios.post(apiUrl, {
+            subject:subject,
+            message:message, 
+            email:recipient
+          });
+
+          return response;
+
+        }
+
+        // Usage
+
+        const email = formData.email  
+        
+
+        const subject = 'Registration successful';
+        const message = 'Include the reason for the success — confirm what action someone has taken or what task has been completed. If someone has created something give them an opportunity to view it. Avoid repeating content from the title. Keep messages to 1 to 2 sentences.';
+
+      //  try {
+
+       await sendEmail(subject, message, email);
+      //  const response = await sendEmail(subject, message, email);
+
+      //    console.log(response);
+
+      //  } catch (error) {
+
+      //    console.error(error);
+      //  }
 
         // Clear the form data
         setFormData({

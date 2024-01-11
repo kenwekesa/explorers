@@ -14,7 +14,7 @@ import { storage } from '../../firebase/firebase'
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { useRef } from 'react'
 import attachimage from "../../images/attachimageone.png"
-
+import Axios from 'axios';
 
 const Signupcard = () => {
   const [termsChecked, setTermsChecked] = useState(false);
@@ -207,6 +207,7 @@ const handleDegreeFileChange = (e) => {
        
        await addDoc(collection(db, 'users'), userData);
 
+
        setFormData({
          firstname: '',
          lastname: '',
@@ -234,6 +235,42 @@ const handleDegreeFileChange = (e) => {
 
        setShowDialog(true);
      }
+
+     const apiUrl = 'http://localhost:5000/users/email/';
+        console.log('Making request to: ', apiUrl); 
+
+        const sendEmail = async (subject, message, recipient) => {
+
+          const response = await Axios.post(apiUrl, {
+            subject:subject,
+            message:message, 
+            email:recipient
+          });
+
+          return response;
+
+        }
+
+        // Usage
+
+        const email = formData.email  
+        
+
+        const subject = 'Registration successful';
+        const message = 'Include the reason for the success — confirm what action someone has taken or what task has been completed. If someone has created something give them an opportunity to view it. Avoid repeating content from the title. Keep messages to 1 to 2 sentences.';
+
+      //  try {
+
+       await sendEmail(subject, message, email);
+      //  const response = await sendEmail(subject, message, email);
+
+      //    console.log(response);
+
+      //  } catch (error) {
+
+      //    console.error(error);
+      //  }
+
      
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {

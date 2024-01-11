@@ -118,7 +118,93 @@
 }
 
 /* Mobile */
-@media (min-width: 30px) and (max-width: 480px) and (orientation: portrait) {}
+@media (min-width: 0px) and (max-width: 480px) {
+.va_data_main_profile {
+        width: 100%!important;
+        /* Adjust the width as needed */
+        height: 76vh;
+        /* Adjust the height as needed */
+        /* To make it a circle */
+        background: #ECEFF1;
+        overflow: hidden;
+        border-radius: 30px;
+        /* Ensure the image doesn't overflow the circle */
+    }
+
+    .va_data_main_document {
+        width: 100% !important;
+        height: 36vh;
+        margin-bottom: 4vh;
+        /* Adjust the height as needed */
+        flex-shrink: 0;
+        border-radius: 30px;
+        background: #ECEFF1;
+        overflow: hidden;
+    }
+
+    .va_data_main_qualifiction {
+        width: 100% !important;
+        height: 36vh;
+        /* Adjust the height as needed */
+        flex-shrink: 0;
+        border-radius: 30px;
+        background: #ECEFF1;
+        overflow: hidden;
+    }
+.client_va_data_image img {
+    height: 55px !important;
+    width: 55px !important;
+    border-radius: 50% !important;
+    border: 3px solid white;
+    /* width: 100%!important;
+    height: 100%!important; */
+    margin: 0px !important;
+    padding: 0px !important;
+}
+}
 
 /* Small devices (portrait) */
-@media (min-width: 481px) and (max-width: 600px) and (orientation: portrait) {}
+@media (min-width: 481px) and (max-width: 600px) {
+.va_data_main_profile {
+        width: 100% !important;
+        /* Adjust the width as needed */
+        height: 76vh;
+        /* Adjust the height as needed */
+        /* To make it a circle */
+        background: #ECEFF1;
+        overflow: hidden;
+        border-radius: 30px;
+        /* Ensure the image doesn't overflow the circle */
+    }
+
+    .va_data_main_document {
+        width: 100% !important;
+        height: 36vh;
+        margin-bottom: 4vh;
+        /* Adjust the height as needed */
+        flex-shrink: 0;
+        border-radius: 30px;
+        background: #ECEFF1;
+        overflow: hidden;
+    }
+
+    .va_data_main_qualifiction {
+        width: 100% !important;
+        height: 36vh;
+        /* Adjust the height as needed */
+        flex-shrink: 0;
+        border-radius: 30px;
+        background: #ECEFF1;
+        overflow: hidden;
+    }
+.client_va_data_image img {
+    height: 55px !important;
+    width: 55px !important;
+    border-radius: 50% !important;
+    border: 3px solid white;
+    /* width: 100%!important;
+    height: 100%!important; */
+    margin: 0px !important;
+    padding: 0px !important;
+}
+}

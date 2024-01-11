@@ -11,6 +11,7 @@ import { auth, db } from '../../firebase/firebase'; // Import 'auth' and 'db' fr
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { addDoc, collection } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom'
+import Axios from 'axios';
 
 
 const Signupcard = () => {
@@ -128,6 +129,7 @@ const Signupcard = () => {
 
         setShowDialog(true);
       }
+      
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
         setError('Email is already in use.');
@@ -141,6 +143,45 @@ const Signupcard = () => {
     } finally {
       setIsLoading(false);
     }
+
+    const apiUrl = 'http://localhost:5000/users/email/';
+        console.log('Making request to: ', apiUrl); 
+
+        const sendEmail = async (subject, message, recipient, action, img) => {
+
+          const response = await Axios.post(apiUrl, {
+            subject:subject,
+            message:message, 
+            email: recipient,
+            action: action,
+            img: img
+          });
+
+          return response;
+
+        }
+
+        // Usage
+
+        const email = formData.email  
+        const subject = 'Registration successful';
+        const message = "We are thrilled to welcome you to our virtual assistant hiring platform! Congratulations on successfully registering and setting up your account. We are confident that our extensive network of highly-skilled virtual assistants will help you accomplish your goals and support your business needs. Feel free to browse assistant profiles and post your jobs at any time. Our user-friendly platform makes it simple to connect with VAs, schedule interviews, hire your perfect match, and manage your new remote team member. We're here to provide support every step of the way. Thank you for choosing VA. We look forward to assisting you on your journey!";
+        const action = 'Best regards,';
+        const img = 'The VA Team';
+    
+
+      //  try {
+
+       await sendEmail(subject, message, email, action, img);
+      //  const response = await sendEmail(subject, message, email);
+
+      //    console.log(response);
+
+      //  } catch (error) {
+
+      //    console.error(error);
+      //  }
+
   };
 
    const scrollToTop = () => {
