@@ -1,24 +1,26 @@
-// emailSender.js
+//emailSender.js
 import nodemailer from 'nodemailer';
+import { emailTemplate } from './emailTemplate.js';
 
-// Create a Nodemailer transporter
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'kenwek1994@gmail.com',  // Your Gmail email address
-    pass: 'urmbluppknnqdeow'    // Your Gmail password or an app-specific password
+    user: 'kenwek1994@gmail.com',
+    pass: 'urmbluppknnqdeow'
   }
 });
 
-// Function to send an email
-export const sendEmail = async (to, subject, htmlbody) => {
+export const sendEmail = async (to, subject, message, action, img) => {
   try {
     // Send mail with defined transport object
     const info = await transporter.sendMail({
-      from: 'kenwek1994@gmail.com',  // Your Gmail email address
-      to,
-      subject,
-      html:htmlbody 
+      from: 'kenwek1994@gmail.com',
+      to: Array.isArray(to) ? to.join(', ') : to,
+      subject:subject,
+      // html: emailTemplate(subject, htmlBody)
+      html: message,
+      action: action,
+      img: img
     });
 
     console.log('Message sent: %s', info.messageId);
